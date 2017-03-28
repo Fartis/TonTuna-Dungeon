@@ -27,8 +27,7 @@ public class ControladorBBDD {
         } 
     }
     
-    public void accederBBDD(){
-        
+    public void recuperarPJ(){
     }
     
 }
