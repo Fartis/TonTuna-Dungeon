@@ -10,5 +10,6 @@ package Modelo;
  * @author Manuel David Villalba Escamilla
  */
 public class PJBasico {
-    
+    private final String nombre="Antonio Behind the Musgo";
+    private int ataque, defensa, vida, magia;
 }
