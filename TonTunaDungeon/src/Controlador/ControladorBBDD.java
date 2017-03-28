@@ -5,10 +5,30 @@
  */
 package Controlador;
 
+import com.mysql.jdbc.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Manuel David Villalba Escamilla
  */
 public class ControladorBBDD {
+    
+    private static Connection con ;
+    
+    public ControladorBBDD(){
+        try {
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontuna", "root","");
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.toString());
+        } 
+    }
+    
+    public void accederBBDD(){
+        
+    }
     
 }
