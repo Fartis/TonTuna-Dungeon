@@ -1,0 +1,203 @@
+___---TONTUNA DUNGEON---___
+Tontuna Dungeon es un juego de rol del género "Dungeon Crawler" y "Rogue Like".
+
+El juego se basa de explorar mazmorras que se generan de forma procedural y esta se organizan por pisos, las habitaciones de la mazmorra que se genere pueden aparecer diferentes retos como son monstruos, podremos guardar nuestro progreso para continuarlo más adelante o recoger tesoros que nos ayudaran en nuestras aventuras.
+
+El jugador deberá vencer a los monstruos mientras se adentra más y más profundo en la mazmorra hasta que se encuentra al jefe de los monstruos, consigue vencerlo y consigue su tesoro. Si el héroe es derrotado el jugador puede volver a crear otro héroe. Mientras más profundo este en la mazmorra más difícil se volverá el juego y se premiará la constancia del jugador haciendo que el reto del juego sea cada vez más exigente y su héroe más poderoso. El juego finalizara cuando recoja el tesoro custodiado en el nivel 10.
+
+
+--INVESTIGAR LA MAZMORRA--
+Cuando iniciemos el juego apareceremos en una mazmorra, esta podrá ser investigada con unos botones de navegación, un pequeño mapa y una breve descripción de la habitación actual.
+Hay diferentes tipos de habitaciones de una mazmorra:
+- Habitación vacía: Como su nombre indica no hay nada.
+- Habitación con tesoro: En esta habitación hay un tesoro.
+- Habitación con monstruo: En esta habitación hay un monstruo y automáticamente empezara el combate.
+- Habitación con cama: En esta habitación podremos recuperar las fuerzas y guardar la partida. Si guardamos la partida el juego volverá al menú de inicio.
+- Habitación con escalera: Esta habitación indica el final del piso actual de la mazmorra y si entramos en la escalera iríamos al siguiente nivel.
+
+En las habitaciones una vez que acabe el evento de combate (si lo hay) podemos tomarnos alguna poción de curación.
+
+--SISTEMA ROL TONTUNA DUNGEON--
+El sistema de rol se basara en personajes personalizados de 4 razas: Humanos, Elfos, Enanos y Medianos. El juego se basara en un sistema que utiliza un d10 (dado de 10 caras).
+
+--PARAMETROS--
+Los parámetros que tiene el juego serán Fuerza, Destreza, Constitución, Intelecto, Vida e Índice de Armadura.
+
+Los primeros cuatro tipos son los atributos base de los personajes y los otros dos son parámetros derivados.
+
+-Fuerza-
+Es el parámetro que indica la fuerza cuerpo a cuerpo de nuestro personaje o del monstruo, se utilizara cuando haga una acción de combate con un arma de cuerpo a cuerpo.
+
+-Destreza-
+Es el parámetro que indica la habilidad de manejar armas a distancia de nuestro personaje o del monstruo, se utilizara cuando haga una acción de combate con un arma a distancia.
+
+-Intelecto-
+Es el parámetro que indica la sabiduría y el poder mágico de nuestro personaje o del monstruo, se utilizara cuando haga una acción de combate con un arma mágica o un hechizo.
+
+-Constitución-
+Es el parámetro que indica la fortaleza de nuestro personaje o del monstruo, se utiliza para saber la vida que tiene nuestro personaje y habilidad de resistir golpes.
+
+-Vida-
+La vida de un personaje o monstruo se calculara de la siguiente manera, por cada punto de constitución se hará una tirada de un dado de 4, siendo la suma de todas las tiradas los puntos de vida que tiene. Cuando este parámetro llegue a 0 el combate acabara, si es un monstruo el que su vida llega a 0 hemos vencido y si es nuestro personaje quien llega a 0 el juego terminara.
+
+-Índice de armadura-
+El índice de armadura es un parametro que indica cuando daño es capaz de absorber nuestra armadura sin que nos afecte directamente, variara según de la armadura que sea, todas las armaduras tienen un índice de armadura diferente. Cuando este parámetro se agota la armadura quedara deformada siendo posible que los ataque nos hagan daño. Aunque este índice se puede recuperar en combate con la acción de defensa o después de cada combate.
+
+
+--COMBATE--
+El combate en Tontuna Dungeon será por turnos, empezara el monstruo o el personaje de forma aleatoria. El combate estará dividido de la siguiente manera:
+
+COMBATE:
+- Aviso del combate.
+- Se fija quien empezara.
+- *Empieza el bucle de combate*
+- Selección de acción.
+- Resultado de la acción.
+- El índice de armadura del personaje aumentara en 1 punto.
+- *Cuando el personaje o el monstruo se quede sin vida*
+- Resultado del combate, si gana el personaje el juego continuara con la exploración de la mazmorra, si pierde, el juego mostrara una pantalla con la historia de la aventura y el jugado podrá guardarla en un archivo de texto, después de eso el juego volverá al menú principal.
+
+-Accion de ataque-
+El ataque es la acción ofensiva del combate, este se calculara con el parámetro bonificador del arma seleccionada (Cuerpo a cuerpo con fuerza, a distancia con destreza y magia con intelecto).
+Una vez seleccionada la acción el juego calculara un índice de acierto que dependerá del azar o si el objetivo esta defendiéndose, si es un fallo no pasara nada y pasara el turno al siguiente.
+Si es un acierto, el daño se calculara de la siguiente manera:
+
+(Atributo + Bonificador + ResultadoDado [+ Bonificador de objeto]) - (ConstituciónObjetivo + BonificadorArmadura + ResultadoDado [+ Bonificador de acción de defensa] [+ Bonificador de objeto])
+
+Siendo un mínimo de 1 de daño si hay éxito.
+
+-Acción de defensa-
+La defensa es la acción que nos permitirá resistir un golpe de forma más eficiente y reforzar nuestra armadura, cuando seleccionamos esta acción recibiremos un bonificador de 1 o 2 (al 50% para cada bonificador) a la tirada de defensa y reforzaremos la armadura con una tirada de un d4.
+
+-Acción de uso de objeto-
+Con el uso de un objeto podremos utilizar un objeto que nos permitirá recuperar vida, subir un parámetro temporalmente durante un combate o dañar al enemigo con un daño fijo que omite cualquier resistencia.
+
+-Acción de huida-
+Esta acción nos permitirá huir de un combate si vemos que vamos a ser derrotados, tiene una efectividad del 50% siempre, si no es favorable pierdes el turno y si es favorable huyes del combate y se reinicia el piso actual, no recuperaras vida.
+
+--CREACIÓN DEL PERSONAJE--
+El jugador podrá crear su propio personaje seleccionando su raza y nombre, tendrá una plantilla inicial según su selección con los cuatro atributos predefinidos por raza (un total de 8 puntos repartidos de base) y tendrá 6 puntos gratuitos que podrá utilizarlos para personalizar su propio personaje. En la creación del personaje también se le entregara un arma básica según la raza.
+
+--SUBIR NIVEL--
+Cada vez que avancemos de nivel en la mazmorra se le otorgara al personaje un punto gratuito que el usuario podrá utilizar para subir un atributo de su personaje, este podrá otorgarlo al principio de cada nivel. Siendo un total de 9 puntos gratuitos ya que el primer nivel no se le otorgara punto gratuito.
+
+--RAZAS--
+-Humanos-
+Los humanos son personajes versátiles y resistentes físicamente, se dedican a todo pero necesitan de un entrenamiento exhaustivo para convertirse en verdaderos maestros de su profesión. Son sensibles al poder mágico y utilizan todo tipo de armas.
+
+ATRIBUTOS:
+Fuerza: 2
+Destreza: 2
+Constitución: 2
+Intelecto: 2
+
+-Elfos-
+Los elfos son seres místicos, sensibles a las fuerzas de la naturaleza aunque su constitución no es tan fuerte como su voluntad, sus peregrinaciones hacen que sus conocimientos de las fuerzas de la naturaleza y mágicas tengan un fuerte vínculo con su alma haciendo que sean poderosos magos.
+
+ATRIBUTOS:
+Fuerza: 1
+Destreza: 2
+Constitución: 1
+Intelecto: 4
+
+-Enanos-
+Forjados en las minas más profundas de la tierra, de gran resistencia física y una fuerza capaz de doblegar el metal más duro, instruidos en el arte de la forja saben manejar gran cantidad de armas pero su poder mágico es inexistente, en su linaje ha habido grandes guerreros y poderosos héroes.
+
+ATRIBUTOS:
+Fuerza: 3
+Destreza: 1
+Constitución: 3
+Intelecto: 1
+
+-Medianos-
+Agiles y rápidos, como los ladrones medianos no hay comparación, su estatura y su agilidad lo hacen grandes maestros del hurto y son hábiles con armas a distancia, debido a su pequeño tamaño no son fuertes pero son un peligro si no estás atento a tus espaldas aunque sus habilidades mágicas no son gran cosa.
+
+ATRIBUTOS:
+Fuerza: 1
+Destreza: 4
+Constitución: 2
+Intelecto: 1
+
+--ARMAS Y HECHIZOS--
+En las mazmorras de Tontuna Dungeon podemos encontrar armas y hechizos que nos ayudara en nuestra aventura a conseguir el tesoro, estas armas nos aportara un bonificador a un atributo.
+
+-Tipos de armas y Bonificadores-
+Los bonificadores de las armas afectan sobre un atributo en particular a la hora de atacar y utilizara este atributo para generar un efecto de daño sobre el monstruo, los tipos de armas y su bonificador son los siguientes:
+
+TIPOS:
+Arma cuerpo a cuerpo: Son las espadas, hachas y martillos. Utiliza el atributo Fuerza.
+Arma a distancia: Son los arcos, dagas arrojadizas y lanzas. Utiliza el atributo Destreza.
+Hechizo: Son los bastones, varitas o pergaminos. Utiliza el atributo Magia.
+
+BONIFICADORES:
+Las armas y hechizos darán bonificadores a los atributos, siendo un mínimo de 1 y un máximo de 5, estos irán repartidos según la profundidad de la mazmorra de esta manera:
+Nivel 1: 0 a 1
+Nivel 2: 0 a 2
+Nivel 3: 1 a 2
+Nivel 4: 2
+Nivel 5: 1 a 3
+Nivel 6: 2 a 3
+Nivel 7: 3
+Nivel 8: 2 a 4
+Nivel 9: 3 a 5
+Nivel 10: 4 a 5
+
+--ARMADURAS--
+Al igual que las armas, podemos encontrarnos armaduras en las mazmorras, estas darán un bonificador al resultado de las tiradas de ataque contra el objetivo. El bonificador de las armaduras encontradas varía según el nivel de la mazmorra que estemos, en algunos pisos no encontraremos armaduras.
+
+BONIFICADORES:
+El bonificador de la armadura tiene un máximo de 3.
+Nivel 1: NoHay
+Nivel 2: 50%-NoHay 50%-1
+Nivel 3: 25%-NoHay 75%-1
+Nivel 4: 25%-NoHay 50%1 o 25%-2
+Nivel 5: 70%1 o 30%-2
+Nivel 6: 20%-NoHay 70%-2 o 10%-3
+Nivel 7: 10%-NoHay 40%-2 o 40%-3
+Nivel 8: 30%-NoHay 30%-2 o 40%-3
+Nivel 9: 30%-NoHay 70%-3
+Nivel 10: 5%-NoHay 95%-3
+
+A parte del bonificador de armadura, estas tienen también el índice de armadura, que varía según que armadura sea, tendrán un valor mínimo de 0 y un valor máximo de 15.
+
+
+--MONSTRUOS--
+En las mazmorras de Tontuna Dungeon aparecerán gran variedad de monstruos, los monstruos serán más fuertes conforme avancemos, pero aun con su fuerza estos monstruos llevaran poderosas armas que puede hacernos tener que huir para salvar nuestras vidas.
+
+-Media de atributos Monstruos según el nivel de la Mazmorra-
+Nivel 1: 6
+Nivel 2: 7
+Nivel 3: 8
+Nivel 4: 10
+Nivel 5: 11
+Nivel 6: 12
+Nivel 7: 14
+Nivel 8: 15
+Nivel 9: 16
+Nivel 10: 17
+
+-Bonificación arma según el nivel de la Mazmorra-
+Nivel 1: 0 a 1
+Nivel 2: 0 a 2
+Nivel 3: 1 a 2
+Nivel 4: 2
+Nivel 5: 1 a 3
+Nivel 6: 1 a 4
+Nivel 7: 2 a 4
+Nivel 8: 3 a 4
+Nivel 9: 2 a 5
+Nivel 10: 3 a 5
+
+
+--TESOROS--
+Los tesoros que nos encontramos en las mazmorras pueden tener cosas dentro, pueden tener objetos, armas o armaduras, siendo las probabilidades las siguientes:
+
+50%: Objeto.
+22%: Arma.
+22%: Armadura.
+6%: Cofre vacío.
+
+Para la probabilidad de cual objeto está en el cofre se hará una elección totalmente aleatoria de entre todos los tesoros del juego.
+
+Para la probabilidad de cual arma o armadura hay en el cofre se utilizara los porcentajes de más arriba, pudiendo estar el cofre vacío.
+
