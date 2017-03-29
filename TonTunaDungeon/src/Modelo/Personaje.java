@@ -5,21 +5,52 @@
  */
 package Modelo;
 
+import Modelo.Inventario.Arma;
+import Modelo.Inventario.Armadura;
+
 /**
  *
  * @author Manuel David Villalba Escamilla
  */
 public class Personaje {
-    private int fuerza, destreza, constitucion, intelecto;
-    private String descripcion, raza;
 
-    public Personaje(String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion){
+    private int fuerza, destreza, constitucion, intelecto, vida;
+    private String descripcion, raza;
+    private Armadura armadura;
+    private Arma arma;
+
+    public Personaje(String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion) {
         this.raza = raza;
         this.fuerza = fuerza;
         this.constitucion = constitucion;
         this.destreza = destreza;
         this.intelecto = intelecto;
         this.descripcion = descripcion;
+        establecerVida();
+    }
+
+    private void establecerVida() {
+        int cantidad=0;
+        for(int i=0; i<constitucion; i++){
+            cantidad = cantidad+Dado.lanza(4);
+        }
+        this.vida=cantidad;
+    }
+
+    public Armadura getArmadura() {
+        return armadura;
+    }
+
+    public void setArmadura(Armadura armadura) {
+        this.armadura = armadura;
+    }
+
+    public Arma getArma() {
+        return arma;
+    }
+
+    public void setArma(Arma arma) {
+        this.arma = arma;
     }
 
     public int getFuerza() {
@@ -69,5 +100,5 @@ public class Personaje {
     public void setRaza(String raza) {
         this.raza = raza;
     }
-    
+
 }
