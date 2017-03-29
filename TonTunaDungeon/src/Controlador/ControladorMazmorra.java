@@ -25,15 +25,10 @@ public class ControladorMazmorra {
     private void generarPiso(){
         piso = new Habitacion[10][10];
         rellenarBorde();
-        for(int i=0; i<piso.length; i++){
-            
-        }
+        
         mazmorra.add(piso);
     }
     
-    private Habitacion generarHabitacion(){
-        
-    }
 
     private void rellenarBorde(){        
         piso[0][0]=new Habitacion(false);

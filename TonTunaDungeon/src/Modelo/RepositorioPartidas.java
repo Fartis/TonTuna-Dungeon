@@ -54,6 +54,13 @@ public class RepositorioPartidas implements Serializable{
         return partidasGuardadas[indice];
     }
 
+    public String[][] infoPartidas(){
+        String[][] informacion = new String[4][4];
+        for(int i=0; i<informacion.length; i++){
+            
+        }
+        return informacion;
+    }
 
     
 }

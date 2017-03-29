@@ -8,9 +8,12 @@ package Controlador;
 import Modelo.Inventario.Arma;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Objeto;
+import Modelo.Logro;
 import Modelo.Monstruo;
 import Modelo.Personaje;
+import Modelo.RepositorioPartidas;
 import com.mysql.jdbc.Connection;
+import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -30,35 +33,38 @@ public class ControladorBBDD {
         } 
     }
     
-    public void guardarInfoPJ(Personaje pj){
+    public static void logroDesbloqueado(Logro logro){
+        
+    }
+       
+        
+    public static void guardarInfoPJ(Personaje pj){
         
     }
     
-    public void logroDesbloqueado(Logro logro){
-        
+    public static Personaje recuperarPJBase(){
+        Personaje pj = new Personaje();
+        return pj;
     }
     
-    
-    
-    public Personaje recuperarPJBase(){
-        
-    }
-    
-    public Arma obtenerArma(){
+    public static Arma obtenerArma(){
         Arma nueva = new Arma();
         return nueva;
     }
     
-    public Objeto obtenerObjeto(){
-        
+    public static Objeto obtenerObjeto(){
+        Objeto objeto = new Objeto();
+        return objeto;
     }
     
-    public Armadura obtenerArmadura(){
-        
+    public static Armadura obtenerArmadura(){
+        Armadura armadura = new Armadura();
+        return armadura;
     }
     
-    public Monstruo obtenerMonstruo(){
-        
+    public static Monstruo obtenerMonstruo(){
+        Monstruo monstruo = new Monstruo();
+        return monstruo;
     }
     
 }

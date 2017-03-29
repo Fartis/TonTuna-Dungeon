@@ -14,18 +14,19 @@ import Modelo.Inventario.Armadura;
  */
 public class Personaje {
 
-    private int fuerza, destreza, constitucion, intelecto, vida;
+    private int fuerza, destreza, constitucion, intelecto, vida, nivel;
     private String descripcion, raza;
     private Armadura armadura;
     private Arma arma;
 
-    public Personaje(String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion) {
+    public Personaje(String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion, int nivel) {
         this.raza = raza;
         this.fuerza = fuerza;
         this.constitucion = constitucion;
         this.destreza = destreza;
         this.intelecto = intelecto;
         this.descripcion = descripcion;
+        this.nivel = nivel;
         establecerVida();
     }
 
