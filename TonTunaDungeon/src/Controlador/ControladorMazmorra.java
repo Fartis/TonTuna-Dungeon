@@ -7,7 +7,7 @@ package Controlador;
 
 /**
  *
- * @author farti
+ * @author Manuel David Villalba Escamilla
  */
 public class ControladorMazmorra {
     
