@@ -11,12 +11,16 @@ package Modelo.Inventario;
  */
 public class Arma {
     private int bonificador;
-    private String nommbre;
+    private String nombre;
     
     //El tipo de arma se utiliza con un entero:
     //1 = Cuerpo a cuerpo
     //2 = A distancia
     //3 = Magica
     private int tipo;
+    
+    public Arma(String nombre, int tipo, int bonificador){
+        
+    }
     
 }

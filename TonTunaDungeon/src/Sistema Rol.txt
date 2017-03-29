@@ -17,6 +17,9 @@ Hay diferentes tipos de habitaciones de una mazmorra:
 
 En las habitaciones una vez que acabe el evento de combate (si lo hay) podemos tomarnos alguna poción de curación.
 
+En todos los pisos sale una habitación con cama, como minimo una con tesoro y otra con escalera. Las demas habitaciones seran habitaciones vacias o con monstruo.
+El porcentaje de habitación con monstruo es del 65%.
+
 --SISTEMA ROL TONTUNA DUNGEON--
 El sistema de rol se basara en personajes personalizados de 4 razas: Humanos, Elfos, Enanos y Medianos. El juego se basara en un sistema que utiliza un d10 (dado de 10 caras).
 
