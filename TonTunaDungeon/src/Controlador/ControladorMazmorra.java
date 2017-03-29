@@ -31,10 +31,9 @@ public class ControladorMazmorra {
         mazmorra.add(piso);
     }
     
-    private void generarHabitacion(){
-        
-    }
-    
+//    private Habitacion generarHabitacion(){
+//    }
+
     private void rellenarBorde(){        
         piso[0][0]=new Habitacion(false);
         piso[1][0]=new Habitacion(false);
