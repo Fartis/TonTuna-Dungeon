@@ -16,12 +16,12 @@ import Modelo.Inventario.Arma;
 public class Habitacion {
     
     //El tipo de contenido se utiliza con un entero:
-    //0 = Nada
     //1 = Objeto
     //2 = Arma
     //3 = Armadura
     //4 = Monstruo
     //5 = Cama
+    //6 = Nada
     private int tipo;
     private Objeto objeto;
     private Arma arma;
@@ -29,15 +29,21 @@ public class Habitacion {
     private Monstruo monstruo;
     private String descripcion;
     boolean[] puertas = new boolean[4];
+    boolean accesible;
     
     public Habitacion(int tipo){
         this.tipo = tipo;
+        this.accesible = true;
         switch(tipo){
             case 1:
                 break;
             default:
                 break;
         }
+    }
+    
+    public Habitacion(boolean accesible){
+        
     }
     
 }

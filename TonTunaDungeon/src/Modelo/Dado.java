@@ -10,7 +10,7 @@ package Modelo;
  * @author Manuel David Villalba Escamilla
  */
 public abstract class Dado {
-
+    
     public static int lanza(int caras){
         return (int)((Math.random()*(caras))+1);
     }
