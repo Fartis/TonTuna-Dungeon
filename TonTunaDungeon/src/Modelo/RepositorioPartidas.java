@@ -29,7 +29,7 @@ public class RepositorioPartidas implements Serializable{
     ObjectInputStream entrada;
 
     private RepositorioPartidas() throws IOException, ClassNotFoundException {
-        file = new File("partida.bin");
+        file = new File("partidasGuardadas.bin");
         if(!file.exists()) file.createNewFile();
         fileOut = new FileOutputStream(file);
         salida = new ObjectOutputStream(fileOut);
