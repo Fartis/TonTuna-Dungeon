@@ -2,198 +2,198 @@
 
 --Nivel 1--
 Enredadera:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:2
+Intelecto:1
+Constitucion:2
 Descripcion: "Es una planta que ha crecido sin control, tapara puertas y de vez en cuando sera un incordio."
 
 Araña:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:1
+Intelecto:2
+Constitucion:1
 Descripcion: "¡CUIDADO ARAÑA! siempre con esas patitas peluditas y esos ojos brillantes. Dan "esgrima" literalmente, tiene un estoque."
 
 Murciegalos:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:1
+Intelecto:1
+Constitucion:2
 Descripcion: "Son murciegalos, no murcielagos. Son descendientes de murcianos y franceses."
 
 Payasos:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:2
+Intelecto:2
+Constitucion:1
 Descripcion: "Creeras que son divertidos, pero estudiaron un libro de chistes de Lepe, cuando cuentan chistes lo que te provoca es dolor agudo, como su humor."
 
 Osolechuga:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:1
+Intelecto:1
+Constitucion:1
 Descripcion: "Es una verdadera mutación simbiotica de una lechuga y un oso, fue un poquemon descartado por ser muy cutre, aun así es peligr'oso'."
 
 --Nivel 2--
 Arpia:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:1
+Intelecto:1
+Constitucion:2
 Descripcion: "Esta tia es muy chunga, es prima de la Jeny y la Vane."
 
 Orco:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:1
+Intelecto:1
+Constitucion:3
 Descripcion: "Es un orco generico, no le busques mas sentido."
 
 Muerto Viviente:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:1
+Intelecto:1
+Constitucion:4
 Descripcion: "Le encantan los huesitos y los tigretones, como no engorda..."
 
 Babosa Gigante:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:1
+Intelecto:2
+Constitucion:1
 Descripcion: "Es pegajosa, huele mal, anda lento, no es fuerte, vamos, es un enemigo facil de vencer."
 
 Lobo terrible:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:2
+Intelecto:2
+Constitucion:1
 Descripcion: "Aulla muy mal, el pelo lo tiene descuidado y necesita gafas, su estilo es terrible."
 
 --Nivel 3--
 Golem de Masa de Pan:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:2
+Intelecto:2
+Constitucion:2
 Descripcion: "Su cabeza es un pan de cantos, de Villegas. Esta muy rico."
 
 Tortuga Ninja:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:4
+Destreza:1
+Intelecto:1
+Constitucion:2
 Descripcion: "Son los primos gitanos de las verdaderas Tortugas Ninja, utiliza salchichones como nunchakus."
 
 IllegalArgumentException:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:1
+Intelecto:4
+Constitucion:2
 Descripcion: "public class IllegalArgumentException extends RuntimeException. Thrown to indicate that a method has been passed an illegal or inappropriate argument. Since:
 JDK1.0"
 
 Esfinge:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:1
+Intelecto:1
+Constitucion:5
 Descripcion: "Gato sin pelo, da mucho repelus."
 
 Crocopulpo:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:3
+Intelecto:1
+Constitucion:3
 Descripcion: "Es un cocodrilo con 8 extremidades, creo... ¿Los pulpos cuantos tentaculos tienen?"
 
 --Nivel 4--
 Amazonas:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:1
+Intelecto:1
+Constitucion:5
 Descripcion: "No se depilan, eso en Grecia no se lleva. Matan por kiki."
 
 Zergling:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:2
+Intelecto:2
+Constitucion:4
 Descripcion: "Solo cuesta cristales y salen dos por larva, para hacer un rush van muy bien."
 
 Hippogrifo:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:4
+Destreza:2
+Intelecto:2
+Constitucion:2
 Descripcion: "Es un hipopotamo muy gordo con dos pequeñas alitas en la espalda, creo que utiliza celo para pegarselas."
 
 Velociraptor:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:3
+Intelecto:2
+Constitucion:2
 Descripcion: "Este dinosaurio es adicto a la velocidad, tiene un flamante BMW 320d."
 
 Du Hamster:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:1
+Intelecto:1
+Constitucion:7
 Descripcion: "Este hamster es fanatico de Ramstein, siempre canta Du Hast."
 
 --Nivel 5--
 Vendedor de seguros:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:1
+Intelecto:4
+Constitucion:4
 Descripcion: "No dejara de darte la brasa hasta que te venda un seguro de muerte con cremacion incluida."
 
 Cruzcampo:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:3
+Intelecto:3
+Constitucion:2
 Descripcion: "Meado de burra, tiene que estar muy fria y a punto de hielo, da mucho dolor de cabeza y una resaca mortal."
 
 Brocoli:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:4
+Destreza:2
+Intelecto:2
+Constitucion:3
 Descripcion: "Super Saiyan Legendario, rico en proteinas vegetales."
 
 Biciclope:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:3
+Intelecto:3
+Constitucion:2
 Descripcion: "Es una persona normal, tiene dos ojos."
 
 Pichaku:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
-Descripcion: "Es un pomekon de tipo rayo, tiene una bateria de 800mah, te deja tirado en cualquier momento, sobre todo cuando se acaba el botellon."
+Fuerza:1
+Destreza:4
+Intelecto:4
+Constitucion:2
+Descripcion: "Es un pomekon de tipo electrico, tiene una bateria de 800mah, te deja tirado en cualquier momento, sobre todo cuando se acaba el botellon."
 
 --Nivel 6--
 Troll:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:3
+Intelecto:3
+Constitucion:3
 Descripcion: "Experto en foros, sabe utilizar el paint para hacerse sus memes y acosa a las tias que se encuentra en el lol."
 
 Reloj Despertador:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:1
+Intelecto:1
+Constitucion:9
 Descripcion: "BEEP! BEEP! BEEP! BEEP! BEEP! BEEP! BEEP! BEEP! BEEP! BEEP!"
 
 Elemental de Pelos:
@@ -204,159 +204,159 @@ Constitucion:
 Descripcion: "Magopelos lo creo, el pudo darle vida, practicamente por que es uno de los desarrolladores."
 
 Mari-Conan:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:4
+Destreza:2
+Intelecto:2
+Constitucion:4
 Descripcion: "Conan salio del armario y hay que apoyarle, paso de ser un simbolo de la virilidad para ser un icono de la lucha de los derechos homosexuales."
 
 Jubilados:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:4
+Destreza:4
+Intelecto:3
+Constitucion:1
 Descripcion: "El inserso cada vez se lo lleva a sitios mas extraños, estan de turismo por la mazmorra y te dejaran seco a base de pellizcos en los mofletes."
 
 --Nivel 7--
 Javier Ramos:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:4
+Destreza:4
+Intelecto:4
+Constitucion:2
 Descripcion: "Tiene su PC en la mazmorra y como nunca sale de ella estara jugando a algun juego, siempre tiene tabaco."
 
 Surfista Catolico:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
-Descripcion: ""
+Fuerza:3
+Destreza:3
+Intelecto:3
+Constitucion:5
+Descripcion: "Surfear una ola es tan gratificante para él como ir a misa el domingo."
 
 Elemental de cuesco:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:3
+Intelecto:4
+Constitucion:2
 Descripcion: "Es un elemental gaseoso que lo produjo un mago despues de comer mucha comida mexicana."
 
 Salamanquesa:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:2
+Intelecto:2
+Constitucion:8
 Descripcion: "Es la reina de las fiestas de un pequeño pueblo de Salamanca."
 
 Dado maldito:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:1
+Intelecto:1
+Constitucion:11
 Descripcion: "Este dado siempre hara que tengas tiradas malas y te comas una pifia, nunca juegues con el al MERP."
 
 --Nivel 8--
 Suspenso por un 4.5:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:4
+Destreza:4
+Intelecto:4
+Constitucion:3
 Descripcion: "Esta desagradable situación es derivada de una tarde en la que tenias que haber estudiado, pero preferistes ver una pelicula."
 
 Testigo de Jehova:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:3
+Intelecto:3
+Constitucion:6
 Descripcion: "¿Hola, ha oido hablar de nuestro señor Yave?. Siempre tiene panfletos adoctrinantes."
 
 El Bastardo:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:3
+Destreza:2
+Intelecto:6
+Constitucion:3
 Descripcion: "Es hijo de un rey español, actualmente trabaja en Genova y ocupa un cargo no electo en el gobierno."
 
 Cani:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:4
+Destreza:4
+Intelecto:1
+Constitucion:6
 Descripcion: "Vive en el parque de los patos, en vez de tirarte piedras se la fuma."
 
 Medusa:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:1
+Intelecto:1
+Constitucion:12
 Descripcion: "Es una criatura mitologica, dicen que mirarle a los ojos te petrifica, suerte que tiene buen cuerpo y no te fijas en esas cosas."
 
 --Nivel 9--
 El señor obstuso:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:4
+Destreza:4
+Intelecto:4
+Constitucion:4
 Descripcion: "El señor obstuso y del leru partido, que quiere la otra mitad para invitar a la peña de gratis y no pagar."
 
 Fampiro:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
-Descripcion: ""
+Fuerza:6
+Destreza:2
+Intelecto:2
+Constitucion:6
+Descripcion: "Secuaz de Alejo I, el dictador que prohibio todas las expreciones de ocio y gobierna la mayor parte de Europa con una mezcla de dictadura y buenrollismo."
 
 Gallo Colosal:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
-Descripcion: ""
+Fuerza:3
+Destreza:3
+Intelecto:3
+Constitucion:7
+Descripcion: "Un autentico gallo de 57kg, huyo de la casa de un americano un dia de acción de gracias y prometio vengarse del mundo."
 
 Ninja con pandereta:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
-Descripcion: ""
+Fuerza:5
+Destreza:5
+Intelecto:3
+Constitucion:3
+Descripcion: "Podria haberte emboscado, pero oistes una pandereta y estabas en guardia, aun así sabe artes marciales."
 
 Anti-Captcha:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:2
+Intelecto:2
+Constitucion:10
 Descripcion: "'Completely Automated Public Turing Test', es un test controlado por una máquina, en logar de por un humano como en la prueba de Turing. Y ESTA ARMADO"
 
 --Nivel 10--
 Dragon de Plutonio:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:2
+Intelecto:7
+Constitucion:7
 Descripcion: "No perseguirá a personajes de Nivel 5 o inferior. Mal rollo: te tuesta, te almuerza y te mata. Estas muerto."
 
 Jinetes del A"Rock"allipsis:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:7
+Destreza:2
+Intelecto:1
+Constitucion:7
 Descripcion: "I'm the lord of the wastelands, a modern day man of steel, I gather darkness to please me and I command you to kneel. Kiss - God of thunder"
 
 Horse Luis:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:1
+Intelecto:1
+Constitucion:14
 Descripcion: "Horse Luis es un fenomeno viral en twitter, nacio el 20 de Septiembre del 2014 y ha sido invitado a este juego. Su madre se lo ha permitido."
 
 Rafalillo:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:1
+Destreza:6
+Intelecto:7
+Constitucion:3
 Descripcion: "Siempre esta atento a todo movimiento, su humor tambien. Es un mago muy poderoso que se convirtio en elemental de llamas infernales, su enorme rabo en llamas es poderoso."
 
 Enemigo Pixelado:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion: "Es una criatura de la antigüedad, antes de la alta definición. Su poder no se puede calcular o tardarias mucho, ya que fue diseñado en 8bits."
-Descripcion:
+Fuerza:4
+Destreza:4
+Intelecto:4
+Constitucion:5
+Descripcion: "Es una criatura de la antigüedad, antes de la alta definición. Su poder no se puede calcular o tardarias mucho, ya que fue diseñado en 8bits."
