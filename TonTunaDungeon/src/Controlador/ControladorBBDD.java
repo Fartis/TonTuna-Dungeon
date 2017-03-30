@@ -24,7 +24,7 @@ public class ControladorBBDD {
     private Connection con ;
     private static ControladorBBDD singleton = null;
     
-    private ControladorBBDD(){
+    private ControladorBBDD() throws ClassNotFoundException{
         try {
             con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontuna", "root","");
             System.out.println("hola");
@@ -33,7 +33,7 @@ public class ControladorBBDD {
         } 
     }
     
-    public static ControladorBBDD getSingleton(){
+    public static ControladorBBDD getSingleton() throws ClassNotFoundException{
         if(singleton==null){
             singleton = new ControladorBBDD();
         }

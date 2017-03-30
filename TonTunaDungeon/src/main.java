@@ -14,9 +14,8 @@ import java.sql.SQLException;
  * @author Manuel David Villalba Escamilla.
  */
 public class main {
-    public static void main(String[]args) throws SQLException{
+    public static void main(String[]args) throws SQLException, ClassNotFoundException{
         ControladorBBDD controladorBBDD = ControladorBBDD.getSingleton();
-        System.out.println("hola");
         Monstruo monstruo =  controladorBBDD.obtenerMonstruo(2);
         System.out.println(monstruo);
     }
