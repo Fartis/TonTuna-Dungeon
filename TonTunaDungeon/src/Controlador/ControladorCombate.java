@@ -13,8 +13,8 @@ import Modelo.Dado;
  */
 public class ControladorCombate {
     
-    private static int ataque(int con, int wep, int obj, int con2, int def, int bon2, int obj2) {
-        int daño = (con + wep + obj + Dado.lanza(10)) - (con2 + def + bon2 + obj2 + Dado.lanza(10));
+    private static int ataque(int atr, int wep, int obj, int con, int def, int bon2, int obj2) {
+        int daño = (atr + wep + obj + Dado.lanza(10)) - (con + def + bon2 + obj2 + Dado.lanza(10));
         if (daño <= 0) {
             daño = 1;
         }
