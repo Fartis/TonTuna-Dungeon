@@ -20,26 +20,19 @@ import java.sql.SQLException;
  * @author Manuel David Villalba Escamilla
  */
 public class ControladorBBDD {
-    
-    private Connection con ;
+
     private static ControladorBBDD singleton = null;
-    
-    private ControladorBBDD() throws ClassNotFoundException{
-        try {
-            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontuna", "root","");
-            System.out.println("hola");
-        } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
-        } 
+
+    private ControladorBBDD() {
     }
-    
-    public static ControladorBBDD getSingleton() throws ClassNotFoundException{
-        if(singleton==null){
+
+    public static ControladorBBDD getSingleton() throws ClassNotFoundException {
+        if (singleton == null) {
             singleton = new ControladorBBDD();
         }
         return singleton;
     }
-    
+
 //    public void logroDesbloqueado(Logro logro){
 //        
 //    }
@@ -48,20 +41,26 @@ public class ControladorBBDD {
 //    public void guardarInfoPJ(Personaje pj){
 //        
 //    }
-    
 //    public Personaje recuperarPJBase(){
 //        Personaje pj = new Personaje();
 //        return pj;
 //    }
-    
-    public Arma obtenerArma() throws SQLException{
-        PreparedStatement consulta = con.prepareStatement("select * from arma;");
-        ResultSet rs = consulta.executeQuery();
-        for(int i=0; i<Dado.lanza(3); i++) rs.next();
-        Arma nueva = new Arma(rs.getString("nombre"), Integer.parseInt(rs.getString("tipo")), Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
-        return nueva;
+    public Arma obtenerArma() throws SQLException {
+        try {
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
+            PreparedStatement consulta = con.prepareStatement("select * from arma;");
+            ResultSet rs = consulta.executeQuery();
+            for (int i = 0; i < Dado.lanza(3); i++) {
+                rs.next();
+            }
+            Arma nueva = new Arma(rs.getString("nombre"), Integer.parseInt(rs.getString("tipo")), Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
+            return nueva;
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.toString());
+            return null;
+        }
     }
-    
+
 //    public Objeto obtenerObjeto() throws SQLException{
 //        PreparedStatement consulta = con.prepareStatement("select * from objeto where;");
 //        ResultSet rs = consulta.executeQuery();
@@ -69,29 +68,44 @@ public class ControladorBBDD {
 //        Objeto objeto = new Objeto();
 //        return objeto;
 //    }
-    
-    public Armadura obtenerArmadura() throws SQLException{
-        PreparedStatement consulta = con.prepareStatement("select * from armadura;");
-        ResultSet rs = consulta.executeQuery();
-        for(int i=0; i<Dado.lanza(3); i++) rs.next();
-        Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), Integer.parseInt(rs.getString("indice")), rs.getString("descripcion"));
-        return armadura;
+    public Armadura obtenerArmadura() throws SQLException {
+        try {
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
+            PreparedStatement consulta = con.prepareStatement("select * from armadura;");
+            ResultSet rs = consulta.executeQuery();
+            for (int i = 0; i < Dado.lanza(3); i++) {
+                rs.next();
+            }
+            Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), Integer.parseInt(rs.getString("indice")), rs.getString("descripcion"));
+            return armadura;
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.toString());
+            return null;
+        }
     }
-    
-    public Monstruo obtenerMonstruo(int nivel) throws SQLException{
-        PreparedStatement consulta = con.prepareStatement("select * from monstruo where nivel = "+nivel+";");
-        ResultSet rs = consulta.executeQuery();
-        for(int i=0; i<Dado.lanza(5); i++) rs.next();
-        int fuerza=Integer.parseInt(rs.getString("fuerza"));
-        int destreza=Integer.parseInt(rs.getString("fuerza"));
-        int constitucion=Integer.parseInt(rs.getString("fuerza"));
-        int intelecto=Integer.parseInt(rs.getString("fuerza"));
-        String nombre = rs.getString("nombre");
-        String descripcion = rs.getString("descripcion");
-        Armadura armadura = obtenerArmadura();
-        Arma arma = obtenerArma();        
-        Monstruo monstruo = new Monstruo(fuerza,destreza,constitucion,intelecto,nombre,descripcion,armadura,arma);
-        return monstruo;
+
+    public Monstruo obtenerMonstruo(int nivel) throws SQLException {
+        try {
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
+            PreparedStatement consulta = con.prepareStatement("select * from monstruo where nivel = " + nivel + ";");
+            ResultSet rs = consulta.executeQuery();
+            for (int i = 0; i < Dado.lanza(5); i++) {
+                rs.next();
+            }
+            int fuerza = Integer.parseInt(rs.getString("fuerza"));
+            int destreza = Integer.parseInt(rs.getString("destreza"));
+            int constitucion = Integer.parseInt(rs.getString("constitucion"));
+            int intelecto = Integer.parseInt(rs.getString("intelecto"));
+            String nombre = rs.getString("nombre");
+            String descripcion = rs.getString("descripcion");
+            Armadura armadura = obtenerArmadura();
+            Arma arma = obtenerArma();
+            Monstruo monstruo = new Monstruo(fuerza, destreza, constitucion, intelecto, nombre, descripcion, armadura, arma);
+            return monstruo;
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.toString());
+            return null;
+        }
     }
-    
+
 }
