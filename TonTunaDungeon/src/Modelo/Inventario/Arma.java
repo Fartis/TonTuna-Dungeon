@@ -7,11 +7,11 @@ package Modelo.Inventario;
 
 /**
  *
- * @author farti
+ * @author Manuel David Villalba Escamilla
  */
 public class Arma {
     private int bonificador;
-    private String nombre;
+    private String nombre, descripcion;
     
     //El tipo de arma se utiliza con un entero:
     //1 = Cuerpo a cuerpo

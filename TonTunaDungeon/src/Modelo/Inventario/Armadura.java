@@ -11,5 +11,5 @@ package Modelo.Inventario;
  */
 public class Armadura {
     private int bonificador, indiceArmadura;
-    private String nombre;
+    private String nombre, descripcion;
 }

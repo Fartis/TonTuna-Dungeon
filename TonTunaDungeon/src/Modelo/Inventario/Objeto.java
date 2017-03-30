@@ -10,7 +10,7 @@ package Modelo.Inventario;
  * @author Manuel David Villalba Escamilla
  */
 public class Objeto {
-    private String nombre;
+    private String nombre, descripcion;
     int valor;
     
     //El tipo de objeto se utiliza con un entero:
