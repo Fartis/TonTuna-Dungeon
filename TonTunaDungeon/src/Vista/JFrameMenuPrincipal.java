@@ -5,6 +5,10 @@
  */
 package Vista;
 
+import Vista.Elementos.JPanelLogo;
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author farti
@@ -16,8 +20,11 @@ public class JFrameMenuPrincipal extends javax.swing.JFrame {
      */
     public JFrameMenuPrincipal() {
         initComponents();
+        JPanelLogo jPanelLogo = new JPanelLogo();
+        this.add(jPanelLogo, BorderLayout.CENTER);
+        this.pack();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,16 +35,20 @@ public class JFrameMenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tontuna Dungeon");
+        setBackground(new java.awt.Color(0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 802, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         pack();
