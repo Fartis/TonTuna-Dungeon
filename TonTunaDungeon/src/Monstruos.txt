@@ -326,14 +326,14 @@ Constitucion:10
 Descripcion: "'Completely Automated Public Turing Test', es un test controlado por una máquina, en lugar de por un humano como en la prueba de Turing. Y ESTA ARMADO"
 
 --Nivel 10--
-Dragon de Plutonio:
+Dragon salchichonio:
 Fuerza:1
 Destreza:2
 Intelecto:7
 Constitucion:7
 Descripcion: "No perseguirá a personajes de Nivel 5 o inferior. Mal rollo: te tuesta, te almuerza y te mata. Estas muerto."
 
-Jinetes del A"Rock"allipsis:
+El A"Rock"allipsis:
 Fuerza:7
 Destreza:2
 Intelecto:1

@@ -12,4 +12,11 @@ package Modelo.Inventario;
 public class Armadura {
     private int bonificador, indiceArmadura;
     private String nombre, descripcion;
+    
+    public Armadura(String nombre, int bonificador, int indice, String descripcion){
+        this.nombre=nombre;
+        this.bonificador=bonificador;
+        this.indiceArmadura=indice;
+        this.descripcion=descripcion;
+    }
 }

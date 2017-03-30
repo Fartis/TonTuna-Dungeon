@@ -13,12 +13,12 @@ import Modelo.Inventario.Armadura;
  * @author Manuel David Villalba Escamilla
  */
 public class Monstruo {
-    private int fuerza, destreza, constitucion, intelecto, vida, nivel;
+    private int fuerza, destreza, constitucion, intelecto, vida;
     private String nombre, descripcion;
     private Armadura armadura;
     private Arma arma;
 
-    public Monstruo(int fuerza, int destreza, int constitucion, int intelecto, int vida, int nivel, String nombre, String descripcion, Armadura armadura, Arma arma) {
+    public Monstruo(int fuerza, int destreza, int constitucion, int intelecto, String nombre, String descripcion, Armadura armadura, Arma arma) {
         this.fuerza = fuerza;
         this.destreza = destreza;
         this.constitucion = constitucion;
@@ -78,14 +78,6 @@ public class Monstruo {
         this.vida = vida;
     }
 
-    public int getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -117,5 +109,12 @@ public class Monstruo {
     public void setArma(Arma arma) {
         this.arma = arma;
     }
+
+    @Override
+    public String toString() {
+        return "Monstruo{" + "fuerza=" + fuerza + ", destreza=" + destreza + ", constitucion=" + constitucion + ", intelecto=" + intelecto + ", vida=" + vida + ", nombre=" + nombre + ", descripcion=" + descripcion + ", armadura=" + armadura + ", arma=" + arma + '}';
+    }
+    
+    
     
 }

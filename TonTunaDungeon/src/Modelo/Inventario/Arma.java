@@ -19,8 +19,11 @@ public class Arma {
     //3 = Magica
     private int tipo;
     
-    public Arma(String nombre, int tipo, int bonificador){
-        
+    public Arma(String nombre, int tipo, int bonificador, String descripcion){
+        this.nombre=nombre;
+        this.tipo=tipo;
+        this.bonificador=bonificador;
+        this.descripcion=descripcion;
     }
     
 }
