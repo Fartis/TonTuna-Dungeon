@@ -22,13 +22,22 @@ import java.sql.SQLException;
 public class ControladorBBDD {
     
     private Connection con ;
+    private static ControladorBBDD singleton = null;
     
-    public ControladorBBDD(){
+    private ControladorBBDD(){
         try {
-            con = (Connection) DriverManager.getConnection("jdbc:mysql://192.168.0.105/tontuna", "root","");
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontuna", "root","");
+            System.out.println("hola");
         } catch (SQLException e) {
             System.out.println("SQL Exception: " + e.toString());
         } 
+    }
+    
+    public static ControladorBBDD getSingleton(){
+        if(singleton==null){
+            singleton = new ControladorBBDD();
+        }
+        return singleton;
     }
     
 //    public void logroDesbloqueado(Logro logro){
@@ -72,7 +81,6 @@ public class ControladorBBDD {
     public Monstruo obtenerMonstruo(int nivel) throws SQLException{
         PreparedStatement consulta = con.prepareStatement("select * from monstruo where nivel = "+nivel+";");
         ResultSet rs = consulta.executeQuery();
-        System.out.println("hola");
         for(int i=0; i<Dado.lanza(5); i++) rs.next();
         int fuerza=Integer.parseInt(rs.getString("fuerza"));
         int destreza=Integer.parseInt(rs.getString("fuerza"));
@@ -83,7 +91,6 @@ public class ControladorBBDD {
         Armadura armadura = obtenerArmadura();
         Arma arma = obtenerArma();        
         Monstruo monstruo = new Monstruo(fuerza,destreza,constitucion,intelecto,nombre,descripcion,armadura,arma);
-        System.out.println(monstruo);
         return monstruo;
     }
     
