@@ -124,7 +124,7 @@ Intelecto:2
 Constitucion:4
 Descripcion: "Solo cuesta cristales y salen dos por larva, para hacer un rush van muy bien."
 
-Hippogrifo:
+Hipopogrifo:
 Fuerza:4
 Destreza:2
 Intelecto:2
@@ -197,10 +197,10 @@ Constitucion:9
 Descripcion: "BEEP! BEEP! BEEP! BEEP! BEEP! BEEP! BEEP! BEEP! BEEP! BEEP!"
 
 Elemental de Pelos:
-Fuerza:
-Destreza:
-Intelecto:
-Constitucion:
+Fuerza:2
+Destreza:3
+Intelecto:4
+Constitucion:3
 Descripcion: "Magopelos lo creo, el pudo darle vida, practicamente por que es uno de los desarrolladores."
 
 Mari-Conan:
@@ -323,7 +323,7 @@ Fuerza:2
 Destreza:2
 Intelecto:2
 Constitucion:10
-Descripcion: "'Completely Automated Public Turing Test', es un test controlado por una máquina, en logar de por un humano como en la prueba de Turing. Y ESTA ARMADO"
+Descripcion: "'Completely Automated Public Turing Test', es un test controlado por una máquina, en lugar de por un humano como en la prueba de Turing. Y ESTA ARMADO"
 
 --Nivel 10--
 Dragon de Plutonio:

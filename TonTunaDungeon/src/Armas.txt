@@ -1,0 +1,47 @@
+---ARMAS---
+
+--Nivel 0--
+Guante de plástico:
+Tipo:1
+Descripción:"Un gante de goma que protege tu mano cuando guanteas enemigos"
+
+Corchopán:
+Tipo:1
+Descripción:"Cilindro de materialesponjoso que no vale para nada"
+
+Puñao piedras:
+Tipo:2
+Descripción:"Sirven para mantener el enemigo a distancia pero no añaden nada más porque no están equilibradas"
+
+Frisbi:
+Tipo:2
+Descripción:"Disco de plástico que vuela pero tampoco mucho..."
+
+Palillo chino:
+Tipo:3
+Descripción:"Un palillo de la comida china que usas cómo varita mágica"
+
+Rotulador
+Tipo:3
+Descripción:"Puedes anotar cosas con él, pero también usarlo cómo varita"
+
+--Nivel 1--
+Estaca:
+Tipo:1
+Descripción:"Hecha con madera de membrillo que aunque dobla, hinca"
+
+Tarama de olivo:
+Tipo:1
+Descripción:"Rama sobrante de la poda, escuece en el lomo"
+
+Piedra con filo:
+Tipo:2
+Descripción:"No están equilibradas, pero clavan tela"
+
+Boomerang:
+Tipo:2
+Descripción:"Golpea y vuelve"
+
+Chivata:
+Tipo:3
+Descripción:"Bastón que usan los viejos para
