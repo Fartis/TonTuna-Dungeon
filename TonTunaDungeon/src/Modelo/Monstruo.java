@@ -33,7 +33,7 @@ public class Monstruo {
     private void establecerVida() {
         int cantidad=0;
         for(int i=0; i<constitucion; i++){
-            cantidad = cantidad+Dado.lanza(4);
+            cantidad = cantidad+Dado.lanza(6);
         }
         this.vida=cantidad;
     }

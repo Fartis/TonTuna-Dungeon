@@ -41,7 +41,7 @@ Es el parámetro que indica la sabiduría y el poder mágico de nuestro personaj
 Es el parámetro que indica la fortaleza de nuestro personaje o del monstruo, se utiliza para saber la vida que tiene nuestro personaje y habilidad de resistir golpes.
 
 -Vida-
-La vida de un personaje o monstruo se calculara de la siguiente manera, por cada punto de constitución se hará una tirada de un dado de 4, siendo la suma de todas las tiradas los puntos de vida que tiene. Cuando este parámetro llegue a 0 el combate acabara, si es un monstruo el que su vida llega a 0 hemos vencido y si es nuestro personaje quien llega a 0 el juego terminara.
+La vida de un personaje o monstruo se calculara de la siguiente manera, por cada punto de constitución se hará una tirada de un dado de 6 caras, siendo la suma de todas las tiradas los puntos de vida que tiene. Cuando este parámetro llegue a 0 el combate acabara, si es un monstruo el que su vida llega a 0 hemos vencido y si es nuestro personaje quien llega a 0 el juego terminara.
 
 -Índice de armadura-
 El índice de armadura es un parametro que indica cuando daño es capaz de absorber nuestra armadura sin que nos afecte directamente, variara según de la armadura que sea, todas las armaduras tienen un índice de armadura diferente. Cuando este parámetro se agota la armadura quedara deformada siendo posible que los ataque nos hagan daño. Aunque este índice se puede recuperar en combate con la acción de defensa o después de cada combate.
