@@ -23,8 +23,22 @@ public class ControladorPrincipal {
         ControladorGUI.getSingleton().menuPrincipal();
     }
     
-    public void generarPersonaje(String nombre, String raza){
+    public void crearPersonaje(String nombre, String raza){
         personajeActual = ControladorBBDD.getSingleton().crearPJBase(nombre, raza);
+    }
+    
+    public String[][] infoPersonajeNuevo(){
+        String[][] personaje = new String[4][6];
+        Personaje[] listaPersonajes = ControladorBBDD.getSingleton().listaPersonajesBase();
+        for(int i=0; i<personaje.length;i++){
+            personaje[i][1] = listaPersonajes[i].getRaza();
+            personaje[i][2] = Integer.toString(listaPersonajes[i].getFuerza());
+            personaje[i][3] = Integer.toString(listaPersonajes[i].getDestreza());
+            personaje[i][4] = Integer.toString(listaPersonajes[i].getIntelecto());
+            personaje[i][5] = Integer.toString(listaPersonajes[i].getConstitucion());
+            personaje[i][6] = listaPersonajes[i].getDescripcion();
+        }
+        return personaje;
     }
     
     public String infoHabitación(){
