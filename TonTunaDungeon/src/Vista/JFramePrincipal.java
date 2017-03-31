@@ -6,6 +6,7 @@
 package Vista;
 
 import Vista.Elementos.ImagePanel;
+import Vista.Elementos.ImagePanelNueva;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -21,27 +22,45 @@ import javax.swing.SwingUtilities;
  */
 public class JFramePrincipal extends javax.swing.JFrame {
 
+    JFramePrincipal singleton;
+
     /**
      * Creates new form JFramePrincipal
      */
     public JFramePrincipal() {
+        if (singleton == null) {
+            this.singleton = this;
+        }
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowUI();
+                createAndShowUI(jPanelLogo);
             }
         });
     }
 
-    private void createAndShowUI() {
+    private void createAndShowUI(JPanel jPanel) {
         try {
-            JFrame frame = new JFrame("Image");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setLocationRelativeTo(null);
-
             Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/logoanimado.gif");
 
-            imagePanel = new ImagePanel(image);
-            frame.add(imagePanel);
+            jPanel = new ImagePanel(image, singleton);
+            frame.add(jPanel);
+            frame.setSize(800, 600);
+            frame.setVisible(true);
+            this.setVisible(false);
+            frame.setLocationRelativeTo(null);
+            frame.setResizable(false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void menuNuevaPartida() {
+        try {
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setLocationRelativeTo(null);
+            Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/nuevapartida.gif");
+            jPanelLogo = new ImagePanelNueva(image, singleton);
+            frame.add(jPanelLogo);
             frame.setSize(800, 600);
             frame.setVisible(true);
             this.setVisible(false);
@@ -114,5 +133,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    ImagePanel imagePanel;
+    JPanel jPanelLogo;
+    
+            JFrame frame = new JFrame("Image");
+
 }

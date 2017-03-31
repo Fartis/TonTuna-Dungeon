@@ -5,6 +5,7 @@
  */
 package Vista.Elementos;
 
+import Vista.JFramePrincipal;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -26,10 +27,11 @@ public class ImagePanel extends JPanel {
     JButton jButtonIniciar = new JButton("Iniciar Partida");
     JButton jButtonCargar = new JButton("Cargar Partida");
     JButton jButtonSalir = new JButton("Salir");
+    JFramePrincipal padre;
 
-    public ImagePanel(Image image) {
+    public ImagePanel(Image image, JFramePrincipal padre) {
         this.image = image;
-
+        this.padre = padre;
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarActionPerformed(evt);
@@ -56,7 +58,7 @@ public class ImagePanel extends JPanel {
     
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        
+        padre.menuNuevaPartida();
     }
     private void jButtonCargarActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
