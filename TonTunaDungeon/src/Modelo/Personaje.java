@@ -15,11 +15,12 @@ import Modelo.Inventario.Armadura;
 public class Personaje {
 
     private int fuerza, destreza, constitucion, intelecto, vida, nivel;
-    private String descripcion, raza;
+    private String descripcion, raza, nombre;
     private Armadura armadura;
     private Arma arma;
 
-    public Personaje(String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion, int nivel) {
+    public Personaje(String nombre, String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion, int nivel) {
+        this.nombre = nombre;
         this.raza = raza;
         this.fuerza = fuerza;
         this.constitucion = constitucion;
@@ -102,4 +103,35 @@ public class Personaje {
         this.raza = raza;
     }
 
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Personaje{" + "nombre=" + nombre + "fuerza=" + fuerza + ", destreza=" + destreza + ", constitucion=" + constitucion + ", intelecto=" + intelecto + ", vida=" + vida + ", nivel=" + nivel + ", descripcion=" + descripcion + ", raza=" + raza + ", armadura=" + armadura + ", arma=" + arma + '}';
+    }
+
+    
 }

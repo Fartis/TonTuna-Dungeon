@@ -9,6 +9,7 @@ import Modelo.Dado;
 import Modelo.Inventario.Arma;
 import Modelo.Inventario.Armadura;
 import Modelo.Monstruo;
+import Modelo.Personaje;
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -38,13 +39,44 @@ public class ControladorBBDD {
 //    }
 //       
 //        
-//    public void guardarInfoPJ(Personaje pj){
-//        
-//    }
-//    public Personaje recuperarPJBase(){
-//        Personaje pj = new Personaje();
-//        return pj;
-//    }
+    public void guardarInfoPJ(Personaje pj){
+        try {
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
+            PreparedStatement insertar = con.prepareStatement("insert into pjcreado (nombre, raza, nivel, fuerza, destreza, intelecto, constitucion) values (?,?,?,?,?,?,?);");
+            insertar.setString(1, pj.getNombre());
+            insertar.setString(2, pj.getRaza());
+            insertar.setString(3, Integer.toString(pj.getNivel()));
+            insertar.setString(4, Integer.toString(pj.getFuerza()));
+            insertar.setString(5, Integer.toString(pj.getDestreza()));
+            insertar.setString(6, Integer.toString(pj.getIntelecto()));
+            insertar.setString(7, Integer.toString(pj.getConstitucion()));
+            insertar.executeUpdate();
+            con.close();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public Personaje crearPJBase(String nombre, String raza) {
+        try {
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
+            PreparedStatement consulta = con.prepareStatement("select * from personaje where raza = \""+ raza +"\";");
+            ResultSet rs = consulta.executeQuery();
+            rs.next();
+            int fuerza = Integer.parseInt(rs.getString("fuerza"));
+            int destreza = Integer.parseInt(rs.getString("destreza"));
+            int constitucion = Integer.parseInt(rs.getString("constitucion"));
+            int intelecto = Integer.parseInt(rs.getString("intelecto"));
+            String descripcion = rs.getString("descripcion");
+            Personaje personaje = new Personaje(nombre ,rs.getString("raza"), fuerza, constitucion, destreza, intelecto, descripcion, 1);
+            con.close();
+            return personaje;
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.toString());
+            return null;
+        }
+    }
+
     public Arma obtenerArma() throws SQLException {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
@@ -101,6 +133,7 @@ public class ControladorBBDD {
             Armadura armadura = obtenerArmadura();
             Arma arma = obtenerArma();
             Monstruo monstruo = new Monstruo(fuerza, destreza, constitucion, intelecto, nombre, descripcion, armadura, arma);
+            con.close();
             return monstruo;
         } catch (SQLException e) {
             System.out.println("SQL Exception: " + e.toString());

@@ -1,6 +1,7 @@
 
 import Controlador.ControladorBBDD;
 import Modelo.Monstruo;
+import Modelo.Personaje;
 import java.sql.SQLException;
 
 /*
@@ -18,5 +19,8 @@ public class main {
         ControladorBBDD controladorBBDD = ControladorBBDD.getSingleton();
         Monstruo monstruo =  controladorBBDD.obtenerMonstruo(2);
         System.out.println(monstruo);
+        Personaje personaje = controladorBBDD.crearPJBase("Federico","Humano");
+        System.out.println(personaje);
+        controladorBBDD.guardarInfoPJ(personaje);
     }
 }
