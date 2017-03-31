@@ -31,7 +31,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void createAndShowUI() {
         try {
             JFrame frame = new JFrame("Image");
@@ -45,13 +45,13 @@ public class JFramePrincipal extends javax.swing.JFrame {
             frame.setSize(800, 600);
             frame.setVisible(true);
             this.setVisible(false);
-        } 
-        catch (Exception e) {
+            frame.setLocationRelativeTo(null);
+            frame.setResizable(false);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,6 +114,5 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-
     ImagePanel imagePanel;
 }

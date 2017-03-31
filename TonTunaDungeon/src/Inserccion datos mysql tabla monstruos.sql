@@ -44,8 +44,8 @@ insert into monstruo values
 ("Gallo Colosal",9,3,3,3,7,"Un autentico gallo de 57kg, huyo de la casa de un americano un dia de acción de gracias y prometio vengarse del mundo."),
 ("Ninja con pandereta",9,5,5,3,3,"Podria haberte emboscado, pero oistes una pandereta y estabas en guardia, aun así sabe artes marciales."),
 ("Anti-Captcha",9,2,2,2,10,"'Completely Automated Public Turing Test', es un test controlado por una máquina, en logar de por un humano como en la prueba de Turing. Y ESTA ARMADO"),
-("Dragon de salchichonio",10,1,2,7,7,"No perseguirá a personajes de Nivel 5 o inferior. Mal rollo: te tuesta, te almuerza y te mata. Estas muerto."),
-("El A'ROCK'allipsis",10,7,2,1,7,"I'm the lord of the wastelands, a modern day man of steel, I gather darkness to please me and I command you to kneel. Kiss - God of thunder"),
+("Dragon salchichonio",10,1,2,7,7,"No perseguirá a personajes de Nivel 5 o inferior. Mal rollo: te tuesta, te almuerza y te mata. Estas muerto."),
+("El A'rock'allipsis",10,7,2,1,7,"I'm the lord of the wastelands, a modern day man of steel, I gather darkness to please me and I command you to kneel. Kiss - God of thunder"),
 ("Horse Luis",10,1,1,1,14,"Horse Luis es un fenomeno viral en twitter, nacio el 20 de Septiembre del 2014 y ha sido invitado a este juego. Su madre se lo ha permitido."),
 ("Rafalillo",10,1,6,7,3,"Siempre esta atento a todo movimiento, su humor tambien. Es un mago muy poderoso que se convirtio en elemental de llamas infernales, su enorme rabo en llamas es poderoso."),
 ("Enemigo pixelado",10,4,4,4,5,"Es una criatura de la antigüedad, antes de la alta definición. Su poder no se puede calcular o tardarias mucho, ya que fue diseñado en 8bits.")
