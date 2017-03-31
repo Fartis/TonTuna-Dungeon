@@ -5,9 +5,19 @@
  */
 package Vista;
 
+import Vista.Elementos.ImagePanel;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 /**
  *
- * @author farti
+ * @author Manuel David Villalba Escamilla
  */
 public class JFramePrincipal extends javax.swing.JFrame {
 
@@ -15,13 +25,33 @@ public class JFramePrincipal extends javax.swing.JFrame {
      * Creates new form JFramePrincipal
      */
     public JFramePrincipal() {
-        initComponents();
-        jPanelLogo1.setOpaque(false);
-        jPanelLogo1.setBackground("src/Recursos/logoanimado.gif");
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowUI();
+            }
+        });
     }
     
-    
+    private void createAndShowUI() {
+        try {
+            JFrame frame = new JFrame("Image");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setLocationRelativeTo(null);
 
+            Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/logoanimado.gif");
+
+            imagePanel = new ImagePanel(image);
+            frame.add(imagePanel);
+            frame.setSize(800, 600);
+            frame.setVisible(true);
+            this.setVisible(false);
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,55 +61,17 @@ public class JFramePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelLogo1 = new Vista.Elementos.JPanelLogo();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanelLogo1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        jPanelLogo1.setOpaque(true);
-
-        jButton1.setText("Nueva Partida");
-
-        jButton2.setText("Cargar Partida");
-
-        jButton3.setText("Salir");
-
-        javax.swing.GroupLayout jPanelLogo1Layout = new javax.swing.GroupLayout(jPanelLogo1);
-        jPanelLogo1.setLayout(jPanelLogo1Layout);
-        jPanelLogo1Layout.setHorizontalGroup(
-            jPanelLogo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLogo1Layout.createSequentialGroup()
-                .addGap(347, 347, 347)
-                .addGroup(jPanelLogo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(350, Short.MAX_VALUE))
-        );
-        jPanelLogo1Layout.setVerticalGroup(
-            jPanelLogo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLogo1Layout.createSequentialGroup()
-                .addContainerGap(374, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(121, 121, 121))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelLogo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelLogo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -121,9 +113,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private Vista.Elementos.JPanelLogo jPanelLogo1;
     // End of variables declaration//GEN-END:variables
+
+    ImagePanel imagePanel;
 }
