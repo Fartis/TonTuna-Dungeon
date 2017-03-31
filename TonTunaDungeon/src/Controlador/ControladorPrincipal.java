@@ -5,6 +5,8 @@
  */
 package Controlador;
 
+import Modelo.Personaje;
+import Modelo.RepositorioPartidas;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,8 +15,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControladorPrincipal {
     
+    private Personaje personajeActual=null;
+    private RepositorioPartidas partidasGuardadas;
+    
+    
     public static void main(String[]args){
         ControladorGUI.getSingleton().menuPrincipal();
+    }
+    
+    public void generarPersonaje(String nombre, String raza){
+        personajeActual = ControladorBBDD.getSingleton().crearPJBase(nombre, raza);
     }
     
     public String infoHabitación(){

@@ -17,9 +17,18 @@ public class ControladorMazmorra {
     private final ArrayList<Habitacion[][]> mazmorra;
     private Habitacion[][] piso;
     int nivelPiso=0;
-
-    public ControladorMazmorra() {
+    private static ControladorMazmorra singleton = null;
+    
+    
+    private ControladorMazmorra() {
         this.mazmorra = new ArrayList();
+    }
+    
+    public ControladorMazmorra getSingleton(){
+        if (singleton==null){
+            singleton = new ControladorMazmorra();
+        }
+        return singleton;
     }
     
     private void generarPiso(){
