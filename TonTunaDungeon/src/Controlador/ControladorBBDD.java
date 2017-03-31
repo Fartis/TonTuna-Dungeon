@@ -27,7 +27,7 @@ public class ControladorBBDD {
     private ControladorBBDD() {
     }
 
-    public static ControladorBBDD getSingleton() throws ClassNotFoundException {
+    public static ControladorBBDD getSingleton() {
         if (singleton == null) {
             singleton = new ControladorBBDD();
         }

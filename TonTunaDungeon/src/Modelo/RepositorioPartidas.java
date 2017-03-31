@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Controlador.ControladorBBDD;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -46,6 +47,7 @@ public class RepositorioPartidas implements Serializable{
 
     public void guardarPartida(int indice, Partida juego) throws IOException {
         partidasGuardadas[indice] = juego;
+        ControladorBBDD.getSingleton().guardarInfoPJ(juego.getPj());
         salida.writeObject(partidasGuardadas);
     }
 
