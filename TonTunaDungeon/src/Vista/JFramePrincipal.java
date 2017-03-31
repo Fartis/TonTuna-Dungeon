@@ -5,12 +5,9 @@
  */
 package Vista;
 
-import Vista.Elementos.ImagePanel;
-import Vista.Elementos.ImagePanelNueva;
-import java.awt.Graphics;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,53 +19,36 @@ import javax.swing.SwingUtilities;
  */
 public class JFramePrincipal extends javax.swing.JFrame {
 
-    JFramePrincipal singleton;
-
     /**
      * Creates new form JFramePrincipal
      */
-    public JFramePrincipal() {
-        if (singleton == null) {
-            this.singleton = this;
-        }
+    public JFramePrincipal(JPanel jPanel, String url) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowUI(jPanelLogo);
+                createAndShowUI(jPanel, url);
             }
         });
+
     }
 
-    private void createAndShowUI(JPanel jPanel) {
+    public void createAndShowUI(JPanel jPanel, String url) {
         try {
-            Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/logoanimado.gif");
-
-            jPanel = new ImagePanel(image, singleton);
-            frame.add(jPanel);
-            frame.setSize(800, 600);
-            frame.setVisible(true);
-            this.setVisible(false);
-            frame.setLocationRelativeTo(null);
-            frame.setResizable(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void menuNuevaPartida() {
-        try {
+            frame = new JFrame();
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setLocationRelativeTo(null);
-            Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/nuevapartida.gif");
-            jPanelLogo = new ImagePanelNueva(image, singleton);
-            frame.add(jPanelLogo);
             frame.setSize(800, 600);
-            frame.setVisible(true);
-            this.setVisible(false);
-            frame.setLocationRelativeTo(null);
+            Image image = Toolkit.getDefaultToolkit().getImage(url);
+            jPanel.add(new JLabel());
+            frame.add(jPanel);
+            frame.setTitle("Tontuna Dungeon");
             frame.setResizable(false);
+            frame.setVisible(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void visible(boolean bool) {
+        frame.setVisible(bool);
     }
 
     /**
@@ -81,6 +61,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(0, 0));
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,47 +76,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFramePrincipal().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    JPanel jPanelLogo;
-    
-            JFrame frame = new JFrame("Image");
-
+    JFrame frame;
 }

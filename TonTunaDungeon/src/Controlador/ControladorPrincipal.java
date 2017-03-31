@@ -13,6 +13,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControladorPrincipal {
     
+    public static void main(String[]args){
+        ControladorGUI.getSingleton().menuPrincipal();
+    }
     
     public String infoHabitación(){
         String info="";

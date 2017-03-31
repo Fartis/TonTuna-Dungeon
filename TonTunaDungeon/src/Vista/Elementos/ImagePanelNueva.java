@@ -5,17 +5,13 @@
  */
 package Vista.Elementos;
 
+import Controlador.ControladorGUI;
 import Vista.JFramePrincipal;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.net.URL;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -23,24 +19,35 @@ import javax.swing.SwingUtilities;
  */
 public class ImagePanelNueva extends JPanel {
 
-    private Image image;
+    private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/nuevapartida.gif");
     JButton jButtonIniciar = new JButton("Iniciar Partida");
-    JButton jButtonCargar = new JButton("Cargar Partida");
-    JButton jButtonSalir = new JButton("Salir");
     JFramePrincipal padre;
 
-    public ImagePanelNueva(Image image, JFramePrincipal padre) {
-        this.image = image;
-        this.padre = padre;
-
+    public ImagePanelNueva() {
+        jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarActionPerformed(evt);
+            }
+        });
+        this.add(jButtonIniciar);
     }
     
+    
+    private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt){
+        // TODO add your handling code here:
+        ControladorGUI.getSingleton().menuPrincipal();
+        this.setVisible(false);
+        padre.dispose();
+    }
+    
+    public void setPadre(JFramePrincipal padre) {
+        this.padre = padre;
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(image, 0, 0, 800, 600, this);
         jButtonIniciar.setBounds(300, 380, 200, 40);
-        jButtonCargar.setBounds(300, 430, 200, 40);
-        jButtonSalir.setBounds(300, 480, 200, 40);
     }
 }
