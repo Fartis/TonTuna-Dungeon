@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  *
  * @author Manuel David Villalba Escamilla
  */
-public class ImagePanel extends JPanel {
+public class VentanaLogo extends JPanel {
 
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/logoanimado.gif");
     JButton jButtonIniciar = new JButton("Iniciar Partida");
@@ -25,7 +25,7 @@ public class ImagePanel extends JPanel {
     JButton jButtonSalir = new JButton("Salir");
     JFramePrincipal padre;
 
-    public ImagePanel() {
+    public VentanaLogo() {
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarActionPerformed(evt);

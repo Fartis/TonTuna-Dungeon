@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import Vista.Elementos.ImagePanel;
-import Vista.Elementos.ImagePanelNueva;
+import Vista.Elementos.VentanaLogo;
+import Vista.Elementos.VentanaNuevaPartida;
 import Vista.JFramePrincipal;
 
 /**
@@ -33,7 +33,7 @@ public class ControladorGUI {
         if (nuevaPar!=null){
             nuevaPar.visible(false);
         }
-        ImagePanel menu1 = new ImagePanel();
+        VentanaLogo menu1 = new VentanaLogo();
         if (menuPrin == null) {
             menuPrin = new JFramePrincipal(menu1, "/Recursos/logoanimado.gif");
         } else {
@@ -44,7 +44,7 @@ public class ControladorGUI {
 
     public void menuNuevaPartida() {
         menuPrin.visible(false);
-        ImagePanelNueva menu1 = new ImagePanelNueva();
+        VentanaNuevaPartida menu1 = new VentanaNuevaPartida();
         if (nuevaPar == null) {
             nuevaPar = new JFramePrincipal(menu1, "/Recursos/nuevapartida.gif");
         } else {

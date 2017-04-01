@@ -17,13 +17,13 @@ import javax.swing.JPanel;
  *
  * @author Manuel David Villalba Escamilla
  */
-public class ImagePanelNueva extends JPanel {
+public class VentanaNuevaPartida extends JPanel {
 
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/nuevapartida.gif");
     JButton jButtonIniciar = new JButton("Iniciar Partida");
     JFramePrincipal padre;
 
-    public ImagePanelNueva() {
+    public VentanaNuevaPartida() {
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarActionPerformed(evt);
