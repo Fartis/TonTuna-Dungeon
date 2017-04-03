@@ -133,7 +133,7 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelEnano.setBackground(new Color(0, 0, 0, 125));
         jPanelMediano.setBackground(new Color(0, 0, 0, 125));
         
-        
+        //Estableciendo elementos de los paneles internos de razas
         imageHumano.setBounds(420,20,140,210);
         labelHumano.setBounds(20,20,280,50);
         imageElfo.setBounds(420,20,140,210);
