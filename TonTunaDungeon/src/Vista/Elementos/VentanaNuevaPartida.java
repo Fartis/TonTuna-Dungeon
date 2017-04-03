@@ -213,9 +213,10 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelHumano.add(imageHumano);
         jPanelHumano.add(labelHumano);
         jPanelHumano.add(descHumano);
-        descHumano.setFont(new Font("Dialog", Font.BOLD, 18));
+        descHumano.setFont(new Font("Dialog", Font.BOLD, 15));
         descHumano.setForeground(Color.white);
         descHumano.setLineWrap(true);
+        descHumano.setHighlighter(null);
         labelHumano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelHumano.setForeground(Color.white);
         imageHumano.setVisible(true);
@@ -223,9 +224,10 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelElfo.add(imageElfo);
         jPanelElfo.add(labelElfo);
         jPanelElfo.add(descElfo);
-        descElfo.setFont(new Font("Dialog", Font.BOLD, 18));
+        descElfo.setFont(new Font("Dialog", Font.BOLD, 15));
         descElfo.setForeground(Color.white);
         descElfo.setLineWrap(true);
+        descElfo.setHighlighter(null);
         labelElfo.setFont(new Font("Dialog", Font.BOLD, 38));
         labelElfo.setForeground(Color.white);
         imageElfo.setVisible(true);
@@ -233,9 +235,10 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelEnano.add(imageEnano);
         jPanelEnano.add(labelEnano);
         jPanelEnano.add(descEnano);
-        descEnano.setFont(new Font("Dialog", Font.BOLD, 18));
+        descEnano.setFont(new Font("Dialog", Font.BOLD, 15));
         descEnano.setForeground(Color.white);
         descEnano.setLineWrap(true);
+        descEnano.setHighlighter(null);
         labelEnano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelEnano.setForeground(Color.white);
         imageEnano.setVisible(true);
@@ -243,9 +246,10 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelMediano.add(imageMediano);
         jPanelMediano.add(labelMediano);
         jPanelMediano.add(descMediano);
-        descMediano.setFont(new Font("Dialog", Font.BOLD, 18));
+        descMediano.setFont(new Font("Dialog", Font.BOLD, 15));
         descMediano.setForeground(Color.white);
         descMediano.setLineWrap(true);
+        descMediano.setHighlighter(null);
         labelMediano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelMediano.setForeground(Color.white);
         imageMediano.setVisible(true);
