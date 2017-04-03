@@ -37,7 +37,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(800, 600);
             Image image = Toolkit.getDefaultToolkit().getImage(url);
-            jPanel.add(new JLabel());
             frame.add(jPanel);
             frame.setTitle("Tontuna Dungeon");
             frame.setResizable(false);

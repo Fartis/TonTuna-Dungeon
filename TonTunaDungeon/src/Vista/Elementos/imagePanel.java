@@ -21,36 +21,12 @@ import javax.swing.JPanel;
 public class imagePanel extends JPanel {
 
     private Image image;
-    private JFramePrincipal padre;
     private int width, height;
 
     public imagePanel(int width, int height, String url) {
         this.width=width;
         this.height=height;
-        this.image = Toolkit.getDefaultToolkit().getImage("src/Recursos/logoanimado.gif");
-    }
-    
-    public void setPadre(JFramePrincipal padre) {
-        this.padre = padre;
-    }
-
-    private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt){
-        // TODO add your handling code here:
-        ControladorGUI.getSingleton().menuNuevaPartida();
-        this.setVisible(false);
-        padre.dispose();
-        
-        
-    }
-
-    private void jButtonCargarActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-
-    }
-
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        System.exit(0);
+        this.image = Toolkit.getDefaultToolkit().getImage(url);
     }
 
     @Override
