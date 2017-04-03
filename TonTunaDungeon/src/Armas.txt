@@ -1,47 +1,51 @@
 ---ARMAS---
 
 --Nivel 0--
-Guante de plástico:
+Guante de plï¿½stico:
 Tipo:1
-Descripción:"Un gante de goma que protege tu mano cuando guanteas enemigos"
+Descripciï¿½n:"Un gante de goma que protege tu mano cuando guanteas enemigos"
 
-Corchopán:
+Corchopï¿½n:
 Tipo:1
-Descripción:"Cilindro de materialesponjoso que no vale para nada"
+Descripciï¿½n:"Cilindro de materialesponjoso que no vale para nada"
 
-Puñao piedras:
+Puï¿½ao piedras:
 Tipo:2
-Descripción:"Sirven para mantener el enemigo a distancia pero no añaden nada más porque no están equilibradas"
+Descripciï¿½n:"Sirven para mantener el enemigo a distancia pero no aï¿½aden nada mï¿½s porque no estï¿½n equilibradas"
 
 Frisbi:
 Tipo:2
-Descripción:"Disco de plástico que vuela pero tampoco mucho..."
+Descripciï¿½n:"Disco de plï¿½stico que vuela pero tampoco mucho..."
 
 Palillo chino:
 Tipo:3
-Descripción:"Un palillo de la comida china que usas cómo varita mágica"
+Descripciï¿½n:"Un palillo de la comida china que usas cï¿½mo varita mï¿½gica"
 
 Rotulador
 Tipo:3
-Descripción:"Puedes anotar cosas con él, pero también usarlo cómo varita"
+Descripciï¿½n:"Puedes anotar cosas con ï¿½l, pero tambiï¿½n usarlo cï¿½mo varita"
 
 --Nivel 1--
 Estaca:
 Tipo:1
-Descripción:"Hecha con madera de membrillo que aunque dobla, hinca"
+Descripciï¿½n:"Hecha con madera de membrillo que aunque dobla, hinca"
 
 Tarama de olivo:
 Tipo:1
-Descripción:"Rama sobrante de la poda, escuece en el lomo"
+Descripciï¿½n:"Rama sobrante de la poda, escuece en el lomo"
 
 Piedra con filo:
 Tipo:2
-Descripción:"No están equilibradas, pero clavan tela"
+Descripciï¿½n:"No estï¿½n equilibradas, pero clavan tela"
 
 Boomerang:
 Tipo:2
-Descripción:"Golpea y vuelve"
+Descripciï¿½n:"Golpea y vuelve"
 
 Chivata:
 Tipo:3
-Descripción:"Bastón que usan los viejos para
+Descripciï¿½n:"Bastï¿½n que usan los viejos para espantar gamberros, muy Ãºtil para eslomar enemigos"
+
+Rascaculos:
+Tipo:3
+DescripciÃ³n:"Vara de corta longitud que se usa para rascar dÃ³nde no te llegas bien, pero ademÃ¡s puede usarse de varita mÃ¡gica"
