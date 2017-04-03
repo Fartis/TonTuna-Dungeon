@@ -42,10 +42,10 @@ public class VentanaNuevaPartida extends JPanel {
     private JPanel seleccionPersonaje = new JPanel();
 
     //Paneles con imagenes
-    private imagePanel imageHumano = new imagePanel(180, 210, "src/Recursos/razas/humano.jpg");
-    private imagePanel imageElfo = new imagePanel(180,210, "src/Recursos/razas/elfo.jpg");
-    private imagePanel imageEnano = new imagePanel(180,210, "src/Recursos/razas/enano.jpg");
-    private imagePanel imageMediano = new imagePanel(180,210, "src/Recursos/razas/mediano.jpg");
+    private imagePanel imageHumano = new imagePanel(140, 210, "src/Recursos/razas/humano.jpg");
+    private imagePanel imageElfo = new imagePanel(140,210, "src/Recursos/razas/elfo.jpg");
+    private imagePanel imageEnano = new imagePanel(140,210, "src/Recursos/razas/enano.jpg");
+    private imagePanel imageMediano = new imagePanel(140,210, "src/Recursos/razas/mediano.jpg");
     
     //Etiquetas
     private JLabel labelHumano = new JLabel("HUMANO");
@@ -132,6 +132,16 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelElfo.setBackground(new Color(0, 0, 0, 125));
         jPanelEnano.setBackground(new Color(0, 0, 0, 125));
         jPanelMediano.setBackground(new Color(0, 0, 0, 125));
+        
+        
+        imageHumano.setBounds(420,20,140,210);
+        labelHumano.setBounds(20,20,280,50);
+        imageElfo.setBounds(420,20,140,210);
+        labelElfo.setBounds(20,20,280,50);
+        imageEnano.setBounds(420,20,140,210);
+        labelEnano.setBounds(20,20,280,50);
+        imageMediano.setBounds(420,20,140,210);
+        labelMediano.setBounds(20,20,280,50);
     }
     
     private void iniciarEventos(){
@@ -182,35 +192,27 @@ public class VentanaNuevaPartida extends JPanel {
         //Elementos panel Humano
         jPanelHumano.add(imageHumano);
         jPanelHumano.add(labelHumano);
-        labelHumano.setBounds(20,20,280,50);
         labelHumano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelHumano.setForeground(Color.white);
         imageHumano.setVisible(true);
-        imageHumano.setBounds(320,20,180,210);
         //Elementos panel Elfo
         jPanelElfo.add(imageElfo);
         jPanelElfo.add(labelElfo);
-        labelElfo.setBounds(20,20,280,50);
         labelElfo.setFont(new Font("Dialog", Font.BOLD, 38));
         labelElfo.setForeground(Color.white);
         imageElfo.setVisible(true);
-        imageElfo.setBounds(320,20,180,210);
         //Elementos panel Enano
         jPanelEnano.add(imageEnano);
         jPanelEnano.add(labelEnano);
-        labelEnano.setBounds(20,20,280,50);
         labelEnano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelEnano.setForeground(Color.white);
         imageEnano.setVisible(true);
-        imageEnano.setBounds(320,20,180,210);
         //Elementos panel Mediano
         jPanelMediano.add(imageMediano);
         jPanelMediano.add(labelMediano);
-        labelMediano.setBounds(20,20,280,50);
         labelMediano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelMediano.setForeground(Color.white);
         imageMediano.setVisible(true);
-        imageMediano.setBounds(320,20,180,210);
         
     }
 }
