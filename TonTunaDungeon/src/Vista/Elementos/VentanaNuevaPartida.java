@@ -5,7 +5,9 @@
  */
 package Vista.Elementos;
 
+import Controlador.ControladorBBDD;
 import Controlador.ControladorGUI;
+import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
 import java.awt.Color;
 import java.awt.Font;
@@ -15,6 +17,7 @@ import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -25,6 +28,7 @@ public class VentanaNuevaPartida extends JPanel {
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/nuevapartida.gif");
     private JFramePrincipal padre;
     private int razaSeleccionada = 1;
+    private String[][] infoPJ = ControladorPrincipal.getSingleton().infoPersonajeNuevo();
     
     //Botones
     private JButton jButtonAtras = new JButton("Atras");
@@ -49,9 +53,13 @@ public class VentanaNuevaPartida extends JPanel {
     
     //Etiquetas
     private JLabel labelHumano = new JLabel("HUMANO");
+    private JTextArea descHumano = new JTextArea(infoPJ[2][5]);
     private JLabel labelElfo = new JLabel("ELFO");
+    private JTextArea descElfo = new JTextArea(infoPJ[0][5]);
     private JLabel labelEnano = new JLabel("ENANO");
+    private JTextArea descEnano = new JTextArea(infoPJ[1][5]);
     private JLabel labelMediano = new JLabel("MEDIANO");
+    private JTextArea descMediano = new JTextArea(infoPJ[3][5]);
     
     public VentanaNuevaPartida() {
         iniciarEventos();
@@ -134,14 +142,26 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelMediano.setBackground(new Color(0, 0, 0, 125));
         
         //Estableciendo elementos de los paneles internos de razas
-        imageHumano.setBounds(420,20,140,210);
+        imageHumano.setBounds(440,20,140,210);
         labelHumano.setBounds(20,20,280,50);
-        imageElfo.setBounds(420,20,140,210);
+        descHumano.setBounds(20, 90, 400, 210);
+        descHumano.setOpaque(false);
+        descHumano.setEditable(false);
+        imageElfo.setBounds(440,20,140,210);
         labelElfo.setBounds(20,20,280,50);
-        imageEnano.setBounds(420,20,140,210);
+        descElfo.setBounds(20, 90, 400, 210);
+        descElfo.setOpaque(false);
+        descElfo.setEditable(false);
+        imageEnano.setBounds(440,20,140,210);
         labelEnano.setBounds(20,20,280,50);
-        imageMediano.setBounds(420,20,140,210);
+        descEnano.setBounds(20, 90, 400, 210);
+        descEnano.setOpaque(false);
+        descEnano.setEditable(false);
+        imageMediano.setBounds(440,20,140,210);
         labelMediano.setBounds(20,20,280,50);
+        descMediano.setBounds(20, 90, 400, 210);
+        descMediano.setOpaque(false);
+        descMediano.setEditable(false);
     }
     
     private void iniciarEventos(){
@@ -192,24 +212,40 @@ public class VentanaNuevaPartida extends JPanel {
         //Elementos panel Humano
         jPanelHumano.add(imageHumano);
         jPanelHumano.add(labelHumano);
+        jPanelHumano.add(descHumano);
+        descHumano.setFont(new Font("Dialog", Font.BOLD, 18));
+        descHumano.setForeground(Color.white);
+        descHumano.setLineWrap(true);
         labelHumano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelHumano.setForeground(Color.white);
         imageHumano.setVisible(true);
         //Elementos panel Elfo
         jPanelElfo.add(imageElfo);
         jPanelElfo.add(labelElfo);
+        jPanelElfo.add(descElfo);
+        descElfo.setFont(new Font("Dialog", Font.BOLD, 18));
+        descElfo.setForeground(Color.white);
+        descElfo.setLineWrap(true);
         labelElfo.setFont(new Font("Dialog", Font.BOLD, 38));
         labelElfo.setForeground(Color.white);
         imageElfo.setVisible(true);
         //Elementos panel Enano
         jPanelEnano.add(imageEnano);
         jPanelEnano.add(labelEnano);
+        jPanelEnano.add(descEnano);
+        descEnano.setFont(new Font("Dialog", Font.BOLD, 18));
+        descEnano.setForeground(Color.white);
+        descEnano.setLineWrap(true);
         labelEnano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelEnano.setForeground(Color.white);
         imageEnano.setVisible(true);
         //Elementos panel Mediano
         jPanelMediano.add(imageMediano);
         jPanelMediano.add(labelMediano);
+        jPanelMediano.add(descMediano);
+        descMediano.setFont(new Font("Dialog", Font.BOLD, 18));
+        descMediano.setForeground(Color.white);
+        descMediano.setLineWrap(true);
         labelMediano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelMediano.setForeground(Color.white);
         imageMediano.setVisible(true);

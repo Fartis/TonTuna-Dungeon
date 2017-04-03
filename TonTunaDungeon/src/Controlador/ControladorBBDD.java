@@ -71,8 +71,8 @@ public class ControladorBBDD {
                 int intelecto = Integer.parseInt(rs.getString("intelecto"));
                 String descripcion = rs.getString("descripcion");
                 listaPersonajes[i] = new Personaje("temporal", rs.getString("raza"), fuerza, constitucion, destreza, intelecto, descripcion, 1);
-                con.close();
             }
+            con.close();
         } catch (SQLException e) {
             System.out.println("SQL Exception: " + e.toString());
             return null;

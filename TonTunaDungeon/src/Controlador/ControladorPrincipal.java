@@ -17,10 +17,22 @@ public class ControladorPrincipal {
     
     private Personaje personajeActual=null;
     private RepositorioPartidas partidasGuardadas;
+    private static ControladorPrincipal singleton = null;
     
     
     public static void main(String[]args){
         ControladorGUI.getSingleton().menuPrincipal();
+    }
+    
+    private ControladorPrincipal(){
+        
+    }
+    
+    public static ControladorPrincipal getSingleton(){
+        if(singleton==null){
+            singleton = new ControladorPrincipal();
+        }
+        return singleton;
     }
     
     public void crearPersonaje(String nombre, String raza){
@@ -31,12 +43,12 @@ public class ControladorPrincipal {
         String[][] personaje = new String[4][6];
         Personaje[] listaPersonajes = ControladorBBDD.getSingleton().listaPersonajesBase();
         for(int i=0; i<personaje.length;i++){
-            personaje[i][1] = listaPersonajes[i].getRaza();
-            personaje[i][2] = Integer.toString(listaPersonajes[i].getFuerza());
-            personaje[i][3] = Integer.toString(listaPersonajes[i].getDestreza());
-            personaje[i][4] = Integer.toString(listaPersonajes[i].getIntelecto());
-            personaje[i][5] = Integer.toString(listaPersonajes[i].getConstitucion());
-            personaje[i][6] = listaPersonajes[i].getDescripcion();
+            personaje[i][0] = listaPersonajes[i].getRaza();
+            personaje[i][1] = Integer.toString(listaPersonajes[i].getFuerza());
+            personaje[i][2] = Integer.toString(listaPersonajes[i].getDestreza());
+            personaje[i][3] = Integer.toString(listaPersonajes[i].getIntelecto());
+            personaje[i][4] = Integer.toString(listaPersonajes[i].getConstitucion());
+            personaje[i][5] = listaPersonajes[i].getDescripcion();
         }
         return personaje;
     }
