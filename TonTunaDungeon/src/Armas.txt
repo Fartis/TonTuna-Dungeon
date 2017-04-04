@@ -36,11 +36,11 @@ Descripci�n:"Rama sobrante de la poda, escuece en el lomo"
 
 Piedra con filo:
 Tipo:2
-Descripci�n:"No est�n equilibradas, pero clavan tela"
+Descripci�n:"No est�n equilibradas, pero clavan"
 
-Boomerang:
+Chancla:
 Tipo:2
-Descripci�n:"Golpea y vuelve"
+Descripción:"una chalcla para arrojarla contra los enemigos"
 
 Chivata:
 Tipo:3
@@ -51,17 +51,35 @@ Tipo:3
 Descripción:"Una chuchara para apuntar hechizos o para comer sopa, según proceda"
 
 --Nivel 2--
-Vara verde:
+Tenedor:
 Tipo:1
-Descripción:"Vara de fresno aún flexible que pica tela"
+Descripción:"Tenedor para carnes, pincha bien cualquier otra cosa"
 
 Cuchillo para untar:
 Tipo:1
 Descripción:"un cuchillo que no pincha pero corta, aunque no mucho"
 
+Tenedos:
+Tipo:2
+Descripción:"Cubierto para pinchar con 2 puntas, de nivel 2 y tipo 2, es un tene2"
 
-
+Boomerang:
+Tipo:2
+Descripci�n:"Golpea y vuelve"
 
 Rascaculos:
 Tipo:3
 Descripción:"Vara de corta longitud que se usa para rascar dónde no te llegas bien, pero además puede usarse de varita mágica"
+
+Paleta de cocina:
+Tipo:3
+Descripción:"Puedes voltear la comida o puedes lanzar hechizos"
+
+--Armas Especiales--
+Vara verde:
+Tipo:1
+Descripción:"Vara de fresno aún flexible que pica tela"
+
+Hámster retornante:
+Tipo:2
+Descripción:"Hamster entrenado que lanzas contra los enemigos, impacta y vuelve contigo"
