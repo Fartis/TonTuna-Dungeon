@@ -46,6 +46,22 @@ Chivata:
 Tipo:3
 Descripci�n:"Bast�n que usan los viejos para espantar gamberros, muy útil para eslomar enemigos"
 
+Cuchara:
+Tipo:3
+Descripción:"Una chuchara para apuntar hechizos o para comer sopa, según proceda"
+
+--Nivel 2--
+Vara verde:
+Tipo:1
+Descripción:"Vara de fresno aún flexible que pica tela"
+
+Cuchillo para untar:
+Tipo:1
+Descripción:"un cuchillo que no pincha pero corta, aunque no mucho"
+
+
+
+
 Rascaculos:
 Tipo:3
 Descripción:"Vara de corta longitud que se usa para rascar dónde no te llegas bien, pero además puede usarse de varita mágica"
