@@ -6,6 +6,7 @@
 package Vista.Elementos;
 
 import Controlador.ControladorBBDD;
+import Controlador.ControladorCreadorPJ;
 import Controlador.ControladorGUI;
 import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
@@ -27,7 +28,6 @@ public class VentanaNuevaPartida extends JPanel {
 
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/nuevapartida.gif");
     private JFramePrincipal padre;
-    private int razaSeleccionada = 1;
     private String[][] infoPJ = ControladorPrincipal.getSingleton().infoPersonajeNuevo();
     
     //Botones
@@ -50,6 +50,11 @@ public class VentanaNuevaPartida extends JPanel {
     private imagePanel imageElfo = new imagePanel(140,210, "src/Recursos/razas/elfo.jpg");
     private imagePanel imageEnano = new imagePanel(140,210, "src/Recursos/razas/enano.jpg");
     private imagePanel imageMediano = new imagePanel(140,210, "src/Recursos/razas/mediano.jpg");
+    
+    private imagePanel imageFuerza = new imagePanel(40,40, "src/Recursos/atrib/fuerza.png");
+    private imagePanel imageDestreza = new imagePanel(40,40, "src/Recursos/atrib/destreza.png");
+    private imagePanel imageIntelecto = new imagePanel(40,40, "src/Recursos/atrib/intelecto.png");
+    private imagePanel imageConstitucion = new imagePanel(40,40, "src/Recursos/atrib/constitucion.png");
     
     //Etiquetas
     private JLabel labelHumano = new JLabel("HUMANO");
@@ -80,7 +85,7 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelMediano.setVisible(false);
             jPanelHumano.setVisible(true);
         }
-        razaSeleccionada = 1;
+        ControladorCreadorPJ.getSingleton().setRaza(1);
     }
     private void jButtonElfoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -90,7 +95,7 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelMediano.setVisible(false);
             jPanelHumano.setVisible(false);
         }
-        razaSeleccionada = 2;
+        ControladorCreadorPJ.getSingleton().setRaza(2);
     }
     private void jButtonEnanoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -100,7 +105,7 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelMediano.setVisible(false);
             jPanelHumano.setVisible(false);
         }
-        razaSeleccionada = 3;
+        ControladorCreadorPJ.getSingleton().setRaza(3);
     }
     private void jButtonMedianoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -110,7 +115,7 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelMediano.setVisible(true);
             jPanelHumano.setVisible(false);
         }
-        razaSeleccionada = 4;
+        ControladorCreadorPJ.getSingleton().setRaza(4);
     }
 
     public void setPadre(JFramePrincipal padre) {
@@ -216,6 +221,7 @@ public class VentanaNuevaPartida extends JPanel {
         descHumano.setFont(new Font("Dialog", Font.BOLD, 15));
         descHumano.setForeground(Color.white);
         descHumano.setLineWrap(true);
+        descHumano.setWrapStyleWord(true);
         descHumano.setHighlighter(null);
         labelHumano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelHumano.setForeground(Color.white);
@@ -227,6 +233,7 @@ public class VentanaNuevaPartida extends JPanel {
         descElfo.setFont(new Font("Dialog", Font.BOLD, 15));
         descElfo.setForeground(Color.white);
         descElfo.setLineWrap(true);
+        descElfo.setWrapStyleWord(true);
         descElfo.setHighlighter(null);
         labelElfo.setFont(new Font("Dialog", Font.BOLD, 38));
         labelElfo.setForeground(Color.white);
@@ -238,6 +245,7 @@ public class VentanaNuevaPartida extends JPanel {
         descEnano.setFont(new Font("Dialog", Font.BOLD, 15));
         descEnano.setForeground(Color.white);
         descEnano.setLineWrap(true);
+        descEnano.setWrapStyleWord(true);
         descEnano.setHighlighter(null);
         labelEnano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelEnano.setForeground(Color.white);
@@ -249,6 +257,7 @@ public class VentanaNuevaPartida extends JPanel {
         descMediano.setFont(new Font("Dialog", Font.BOLD, 15));
         descMediano.setForeground(Color.white);
         descMediano.setLineWrap(true);
+        descMediano.setWrapStyleWord(true);
         descMediano.setHighlighter(null);
         labelMediano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelMediano.setForeground(Color.white);
