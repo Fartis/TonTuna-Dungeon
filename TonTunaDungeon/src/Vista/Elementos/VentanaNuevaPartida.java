@@ -36,6 +36,14 @@ public class VentanaNuevaPartida extends JPanel {
     private JButton jButtonElfo = new JButton("Elfo");
     private JButton jButtonEnano = new JButton("Enano");
     private JButton jButtonMediano = new JButton("Mediano");
+    private JButton jButtonArribaFuerza = new JButton("↑");
+    private JButton jButtonAbajoFuerza = new JButton("↓");
+    private JButton jButtonArribaDestreza = new JButton("↑");
+    private JButton jButtonAbajoDestreza = new JButton("↓");
+    private JButton jButtonArribaIntelecto = new JButton("↑");
+    private JButton jButtonAbajoIntelecto = new JButton("↓");
+    private JButton jButtonArribaConstitucion = new JButton("↑");
+    private JButton jButtonAbajoConstitucion = new JButton("↓");
 
     //Paneles
     private JPanel jPanelHumano = new JPanel();
@@ -60,6 +68,10 @@ public class VentanaNuevaPartida extends JPanel {
     private JLabel labelDestreza = new JLabel("Destreza");
     private JLabel labelIntelecto = new JLabel("Intelecto");
     private JLabel labelConstitucion = new JLabel("Constitucion");
+    private JLabel labelPuntosFuerza = new JLabel();
+    private JLabel labelPuntosDestreza = new JLabel();
+    private JLabel labelPuntosIntelecto = new JLabel();
+    private JLabel labelPuntosConstitucion = new JLabel();
 
     private JLabel labelHumano = new JLabel("HUMANO");
     private JTextArea descHumano = new JTextArea(infoPJ[2][5]);
@@ -72,8 +84,12 @@ public class VentanaNuevaPartida extends JPanel {
 
     public VentanaNuevaPartida() {
         iniciarEventos();
-
         añadirElementosPaneles();
+        establecerAtributos(1);
+    }
+
+    private void establecerAtributos(int raza) {
+        ControladorCreadorPJ.getSingleton().iniciarAtributos(raza);
     }
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,8 +114,24 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelHumano.add(labelDestreza);
             jPanelHumano.add(labelIntelecto);
             jPanelHumano.add(labelConstitucion);
+            jPanelHumano.add(labelPuntosFuerza);
+            jPanelHumano.add(labelPuntosDestreza);
+            jPanelHumano.add(labelPuntosIntelecto);
+            jPanelHumano.add(labelPuntosConstitucion);
+            labelPuntosFuerza.setText(infoPJ[2][1]);
+            labelPuntosDestreza.setText(infoPJ[2][2]);
+            labelPuntosIntelecto.setText(infoPJ[2][3]);
+            labelPuntosConstitucion.setText(infoPJ[2][4]);
+            jPanelHumano.add(jButtonArribaFuerza);
+            jPanelHumano.add(jButtonAbajoFuerza);
+            jPanelHumano.add(jButtonArribaDestreza);
+            jPanelHumano.add(jButtonAbajoDestreza);
+            jPanelHumano.add(jButtonArribaIntelecto);
+            jPanelHumano.add(jButtonAbajoIntelecto);
+            jPanelHumano.add(jButtonArribaConstitucion);
+            jPanelHumano.add(jButtonAbajoConstitucion);
         }
-        ControladorCreadorPJ.getSingleton().setRaza(1);
+        establecerAtributos(1);
     }
 
     private void jButtonElfoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,8 +149,24 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelElfo.add(labelDestreza);
             jPanelElfo.add(labelIntelecto);
             jPanelElfo.add(labelConstitucion);
+            jPanelElfo.add(labelPuntosFuerza);
+            jPanelElfo.add(labelPuntosDestreza);
+            jPanelElfo.add(labelPuntosIntelecto);
+            jPanelElfo.add(labelPuntosConstitucion);
+            labelPuntosFuerza.setText(infoPJ[0][1]);
+            labelPuntosDestreza.setText(infoPJ[0][2]);
+            labelPuntosIntelecto.setText(infoPJ[0][3]);
+            labelPuntosConstitucion.setText(infoPJ[0][4]);
+            jPanelElfo.add(jButtonArribaFuerza);
+            jPanelElfo.add(jButtonAbajoFuerza);
+            jPanelElfo.add(jButtonArribaDestreza);
+            jPanelElfo.add(jButtonAbajoDestreza);
+            jPanelElfo.add(jButtonArribaIntelecto);
+            jPanelElfo.add(jButtonAbajoIntelecto);
+            jPanelElfo.add(jButtonArribaConstitucion);
+            jPanelElfo.add(jButtonAbajoConstitucion);
         }
-        ControladorCreadorPJ.getSingleton().setRaza(2);
+        establecerAtributos(2);
     }
 
     private void jButtonEnanoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,8 +184,24 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelEnano.add(labelDestreza);
             jPanelEnano.add(labelIntelecto);
             jPanelEnano.add(labelConstitucion);
+            jPanelEnano.add(labelPuntosFuerza);
+            jPanelEnano.add(labelPuntosDestreza);
+            jPanelEnano.add(labelPuntosIntelecto);
+            jPanelEnano.add(labelPuntosConstitucion);
+            labelPuntosFuerza.setText(infoPJ[1][1]);
+            labelPuntosDestreza.setText(infoPJ[1][2]);
+            labelPuntosIntelecto.setText(infoPJ[1][3]);
+            labelPuntosConstitucion.setText(infoPJ[1][4]);
+            jPanelEnano.add(jButtonArribaFuerza);
+            jPanelEnano.add(jButtonAbajoFuerza);
+            jPanelEnano.add(jButtonArribaDestreza);
+            jPanelEnano.add(jButtonAbajoDestreza);
+            jPanelEnano.add(jButtonArribaIntelecto);
+            jPanelEnano.add(jButtonAbajoIntelecto);
+            jPanelEnano.add(jButtonArribaConstitucion);
+            jPanelEnano.add(jButtonAbajoConstitucion);
         }
-        ControladorCreadorPJ.getSingleton().setRaza(3);
+        establecerAtributos(3);
     }
 
     private void jButtonMedianoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,14 +219,61 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelMediano.add(labelDestreza);
             jPanelMediano.add(labelIntelecto);
             jPanelMediano.add(labelConstitucion);
+            jPanelMediano.add(labelPuntosFuerza);
+            jPanelMediano.add(labelPuntosDestreza);
+            jPanelMediano.add(labelPuntosIntelecto);
+            jPanelMediano.add(labelPuntosConstitucion);
+            labelPuntosFuerza.setText(infoPJ[3][1]);
+            labelPuntosDestreza.setText(infoPJ[3][2]);
+            labelPuntosIntelecto.setText(infoPJ[3][3]);
+            labelPuntosConstitucion.setText(infoPJ[3][4]);
+            jPanelMediano.add(jButtonArribaFuerza);
+            jPanelMediano.add(jButtonAbajoFuerza);
+            jPanelMediano.add(jButtonArribaDestreza);
+            jPanelMediano.add(jButtonAbajoDestreza);
+            jPanelMediano.add(jButtonArribaIntelecto);
+            jPanelMediano.add(jButtonAbajoIntelecto);
+            jPanelMediano.add(jButtonArribaConstitucion);
+            jPanelMediano.add(jButtonAbajoConstitucion);
         }
-        ControladorCreadorPJ.getSingleton().setRaza(4);
+        establecerAtributos(4);
+    }
+
+    private void jButtonArribaFuerzaActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButtonAbajoFuerzaActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButtonArribaDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButtonAbajoDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButtonArribaIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButtonAbajoIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButtonArribaConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jButtonAbajoConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
     }
 
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;
     }
-
 
     @Override
     public void paintComponent(Graphics g) {
@@ -174,6 +285,14 @@ public class VentanaNuevaPartida extends JPanel {
         jButtonElfo.setBounds(20, 147, 100, 107);
         jButtonEnano.setBounds(20, 274, 100, 107);
         jButtonMediano.setBounds(20, 401, 100, 107);
+        jButtonArribaFuerza.setBounds(160, 260, 50, 40);
+        jButtonAbajoFuerza.setBounds(160, 300, 50, 40);
+        jButtonArribaDestreza.setBounds(400, 260, 50, 40);
+        jButtonAbajoDestreza.setBounds(400, 300, 50, 40);
+        jButtonArribaIntelecto.setBounds(160, 360, 50, 40);
+        jButtonAbajoIntelecto.setBounds(160, 400, 50, 40);
+        jButtonArribaConstitucion.setBounds(400, 360, 50, 40);
+        jButtonAbajoConstitucion.setBounds(400, 400, 50, 40);
         //Paneles
         seleccionPersonaje.setBounds(20, 20, 140, 530);
         jPanelHumano.setBounds(180, 20, 600, 460);
@@ -230,8 +349,19 @@ public class VentanaNuevaPartida extends JPanel {
         labelConstitucion.setFont(new Font("Dialog", Font.BOLD, 15));
         labelConstitucion.setForeground(Color.white);
         labelConstitucion.setBounds(310, 320, 100, 80);
-        
-        
+
+        labelPuntosFuerza.setFont(new Font("Dialog", Font.BOLD, 30));
+        labelPuntosFuerza.setForeground(Color.white);
+        labelPuntosFuerza.setBounds(90, 260, 100, 80);
+        labelPuntosDestreza.setFont(new Font("Dialog", Font.BOLD, 30));
+        labelPuntosDestreza.setForeground(Color.white);
+        labelPuntosDestreza.setBounds(330, 260, 100, 80);
+        labelPuntosIntelecto.setFont(new Font("Dialog", Font.BOLD, 30));
+        labelPuntosIntelecto.setForeground(Color.white);
+        labelPuntosIntelecto.setBounds(90, 360, 100, 80);
+        labelPuntosConstitucion.setFont(new Font("Dialog", Font.BOLD, 30));
+        labelPuntosConstitucion.setForeground(Color.white);
+        labelPuntosConstitucion.setBounds(330, 360, 100, 80);
     }
 
     private void iniciarEventos() {
@@ -261,6 +391,46 @@ public class VentanaNuevaPartida extends JPanel {
                 jButtonMedianoActionPerformed(evt);
             }
         });
+        jButtonArribaFuerza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonArribaFuerzaActionPerformed(evt);
+            }
+        });
+        jButtonAbajoFuerza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAbajoFuerzaActionPerformed(evt);
+            }
+        });
+        jButtonArribaDestreza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonArribaDestrezaActionPerformed(evt);
+            }
+        });
+        jButtonAbajoDestreza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAbajoDestrezaActionPerformed(evt);
+            }
+        });
+        jButtonArribaIntelecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonArribaIntelectoActionPerformed(evt);
+            }
+        });
+        jButtonAbajoIntelecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAbajoIntelectoActionPerformed(evt);
+            }
+        });
+        jButtonArribaConstitucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonArribaConstitucionActionPerformed(evt);
+            }
+        });
+        jButtonAbajoConstitucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAbajoConstitucionActionPerformed(evt);
+            }
+        });
     }
 
     private void añadirElementosPaneles() {
@@ -278,11 +448,6 @@ public class VentanaNuevaPartida extends JPanel {
         seleccionPersonaje.add(jButtonElfo);
         seleccionPersonaje.add(jButtonEnano);
         seleccionPersonaje.add(jButtonMediano);
-
-        //Elementos panel Humano
-        jPanelHumano.add(imageHumano);
-        jPanelHumano.add(labelHumano);
-        jPanelHumano.add(descHumano);
         jPanelHumano.add(imageFuerza);
         jPanelHumano.add(imageDestreza);
         jPanelHumano.add(imageIntelecto);
@@ -291,6 +456,27 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelHumano.add(labelDestreza);
         jPanelHumano.add(labelIntelecto);
         jPanelHumano.add(labelConstitucion);
+        jPanelHumano.add(labelPuntosFuerza);
+        jPanelHumano.add(labelPuntosDestreza);
+        jPanelHumano.add(labelPuntosIntelecto);
+        jPanelHumano.add(labelPuntosConstitucion);
+        labelPuntosFuerza.setText(infoPJ[2][1]);
+        labelPuntosDestreza.setText(infoPJ[2][2]);
+        labelPuntosIntelecto.setText(infoPJ[2][3]);
+        labelPuntosConstitucion.setText(infoPJ[2][4]);
+        jPanelHumano.add(jButtonArribaFuerza);
+        jPanelHumano.add(jButtonAbajoFuerza);
+        jPanelHumano.add(jButtonArribaDestreza);
+        jPanelHumano.add(jButtonAbajoDestreza);
+        jPanelHumano.add(jButtonArribaIntelecto);
+        jPanelHumano.add(jButtonAbajoIntelecto);
+        jPanelHumano.add(jButtonArribaConstitucion);
+        jPanelHumano.add(jButtonAbajoConstitucion);
+
+        //Elementos panel Humano
+        jPanelHumano.add(imageHumano);
+        jPanelHumano.add(labelHumano);
+        jPanelHumano.add(descHumano);
         descHumano.setFont(new Font("Dialog", Font.BOLD, 15));
         descHumano.setForeground(Color.white);
         descHumano.setLineWrap(true);

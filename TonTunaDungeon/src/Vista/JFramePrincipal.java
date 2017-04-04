@@ -6,6 +6,7 @@
 package Vista;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
@@ -30,6 +31,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
 
     }
+    
 
     public void createAndShowUI(JPanel jPanel, String url) {
         try {

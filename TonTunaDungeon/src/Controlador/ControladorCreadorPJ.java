@@ -32,11 +32,18 @@ public class ControladorCreadorPJ {
         return singleton;
     }
 
-    public void setRaza(int i) {
-        razaSeleccionada = i;
-    }
-
     public void crearPersonaje(){
         
+    }
+    
+    public void iniciarAtributos(int razaSeleccionada){
+        String raza="humano";
+        switch(razaSeleccionada){
+            case 1: raza="humano"; break;
+            case 2: raza="elfo"; break;
+            case 3: raza="enano"; break;
+            case 4: raza="mediano"; break;
+        }
+        personaje=ControladorBBDD.getSingleton().crearPJBase("temporal",raza);
     }
 }
