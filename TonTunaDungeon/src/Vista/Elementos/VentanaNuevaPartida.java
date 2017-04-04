@@ -5,7 +5,6 @@
  */
 package Vista.Elementos;
 
-import Controlador.ControladorBBDD;
 import Controlador.ControladorCreadorPJ;
 import Controlador.ControladorGUI;
 import Controlador.ControladorPrincipal;
@@ -19,7 +18,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -222,16 +220,18 @@ public class VentanaNuevaPartida extends JPanel {
 
         labelFuerza.setFont(new Font("Dialog", Font.BOLD, 15));
         labelFuerza.setForeground(Color.white);
-        labelFuerza.setBounds(70, 220, 80, 80);
+        labelFuerza.setBounds(70, 220, 100, 80);
         labelDestreza.setFont(new Font("Dialog", Font.BOLD, 15));
         labelDestreza.setForeground(Color.white);
-        labelDestreza.setBounds(310, 220, 80, 80);
+        labelDestreza.setBounds(310, 220, 100, 80);
         labelIntelecto.setFont(new Font("Dialog", Font.BOLD, 15));
         labelIntelecto.setForeground(Color.white);
-        labelIntelecto.setBounds(70, 320, 80, 80);
+        labelIntelecto.setBounds(70, 320, 100, 80);
         labelConstitucion.setFont(new Font("Dialog", Font.BOLD, 15));
         labelConstitucion.setForeground(Color.white);
-        labelConstitucion.setBounds(310, 320, 80, 80);
+        labelConstitucion.setBounds(310, 320, 100, 80);
+        
+        
     }
 
     private void iniciarEventos() {
