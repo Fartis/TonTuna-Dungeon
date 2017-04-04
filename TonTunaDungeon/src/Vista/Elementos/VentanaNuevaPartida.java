@@ -241,34 +241,42 @@ public class VentanaNuevaPartida extends JPanel {
 
     private void jButtonArribaFuerzaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        labelPuntosFuerza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirFuerza()));
     }
 
     private void jButtonAbajoFuerzaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        labelPuntosFuerza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarFuerza()));
     }
 
     private void jButtonArribaDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        labelPuntosDestreza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirDestreza()));
     }
 
     private void jButtonAbajoDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        labelPuntosDestreza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarDestreza()));
     }
 
     private void jButtonArribaIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        labelPuntosIntelecto.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirIntelecto()));
     }
 
     private void jButtonAbajoIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        labelPuntosIntelecto.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarIntelecto()));
     }
 
     private void jButtonArribaConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        labelPuntosConstitucion.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirConstitucion()));
     }
 
     private void jButtonAbajoConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        labelPuntosConstitucion.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarConstitucion()));
     }
 
     public void setPadre(JFramePrincipal padre) {
