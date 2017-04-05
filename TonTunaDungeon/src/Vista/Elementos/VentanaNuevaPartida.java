@@ -317,22 +317,22 @@ public class VentanaNuevaPartida extends JPanel {
         //Estableciendo elementos de los paneles internos de razas
         imageHumano.setBounds(440, 20, 140, 210);
         labelHumano.setBounds(20, 20, 280, 50);
-        descHumano.setBounds(20, 90, 400, 210);
+        descHumano.setBounds(20, 90, 400, 140);
         descHumano.setOpaque(false);
         descHumano.setEditable(false);
         imageElfo.setBounds(440, 20, 140, 210);
         labelElfo.setBounds(20, 20, 280, 50);
-        descElfo.setBounds(20, 90, 400, 210);
+        descElfo.setBounds(20, 90, 400, 140);
         descElfo.setOpaque(false);
         descElfo.setEditable(false);
         imageEnano.setBounds(440, 20, 140, 210);
         labelEnano.setBounds(20, 20, 280, 50);
-        descEnano.setBounds(20, 90, 400, 210);
+        descEnano.setBounds(20, 90, 400, 140);
         descEnano.setOpaque(false);
         descEnano.setEditable(false);
         imageMediano.setBounds(440, 20, 140, 210);
         labelMediano.setBounds(20, 20, 280, 50);
-        descMediano.setBounds(20, 90, 400, 210);
+        descMediano.setBounds(20, 90, 400, 140);
         descMediano.setOpaque(false);
         descMediano.setEditable(false);
 

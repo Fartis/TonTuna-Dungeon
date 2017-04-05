@@ -52,6 +52,7 @@ public class ControladorCreadorPJ {
                 raza = "mediano";
                 break;
         }
+        puntosPersonaje = 6;
         personaje = ControladorBBDD.getSingleton().crearPJBase("temporal", raza);
         fuerza = personaje.getFuerza();
         destreza = personaje.getDestreza();

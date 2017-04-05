@@ -22,6 +22,7 @@ public class VentanaLogo extends JPanel {
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/logoanimado.gif");
     JButton jButtonIniciar = new JButton("Iniciar Partida");
     JButton jButtonCargar = new JButton("Cargar Partida");
+    JButton jButtonLogros = new JButton("Logros");
     JButton jButtonSalir = new JButton("Salir");
     JFramePrincipal padre;
 
@@ -36,6 +37,11 @@ public class VentanaLogo extends JPanel {
                 jButtonCargarActionPerformed(evt);
             }
         });
+        jButtonLogros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogrosActionPerformed(evt);
+            }
+        });
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalirActionPerformed(evt);
@@ -44,6 +50,7 @@ public class VentanaLogo extends JPanel {
 
         this.add(jButtonIniciar);
         this.add(jButtonCargar);
+        this.add(jButtonLogros);
         this.add(jButtonSalir);
 
     }
@@ -66,6 +73,11 @@ public class VentanaLogo extends JPanel {
 
     }
 
+    private void jButtonLogrosActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+    }
+
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         System.exit(0);
@@ -75,8 +87,9 @@ public class VentanaLogo extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(image, 0, 0, 800, 600, this);
-        jButtonIniciar.setBounds(300, 380, 200, 40);
-        jButtonCargar.setBounds(300, 430, 200, 40);
-        jButtonSalir.setBounds(300, 480, 200, 40);
+        jButtonIniciar.setBounds(300, 360, 200, 40);
+        jButtonCargar.setBounds(300, 410, 200, 40);
+        jButtonLogros.setBounds(300, 460, 200, 40);
+        jButtonSalir.setBounds(300, 510, 200, 40);
     }
 }
