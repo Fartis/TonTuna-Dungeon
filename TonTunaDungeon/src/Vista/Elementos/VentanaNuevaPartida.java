@@ -509,7 +509,7 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelHumano.add(jButtonAbajoIntelecto);
         jPanelHumano.add(jButtonArribaConstitucion);
         jPanelHumano.add(jButtonAbajoConstitucion);
-        labelPuntosDisponibles.setText("6");
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
         jPanelHumano.add(labelPuntos);
         jPanelHumano.add(labelPuntosDisponibles);
 
