@@ -72,6 +72,8 @@ public class VentanaNuevaPartida extends JPanel {
     private JLabel labelPuntosDestreza = new JLabel();
     private JLabel labelPuntosIntelecto = new JLabel();
     private JLabel labelPuntosConstitucion = new JLabel();
+    private JLabel labelPuntos = new JLabel("Puntos");
+    private JLabel labelPuntosDisponibles = new JLabel();
 
     private JLabel labelHumano = new JLabel("HUMANO");
     private JTextArea descHumano = new JTextArea(infoPJ[2][5]);
@@ -130,8 +132,11 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelHumano.add(jButtonAbajoIntelecto);
             jPanelHumano.add(jButtonArribaConstitucion);
             jPanelHumano.add(jButtonAbajoConstitucion);
+            jPanelHumano.add(labelPuntos);
+            jPanelHumano.add(labelPuntosDisponibles);
         }
         establecerAtributos(1);
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonElfoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,8 +170,11 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelElfo.add(jButtonAbajoIntelecto);
             jPanelElfo.add(jButtonArribaConstitucion);
             jPanelElfo.add(jButtonAbajoConstitucion);
+            jPanelElfo.add(labelPuntos);
+            jPanelElfo.add(labelPuntosDisponibles);
         }
         establecerAtributos(2);
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonEnanoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,8 +208,12 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelEnano.add(jButtonAbajoIntelecto);
             jPanelEnano.add(jButtonArribaConstitucion);
             jPanelEnano.add(jButtonAbajoConstitucion);
+            jPanelEnano.add(labelPuntos);
+            jPanelEnano.add(labelPuntosDisponibles);
         }
         establecerAtributos(3);
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
+
     }
 
     private void jButtonMedianoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,48 +247,59 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelMediano.add(jButtonAbajoIntelecto);
             jPanelMediano.add(jButtonArribaConstitucion);
             jPanelMediano.add(jButtonAbajoConstitucion);
+            jPanelMediano.add(labelPuntos);
+            jPanelMediano.add(labelPuntosDisponibles);
         }
         establecerAtributos(4);
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonArribaFuerzaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosFuerza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirFuerza()));
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonAbajoFuerzaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosFuerza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarFuerza()));
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonArribaDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosDestreza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirDestreza()));
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonAbajoDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosDestreza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarDestreza()));
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonArribaIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosIntelecto.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirIntelecto()));
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonAbajoIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosIntelecto.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarIntelecto()));
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonArribaConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosConstitucion.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirConstitucion()));
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     private void jButtonAbajoConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosConstitucion.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarConstitucion()));
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
     public void setPadre(JFramePrincipal padre) {
@@ -357,6 +380,12 @@ public class VentanaNuevaPartida extends JPanel {
         labelConstitucion.setFont(new Font("Dialog", Font.BOLD, 15));
         labelConstitucion.setForeground(Color.white);
         labelConstitucion.setBounds(310, 320, 100, 80);
+        labelPuntos.setFont(new Font("Dialog", Font.BOLD, 15));
+        labelPuntos.setForeground(Color.white);
+        labelPuntos.setBounds(500, 300, 100, 80);
+        labelPuntosDisponibles.setFont(new Font("Dialog", Font.BOLD, 48));
+        labelPuntosDisponibles.setForeground(Color.white);
+        labelPuntosDisponibles.setBounds(520, 360, 100, 80);
 
         labelPuntosFuerza.setFont(new Font("Dialog", Font.BOLD, 30));
         labelPuntosFuerza.setForeground(Color.white);
@@ -480,6 +509,9 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelHumano.add(jButtonAbajoIntelecto);
         jPanelHumano.add(jButtonArribaConstitucion);
         jPanelHumano.add(jButtonAbajoConstitucion);
+        labelPuntosDisponibles.setText("6");
+        jPanelHumano.add(labelPuntos);
+        jPanelHumano.add(labelPuntosDisponibles);
 
         //Elementos panel Humano
         jPanelHumano.add(imageHumano);

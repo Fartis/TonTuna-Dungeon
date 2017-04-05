@@ -145,4 +145,8 @@ public class ControladorCreadorPJ {
         }
 
     }
+    
+    public int actualizarPuntosDisponibles(){
+        return puntosPersonaje;
+    }
 }
