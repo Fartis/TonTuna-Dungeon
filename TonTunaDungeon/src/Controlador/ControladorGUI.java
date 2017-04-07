@@ -17,7 +17,10 @@ import Vista.JFramePrincipal;
 public class ControladorGUI {
 
     private static ControladorGUI singleton = null;
-    private static JFramePrincipal menuPrin = null, nuevaPar = null;
+    private static JFramePrincipal
+            menuPrin = null,
+            nuevaPar = null,
+            mensajeInicio=null;
 
     private ControladorGUI() {
 
@@ -31,6 +34,7 @@ public class ControladorGUI {
     }
 
     public void menuPrincipal() {
+        ocultar();
         if (nuevaPar!=null){
             nuevaPar.visible(false);
         }
@@ -44,7 +48,7 @@ public class ControladorGUI {
     }
 
     public void menuNuevaPartida() {
-        menuPrin.visible(false);
+        ocultar();
         VentanaNuevaPartida menu1 = new VentanaNuevaPartida();
         if (nuevaPar == null) {
             nuevaPar = new JFramePrincipal(menu1, "/Recursos/nuevapartida.gif");
@@ -55,12 +59,20 @@ public class ControladorGUI {
     }
 
     public void menuMensajeNuevaPartida(){
+        ocultar();
+        nuevaPar.visible(false);
         VentanaMensajeNuevaPartida menuMensaje = new VentanaMensajeNuevaPartida();
-        if (nuevaPar == null) {
-            nuevaPar = new JFramePrincipal(menuMensaje);
+        if (mensajeInicio == null) {
+            mensajeInicio = new JFramePrincipal(menuMensaje);
         } else {
-            nuevaPar.createAndShowUI(menuMensaje, "/Recursos/logoanimado.gif");
+            mensajeInicio.createAndShowUI(menuMensaje);
         }
-        menuMensaje.setPadre(nuevaPar);
+        menuMensaje.setPadre(mensajeInicio);
+    }
+    
+    private void ocultar(){
+        if(nuevaPar!=null)nuevaPar.visible(false);
+        if(menuPrin!=null)menuPrin.visible(false);
+        if(mensajeInicio!=null)mensajeInicio.visible(false);
     }
 }

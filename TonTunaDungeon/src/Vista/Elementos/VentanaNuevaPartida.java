@@ -54,27 +54,28 @@ public class VentanaNuevaPartida extends JPanel {
     private JPanel seleccionPersonaje = new JPanel();
 
     //Paneles con imagenes
-    private imagePanel imageHumano = new imagePanel(140, 210, "src/Recursos/razas/humano.jpg");
-    private imagePanel imageElfo = new imagePanel(140, 210, "src/Recursos/razas/elfo.jpg");
-    private imagePanel imageEnano = new imagePanel(140, 210, "src/Recursos/razas/enano.jpg");
-    private imagePanel imageMediano = new imagePanel(140, 210, "src/Recursos/razas/mediano.jpg");
-
-    private imagePanel imageFuerza = new imagePanel(40, 40, "src/Recursos/atrib/fuerza.png");
-    private imagePanel imageDestreza = new imagePanel(40, 40, "src/Recursos/atrib/destreza.png");
-    private imagePanel imageIntelecto = new imagePanel(40, 40, "src/Recursos/atrib/intelecto.png");
-    private imagePanel imageConstitucion = new imagePanel(40, 40, "src/Recursos/atrib/constitucion.png");
+    private imagePanel 
+            imageHumano = new imagePanel(140, 210, "src/Recursos/razas/humano.jpg"),
+            imageElfo = new imagePanel(140, 210, "src/Recursos/razas/elfo.jpg"),
+            imageEnano = new imagePanel(140, 210, "src/Recursos/razas/enano.jpg"),
+            imageMediano = new imagePanel(140, 210, "src/Recursos/razas/mediano.jpg"),
+            imageFuerza = new imagePanel(40, 40, "src/Recursos/atrib/fuerza.png"),
+            imageDestreza = new imagePanel(40, 40, "src/Recursos/atrib/destreza.png"),
+            imageIntelecto = new imagePanel(40, 40, "src/Recursos/atrib/intelecto.png"),
+            imageConstitucion = new imagePanel(40, 40, "src/Recursos/atrib/constitucion.png");
 
     //Etiquetas
-    private JLabel labelFuerza = new JLabel("Fuerza");
-    private JLabel labelDestreza = new JLabel("Destreza");
-    private JLabel labelIntelecto = new JLabel("Intelecto");
-    private JLabel labelConstitucion = new JLabel("Constitucion");
-    private JLabel labelPuntosFuerza = new JLabel();
-    private JLabel labelPuntosDestreza = new JLabel();
-    private JLabel labelPuntosIntelecto = new JLabel();
-    private JLabel labelPuntosConstitucion = new JLabel();
-    private JLabel labelPuntos = new JLabel("Puntos");
-    private JLabel labelPuntosDisponibles = new JLabel();
+    private JLabel 
+            labelFuerza = new JLabel("Fuerza"),
+            labelDestreza = new JLabel("Destreza"),
+            labelIntelecto = new JLabel("Intelecto"),
+            labelConstitucion = new JLabel("Constitucion"),
+            labelPuntosFuerza = new JLabel(),
+            labelPuntosDestreza = new JLabel(),
+            labelPuntosIntelecto = new JLabel(),
+            labelPuntosConstitucion = new JLabel(),
+            labelPuntos = new JLabel("Puntos"),
+            labelPuntosDisponibles = new JLabel();
 
     private JLabel labelHumano = new JLabel("HUMANO");
     private JTextArea descHumano = new JTextArea(infoPJ[2][5]);
@@ -97,15 +98,15 @@ public class VentanaNuevaPartida extends JPanel {
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        if(Integer.parseInt(labelPuntosDisponibles.getText())==0){
+        if (Integer.parseInt(labelPuntosDisponibles.getText()) == 0) {
             ControladorGUI.getSingleton().menuMensajeNuevaPartida();
             this.setVisible(false);
             padre.dispose();
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Aún tienes puntos por repartir en los atributos.");
         }
     }
-    
+
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         ControladorGUI.getSingleton().menuPrincipal();
