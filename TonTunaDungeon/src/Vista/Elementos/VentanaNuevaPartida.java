@@ -26,36 +26,36 @@ import javax.swing.JTextArea;
  */
 public class VentanaNuevaPartida extends JPanel {
 
+    ////Variables e instancias.
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/nuevapartida.gif");
     private JFramePrincipal padre;
     private String[][] infoPJ = ControladorPrincipal.getSingleton().infoPersonajeNuevo();
 
     //Botones
-    private JButton jButtonAtras = new JButton("Atras");
-    private JButton jButtonIniciar = new JButton("Iniciar partida");
-    private JButton jButtonHumano = new JButton("Humano");
-    private JButton jButtonElfo = new JButton("Elfo");
-    private JButton jButtonEnano = new JButton("Enano");
-    private JButton jButtonMediano = new JButton("Mediano");
-    private JButton jButtonArribaFuerza = new JButton("↑");
-    private JButton jButtonAbajoFuerza = new JButton("↓");
-    private JButton jButtonArribaDestreza = new JButton("↑");
-    private JButton jButtonAbajoDestreza = new JButton("↓");
-    private JButton jButtonArribaIntelecto = new JButton("↑");
-    private JButton jButtonAbajoIntelecto = new JButton("↓");
-    private JButton jButtonArribaConstitucion = new JButton("↑");
-    private JButton jButtonAbajoConstitucion = new JButton("↓");
+    private JButton jButtonAtras = new JButton("Atras"),
+            jButtonIniciar = new JButton("Iniciar partida"),
+            jButtonHumano = new JButton("Humano"),
+            jButtonElfo = new JButton("Elfo"),
+            jButtonEnano = new JButton("Enano"),
+            jButtonMediano = new JButton("Mediano"),
+            jButtonArribaFuerza = new JButton("↑"),
+            jButtonAbajoFuerza = new JButton("↓"),
+            jButtonArribaDestreza = new JButton("↑"),
+            jButtonAbajoDestreza = new JButton("↓"),
+            jButtonArribaIntelecto = new JButton("↑"),
+            jButtonAbajoIntelecto = new JButton("↓"),
+            jButtonArribaConstitucion = new JButton("↑"),
+            jButtonAbajoConstitucion = new JButton("↓");
 
     //Paneles
-    private JPanel jPanelHumano = new JPanel();
-    private JPanel jPanelElfo = new JPanel();
-    private JPanel jPanelEnano = new JPanel();
-    private JPanel jPanelMediano = new JPanel();
-    private JPanel seleccionPersonaje = new JPanel();
+    private JPanel jPanelHumano = new JPanel(),
+            jPanelElfo = new JPanel(),
+            jPanelEnano = new JPanel(),
+            jPanelMediano = new JPanel(),
+            seleccionPersonaje = new JPanel();
 
     //Paneles con imagenes
-    private imagePanel 
-            imageHumano = new imagePanel(140, 210, "src/Recursos/razas/humano.jpg"),
+    private imagePanel imageHumano = new imagePanel(140, 210, "src/Recursos/razas/humano.jpg"),
             imageElfo = new imagePanel(140, 210, "src/Recursos/razas/elfo.jpg"),
             imageEnano = new imagePanel(140, 210, "src/Recursos/razas/enano.jpg"),
             imageMediano = new imagePanel(140, 210, "src/Recursos/razas/mediano.jpg"),
@@ -65,8 +65,7 @@ public class VentanaNuevaPartida extends JPanel {
             imageConstitucion = new imagePanel(40, 40, "src/Recursos/atrib/constitucion.png");
 
     //Etiquetas
-    private JLabel 
-            labelFuerza = new JLabel("Fuerza"),
+    private JLabel labelFuerza = new JLabel("Fuerza"),
             labelDestreza = new JLabel("Destreza"),
             labelIntelecto = new JLabel("Intelecto"),
             labelConstitucion = new JLabel("Constitucion"),
@@ -75,17 +74,20 @@ public class VentanaNuevaPartida extends JPanel {
             labelPuntosIntelecto = new JLabel(),
             labelPuntosConstitucion = new JLabel(),
             labelPuntos = new JLabel("Puntos"),
-            labelPuntosDisponibles = new JLabel();
+            labelPuntosDisponibles = new JLabel(),
+            labelHumano = new JLabel("HUMANO"),
+            labelElfo = new JLabel("ELFO"),
+            labelEnano = new JLabel("ENANO"),
+            labelMediano = new JLabel("MEDIANO");
 
-    private JLabel labelHumano = new JLabel("HUMANO");
-    private JTextArea descHumano = new JTextArea(infoPJ[2][5]);
-    private JLabel labelElfo = new JLabel("ELFO");
-    private JTextArea descElfo = new JTextArea(infoPJ[0][5]);
-    private JLabel labelEnano = new JLabel("ENANO");
-    private JTextArea descEnano = new JTextArea(infoPJ[1][5]);
-    private JLabel labelMediano = new JLabel("MEDIANO");
-    private JTextArea descMediano = new JTextArea(infoPJ[3][5]);
+    //Areas de texto
+    private JTextArea descHumano = new JTextArea(infoPJ[2][5]),
+            descElfo = new JTextArea(infoPJ[0][5]),
+            descEnano = new JTextArea(infoPJ[1][5]),
+            descMediano = new JTextArea(infoPJ[3][5]);
 
+    
+    ////Metodos
     public VentanaNuevaPartida() {
         iniciarEventos();
         añadirElementosPaneles();
@@ -531,9 +533,10 @@ public class VentanaNuevaPartida extends JPanel {
         jPanelHumano.add(jButtonAbajoIntelecto);
         jPanelHumano.add(jButtonArribaConstitucion);
         jPanelHumano.add(jButtonAbajoConstitucion);
-        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
         jPanelHumano.add(labelPuntos);
         jPanelHumano.add(labelPuntosDisponibles);
+        
+        labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
 
         //Elementos panel Humano
         jPanelHumano.add(imageHumano);
@@ -583,6 +586,5 @@ public class VentanaNuevaPartida extends JPanel {
         labelMediano.setFont(new Font("Dialog", Font.BOLD, 38));
         labelMediano.setForeground(Color.white);
         imageMediano.setVisible(true);
-
     }
 }
