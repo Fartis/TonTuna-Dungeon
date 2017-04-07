@@ -24,14 +24,21 @@ public class JFramePrincipal extends javax.swing.JFrame {
      * Creates new form JFramePrincipal
      */
     public JFramePrincipal(JPanel jPanel, String url) {
+
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowUI(jPanel, url);
             }
         });
-
     }
-    
+
+    public JFramePrincipal(JPanel jPanel) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowUI(jPanel);
+            }
+        });
+    }
 
     public void createAndShowUI(JPanel jPanel, String url) {
         try {
@@ -39,6 +46,20 @@ public class JFramePrincipal extends javax.swing.JFrame {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(800, 600);
             Image image = Toolkit.getDefaultToolkit().getImage(url);
+            frame.add(jPanel);
+            frame.setTitle("Tontuna Dungeon");
+            frame.setResizable(false);
+            frame.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void createAndShowUI(JPanel jPanel) {
+        try {
+            frame = new JFrame();
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(800, 600);
             frame.add(jPanel);
             frame.setTitle("Tontuna Dungeon");
             frame.setResizable(false);

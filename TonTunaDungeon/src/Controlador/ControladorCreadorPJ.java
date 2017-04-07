@@ -36,7 +36,7 @@ public class ControladorCreadorPJ {
 
     }
 
-    public void iniciarAtributos(int razaSeleccionada) {
+    public void iniciarAtributosPersonajes(int razaSeleccionada) {
         String raza = "humano";
         switch (razaSeleccionada) {
             case 1:
@@ -57,7 +57,7 @@ public class ControladorCreadorPJ {
         fuerza = personaje.getFuerza();
         destreza = personaje.getDestreza();
         intelecto = personaje.getIntelecto();
-        constitucion = personaje.getIntelecto();
+        constitucion = personaje.getConstitucion();
     }
 
     public int subirFuerza() {
@@ -71,7 +71,7 @@ public class ControladorCreadorPJ {
     }
 
     public int bajarFuerza() {
-        if (puntosPersonaje <= 6 && fuerza>personaje.getFuerza()) {
+        if (puntosPersonaje <= 6 && fuerza > personaje.getFuerza()) {
             fuerza--;
             puntosPersonaje++;
             return fuerza;
@@ -92,7 +92,7 @@ public class ControladorCreadorPJ {
     }
 
     public int bajarDestreza() {
-        if (puntosPersonaje <= 6 && destreza>personaje.getDestreza()) {
+        if (puntosPersonaje <= 6 && destreza > personaje.getDestreza()) {
             destreza--;
             puntosPersonaje++;
             return destreza;
@@ -114,7 +114,7 @@ public class ControladorCreadorPJ {
     }
 
     public int bajarIntelecto() {
-        if (puntosPersonaje <= 6 && intelecto>personaje.getIntelecto()) {
+        if (puntosPersonaje <= 6 && intelecto > personaje.getIntelecto()) {
             intelecto--;
             puntosPersonaje++;
             return intelecto;
@@ -136,7 +136,7 @@ public class ControladorCreadorPJ {
     }
 
     public int bajarConstitucion() {
-        if (puntosPersonaje <= 6 && constitucion>personaje.getConstitucion()) {
+        if (puntosPersonaje <= 6 && constitucion > personaje.getConstitucion()) {
             constitucion--;
             puntosPersonaje++;
             return constitucion;
@@ -145,8 +145,8 @@ public class ControladorCreadorPJ {
         }
 
     }
-    
-    public int actualizarPuntosDisponibles(){
+
+    public int actualizarPuntosDisponibles() {
         return puntosPersonaje;
     }
 }

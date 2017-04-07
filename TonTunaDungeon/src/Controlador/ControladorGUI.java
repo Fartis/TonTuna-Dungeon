@@ -6,6 +6,7 @@
 package Controlador;
 
 import Vista.Elementos.VentanaLogo;
+import Vista.Elementos.VentanaMensajeNuevaPartida;
 import Vista.Elementos.VentanaNuevaPartida;
 import Vista.JFramePrincipal;
 
@@ -53,4 +54,13 @@ public class ControladorGUI {
         menu1.setPadre(nuevaPar);
     }
 
+    public void menuMensajeNuevaPartida(){
+        VentanaMensajeNuevaPartida menuMensaje = new VentanaMensajeNuevaPartida();
+        if (nuevaPar == null) {
+            nuevaPar = new JFramePrincipal(menuMensaje);
+        } else {
+            nuevaPar.createAndShowUI(menuMensaje, "/Recursos/logoanimado.gif");
+        }
+        menuMensaje.setPadre(nuevaPar);
+    }
 }

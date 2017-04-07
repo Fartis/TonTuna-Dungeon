@@ -16,6 +16,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -91,10 +92,21 @@ public class VentanaNuevaPartida extends JPanel {
     }
 
     private void establecerAtributos(int raza) {
-        ControladorCreadorPJ.getSingleton().iniciarAtributos(raza);
+        ControladorCreadorPJ.getSingleton().iniciarAtributosPersonajes(raza);
     }
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        if(Integer.parseInt(labelPuntosDisponibles.getText())==0){
+            ControladorGUI.getSingleton().menuMensajeNuevaPartida();
+            this.setVisible(false);
+            padre.dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "Aún tienes puntos por repartir en los atributos.");
+        }
+    }
+    
+    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         ControladorGUI.getSingleton().menuPrincipal();
         this.setVisible(false);
@@ -309,6 +321,10 @@ public class VentanaNuevaPartida extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         g.drawImage(image, 0, 0, 800, 600, this);
+        estilizarElementos();
+    }
+
+    private void estilizarElementos() {
         //Botones
         jButtonAtras.setBounds(180, 508, 200, 40);
         jButtonIniciar.setBounds(580, 508, 200, 40);
@@ -403,9 +419,14 @@ public class VentanaNuevaPartida extends JPanel {
 
     private void iniciarEventos() {
 
-        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+        jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarActionPerformed(evt);
+            }
+        });
+        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtrasActionPerformed(evt);
             }
         });
         jButtonHumano.addActionListener(new java.awt.event.ActionListener() {

@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.Personaje;
 import Modelo.RepositorioPartidas;
+import Vista.JFramePrincipal;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,11 +22,31 @@ public class ControladorPrincipal {
     
     
     public static void main(String[]args){
+        cambiarEstiloGUI();
         ControladorGUI.getSingleton().menuPrincipal();
     }
     
     private ControladorPrincipal(){
         
+    }
+    
+    private static void cambiarEstiloGUI(){        
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("CDE/Motif".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
     }
     
     public static ControladorPrincipal getSingleton(){

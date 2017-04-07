@@ -32,11 +32,11 @@ public class Personaje {
     }
 
     private void establecerVida() {
-        int cantidad=0;
-        for(int i=0; i<constitucion; i++){
-            cantidad = cantidad+Dado.lanza(6);
+        int cantidad = 0;
+        for (int i = 0; i < getConstitucion(); i++) {
+            cantidad = cantidad + Dado.lanza(6);
         }
-        this.vida=cantidad;
+        this.setVida(cantidad);
     }
 
     public Armadura getArmadura() {
@@ -126,12 +126,10 @@ public class Personaje {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
 
     @Override
     public String toString() {
-        return "Personaje{" + "nombre=" + nombre + "fuerza=" + fuerza + ", destreza=" + destreza + ", constitucion=" + constitucion + ", intelecto=" + intelecto + ", vida=" + vida + ", nivel=" + nivel + ", descripcion=" + descripcion + ", raza=" + raza + ", armadura=" + armadura + ", arma=" + arma + '}';
+        return "Personaje{" + "nombre=" + getNombre() + "fuerza=" + getFuerza() + ", destreza=" + getDestreza() + ", constitucion=" + getConstitucion() + ", intelecto=" + getIntelecto() + ", vida=" + getVida() + ", nivel=" + getNivel() + ", descripcion=" + getDescripcion() + ", raza=" + getRaza() + ", armadura=" + getArmadura() + ", arma=" + getArma() + '}';
     }
 
-    
 }
