@@ -30,6 +30,8 @@ public class VentanaNuevaPartida extends JPanel {
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/nuevapartida.gif");
     private JFramePrincipal padre;
     private String[][] infoPJ = ControladorPrincipal.getSingleton().infoPersonajeNuevo();
+    String raza="Humano";
+    String descripcion;
 
     //Botones
     private JButton jButtonAtras = new JButton("Atras"),
@@ -101,6 +103,12 @@ public class VentanaNuevaPartida extends JPanel {
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if (Integer.parseInt(labelPuntosDisponibles.getText()) == 0) {
+            ControladorPrincipal.getSingleton().iniciarPJ(this.raza,
+                    Integer.parseInt(labelPuntosFuerza.getText()),
+                    Integer.parseInt(labelPuntosDestreza.getText()),
+                    Integer.parseInt(labelPuntosIntelecto.getText()),
+                    Integer.parseInt(labelPuntosConstitucion.getText()),
+                    this.descripcion);
             ControladorGUI.getSingleton().menuMensajeNuevaPartida();
             this.setVisible(false);
             padre.dispose();
@@ -149,6 +157,8 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelHumano.add(jButtonAbajoConstitucion);
             jPanelHumano.add(labelPuntos);
             jPanelHumano.add(labelPuntosDisponibles);
+            this.raza="Humano";
+            this.descripcion=this.descHumano.getText();
         }
         establecerAtributos(1);
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
@@ -187,6 +197,8 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelElfo.add(jButtonAbajoConstitucion);
             jPanelElfo.add(labelPuntos);
             jPanelElfo.add(labelPuntosDisponibles);
+            this.raza="Elfo";
+            this.descripcion=this.descElfo.getText();
         }
         establecerAtributos(2);
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
@@ -225,6 +237,8 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelEnano.add(jButtonAbajoConstitucion);
             jPanelEnano.add(labelPuntos);
             jPanelEnano.add(labelPuntosDisponibles);
+            this.raza="Enano";
+            this.descripcion=this.descEnano.getText();
         }
         establecerAtributos(3);
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
@@ -264,6 +278,8 @@ public class VentanaNuevaPartida extends JPanel {
             jPanelMediano.add(jButtonAbajoConstitucion);
             jPanelMediano.add(labelPuntos);
             jPanelMediano.add(labelPuntosDisponibles);
+            this.raza="Mediano";
+            this.descripcion=this.descMediano.getText();
         }
         establecerAtributos(4);
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));

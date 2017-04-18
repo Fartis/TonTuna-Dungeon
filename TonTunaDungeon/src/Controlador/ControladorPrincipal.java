@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControladorPrincipal {
     
-    private Personaje personajeActual=null;
+    private Personaje personajeActual= new Personaje();
     private RepositorioPartidas partidasGuardadas;
     private static ControladorPrincipal singleton = null;
     
@@ -55,11 +55,7 @@ public class ControladorPrincipal {
         }
         return singleton;
     }
-    
-    public void crearPersonaje(String nombre, String raza){
-        personajeActual = ControladorBBDD.getSingleton().crearPJBase(nombre, raza);
-    }
-    
+        
     public String[][] infoPersonajeNuevo(){
         String[][] personaje = new String[4][6];
         Personaje[] listaPersonajes = ControladorBBDD.getSingleton().listaPersonajesBase();
@@ -84,5 +80,17 @@ public class ControladorPrincipal {
         return modelo;
     }
     
+    public void iniciarPJ(String raza, int fuerza, int destreza, int intelecto, int constitucion, String descripcion){
+        personajeActual.setRaza(raza);
+        personajeActual.setFuerza(fuerza);
+        personajeActual.setDestreza(destreza);
+        personajeActual.setIntelecto(intelecto);
+        personajeActual.setConstitucion(constitucion);
+        personajeActual.setDescripcion(descripcion);
+        personajeActual.establecerVida();
+    }
     
+    public void establecerNombrePJ(String nombre){
+        personajeActual.setNombre(nombre);
+    }
 }
