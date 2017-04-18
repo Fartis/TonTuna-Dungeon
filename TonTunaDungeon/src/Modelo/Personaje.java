@@ -18,6 +18,10 @@ public class Personaje {
     private String descripcion, raza, nombre;
     private Armadura armadura;
     private Arma arma;
+    
+    public Personaje(){
+        
+    }
 
     public Personaje(String nombre, String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion, int nivel) {
         this.nombre = nombre;
@@ -28,10 +32,9 @@ public class Personaje {
         this.intelecto = intelecto;
         this.descripcion = descripcion;
         this.nivel = nivel;
-        establecerVida();
     }
 
-    private void establecerVida() {
+    public void establecerVida() {
         int cantidad = 0;
         for (int i = 0; i < getConstitucion(); i++) {
             cantidad = cantidad + Dado.lanza(6);

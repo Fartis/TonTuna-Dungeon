@@ -6,6 +6,7 @@
 package Vista.Elementos;
 
 import Controlador.ControladorGUI;
+import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
 import java.awt.Color;
 import java.awt.Font;
@@ -13,6 +14,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -29,7 +31,7 @@ public class VentanaMensajeNuevaPartida extends JPanel {
             + " político que está en el gobierno con sus decisiones te impida tener una"
             + " vida laboral plena decides ir en busca de tesoros para poder vivir una"
             + " vida de gula y lujuria, llevado por este deseo irrefrenable de aventuras"
-            + " decides escribirle una carta a tu querida madre:\n"+"\n"+"\"MAMA, que me"
+            + " decides escribirle una carta a tu querida madre:\n" + "\n" + "\"MAMA, que me"
             + " voy de aventuras, estoy harto de ser un nini, he decidido que quiero ser"
             + " aventurero y saqueador de mazmorras, volveré para la hora de cenar, guárdame"
             + " la comida y me la caliento en el microondas.\n PD: Me llevo 5€ pa' tabaco.");
@@ -51,16 +53,21 @@ public class VentanaMensajeNuevaPartida extends JPanel {
         this.add(mensajeComilla);
         this.add(textFieldNombre);
     }
-    
+
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;
     }
 
-    private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt){
+    private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        ControladorGUI.getSingleton().menuNuevaPartida();
-        this.setVisible(false);
-        padre.dispose();
+        if (!textFieldNombre.getText().isEmpty()) {
+            ControladorPrincipal.getSingleton().establecerNombrePJ(textFieldNombre.getText());
+//            ControladorGUI.getSingleton().menuNuevaPartida();
+//            this.setVisible(false);
+//            padre.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "No has puesto ningun nombre.");
+        }
     }
 
     private void jButtonCargarActionPerformed(java.awt.event.ActionEvent evt) {
