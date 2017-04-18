@@ -48,4 +48,5 @@ insert into monstruo values
 ("El A'rock'allipsis",10,7,2,1,7,"I'm the lord of the wastelands, a modern day man of steel, I gather darkness to please me and I command you to kneel. Kiss - God of thunder"),
 ("Horse Luis",10,1,1,1,14,"Horse Luis es un fenomeno viral en twitter, nacio el 20 de Septiembre del 2014 y ha sido invitado a este juego. Su madre se lo ha permitido."),
 ("Rafalillo",10,1,6,7,3,"Siempre esta atento a todo movimiento, su humor tambien. Es un mago muy poderoso que se convirtio en elemental de llamas infernales, su enorme rabo en llamas es poderoso."),
+("MagoPelos",3,6,7,10,5,"Uno de los creadores del juego")
 ("Enemigo pixelado",10,4,4,4,5,"Es una criatura de la antigüedad, antes de la alta definición. Su poder no se puede calcular o tardarias mucho, ya que fue diseñado en 8bits.")
