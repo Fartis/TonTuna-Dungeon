@@ -1,43 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
-import java.io.File;
-import javazoom.jlgui.basicplayer.BasicPlayer;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
-/**
- *
- * @author Manuel David Villalba Escamilla
- */
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
+
 public class ReproductorMusica {
 
-    BasicPlayer player;
+    public static void main(String[] args) {
 
-    public ReproductorMusica() {
-        player = new BasicPlayer();
-    }
+        try {
+            FileInputStream fis;
+            Player player;
+            fis = new FileInputStream("src/Recursos/intro.mp3");
+            BufferedInputStream bis = new BufferedInputStream(fis);
 
-    public void Play() throws Exception {
-        player.play();
-    }
+            player = new Player(bis); // Llamada a constructor de la clase Player
+            player.play();          // Llamada al método play
+        } catch (JavaLayerException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
-    public void AbrirFichero(String ruta) throws Exception {
-        player.open(new File(ruta));
-    }
-
-    public void Pausa() throws Exception {
-        player.pause();
-    }
-
-    public void Continuar() throws Exception {
-        player.resume();
-    }
-
-    public void Stop() throws Exception {
-        player.stop();
     }
 
 }
