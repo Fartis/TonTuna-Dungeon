@@ -26,12 +26,6 @@ public class ControladorPrincipal {
     public static void main(String[]args){
         cambiarEstiloGUI();
         ControladorGUI.getSingleton().menuPrincipal();
-        try {
-            reproductor.AbrirFichero("/Recursos/Musica/intro.mp3");
-            reproductor.Play();
-        } catch (Exception ex) {
-            System.out.println("No se puede abrir la musica");;
-        }
     }
     
     private ControladorPrincipal(){

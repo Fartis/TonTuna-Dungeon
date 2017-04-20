@@ -14,9 +14,10 @@ import javazoom.jlgui.basicplayer.BasicPlayer;
  */
 public class ReproductorMusica {
 
-    BasicPlayer player = new BasicPlayer();
+    BasicPlayer player;
 
     public ReproductorMusica() {
+        player = new BasicPlayer();
     }
 
     public void Play() throws Exception {

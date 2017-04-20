@@ -13,6 +13,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,6 +29,7 @@ public class VentanaMensajeNuevaPartida extends JPanel {
 
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/trovador.gif");
     JButton jButtonIniciar = new JButton("Alle voy");
+    JPanel filtro = new JPanel();
     JTextArea mensajeInicio = new JTextArea("\"Acercaros caballero,\n"
             + "os cantare una canción,\n"
             + "un grandioso tesoro\n"
@@ -49,11 +52,12 @@ public class VentanaMensajeNuevaPartida extends JPanel {
             }
         });
 
-        this.add(jButtonIniciar);
-        this.add(mensajeInicio);
-        this.add(mensajeFirmado);
-        this.add(mensajeComilla);
-        this.add(textFieldNombre);
+        this.add(filtro);
+        filtro.add(jButtonIniciar);
+        filtro.add(mensajeInicio);
+        filtro.add(mensajeFirmado);
+        filtro.add(mensajeComilla);
+        filtro.add(textFieldNombre);
     }
 
     public void setPadre(JFramePrincipal padre) {
@@ -92,6 +96,8 @@ public class VentanaMensajeNuevaPartida extends JPanel {
         super.paintComponent(g);
         g.drawImage(image, 0, 0, 800, 600, this);
         this.setBackground(new Color(0, 0, 0, 255));
+        filtro.setBounds(0, 0, 800, 600);
+        filtro.setBackground(new Color(0,0,0,125));
         jButtonIniciar.setBounds(580, 500, 200, 40);
         mensajeInicio.setFont(new Font("Dialog", Font.BOLD, 30));
         mensajeInicio.setLineWrap(true);
@@ -99,18 +105,25 @@ public class VentanaMensajeNuevaPartida extends JPanel {
         mensajeInicio.setForeground(Color.white);
         mensajeInicio.setBounds(20, 20, 660, 400);
         mensajeInicio.setOpaque(false);
+        mensajeInicio.setEditable(false);
+        mensajeInicio.setHighlighter(null);
         mensajeFirmado.setFont(new Font("Dialog", Font.BOLD, 22));
         mensajeFirmado.setLineWrap(true);
         mensajeFirmado.setWrapStyleWord(true);
+        mensajeFirmado.setHighlighter(null);
         mensajeFirmado.setForeground(Color.white);
-        mensajeFirmado.setBounds(280, 420, 300, 60);
+        mensajeFirmado.setBounds(280, 420, 220, 60);
         mensajeFirmado.setOpaque(false);
+        mensajeFirmado.setEditable(false);
         mensajeComilla.setFont(new Font("Dialog", Font.BOLD, 22));
         mensajeComilla.setLineWrap(true);
         mensajeComilla.setWrapStyleWord(true);
         mensajeComilla.setForeground(Color.white);
         mensajeComilla.setBounds(715, 420, 20, 20);
         mensajeComilla.setOpaque(false);
-        textFieldNombre.setBounds(500, 420, 210, 40);
+        mensajeComilla.setEditable(false);
+        mensajeComilla.setHighlighter(null);
+        textFieldNombre.setBounds(500, 415, 210, 40);
+        textFieldNombre.setFont(new Font("Dialog", Font.BOLD, 18));
     }
 }
