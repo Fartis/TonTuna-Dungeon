@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.Personaje;
 import Modelo.RepositorioPartidas;
+import Modelo.ReproductorMusica;
 import Vista.JFramePrincipal;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,11 +20,18 @@ public class ControladorPrincipal {
     private Personaje personajeActual= new Personaje();
     private RepositorioPartidas partidasGuardadas;
     private static ControladorPrincipal singleton = null;
+    private static ReproductorMusica reproductor = new ReproductorMusica();
     
     
     public static void main(String[]args){
         cambiarEstiloGUI();
         ControladorGUI.getSingleton().menuPrincipal();
+        try {
+            reproductor.AbrirFichero("/Recursos/Musica/intro.mp3");
+            reproductor.Play();
+        } catch (Exception ex) {
+            System.out.println("No se puede abrir la musica");;
+        }
     }
     
     private ControladorPrincipal(){
