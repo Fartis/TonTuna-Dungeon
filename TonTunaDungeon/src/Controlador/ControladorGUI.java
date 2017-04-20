@@ -6,6 +6,7 @@
 package Controlador;
 
 import Vista.Elementos.VentanaLogo;
+import Vista.Elementos.VentanaMazmorra;
 import Vista.Elementos.VentanaMensajeNuevaPartida;
 import Vista.Elementos.VentanaNuevaPartida;
 import Vista.JFramePrincipal;
@@ -20,7 +21,8 @@ public class ControladorGUI {
     private static JFramePrincipal
             menuPrin = null,
             nuevaPar = null,
-            mensajeInicio=null;
+            mensajeInicio = null,
+            ventanaMazmorra = null;
 
     private ControladorGUI() {
 
@@ -35,7 +37,7 @@ public class ControladorGUI {
 
     public void menuPrincipal() {
         ocultar();
-        if (nuevaPar!=null){
+        if (nuevaPar != null) {
             nuevaPar.visible(false);
         }
         VentanaLogo menu1 = new VentanaLogo();
@@ -58,9 +60,8 @@ public class ControladorGUI {
         menu1.setPadre(nuevaPar);
     }
 
-    public void menuMensajeNuevaPartida(){
+    public void menuMensajeNuevaPartida() {
         ocultar();
-        nuevaPar.visible(false);
         VentanaMensajeNuevaPartida menuMensaje = new VentanaMensajeNuevaPartida();
         if (mensajeInicio == null) {
             mensajeInicio = new JFramePrincipal(menuMensaje);
@@ -70,9 +71,30 @@ public class ControladorGUI {
         menuMensaje.setPadre(mensajeInicio);
     }
     
-    private void ocultar(){
-        if(nuevaPar!=null)nuevaPar.visible(false);
-        if(menuPrin!=null)menuPrin.visible(false);
-        if(mensajeInicio!=null)mensajeInicio.visible(false);
+    public void ventanaMazmorra() {
+        ocultar();
+        VentanaMazmorra menuJuego = new VentanaMazmorra();
+        if (ventanaMazmorra == null) {
+            ventanaMazmorra = new JFramePrincipal(menuJuego);
+        } else {
+            ventanaMazmorra.createAndShowUI(menuJuego);
+        }
+        menuJuego.setPadre(ventanaMazmorra);
+        
+    }
+
+    private void ocultar() {
+        if (nuevaPar != null) {
+            nuevaPar.visible(false);
+        }
+        if (menuPrin != null) {
+            menuPrin.visible(false);
+        }
+        if (mensajeInicio != null) {
+            mensajeInicio.visible(false);
+        }
+        if (ventanaMazmorra != null) {
+            ventanaMazmorra.visible(false);
+        }
     }
 }

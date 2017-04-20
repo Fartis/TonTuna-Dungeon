@@ -25,17 +25,19 @@ import javax.swing.JTextField;
  */
 public class VentanaMensajeNuevaPartida extends JPanel {
 
-    private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/logoanimado.gif");
+    private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/trovador.gif");
     JButton jButtonIniciar = new JButton("Alle voy");
-    JTextArea mensajeInicio = new JTextArea("Estando en tu casa y harto de que el partido"
-            + " político que está en el gobierno con sus decisiones te impida tener una"
-            + " vida laboral plena decides ir en busca de tesoros para poder vivir una"
-            + " vida de gula y lujuria, llevado por este deseo irrefrenable de aventuras"
-            + " decides escribirle una carta a tu querida madre:\n" + "\n" + "\"MAMA, que me"
-            + " voy de aventuras, estoy harto de ser un nini, he decidido que quiero ser"
-            + " aventurero y saqueador de mazmorras, volveré para la hora de cenar, guárdame"
-            + " la comida y me la caliento en el microondas.\n PD: Me llevo 5€ pa' tabaco.");
-    JTextArea mensajeFirmado = new JTextArea("Firmado:");
+    JTextArea mensajeInicio = new JTextArea("\"Acercaros caballero,\n"
+            + "os cantare una canción,\n"
+            + "un grandioso tesoro\n"
+            + "esta al cabalagar un monton.\n"
+            + "Misteriosas sombras\n"
+            + "alberga en su interior,\n"
+            + "pues no temais oportunista\n"
+            + "y aprovecha esta ociación.\n"
+            + "Viaja a la montaña\n"
+            + "y entra en sus entrañas.");
+    JTextArea mensajeFirmado = new JTextArea("Grande y valiente Sr.");
     JTextArea mensajeComilla = new JTextArea("\"");
     JTextField textFieldNombre = new JTextField("");
     JFramePrincipal padre;
@@ -62,9 +64,9 @@ public class VentanaMensajeNuevaPartida extends JPanel {
         // TODO add your handling code here:
         if (!textFieldNombre.getText().isEmpty()) {
             ControladorPrincipal.getSingleton().establecerNombrePJ(textFieldNombre.getText());
-//            ControladorGUI.getSingleton().menuNuevaPartida();
-//            this.setVisible(false);
-//            padre.dispose();
+            ControladorGUI.getSingleton().ventanaMazmorra();
+            this.setVisible(false);
+            padre.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "No has puesto ningun nombre.");
         }
@@ -88,26 +90,27 @@ public class VentanaMensajeNuevaPartida extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.drawImage(image, 0, 0, 800, 600, this);
         this.setBackground(new Color(0, 0, 0, 255));
         jButtonIniciar.setBounds(580, 500, 200, 40);
-        mensajeInicio.setFont(new Font("Dialog", Font.BOLD, 22));
+        mensajeInicio.setFont(new Font("Dialog", Font.BOLD, 30));
         mensajeInicio.setLineWrap(true);
         mensajeInicio.setWrapStyleWord(true);
         mensajeInicio.setForeground(Color.white);
-        mensajeInicio.setBounds(20, 20, 640, 380);
+        mensajeInicio.setBounds(20, 20, 660, 400);
         mensajeInicio.setOpaque(false);
         mensajeFirmado.setFont(new Font("Dialog", Font.BOLD, 22));
         mensajeFirmado.setLineWrap(true);
         mensajeFirmado.setWrapStyleWord(true);
         mensajeFirmado.setForeground(Color.white);
-        mensajeFirmado.setBounds(400, 400, 100, 40);
+        mensajeFirmado.setBounds(280, 420, 300, 60);
         mensajeFirmado.setOpaque(false);
         mensajeComilla.setFont(new Font("Dialog", Font.BOLD, 22));
         mensajeComilla.setLineWrap(true);
         mensajeComilla.setWrapStyleWord(true);
         mensajeComilla.setForeground(Color.white);
-        mensajeComilla.setBounds(715, 400, 20, 20);
+        mensajeComilla.setBounds(715, 420, 20, 20);
         mensajeComilla.setOpaque(false);
-        textFieldNombre.setBounds(500, 400, 210, 40);
+        textFieldNombre.setBounds(500, 420, 210, 40);
     }
 }
