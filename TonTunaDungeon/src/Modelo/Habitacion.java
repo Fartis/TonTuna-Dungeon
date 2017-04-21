@@ -33,6 +33,7 @@ public class Habitacion {
     boolean[] puertas = new boolean[4];
     boolean accesible=false, puntoGuardado=false;
 
+    /*
     public Habitacion(int tipo) {
         this.tipo = tipo;
         this.accesible = true;
@@ -60,6 +61,7 @@ public class Habitacion {
                 break;
         }
     }
+*/
 
     public Habitacion(boolean accesible) {
         if(!accesible){
