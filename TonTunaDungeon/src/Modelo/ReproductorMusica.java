@@ -15,7 +15,7 @@ public class ReproductorMusica {
         try {
             FileInputStream fis;
             Player player;
-            fis = new FileInputStream("src/Recursos/intro.mp3");
+            fis = new FileInputStream("src/Recursos/Soul Blazer - Intro Theme.mp3");
             BufferedInputStream bis = new BufferedInputStream(fis);
 
             player = new Player(bis); // Llamada a constructor de la clase Player
