@@ -8,7 +8,7 @@ package Controlador;
 import Modelo.Personaje;
 
 /**
- *
+ * Clase controladora de la creacion de personaje
  * @author Manuel David Villalba Escamilla
  */
 public class ControladorCreadorPJ {
@@ -25,6 +25,10 @@ public class ControladorCreadorPJ {
 
     }
 
+    /**
+     * Metodo singleton del controlador de creacion de personaje
+     * @return 
+     */
     public static ControladorCreadorPJ getSingleton() {
         if (singleton == null) {
             singleton = new ControladorCreadorPJ();
@@ -32,10 +36,17 @@ public class ControladorCreadorPJ {
         return singleton;
     }
 
+    /**
+     * Constructor por defecto
+     */
     public void crearPersonaje() {
 
     }
 
+    /**
+     * Metodo inicializador de atributos segun raza del personaje
+     * @param razaSeleccionada 
+     */
     public void iniciarAtributosPersonajes(int razaSeleccionada) {
         String raza = "humano";
         switch (razaSeleccionada) {
@@ -60,6 +71,10 @@ public class ControladorCreadorPJ {
         constitucion = personaje.getConstitucion();
     }
 
+    /**
+     * Metodo incrementa fuerza del personaje
+     * @return 
+     */
     public int subirFuerza() {
         if (puntosPersonaje > 0) {
             fuerza++;
@@ -70,6 +85,10 @@ public class ControladorCreadorPJ {
         }
     }
 
+    /**
+     * Metodo decrementa fuerza del personaje
+     * @return 
+     */
     public int bajarFuerza() {
         if (puntosPersonaje <= 6 && fuerza > personaje.getFuerza()) {
             fuerza--;
@@ -80,6 +99,10 @@ public class ControladorCreadorPJ {
         }
     }
 
+    /**
+     * Metodo incrementa destreza del personaje
+     * @return 
+     */
     public int subirDestreza() {
         if (puntosPersonaje > 0) {
             destreza++;
@@ -91,6 +114,10 @@ public class ControladorCreadorPJ {
 
     }
 
+    /**
+     * Metodo decrementa destreza del personaje
+     * @return 
+     */
     public int bajarDestreza() {
         if (puntosPersonaje <= 6 && destreza > personaje.getDestreza()) {
             destreza--;
@@ -102,6 +129,10 @@ public class ControladorCreadorPJ {
 
     }
 
+    /**
+     * Metodo incrementa intelecto del personaje
+     * @return 
+     */
     public int subirIntelecto() {
         if (puntosPersonaje > 0) {
             intelecto++;
@@ -113,6 +144,10 @@ public class ControladorCreadorPJ {
 
     }
 
+    /**
+     * Metodo decrementa intelecto del personaje
+     * @return 
+     */
     public int bajarIntelecto() {
         if (puntosPersonaje <= 6 && intelecto > personaje.getIntelecto()) {
             intelecto--;
@@ -124,6 +159,10 @@ public class ControladorCreadorPJ {
 
     }
 
+    /**
+     * Metodo incrementa constitucion del personaje
+     * @return 
+     */
     public int subirConstitucion() {
         if (puntosPersonaje > 0) {
             constitucion++;
@@ -135,6 +174,10 @@ public class ControladorCreadorPJ {
 
     }
 
+    /**
+     * Metodo decrementa constitucion del personaje
+     * @return 
+     */
     public int bajarConstitucion() {
         if (puntosPersonaje <= 6 && constitucion > personaje.getConstitucion()) {
             constitucion--;
@@ -146,6 +189,10 @@ public class ControladorCreadorPJ {
 
     }
 
+    /**
+     * Metodo actualiza puntos disponibles para subir atributos
+     * @return 
+     */
     public int actualizarPuntosDisponibles() {
         return puntosPersonaje;
     }
