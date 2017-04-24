@@ -30,14 +30,14 @@ public class VentanaMensajeNuevaPartida extends JPanel {
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/trovador.gif");
     JButton jButtonIniciar = new JButton("Alle voy");
     JPanel filtro = new JPanel();
-    JTextArea mensajeInicio = new JTextArea("\"Acercaros caballero,\n"
-            + "os cantare una canción,\n"
+    JTextArea mensajeInicio = new JTextArea("\"Acercaos caballero,\n"
+            + "os cantaré una canción,\n"
             + "un grandioso tesoro\n"
-            + "esta al cabalagar un monton.\n"
+            + "esta al cabalagar un montón.\n"
             + "Misteriosas sombras\n"
             + "alberga en su interior,\n"
             + "pues no temais oportunista\n"
-            + "y aprovecha esta ociación.\n"
+            + "y aprovecha ésta ocasión.\n"
             + "Viaja a la montaña\n"
             + "y entra en sus entrañas.");
     JTextArea mensajeFirmado = new JTextArea("Grande y valiente Sr.");

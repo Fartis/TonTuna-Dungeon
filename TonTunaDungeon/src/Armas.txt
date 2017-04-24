@@ -146,6 +146,6 @@ Bastón:
 Tipo:3
 Descripción:"De toda la vida para apoyarse y golpear"
 
-Vara verde:
+Varita de encina:
 Tipo:3
-Descripción:"Vara de fresno aún flexible que pica tela"
+Descripción:"Muy resistente y centenaria para lanzar magia"

@@ -18,4 +18,49 @@ public class Objeto {
     //2 = Apoyo
     //3 = Daño
     private int tipo;
+
+    public Objeto(String nombre, String descripcion, int valor, int tipo) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.valor = valor;
+        this.tipo = tipo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Objeto{" + "nombre=" + nombre + ", descripcion=" + descripcion + ", valor=" + valor + ", tipo=" + tipo + '}';
+    }
+    
 }

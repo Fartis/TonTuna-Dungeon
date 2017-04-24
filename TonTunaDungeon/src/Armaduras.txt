@@ -1,0 +1,56 @@
+--ARMADURAS--
+
+--Nivel 1--
+Armadura de cartón-piedra:
+Bonificador:1
+ÍndiceArmadura:3
+Descripción:"Con ella se mueve uno acartonao pero menos da una piedra"
+
+Armadura Acolchada:
+Bonificador:1
+ÍndiceArmadura:5
+Descripción:"Armadura de tela acolchada, fácil de romper pero algo quita"
+
+--Nivel 2--
+Cuero:
+Bonificador:2
+ÍndiceArmadura:6
+Descripción:"Armadura de cuero, cómo una segunda piel"
+
+Cuero endurecido:
+Bonificador:2
+ÍndiceArmadura:8
+Descripción:"Armadura de cuero endurecido que resiste más"
+
+--Nivel 3--
+Túnica mágica:
+Bonificador:3
+ÍndiceArmadura:7
+Descripción:"Túnica con un hechizo que resiste los golpes, aunque la tendrás que reparar igualmente"
+
+Cuero Tachonado:
+Bonificador:3
+ÍndiceArmadura:9
+Descripción:"Armadura de cuero con tachuelas que aguantan algunos golpes"
+
+--Nivel 4--
+Armadura de RoscaChapa:
+Bonificador:4
+ÍndiceArmadura:10
+Descripción:"Hecha de placas de chapa que truenan al ser golpeada pero te protegerá"
+
+Cota de malla:
+Bonificador:4
+ÍndiceArmadura:12
+Descripción:"Igual que un jersey tricotado pero de anillas de hierro"
+
+--Nivel 5--
+Cota de escamas:
+Bonificador:5
+ÍndiceArmadura:15
+Descripción:"Fabricada en escamas metálicas que protegen a la vez que brillan"
+
+Armadura completa:
+Bonificador:5
+ÍndiceArmadura:20
+Descripción:"Coraza que cubre todo el cuerpo fabricada con hierro"

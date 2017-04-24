@@ -16,7 +16,7 @@ public class Arma {
     //El tipo de arma se utiliza con un entero:
     //1 = Cuerpo a cuerpo
     //2 = A distancia
-    //3 = Magica
+    //3 = Mágica
     private int tipo;
     
     public Arma(String nombre, int tipo, int bonificador, String descripcion){
@@ -24,6 +24,43 @@ public class Arma {
         this.tipo=tipo;
         this.bonificador=bonificador;
         this.descripcion=descripcion;
+    }
+
+    public int getBonificador() {
+        return bonificador;
+    }
+
+    public void setBonificador(int bonificador) {
+        this.bonificador = bonificador;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Arma{" + "bonificador=" + bonificador + ", nombre=" + nombre + ", descripcion=" + descripcion + ", tipo=" + tipo + '}';
     }
     
 }
