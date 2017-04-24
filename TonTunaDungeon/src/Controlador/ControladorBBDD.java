@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *
+ * Clase controladora de la base de datos del juego
  * @author Manuel David Villalba Escamilla
  */
 public class ControladorBBDD {
@@ -27,6 +27,10 @@ public class ControladorBBDD {
     private ControladorBBDD() {
     }
 
+    /**
+     * metodo singleton para el controlador
+     * @return 
+     */
     public static ControladorBBDD getSingleton() {
         if (singleton == null) {
             singleton = new ControladorBBDD();
@@ -38,7 +42,11 @@ public class ControladorBBDD {
 //        
 //    }
 //       
-//        
+//   
+    /**
+     * Metodo para guardar la informacion del personaje en la base de datos
+     * @param pj 
+     */
     public void guardarInfoPJ(Personaje pj) {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
@@ -57,6 +65,10 @@ public class ControladorBBDD {
         }
     }
 
+    /**
+     * Metodo para listar los personajes de la base de datos
+     * @return 
+     */
     public Personaje[] listaPersonajesBase() {
         Personaje[] listaPersonajes = new Personaje[4];
         try {
@@ -80,6 +92,12 @@ public class ControladorBBDD {
         return listaPersonajes;
     }
 
+    /**
+     * Metodo para crear el personaje en la base de datos
+     * @param nombre
+     * @param raza
+     * @return 
+     */
     public Personaje crearPJBase(String nombre, String raza) {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
@@ -100,6 +118,11 @@ public class ControladorBBDD {
         }
     }
 
+    /**
+     * Metodo para obtener el arma de la base de datos
+     * @return
+     * @throws SQLException 
+     */
     public Arma obtenerArma() throws SQLException {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
@@ -123,6 +146,11 @@ public class ControladorBBDD {
 //        Objeto objeto = new Objeto();
 //        return objeto;
 //    }
+    /**
+     * Metodo para obtener la armadura de la base de datos
+     * @return
+     * @throws SQLException 
+     */
     public Armadura obtenerArmadura() throws SQLException {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
@@ -139,6 +167,12 @@ public class ControladorBBDD {
         }
     }
 
+    /**
+     * metodo obtener la informacion de monstruo de la base de datos
+     * @param nivel
+     * @return
+     * @throws SQLException 
+     */
     public Monstruo obtenerMonstruo(int nivel) throws SQLException {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
