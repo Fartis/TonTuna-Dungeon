@@ -19,4 +19,42 @@ public class Armadura {
         this.indiceArmadura=indice;
         this.descripcion=descripcion;
     }
+
+    public int getBonificador() {
+        return bonificador;
+    }
+
+    public void setBonificador(int bonificador) {
+        this.bonificador = bonificador;
+    }
+
+    public int getIndiceArmadura() {
+        return indiceArmadura;
+    }
+
+    public void setIndiceArmadura(int indiceArmadura) {
+        this.indiceArmadura = indiceArmadura;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    @Override
+    public String toString() {
+        return "Armadura{" + "bonificador=" + bonificador + ", indiceArmadura=" + indiceArmadura + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+    }
+    
 }

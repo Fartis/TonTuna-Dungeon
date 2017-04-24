@@ -1,0 +1,52 @@
+--OBJETOS--
+
+--Tipo 1--
+Poción leve:
+Valor:3
+Descripción:"Cura poco pero cura"
+
+Poción curación:
+Valor:5
+Descripción:"Si la tomas cierra la mayoría de tus heridas"
+
+Poción mayor:
+Valor:8
+Descripción:"Cura mucha tela"
+
+Poción alta:
+Valor:10
+Descripción:"Te cura al tope the power"
+
+--Tipo 2--
+Poción Fuerza:
+Valor:5
+Descripción:"Aumenta tu fuerza durante el resto del combate"
+
+Poción Destreza:
+Valor:5
+Descripción:"Aumenta tu destreza durante el resto del combate"
+
+Poción Intelecto:
+Valor:5
+Descripción:"Aumenta tu intelecto durante el resto del combate"
+
+Poción al tope:
+Valor:3
+Descrición:"Aumenta todas tus caractrísticas durante el resto del combate"
+
+--Tipo 3--
+Cuesco embotellado:
+Valor:2
+Descripción:"Si lasnzas el frasco se romperá liberando su nauseabundo contenido"
+
+Hámster retornante:
+Valor:4
+Descripción:"Hámster entrenado que lanzas contra el enemigo, lo golpea, le muerde y vuelve a su dueño"
+
+Coctail molotov:
+Valor:8
+Descripción:"Prendes y lanzas, el enemigo arde. No tiene más complicación. Abajo el opresor"
+
+Vara verde:
+Valor:10
+Descripción"Vara de fresno aún flexible que pica tela, golpea al enemigo ignorando su armadura porque cimbra y suelta el latigazo"
