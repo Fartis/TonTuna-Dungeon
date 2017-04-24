@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.ReproductorMusica;
 import Vista.Elementos.VentanaLogo;
 import Vista.Elementos.VentanaMazmorra;
 import Vista.Elementos.VentanaMensajeNuevaPartida;
@@ -37,6 +38,8 @@ public class ControladorGUI {
 
     public void menuPrincipal() {
         ocultar();
+        ReproductorMusica.getSingleton().stop();
+        ReproductorMusica.getSingleton().play("src/Recursos/Stormlord - Title (Unused).mp3");
         if (nuevaPar != null) {
             nuevaPar.visible(false);
         }
@@ -51,6 +54,8 @@ public class ControladorGUI {
 
     public void menuNuevaPartida() {
         ocultar();
+        ReproductorMusica.getSingleton().stop();
+        ReproductorMusica.getSingleton().play("src/Recursos/Soul Blazer - Intro Theme.mp3");
         VentanaNuevaPartida menu1 = new VentanaNuevaPartida();
         if (nuevaPar == null) {
             nuevaPar = new JFramePrincipal(menu1, "/Recursos/nuevapartida.gif");
