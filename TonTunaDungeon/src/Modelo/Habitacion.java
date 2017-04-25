@@ -32,34 +32,58 @@ public class Habitacion {
     private Monstruo monstruo;
     private String descripcion;
     boolean[] puertas = new boolean[4];
-    boolean accesible=false, puntoGuardado=false;
+    boolean accesible = false, puntoGuardado = false, escalera = false;
 
-    public Habitacion(int tipo) {
+    public Habitacion(int tipo, int nivel, int tesoro) {
         this.tipo = tipo;
         this.accesible = true;
         switch (tipo) {
             case 0:
-                this.accesible = true;
-                for (int i = 0; i < puertas.length; i++) {
-                    puertas[i] = true;
-                }
+                this.accesible = false;
                 break;
             case 1:
-        {
-            try {
-                this.objeto = ControladorBBDD.getSingleton().obtenerObjeto();
-            } catch (SQLException ex) {
-                Logger.getLogger(Habitacion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+                this.accesible = true;
+                try {
+                    switch (tesoro){
+                        case 1: this.objeto = ControladorBBDD.getSingleton().obtenerObjeto(); break;
+                        case 2: this.arma = ControladorBBDD.getSingleton().obtenerArma(nivel);
+                    }
+                } catch (SQLException ex) {
+                    System.out.println("Ha sido imposible generar habitación con objeto.");
+                }
+                break;
+            case 2:
+                this.accesible = true;
+                try {
+                    this.monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(nivel);
+                } catch (SQLException ex) {
+                    System.out.println("Ha sido imposible generar habitación con monstruo.");
+                }
+                break;
+            case 3:
+                this.accesible = true;
+                this.puntoGuardado = true;
+                break;
+            case 4:
+                this.accesible = true;
+                this.escalera = true;
+                break;
+            case 5:
+                this.accesible = true;
                 break;
         }
     }
 
+    private void generarPuertas() {
+        for (int i = 0; i < puertas.length; i++) {
+            puertas[i] = false;
+        }
+    }
+
     public Habitacion(boolean accesible) {
-        if(!accesible){
-            this.accesible=accesible;
-        }else{
+        if (!accesible) {
+            this.accesible = accesible;
+        } else {
             throw new IllegalArgumentException("Fallo al generar habitación vacia.");
         }
     }

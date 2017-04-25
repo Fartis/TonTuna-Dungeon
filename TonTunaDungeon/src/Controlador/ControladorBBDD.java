@@ -124,12 +124,12 @@ public class ControladorBBDD {
      * @return
      * @throws SQLException 
      */
-    public Arma obtenerArma() throws SQLException {
+    public Arma obtenerArma(int nivel) throws SQLException {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
             PreparedStatement consulta = con.prepareStatement("select * from arma;");
             ResultSet rs = consulta.executeQuery();
-            for (int i = 0; i < Dado.lanza(3); i++) {
+            for (int i = 0; i < Dado.lanza(6)*nivel; i++) {
                 rs.next();
             }
             Arma nueva = new Arma(rs.getString("nombre"), Integer.parseInt(rs.getString("tipo")), Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
