@@ -36,10 +36,9 @@ public class ControladorGUI {
         return singleton;
     }
 
-    public void menuPrincipal() {
+    public void menuPrincipal(boolean musica) {
         ocultar();
-        ReproductorMusica.getSingleton().stop();
-        ReproductorMusica.getSingleton().play("src/Recursos/Stormlord - Title (Unused).mp3");
+        reproducirMusica("src/Recursos/Stormlord - Title (Unused).mp3", musica);
         if (nuevaPar != null) {
             nuevaPar.visible(false);
         }
@@ -52,10 +51,9 @@ public class ControladorGUI {
         menu1.setPadre(menuPrin);
     }
 
-    public void menuNuevaPartida() {
+    public void menuNuevaPartida(boolean musica) {
         ocultar();
-        ReproductorMusica.getSingleton().stop();
-        ReproductorMusica.getSingleton().play("src/Recursos/Soul Blazer - Intro Theme.mp3");
+        reproducirMusica("src/Recursos/Soul Blazer - Intro Theme.mp3", musica);
         VentanaNuevaPartida menu1 = new VentanaNuevaPartida();
         if (nuevaPar == null) {
             nuevaPar = new JFramePrincipal(menu1, "/Recursos/nuevapartida.gif");
@@ -63,6 +61,13 @@ public class ControladorGUI {
             nuevaPar.createAndShowUI(menu1, "/Recursos/logoanimado.gif");
         }
         menu1.setPadre(nuevaPar);
+    }
+
+    private void reproducirMusica(String url, boolean activado) {
+        ReproductorMusica.getSingleton().stop();
+        if(activado){
+            ReproductorMusica.getSingleton().play(url);
+        }
     }
 
     public void menuMensajeNuevaPartida() {

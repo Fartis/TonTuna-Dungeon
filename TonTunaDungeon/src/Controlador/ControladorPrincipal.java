@@ -21,11 +21,12 @@ public class ControladorPrincipal {
     private RepositorioPartidas partidasGuardadas;
     private static ControladorPrincipal singleton = null;
     private static ReproductorMusica reproductor = new ReproductorMusica();
+    private static boolean musica = true;
     
     
     public static void main(String[]args){
         cambiarEstiloGUI();
-        ControladorGUI.getSingleton().menuPrincipal();
+        ControladorGUI.getSingleton().menuPrincipal(musica);
     }
     
     private ControladorPrincipal(){
@@ -94,5 +95,9 @@ public class ControladorPrincipal {
     
     public void establecerNombrePJ(String nombre){
         personajeActual.setNombre(nombre);
+    }
+    
+    public boolean getOpcionMusica(){
+        return musica;
     }
 }

@@ -119,7 +119,7 @@ public class VentanaNuevaPartida extends JPanel {
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        ControladorGUI.getSingleton().menuPrincipal();
+        ControladorGUI.getSingleton().menuPrincipal(ControladorPrincipal.getSingleton().getOpcionMusica());
         this.setVisible(false);
         padre.dispose();
     }

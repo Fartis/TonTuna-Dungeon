@@ -6,6 +6,7 @@
 package Vista.Elementos;
 
 import Controlador.ControladorGUI;
+import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -32,7 +33,7 @@ public class VentanaMazmorra extends JPanel {
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt){
         // TODO add your handling code here:
-        ControladorGUI.getSingleton().menuNuevaPartida();
+        ControladorGUI.getSingleton().menuNuevaPartida(ControladorPrincipal.getSingleton().getOpcionMusica());
         this.setVisible(false);
         padre.dispose();
         
