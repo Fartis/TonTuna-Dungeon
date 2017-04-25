@@ -97,6 +97,12 @@ public class ControladorPrincipal {
         personajeActual.setNombre(nombre);
     }
     
+    public void setOpcionMusica(){
+        if (musica) musica=false;
+        else musica=true;
+        ControladorGUI.getSingleton().stopMusica();
+    }
+    
     public boolean getOpcionMusica(){
         return musica;
     }

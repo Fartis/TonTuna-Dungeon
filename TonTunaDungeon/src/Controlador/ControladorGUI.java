@@ -69,6 +69,10 @@ public class ControladorGUI {
             ReproductorMusica.getSingleton().play(url);
         }
     }
+    
+    public void stopMusica(){
+        ReproductorMusica.getSingleton().stop();
+    }
 
     public void menuMensajeNuevaPartida() {
         ocultar();
