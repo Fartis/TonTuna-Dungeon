@@ -10,7 +10,7 @@ import Modelo.Habitacion;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase para gestionar la mazmorra
  * @author Manuel David Villalba Escamilla
  */
 public class ControladorMazmorra {
@@ -19,20 +19,27 @@ public class ControladorMazmorra {
     int nivelPiso=0;
     private static ControladorMazmorra singleton = null;
     
-    
+    /**
+     * Metodo constructor de mazmorra
+     */
     private ControladorMazmorra() {
         this.mazmorra = new ArrayList();
         generarPiso();
         rellenarBorde();
     }
-    
+    /**
+     * Metodo singleton de la mazmorra
+     * @return 
+     */
     public ControladorMazmorra getSingleton(){
         if (singleton==null){
             singleton = new ControladorMazmorra();
         }
         return singleton;
     }
-    
+    /**
+     * Metodo para generar piso de la mazmorra
+     */
     private void generarPiso(){
         piso = new Habitacion[10][10];
         rellenarBorde();        
@@ -40,6 +47,9 @@ public class ControladorMazmorra {
     }
     
 
+    /**
+     * metodo para rellenar el borde exterior de la tabla y limitarlo
+     */
     private void rellenarBorde(){        
         piso[0][0]=new Habitacion(false);
         piso[1][0]=new Habitacion(false);

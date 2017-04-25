@@ -12,7 +12,7 @@ import Vista.JFramePrincipal;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * Clase gestiona el controlador principal e inicia la aplicacion
  * @author Manuel David Villalba Escamilla
  */
 public class ControladorPrincipal {
@@ -23,16 +23,23 @@ public class ControladorPrincipal {
     private static ReproductorMusica reproductor = new ReproductorMusica();
     private static boolean musica = true;
     
-    
+    /**
+     * Metodo inicia aplicacion y musica
+     * @param args 
+     */
     public static void main(String[]args){
         cambiarEstiloGUI();
         ControladorGUI.getSingleton().menuPrincipal(musica);
     }
-    
+    /**
+     * Constructor por defecto
+     */
     private ControladorPrincipal(){
         
     }
-    
+    /**
+     * Metodo para cambiar el estilo del interfaz grafico
+     */
     private static void cambiarEstiloGUI(){        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -51,14 +58,20 @@ public class ControladorPrincipal {
             java.util.logging.Logger.getLogger(JFramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
-    
+    /**
+     * Metodo singleton del controlador principal
+     * @return 
+     */
     public static ControladorPrincipal getSingleton(){
         if(singleton==null){
             singleton = new ControladorPrincipal();
         }
         return singleton;
     }
-        
+    /**
+     * Metodo para tener la informacion del personaje
+     * @return 
+     */    
     public String[][] infoPersonajeNuevo(){
         String[][] personaje = new String[4][6];
         Personaje[] listaPersonajes = ControladorBBDD.getSingleton().listaPersonajesBase();
@@ -72,17 +85,31 @@ public class ControladorPrincipal {
         }
         return personaje;
     }
-    
+    /**
+     * Metodo para tener la informacion de la habitacion
+     * @return 
+     */
     public String infoHabitación(){
         String info="";
         return info;
     }
-    
+    /**
+     * Metodo modelo del mapa de la habitacion
+     * @return 
+     */
     public DefaultTableModel mapaHabitacion(){
         DefaultTableModel modelo = new DefaultTableModel();
         return modelo;
     }
-    
+    /**
+     * Metodo para iniciar el personaje con sus caracteristicas
+     * @param raza
+     * @param fuerza
+     * @param destreza
+     * @param intelecto
+     * @param constitucion
+     * @param descripcion 
+     */
     public void iniciarPJ(String raza, int fuerza, int destreza, int intelecto, int constitucion, String descripcion){
         personajeActual.setRaza(raza);
         personajeActual.setFuerza(fuerza);
@@ -92,21 +119,32 @@ public class ControladorPrincipal {
         personajeActual.setDescripcion(descripcion);
         personajeActual.establecerVida();
     }
-    
+    /**
+     * Metodo para establecer el nombre del personaje
+     * @param nombre 
+     */
     public void establecerNombrePJ(String nombre){
         personajeActual.setNombre(nombre);
     }
-    
+    /**
+     * Metodo para comprobar si la musica esta habilitada
+     */
     public void setOpcionMusica(){
         if (musica) musica=false;
         else musica=true;
         ControladorGUI.getSingleton().stopMusica();
     }
-    
+    /**
+     * Metodo devuelve la opcion de musica
+     * @return 
+     */
     public boolean getOpcionMusica(){
         return musica;
     }
-    
+    /**
+     * Metodo devuelve el nombre del personaje
+     * @return 
+     */
     public String getNombre(){
         return personajeActual.getNombre();
     }

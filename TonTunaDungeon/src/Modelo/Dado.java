@@ -6,7 +6,7 @@
 package Modelo;
 
 /**
- *
+ * Clase para gestionar el dado de juego
  * @author Manuel David Villalba Escamilla
  */
 public abstract class Dado {
