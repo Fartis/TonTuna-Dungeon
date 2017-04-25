@@ -44,6 +44,8 @@ public class ControladorBBDD {
 //    }
 //       
 //   
+    
+    
     /**
      * Metodo para guardar la informacion del personaje en la base de datos
      * @param pj 
@@ -140,6 +142,12 @@ public class ControladorBBDD {
         }
     }
 
+    /**
+     * Metodo para obtener un objeto de la base de datos
+     * @param nivel
+     * @return
+     * @throws SQLException 
+     */
     public Objeto obtenerObjeto() throws SQLException{
         Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
         PreparedStatement consulta = con.prepareStatement("select * from objeto where;");
@@ -163,15 +171,16 @@ public class ControladorBBDD {
     
     /**
      * Metodo para obtener la armadura de la base de datos
+     * @param nivel
      * @return
      * @throws SQLException 
      */
-    public Armadura obtenerArmadura() throws SQLException {
+    public Armadura obtenerArmadura(int nivel) throws SQLException {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
             PreparedStatement consulta = con.prepareStatement("select * from armadura;");
             ResultSet rs = consulta.executeQuery();
-            for (int i = 0; i < Dado.lanza(3); i++) {
+            for (int i = 0; i < Dado.lanza(2)*nivel; i++) {
                 rs.next();
             }
             Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), Integer.parseInt(rs.getString("indice")), rs.getString("descripcion"));
@@ -202,8 +211,8 @@ public class ControladorBBDD {
             int intelecto = Integer.parseInt(rs.getString("intelecto"));
             String nombre = rs.getString("nombre");
             String descripcion = rs.getString("descripcion");
-            Armadura armadura = obtenerArmadura();
-            Arma arma = obtenerArma();
+            Armadura armadura = obtenerArmadura(Dado.lanza(nivel));
+            Arma arma = obtenerArma(Dado.lanza(nivel));
             Monstruo monstruo = new Monstruo(fuerza, destreza, constitucion, intelecto, nombre, descripcion, armadura, arma);
             con.close();
             return monstruo;
