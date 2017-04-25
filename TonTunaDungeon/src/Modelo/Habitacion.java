@@ -9,6 +9,9 @@ import Controlador.ControladorBBDD;
 import Modelo.Inventario.Objeto;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Arma;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,7 +45,13 @@ public class Habitacion {
                 }
                 break;
             case 1:
-                this.objeto = ControladorBBDD.obtenerObjeto();
+        {
+            try {
+                this.objeto = ControladorBBDD.getSingleton().obtenerObjeto();
+            } catch (SQLException ex) {
+                Logger.getLogger(Habitacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
         }
     }
