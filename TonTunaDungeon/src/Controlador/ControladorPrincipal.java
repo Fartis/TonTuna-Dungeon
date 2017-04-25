@@ -106,4 +106,8 @@ public class ControladorPrincipal {
     public boolean getOpcionMusica(){
         return musica;
     }
+    
+    public String getNombre(){
+        return personajeActual.getNombre();
+    }
 }

@@ -33,8 +33,7 @@ public class ControladorMazmorra {
     
     private void generarPiso(){
         piso = new Habitacion[10][10];
-        rellenarBorde();
-        
+        rellenarBorde();        
         mazmorra.add(piso);
     }
     
