@@ -11,7 +11,7 @@ import Modelo.Inventario.Objeto;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase para gestionar el Personaje
  * @author Manuel David Villalba Escamilla
  */
 public class Personaje {
@@ -26,6 +26,17 @@ public class Personaje {
 
     }
 
+    /**
+     * Constructor del Personaje
+     * @param nombre
+     * @param raza
+     * @param fuerza
+     * @param constitucion
+     * @param destreza
+     * @param intelecto
+     * @param descripcion
+     * @param nivel 
+     */
     public Personaje(String nombre, String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion, int nivel) {
         this.nombre = nombre;
         this.raza = raza;
@@ -37,10 +48,18 @@ public class Personaje {
         this.nivel = nivel;
     }
 
+    /**
+     * Metodo para añadir objeto al inventario del personaje
+     * @param nuevo 
+     */
     public void añadirObjeto(Objeto nuevo) {
         inventario.add(nuevo);
     }
 
+    /**
+     * Metodo para listar los objetos
+     * @return 
+     */
     public ArrayList<String> listarObjetos() {
         ArrayList<String> lista = new ArrayList();
         if (!inventario.isEmpty()) {
@@ -51,6 +70,9 @@ public class Personaje {
         return lista;
     }
 
+    /**
+     * Metodo para establecer la lista del personaje
+     */
     public void establecerVida() {
         int cantidad = 0;
         for (int i = 0; i < getConstitucion(); i++) {
@@ -59,90 +81,178 @@ public class Personaje {
         this.setVida(cantidad);
     }
 
+    /**
+     * Metodo devuelve la armadura del personaje
+     * @return 
+     */
     public Armadura getArmadura() {
         return armadura;
     }
 
+    /**
+     * metodo introduce la armadura del personaje
+     * @param armadura 
+     */
     public void setArmadura(Armadura armadura) {
         this.armadura = armadura;
     }
 
+    /**
+     * Metodo devuelve el arma del personaje
+     * @return 
+     */
     public Arma getArma() {
         return arma;
     }
 
+    /**
+     * Metodo introduce el arma del personaje
+     * @param arma 
+     */
     public void setArma(Arma arma) {
         this.arma = arma;
     }
 
+    /**
+     * Metodo devuelve la fuerza del personaje
+     * @return 
+     */
     public int getFuerza() {
         return fuerza;
     }
 
+    /**
+     * Metodo introduce la fuerza del personaje
+     * @param fuerza 
+     */
     public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
     }
 
+    /**
+     * Metodo devuelve la destreza del personaje
+     * @return 
+     */
     public int getDestreza() {
         return destreza;
     }
 
+    /**
+     * Metodo introduce la destreza del personaje
+     * @param destreza 
+     */
     public void setDestreza(int destreza) {
         this.destreza = destreza;
     }
 
+    /**
+     * Metodo devuelve la constitucion del personaje
+     * @return 
+     */
     public int getConstitucion() {
         return constitucion;
     }
 
+    /**
+     * Metodo introduce la consitucion del personaje
+     * @param constitucion 
+     */
     public void setConstitucion(int constitucion) {
         this.constitucion = constitucion;
     }
 
+    /**
+     * Metodo devuelve el intelecto del personaje
+     * @return 
+     */
     public int getIntelecto() {
         return intelecto;
     }
 
+    /**
+     * Metodo introduce el intelecto del personaje
+     * @param intelecto 
+     */
     public void setIntelecto(int intelecto) {
         this.intelecto = intelecto;
     }
 
+    /**
+     * Metodo devuelve la descripcion del personaje
+     * @return 
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * Metodo introduce la descripcion del personaje
+     * @param descripcion 
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     * Metodo devuelve la raza del personaje
+     * @return 
+     */
     public String getRaza() {
         return raza;
     }
 
+    /**
+     * Metodo introduce la raza del personaje
+     * @param raza 
+     */
     public void setRaza(String raza) {
         this.raza = raza;
     }
 
+    /**
+     * Metodo devuelve la vida del personaje
+     * @return 
+     */
     public int getVida() {
         return vida;
     }
 
+    /**
+     * Metodo introduce la vida del personaje
+     * @param vida 
+     */
     public void setVida(int vida) {
         this.vida = vida;
     }
 
+    /**
+     * Metodo devuelve el nivel del personaje
+     * @return 
+     */
     public int getNivel() {
         return nivel;
     }
 
+    /**
+     * Metodo introduce el nivel del personaje
+     * @param nivel 
+     */
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
 
+    /**
+     * Metodo devuelve el nombre del personaje
+     * @return 
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Metodo introduce el nombre del personaje
+     * @param nombre 
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

@@ -15,7 +15,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- *
+ * Clase del repositorio de partidas almacenadas
  * @author Manuel David Villalba Escamilla
  */
 public class RepositorioPartidas implements Serializable{
@@ -28,6 +28,11 @@ public class RepositorioPartidas implements Serializable{
     ObjectOutputStream salida;
     ObjectInputStream entrada;
 
+    /**
+     * Metodo para crear el archivo de partidas guardadas
+     * @throws IOException
+     * @throws ClassNotFoundException 
+     */
     private RepositorioPartidas() throws IOException, ClassNotFoundException {
         file = new File("partidasGuardadas.bin");
         if(!file.exists()) file.createNewFile();
@@ -38,6 +43,12 @@ public class RepositorioPartidas implements Serializable{
         if(file.exists()) partidasGuardadas = (Partida[]) entrada.readObject();
     }
 
+    /**
+     * Metodo singleton del repositorio de partidas guardadas
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException 
+     */
     public RepositorioPartidas getSingleton() throws IOException, ClassNotFoundException {
         if (singleton == null) {
             singleton = new RepositorioPartidas();
@@ -45,16 +56,31 @@ public class RepositorioPartidas implements Serializable{
         return singleton;
     }
 
+    /**
+     * Metodo para guardar las partidas junto con el indice
+     * @param indice
+     * @param juego
+     * @throws IOException 
+     */
     public void guardarPartida(int indice, Partida juego) throws IOException {
         partidasGuardadas[indice] = juego;
         ControladorBBDD.getSingleton().guardarInfoPJ(juego.getPj());
         salida.writeObject(partidasGuardadas);
     }
 
+    /**
+     * Metodo para cargar las partidas guardadas
+     * @param indice
+     * @return 
+     */
     public Partida cargarPartida(int indice) {
         return partidasGuardadas[indice];
     }
 
+    /**
+     * Metodo para tener la informacion de las partidas
+     * @return 
+     */
     public String[][] infoPartidas(){
         String[][] informacion = new String[4][4];
         for(int i=0; i<informacion.length; i++){
