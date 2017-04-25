@@ -29,7 +29,7 @@ public class ControladorPrincipal {
      */
     public static void main(String[]args){
         cambiarEstiloGUI();
-        ControladorGUI.getSingleton().menuPrincipal(musica);
+        ControladorGUI.getSingleton().menuPrincipal();
     }
     /**
      * Constructor por defecto
@@ -145,7 +145,25 @@ public class ControladorPrincipal {
      * Metodo devuelve el nombre del personaje
      * @return 
      */
-    public String getNombre(){
+    public String getPJNombre(){
         return personajeActual.getNombre();
     }
+    
+    /**
+     * Metodo devuelve la vida total del personaje
+     * @return
+     */
+    public int getPJVidaTotal(){
+        return personajeActual.getVidaTotal();
+    }
+    
+    /**
+     * Metodo para subir un punto una caracteristica del PJ
+     * @param caracteristica
+     * @param incremento 
+     */
+    public void subirNivelPJ(int caracteristica){
+        personajeActual.subirNivel(caracteristica);
+    }
+    
 }

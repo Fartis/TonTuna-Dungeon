@@ -37,6 +37,11 @@ public class ControladorMazmorra {
         }
         return singleton;
     }
+    
+    private void rellenarPiso(int nivel){
+        
+    }
+    
     /**
      * Metodo para generar piso de la mazmorra
      */

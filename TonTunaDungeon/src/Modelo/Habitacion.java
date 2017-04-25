@@ -10,8 +10,6 @@ import Modelo.Inventario.Objeto;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Arma;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Clase para gestionar la habitacion

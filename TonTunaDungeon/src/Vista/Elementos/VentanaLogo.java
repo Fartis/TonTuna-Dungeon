@@ -76,7 +76,7 @@ public class VentanaLogo extends JPanel {
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt){
         // TODO add your handling code here:
-        ControladorGUI.getSingleton().menuNuevaPartida(ControladorPrincipal.getSingleton().getOpcionMusica());
+        ControladorGUI.getSingleton().menuNuevaPartida();
         this.setVisible(false);
         padre.dispose();
         

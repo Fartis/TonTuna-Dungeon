@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class Personaje {
 
-    private int fuerza, destreza, constitucion, intelecto, vida, nivel;
+    private int fuerza, destreza, constitucion, intelecto, vidaTotal, nivel, vidaActual;
     private String descripcion, raza, nombre;
     private Armadura armadura;
     private Arma arma;
@@ -78,7 +78,8 @@ public class Personaje {
         for (int i = 0; i < getConstitucion(); i++) {
             cantidad = cantidad + Dado.lanza(6);
         }
-        this.setVida(cantidad);
+        this.setVidaTotal(cantidad);
+        this.vidaActual=this.vidaTotal;
     }
 
     /**
@@ -213,16 +214,16 @@ public class Personaje {
      * Metodo devuelve la vida del personaje
      * @return 
      */
-    public int getVida() {
-        return vida;
+    public int getVidaTotal() {
+        return vidaTotal;
     }
 
     /**
      * Metodo introduce la vida del personaje
      * @param vida 
      */
-    public void setVida(int vida) {
-        this.vida = vida;
+    public void setVidaTotal(int vida) {
+        this.vidaTotal = vida;
     }
 
     /**
@@ -259,7 +260,25 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return "Personaje{" + "nombre=" + getNombre() + "fuerza=" + getFuerza() + ", destreza=" + getDestreza() + ", constitucion=" + getConstitucion() + ", intelecto=" + getIntelecto() + ", vida=" + getVida() + ", nivel=" + getNivel() + ", descripcion=" + getDescripcion() + ", raza=" + getRaza() + ", armadura=" + getArmadura() + ", arma=" + getArma() + '}';
+        return "Personaje{" + "nombre=" + getNombre() + "fuerza=" + getFuerza() + ", destreza=" + getDestreza() + ", constitucion=" + getConstitucion() + ", intelecto=" + getIntelecto() + ", vida=" + getVidaTotal() + ", nivel=" + getNivel() + ", descripcion=" + getDescripcion() + ", raza=" + getRaza() + ", armadura=" + getArmadura() + ", arma=" + getArma() + '}';
+    }
+
+    public void subirNivel(int caracteristica) {
+        switch (caracteristica){
+            case 1:
+                this.fuerza++;
+                break;
+            case 2:
+                this.destreza++;
+                break;
+            case 3:
+                this.intelecto++;
+                break;
+            case 4:
+                this.constitucion++;
+                this.vidaTotal=this.vidaTotal+Dado.lanza(6);
+                break;
+        }
     }
 
 }

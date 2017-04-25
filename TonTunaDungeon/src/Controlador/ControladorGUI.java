@@ -45,9 +45,9 @@ public class ControladorGUI {
 
     /**
      * Metodo para gestionar el menu principal y la musica
-     * @param musica 
      */
-    public void menuPrincipal(boolean musica) {
+    public void menuPrincipal() {
+        boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
         reproducirMusica("src/Recursos/Stormlord - Title (Unused).mp3", musica);
         if (nuevaPar != null) {
@@ -64,9 +64,9 @@ public class ControladorGUI {
 
     /**
      * Metodo para gestionar el menu de nueva partida y la musica
-     * @param musica 
      */
-    public void menuNuevaPartida(boolean musica) {
+    public void menuNuevaPartida() {
+        boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
         reproducirMusica("src/Recursos/Soul Blazer - Intro Theme.mp3", musica);
         VentanaNuevaPartida menu1 = new VentanaNuevaPartida();
@@ -100,6 +100,7 @@ public class ControladorGUI {
      * Metodo para mostrar mensaje de la nueva partida
      */
     public void menuMensajeNuevaPartida() {
+        boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
         VentanaMensajeNuevaPartida menuMensaje = new VentanaMensajeNuevaPartida();
         if (mensajeInicio == null) {
@@ -113,6 +114,7 @@ public class ControladorGUI {
      * Metodo para gestionar la ventana de mazmorra
      */
     public void ventanaMazmorra() {
+        boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
         VentanaMazmorra menuJuego = new VentanaMazmorra();
         if (ventanaMazmorra == null) {
