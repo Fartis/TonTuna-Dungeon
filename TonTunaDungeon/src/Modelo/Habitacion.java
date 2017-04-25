@@ -17,14 +17,12 @@ import Modelo.Inventario.Arma;
 public class Habitacion {
 
     //El tipo de contenido se utiliza con un entero:
-    //0 = Habitacion de inicio.
-    //1 = Objeto
-    //2 = Arma
-    //3 = Armadura
-    //4 = Monstruo
-    //5 = Cama
-    //6 = Nada
-    private int tipo=6;
+    //0 = Vacia.
+    //1 = Normal
+    //2 = Tesoro
+    //3 = Guardado
+    //4 = Siguiente nivel
+    private int tipo;
     private Objeto objeto;
     private Arma arma;
     private Armadura armadura;
@@ -33,7 +31,6 @@ public class Habitacion {
     boolean[] puertas = new boolean[4];
     boolean accesible=false, puntoGuardado=false;
 
-    /*
     public Habitacion(int tipo) {
         this.tipo = tipo;
         this.accesible = true;
@@ -47,21 +44,8 @@ public class Habitacion {
             case 1:
                 this.objeto = ControladorBBDD.obtenerObjeto();
                 break;
-            case 2:
-                this.arma = ControladorBBDD.obtenerArma();
-                break;
-            case 3:
-                this.armadura = ControladorBBDD.obtenerArmadura();
-                break;
-            case 4:
-                this.monstruo = ControladorBBDD.obtenerMonstruo();
-                break;
-            case 5:
-                this.puntoGuardado = true;
-                break;
         }
     }
-*/
 
     public Habitacion(boolean accesible) {
         if(!accesible){

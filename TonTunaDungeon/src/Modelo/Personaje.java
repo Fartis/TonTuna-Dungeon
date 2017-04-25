@@ -7,6 +7,8 @@ package Modelo;
 
 import Modelo.Inventario.Arma;
 import Modelo.Inventario.Armadura;
+import Modelo.Inventario.Objeto;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,9 +20,10 @@ public class Personaje {
     private String descripcion, raza, nombre;
     private Armadura armadura;
     private Arma arma;
-    
-    public Personaje(){
-        
+    private ArrayList<Objeto> inventario = new ArrayList();
+
+    public Personaje() {
+
     }
 
     public Personaje(String nombre, String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion, int nivel) {
@@ -32,6 +35,20 @@ public class Personaje {
         this.intelecto = intelecto;
         this.descripcion = descripcion;
         this.nivel = nivel;
+    }
+
+    public void añadirObjeto(Objeto nuevo) {
+        inventario.add(nuevo);
+    }
+
+    public ArrayList<String> listarObjetos() {
+        ArrayList<String> lista = new ArrayList();
+        if (!inventario.isEmpty()) {
+            for (int i = 0; i < inventario.size(); i++) {
+                lista.add(inventario.get(i).getNombre());
+            }
+        }
+        return lista;
     }
 
     public void establecerVida() {

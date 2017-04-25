@@ -8,6 +8,7 @@ package Controlador;
 import Modelo.Dado;
 import Modelo.Inventario.Arma;
 import Modelo.Inventario.Armadura;
+import Modelo.Inventario.Objeto;
 import Modelo.Monstruo;
 import Modelo.Personaje;
 import com.mysql.jdbc.Connection;
@@ -139,13 +140,27 @@ public class ControladorBBDD {
         }
     }
 
-//    public Objeto obtenerObjeto() throws SQLException{
-//        PreparedStatement consulta = con.prepareStatement("select * from objeto where;");
-//        ResultSet rs = consulta.executeQuery();
-//        for(int i=0; i<Dado.lanza(50); i++) rs.next();
-//        Objeto objeto = new Objeto();
-//        return objeto;
-//    }
+    public Objeto obtenerObjeto() throws SQLException{
+        Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
+        PreparedStatement consulta = con.prepareStatement("select * from objeto where;");
+        ResultSet rs = consulta.executeQuery();
+        for(int i=0; i<Dado.lanza(12); i++) rs.next();
+        int tipo=0;
+        switch(rs.getString("tipo")){
+            case "Curacion":
+                tipo=1;
+                break;
+            case "Apoyo":
+                tipo=2;
+                break;
+            case "Daño":
+                tipo=3;
+                break;
+        }
+        Objeto objeto = new Objeto(rs.getString("nombre"),rs.getString("descripcion"), rs.getInt("bonificador"), tipo);
+        return objeto;
+    }
+    
     /**
      * Metodo para obtener la armadura de la base de datos
      * @return

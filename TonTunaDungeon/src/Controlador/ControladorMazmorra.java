@@ -22,6 +22,8 @@ public class ControladorMazmorra {
     
     private ControladorMazmorra() {
         this.mazmorra = new ArrayList();
+        generarPiso();
+        rellenarBorde();
     }
     
     public ControladorMazmorra getSingleton(){
