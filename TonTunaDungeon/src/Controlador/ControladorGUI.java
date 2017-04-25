@@ -13,7 +13,7 @@ import Vista.Elementos.VentanaNuevaPartida;
 import Vista.JFramePrincipal;
 
 /**
- *
+ * Clase para gestionar el controlador de la interfaz
  * @author Manuel David Villalba Escamilla
  */
 public class ControladorGUI {
@@ -25,10 +25,17 @@ public class ControladorGUI {
             mensajeInicio = null,
             ventanaMazmorra = null;
 
+    /**
+     * Constructor por defecto de la interfaz grafica
+     */
     private ControladorGUI() {
 
     }
 
+    /**
+     * Metodo singleton para el controlador de la interfaz
+     * @return 
+     */
     public static ControladorGUI getSingleton() {
         if (singleton == null) {
             singleton = new ControladorGUI();
@@ -36,6 +43,10 @@ public class ControladorGUI {
         return singleton;
     }
 
+    /**
+     * Metodo para gestionar el menu principal y la musica
+     * @param musica 
+     */
     public void menuPrincipal(boolean musica) {
         ocultar();
         reproducirMusica("src/Recursos/Stormlord - Title (Unused).mp3", musica);
@@ -51,6 +62,10 @@ public class ControladorGUI {
         menu1.setPadre(menuPrin);
     }
 
+    /**
+     * Metodo para gestionar el menu de nueva partida y la musica
+     * @param musica 
+     */
     public void menuNuevaPartida(boolean musica) {
         ocultar();
         reproducirMusica("src/Recursos/Soul Blazer - Intro Theme.mp3", musica);
@@ -63,17 +78,27 @@ public class ControladorGUI {
         menu1.setPadre(nuevaPar);
     }
 
+    /**
+     * Metodo para reproducir musica
+     * @param url
+     * @param activado 
+     */
     private void reproducirMusica(String url, boolean activado) {
         ReproductorMusica.getSingleton().stop();
         if(activado){
             ReproductorMusica.getSingleton().play(url);
         }
     }
-    
+    /**
+     * Metodo para detener la musica
+     */
     public void stopMusica(){
         ReproductorMusica.getSingleton().stop();
     }
 
+    /**
+     * Metodo para mostrar mensaje de la nueva partida
+     */
     public void menuMensajeNuevaPartida() {
         ocultar();
         VentanaMensajeNuevaPartida menuMensaje = new VentanaMensajeNuevaPartida();
@@ -84,7 +109,9 @@ public class ControladorGUI {
         }
         menuMensaje.setPadre(mensajeInicio);
     }
-    
+    /**
+     * Metodo para gestionar la ventana de mazmorra
+     */
     public void ventanaMazmorra() {
         ocultar();
         VentanaMazmorra menuJuego = new VentanaMazmorra();
@@ -97,6 +124,9 @@ public class ControladorGUI {
         
     }
 
+    /**
+     * Metodo para comprobar ventanas ocultas y mostradas
+     */
     private void ocultar() {
         if (nuevaPar != null) {
             nuevaPar.visible(false);
