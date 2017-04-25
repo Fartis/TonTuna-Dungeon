@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Clase para gestionar la habitacion
  * @author Manuel David Villalba Escamilla
  */
 public class Habitacion {
@@ -34,6 +34,12 @@ public class Habitacion {
     boolean[] puertas = new boolean[4];
     boolean accesible = false, puntoGuardado = false, escalera = false;
 
+    /**
+     * Metodo establece el tipo de habitacion y nivel
+     * @param tipo
+     * @param nivel
+     * @param tesoro 
+     */
     public Habitacion(int tipo, int nivel, int tesoro) {
         this.tipo = tipo;
         this.accesible = true;
@@ -74,12 +80,19 @@ public class Habitacion {
         }
     }
 
+    /**
+     * Metodo genera puertas de habitacion
+     */
     private void generarPuertas() {
         for (int i = 0; i < puertas.length; i++) {
             puertas[i] = false;
         }
     }
 
+    /**
+     * Metodo comprueba si la habitacion es accesible y genera
+     * @param accesible 
+     */
     public Habitacion(boolean accesible) {
         if (!accesible) {
             this.accesible = accesible;
