@@ -6,7 +6,7 @@
 package Modelo.Inventario;
 
 /**
- *
+ * Clase para gestionar el tesoro
  * @author Manuel David Villalba Escamilla
  */
 public class Tesoro {
