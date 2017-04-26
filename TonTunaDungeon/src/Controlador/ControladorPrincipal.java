@@ -22,6 +22,7 @@ public class ControladorPrincipal {
     private static ControladorPrincipal singleton = null;
     private static ReproductorMusica reproductor = new ReproductorMusica();
     private static boolean musica = true;
+    private int nivelActual=1;
     
     /**
      * Metodo inicia aplicacion y musica
@@ -141,7 +142,16 @@ public class ControladorPrincipal {
     public boolean getOpcionMusica(){
         return musica;
     }
-    /**
+
+    public int getNivelActual() {
+        return nivelActual;
+    }
+
+    public void setNivelActual(int nivelActual) {
+        this.nivelActual = nivelActual;
+    }
+    
+        /**
      * Metodo devuelve el nombre del personaje
      * @return 
      */

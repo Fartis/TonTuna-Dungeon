@@ -10,9 +10,12 @@ import Modelo.Inventario.Objeto;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Arma;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Clase para gestionar la habitacion
+ *
  * @author Manuel David Villalba Escamilla
  */
 public class Habitacion {
@@ -34,9 +37,10 @@ public class Habitacion {
 
     /**
      * Metodo establece el tipo de habitacion y nivel
+     *
      * @param tipo
      * @param nivel
-     * @param tesoro 
+     * @param tesoro
      */
     public Habitacion(int tipo, int nivel, int tesoro) {
         this.tipo = tipo;
@@ -45,21 +49,22 @@ public class Habitacion {
             case 0:
                 this.accesible = false;
                 break;
+            case 2:
+                this.accesible = true;
+                 {
+                    try {
+                        this.objeto = ControladorBBDD.getSingleton().obtenerObjeto();
+                    } catch (SQLException ex) {
+                        System.out.println("Ha sido imposible generar habitación con monstruo");
+                    }
+                }
+                break;
             case 1:
                 this.accesible = true;
                 try {
-                    switch (tesoro){
-                        case 1: this.objeto = ControladorBBDD.getSingleton().obtenerObjeto(); break;
-                        case 2: this.arma = ControladorBBDD.getSingleton().obtenerArma(nivel);
+                    if (Dado.lanza(3) == Dado.lanza(3) || Dado.lanza(3) == Dado.lanza(5)) {
+                        this.monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(nivel);
                     }
-                } catch (SQLException ex) {
-                    System.out.println("Ha sido imposible generar habitación con objeto.");
-                }
-                break;
-            case 2:
-                this.accesible = true;
-                try {
-                    this.monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(nivel);
                 } catch (SQLException ex) {
                     System.out.println("Ha sido imposible generar habitación con monstruo.");
                 }
@@ -89,7 +94,8 @@ public class Habitacion {
 
     /**
      * Metodo comprueba si la habitacion es accesible y genera
-     * @param accesible 
+     *
+     * @param accesible
      */
     public Habitacion(boolean accesible) {
         if (!accesible) {
@@ -97,6 +103,11 @@ public class Habitacion {
         } else {
             throw new IllegalArgumentException("Fallo al generar habitación vacia.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Habitacion{" + "tipo=" + tipo + ", objeto=" + objeto + ", arma=" + arma + ", armadura=" + armadura + ", monstruo=" + monstruo + ", descripcion=" + descripcion + ", puertas=" + puertas + ", accesible=" + accesible + ", puntoGuardado=" + puntoGuardado + ", escalera=" + escalera + '}';
     }
 
 }

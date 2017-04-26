@@ -89,7 +89,6 @@ public class ControladorBBDD {
             }
             con.close();
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
             return null;
         }
         return listaPersonajes;
@@ -116,7 +115,6 @@ public class ControladorBBDD {
             con.close();
             return personaje;
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
             return null;
         }
     }
@@ -137,7 +135,6 @@ public class ControladorBBDD {
             Arma nueva = new Arma(rs.getString("nombre"), Integer.parseInt(rs.getString("tipo")), Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
             return nueva;
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
             return null;
         }
     }
@@ -150,22 +147,26 @@ public class ControladorBBDD {
      */
     public Objeto obtenerObjeto() throws SQLException{
         Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
-        PreparedStatement consulta = con.prepareStatement("select * from objeto where;");
+        PreparedStatement consulta = con.prepareStatement("select * from objeto;");
         ResultSet rs = consulta.executeQuery();
-        for(int i=0; i<Dado.lanza(12); i++) rs.next();
+        rs.next();
+        for(int i=0; i<Dado.lanza(12)-1; i++){
+            rs.next();
+        }
         int tipo=0;
         switch(rs.getString("tipo")){
-            case "Curacion":
+            case "curacion":
                 tipo=1;
                 break;
-            case "Apoyo":
+            case "apoyo":
                 tipo=2;
                 break;
-            case "Daño":
+            case "daño":
                 tipo=3;
                 break;
         }
         Objeto objeto = new Objeto(rs.getString("nombre"),rs.getString("descripcion"), rs.getInt("bonificador"), tipo);
+        System.out.println(objeto);
         return objeto;
     }
     
@@ -186,7 +187,6 @@ public class ControladorBBDD {
             Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), Integer.parseInt(rs.getString("indice")), rs.getString("descripcion"));
             return armadura;
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
             return null;
         }
     }
@@ -202,7 +202,7 @@ public class ControladorBBDD {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
             PreparedStatement consulta = con.prepareStatement("select * from monstruo where nivel = " + nivel + ";");
             ResultSet rs = consulta.executeQuery();
-            for (int i = 0; i < Dado.lanza(5); i++) {
+            for (int i = 0; i < Dado.lanza(5)-1; i++) {
                 rs.next();
             }
             int fuerza = Integer.parseInt(rs.getString("fuerza"));
@@ -217,7 +217,6 @@ public class ControladorBBDD {
             con.close();
             return monstruo;
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
             return null;
         }
     }
