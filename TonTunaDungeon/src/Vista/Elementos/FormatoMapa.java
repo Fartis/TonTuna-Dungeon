@@ -133,7 +133,6 @@ public class FormatoMapa extends JPanel {
     
     public void pintarMapa(){
         int[] tipo = ControladorMazmorra.getSingleton().infoMapa();
-        System.out.println(tipo.length);
         for (int i=0; i<100; i++){
             switch(tipo[i]){
                 //El tipo de contenido se utiliza con un entero:
