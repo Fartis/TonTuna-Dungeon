@@ -47,6 +47,7 @@ public class ControladorGUI {
      * Metodo para gestionar el menu principal y la musica
      */
     public void menuPrincipal() {
+        ControladorPrincipal.getSingleton().reiniciarJuego();
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
         reproducirMusica("src/Recursos/Stormlord - Title (Unused).mp3", musica);
@@ -123,7 +124,6 @@ public class ControladorGUI {
             ventanaMazmorra.createAndShowUI(menuJuego);
         }
         menuJuego.setPadre(ventanaMazmorra);
-        ControladorMazmorra.getSingleton().generarPiso();
         
     }
 

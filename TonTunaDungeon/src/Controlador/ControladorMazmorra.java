@@ -28,16 +28,19 @@ import java.util.logging.Logger;
  */
 public class ControladorMazmorra {
 
-    private final ArrayList<Habitacion[][]> mazmorra = new ArrayList();;
-    private int nivelPiso = 1;
+    private static ArrayList<Habitacion[][]> mazmorra;
     private static ControladorMazmorra singleton = null;
 
     /**
      * Metodo constructor de mazmorra
      */
     private ControladorMazmorra() {
+        this.mazmorra = new ArrayList<>();
     }
     
+    public void reiniciarMazmorra(){
+        this.mazmorra = new ArrayList<>();
+    }
 
     /**
      * Metodo singleton de la mazmorra
@@ -51,8 +54,8 @@ public class ControladorMazmorra {
         return singleton;
     }
 
-    private Habitacion[][] rellenarPiso(int nivel) throws ParserConfigurationException, IOException, SAXException {
-        File xmlPiso = new File("src/Recursos/xmlPisos/piso" + nivel + ".xml");
+    private Habitacion[][] rellenarPiso() throws ParserConfigurationException, IOException, SAXException {
+        File xmlPiso = new File("src/Recursos/xmlPisos/piso" + (ControladorPrincipal.getSingleton().getNivelActual()+1) + ".xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document docPiso = dBuilder.parse(xmlPiso);
@@ -79,10 +82,23 @@ public class ControladorMazmorra {
      */
     public void generarPiso() {
         try {
-            Habitacion[][] piso = rellenarPiso(nivelPiso);
+            Habitacion[][] piso = rellenarPiso();
             mazmorra.add(piso);
-            nivelPiso++;
         } catch (ParserConfigurationException | IOException | SAXException ex) {
         }
+    }
+
+    public int[] infoMapa() {
+        int[] info = new int[100];
+        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
+        
+        int numero =0;
+        for (int i=0; i<10; i++){
+            for (int j=0; j<10; j++){
+                info[numero] = temporal[i][j].getTipo();
+                numero++;
+            }
+        }
+        return info;
     }
 }

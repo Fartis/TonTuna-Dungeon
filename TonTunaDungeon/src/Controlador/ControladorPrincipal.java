@@ -22,7 +22,7 @@ public class ControladorPrincipal {
     private static ControladorPrincipal singleton = null;
     private static ReproductorMusica reproductor = new ReproductorMusica();
     private static boolean musica = true;
-    private int nivelActual=1;
+    private int nivelActual=0;
     
     /**
      * Metodo inicia aplicacion y musica
@@ -174,6 +174,12 @@ public class ControladorPrincipal {
      */
     public void subirNivelPJ(int caracteristica){
         personajeActual.subirNivel(caracteristica);
+    }
+    
+    public void reiniciarJuego(){
+        this.personajeActual= new Personaje();
+        this.nivelActual=0;
+        ControladorMazmorra.getSingleton().reiniciarMazmorra();
     }
     
 }

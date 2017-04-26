@@ -91,6 +91,10 @@ public class Habitacion {
             puertas[i] = false;
         }
     }
+    
+    public int getTipo(){
+        return tipo;
+    }
 
     @Override
     public String toString() {

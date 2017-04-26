@@ -6,6 +6,7 @@
 package Vista.Elementos;
 
 import Controlador.ControladorGUI;
+import Controlador.ControladorMazmorra;
 import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
 import java.awt.Color;
@@ -60,6 +61,8 @@ public class VentanaMazmorra extends JPanel {
         this.add(jButtonSalir);
         this.add(jButtonGuardar);
         this.add(jButtonAbrir);
+        ControladorMazmorra.getSingleton().generarPiso();
+        jMapa.pintarMapa();
         
         escribirTexto(ControladorPrincipal.getSingleton().getPJNombre()
                 + " acabas de adentrarte en la mazmorra en busca de tesoros, adelante.");
