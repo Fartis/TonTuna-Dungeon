@@ -9,6 +9,7 @@ import Controlador.ControladorGUI;
 import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -21,6 +22,7 @@ import static javax.swing.JOptionPane.OK_OPTION;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -42,7 +44,10 @@ public class VentanaMazmorra extends JPanel {
             jButtonSalir = new JButton("Salir"),
             jButtonGuardar = new JButton("Guardar"),
             jButtonAbrir = new JButton("Abrir");
-    private JTable jTableMapa = new JTable();
+    private FormatoMapa jMapa = new FormatoMapa();
+    
+    
+    //JLabel para mapa.
 
     public VentanaMazmorra() {
         this.add(jTextoAventura);
@@ -51,8 +56,11 @@ public class VentanaMazmorra extends JPanel {
         this.add(jDerecha);
         this.add(jIzquierda);
         this.add(jLabelMapa);
-        this.add(jTableMapa);
+        this.add(jMapa);
         this.add(jButtonSalir);
+        this.add(jButtonGuardar);
+        this.add(jButtonAbrir);
+        
         escribirTexto(ControladorPrincipal.getSingleton().getPJNombre()
                 + " acabas de adentrarte en la mazmorra en busca de tesoros, adelante.");
 
@@ -80,6 +88,8 @@ public class VentanaMazmorra extends JPanel {
             padre.dispose();
         }
     }
+    
+    
 
     @Override
     public void paintComponent(Graphics g) {
@@ -91,11 +101,18 @@ public class VentanaMazmorra extends JPanel {
         jTextoAventura.setLineWrap(true);
         jTextoAventura.setWrapStyleWord(true);
         jTextoAventura.setEditable(false);
-        jTableMapa.setBounds(440, 20, 340, 340);
+        jMapa.setBounds(440, 50, 340, 340);
         jArriba.setBounds(580, 400, 60, 60);
         jAbajo.setBounds(580, 460, 60, 60);
         jDerecha.setBounds(640, 430, 60, 60);
         jIzquierda.setBounds(520, 430, 60, 60);
         jButtonSalir.setBounds(680, 520, 100, 40);
+        jButtonGuardar.setBounds(350,460,100,100);
+        jButtonGuardar.setVisible(false);
+        jButtonAbrir.setBounds(350,460,100,100);
+        jButtonAbrir.setVisible(false);
+        jLabelMapa.setBounds (610,20,80,20);
+        jLabelMapa.setForeground(Color.white);
+        jLabelMapa.setFont(new Font("Dialog", Font.BOLD, 15));
     }
 }

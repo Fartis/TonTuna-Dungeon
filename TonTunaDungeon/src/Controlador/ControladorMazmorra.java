@@ -28,51 +28,30 @@ import java.util.logging.Logger;
  */
 public class ControladorMazmorra {
 
-    private final ArrayList<Habitacion[][]> mazmorra;
-    private static Habitacion[][] piso = new Habitacion[10][10];
-    int nivelPiso = 0;
+    private final ArrayList<Habitacion[][]> mazmorra = new ArrayList();;
+    private int nivelPiso = 1;
     private static ControladorMazmorra singleton = null;
 
     /**
      * Metodo constructor de mazmorra
      */
     private ControladorMazmorra() {
-        this.mazmorra = new ArrayList();
-        generarPiso();
-        rellenarBorde();
     }
+    
 
     /**
      * Metodo singleton de la mazmorra
      *
      * @return
      */
-    public ControladorMazmorra getSingleton() {
+    public static ControladorMazmorra getSingleton() {
         if (singleton == null) {
             singleton = new ControladorMazmorra();
         }
         return singleton;
     }
 
-    public static void main(String[] args) {
-        try {
-            rellenarPiso(1);
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(ControladorMazmorra.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ControladorMazmorra.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SAXException ex) {
-            Logger.getLogger(ControladorMazmorra.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        for(int i=0; i<10; i++){
-            for(int j=0; j<10; j++){
-                System.out.println(piso[i][j].toString());
-            }
-        }
-    }
-
-    private static void rellenarPiso(int nivel) throws ParserConfigurationException, IOException, SAXException {
+    private Habitacion[][] rellenarPiso(int nivel) throws ParserConfigurationException, IOException, SAXException {
         File xmlPiso = new File("src/Recursos/xmlPisos/piso" + nivel + ".xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -83,6 +62,7 @@ public class ControladorMazmorra {
         NodeList nodoPiso = docPiso.getElementsByTagName("Piso");
         Node subNodoPiso = nodoPiso.item(Dado.lanza(5) - 1);
         int numero = 0;
+        Habitacion[][] piso = new Habitacion[10][10];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 Node habitacion = subNodoPiso.getChildNodes().item(numero);
@@ -91,56 +71,18 @@ public class ControladorMazmorra {
                 numero++;
             }
         }
+        return piso;
     }
 
     /**
      * Metodo para generar piso de la mazmorra
      */
-    private void generarPiso() {
-        piso = new Habitacion[10][10];
-        rellenarBorde();
-        mazmorra.add(piso);
-    }
-
-    /**
-     * metodo para rellenar el borde exterior de la tabla y limitarlo
-     */
-    private void rellenarBorde() {
-        piso[0][0] = new Habitacion(false);
-        piso[1][0] = new Habitacion(false);
-        piso[2][0] = new Habitacion(false);
-        piso[3][0] = new Habitacion(false);
-        piso[4][0] = new Habitacion(false);
-        piso[5][0] = new Habitacion(false);
-        piso[6][0] = new Habitacion(false);
-        piso[7][0] = new Habitacion(false);
-        piso[8][0] = new Habitacion(false);
-        piso[9][0] = new Habitacion(false);
-        piso[0][1] = new Habitacion(false);
-        piso[0][2] = new Habitacion(false);
-        piso[0][3] = new Habitacion(false);
-        piso[0][4] = new Habitacion(false);
-        piso[0][5] = new Habitacion(false);
-        piso[0][6] = new Habitacion(false);
-        piso[0][7] = new Habitacion(false);
-        piso[0][8] = new Habitacion(false);
-        piso[0][9] = new Habitacion(false);
-        piso[1][9] = new Habitacion(false);
-        piso[2][9] = new Habitacion(false);
-        piso[3][9] = new Habitacion(false);
-        piso[4][9] = new Habitacion(false);
-        piso[5][9] = new Habitacion(false);
-        piso[6][9] = new Habitacion(false);
-        piso[7][9] = new Habitacion(false);
-        piso[8][9] = new Habitacion(false);
-        piso[9][9] = new Habitacion(false);
-        piso[9][1] = new Habitacion(false);
-        piso[9][2] = new Habitacion(false);
-        piso[9][3] = new Habitacion(false);
-        piso[9][4] = new Habitacion(false);
-        piso[9][5] = new Habitacion(false);
-        piso[9][6] = new Habitacion(false);
-        piso[9][7] = new Habitacion(false);
-        piso[9][8] = new Habitacion(false);
+    public void generarPiso() {
+        try {
+            Habitacion[][] piso = rellenarPiso(nivelPiso);
+            mazmorra.add(piso);
+            nivelPiso++;
+        } catch (ParserConfigurationException | IOException | SAXException ex) {
+        }
     }
 }

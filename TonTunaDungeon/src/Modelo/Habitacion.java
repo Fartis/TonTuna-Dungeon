@@ -55,7 +55,7 @@ public class Habitacion {
                     try {
                         this.objeto = ControladorBBDD.getSingleton().obtenerObjeto();
                     } catch (SQLException ex) {
-                        System.out.println("Ha sido imposible generar habitación con monstruo");
+                        System.out.println("Ha sido imposible generar habitación con objeto");
                     }
                 }
                 break;
@@ -89,19 +89,6 @@ public class Habitacion {
     private void generarPuertas() {
         for (int i = 0; i < puertas.length; i++) {
             puertas[i] = false;
-        }
-    }
-
-    /**
-     * Metodo comprueba si la habitacion es accesible y genera
-     *
-     * @param accesible
-     */
-    public Habitacion(boolean accesible) {
-        if (!accesible) {
-            this.accesible = accesible;
-        } else {
-            throw new IllegalArgumentException("Fallo al generar habitación vacia.");
         }
     }
 

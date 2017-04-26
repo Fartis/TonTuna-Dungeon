@@ -166,7 +166,6 @@ public class ControladorBBDD {
                 break;
         }
         Objeto objeto = new Objeto(rs.getString("nombre"),rs.getString("descripcion"), rs.getInt("bonificador"), tipo);
-        System.out.println(objeto);
         return objeto;
     }
     

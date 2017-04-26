@@ -123,6 +123,7 @@ public class ControladorGUI {
             ventanaMazmorra.createAndShowUI(menuJuego);
         }
         menuJuego.setPadre(ventanaMazmorra);
+        ControladorMazmorra.getSingleton().generarPiso();
         
     }
 
