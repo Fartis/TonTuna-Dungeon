@@ -50,13 +50,6 @@ public class Personaje {
         this.nivel = nivel;
     }
 
-    /**
-     * Metodo para añadir objeto al inventario del personaje
-     * @param nuevo 
-     */
-    public void añadirObjeto(Objeto nuevo) {
-        inventarioObjeto.add(nuevo);
-    }
 
     /**
      * Metodo para listar los objetos
@@ -281,6 +274,41 @@ public class Personaje {
                 this.vidaTotal=this.vidaTotal+Dado.lanza(6);
                 break;
         }
+    }
+    
+    /**
+     * Metodo para añadir una nueva Arma al inventario de armas del personaje
+     * @param nueva 
+     */
+    public void anadirArma(Arma nueva){
+        inventarioArma.add(nueva);
+    }
+    
+    /**
+     * Metodo para añadir una nueva Armadura al inventario de armaduras del personaje
+     * @param nueva 
+     */
+    public void anadirArmadura(Armadura nueva){
+        inventarioArmadura.add(nueva);
+    }
+    
+    /**
+     * Metodo para añadir un nuevo objeto al inventario de objetos del personaje
+     * @param nuevo 
+     */
+    public void añadirObjeto(Objeto nuevo) {
+        inventarioObjeto.add(nuevo);
+    }
+    
+    /**
+     * Metodo para obtener un objeto que se va a usar en combate y lo elimina del inventario de objetos del personaje
+     * @param indice
+     * @return 
+     */
+    public Objeto usarObjeto(int indice){
+        Objeto temporal = inventarioObjeto.get(indice);
+        inventarioObjeto.remove(indice);
+        return temporal;
     }
 
 }
