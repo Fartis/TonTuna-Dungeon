@@ -20,7 +20,9 @@ public class Personaje {
     private String descripcion, raza, nombre;
     private Armadura armadura;
     private Arma arma;
-    private ArrayList<Objeto> inventario = new ArrayList();
+    private ArrayList<Arma> inventarioArma = new ArrayList();
+    private ArrayList<Armadura> inventarioArmadura = new ArrayList();
+    private ArrayList<Objeto> inventarioObjeto = new ArrayList();
 
     public Personaje() {
 
@@ -53,7 +55,7 @@ public class Personaje {
      * @param nuevo 
      */
     public void añadirObjeto(Objeto nuevo) {
-        inventario.add(nuevo);
+        inventarioObjeto.add(nuevo);
     }
 
     /**
@@ -62,9 +64,9 @@ public class Personaje {
      */
     public ArrayList<String> listarObjetos() {
         ArrayList<String> lista = new ArrayList();
-        if (!inventario.isEmpty()) {
-            for (int i = 0; i < inventario.size(); i++) {
-                lista.add(inventario.get(i).getNombre());
+        if (!inventarioObjeto.isEmpty()) {
+            for (int i = 0; i < inventarioObjeto.size(); i++) {
+                lista.add(inventarioObjeto.get(i).getNombre());
             }
         }
         return lista;
