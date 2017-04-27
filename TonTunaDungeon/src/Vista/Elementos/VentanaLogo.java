@@ -15,6 +15,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -115,7 +116,7 @@ public class VentanaLogo extends JPanel {
      */
     private void jButtonLogrosActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-
+        JOptionPane.showMessageDialog(this, "Tranquilidad, ésta opción aún no está completada", "EN CONSTRUCCIÓN", JOptionPane.ERROR_MESSAGE);
     }
 
     /**
