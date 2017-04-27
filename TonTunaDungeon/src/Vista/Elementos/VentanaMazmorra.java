@@ -26,7 +26,7 @@ import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * Clase que genera la ventana de mazmorra en el JFramePrincipal
  * @author Manuel David Villalba Escamilla
  */
 public class VentanaMazmorra extends JPanel {
@@ -50,6 +50,9 @@ public class VentanaMazmorra extends JPanel {
     
     //JLabel para mapa.
 
+    /**
+     * Genera los JLabel de los botones, texto, mapa...etc
+     */
     public VentanaMazmorra() {
         this.add(jTextoAventura);
         this.add(jArriba);
@@ -78,11 +81,19 @@ public class VentanaMazmorra extends JPanel {
         this.padre = padre;
     }
 
+    /**
+     * Metodo introduce el texto del proceso en el juego
+     * @param linea 
+     */
     public void escribirTexto(String linea) {
         String total = jTextoAventura.getText() + "\n" + linea;
         jTextoAventura.setText(total);
     }
 
+    /**
+     * Metodo accion boton salir
+     * @param evt 
+     */
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {
         int salir = JOptionPane.showConfirmDialog(this, "¿Realmente deseas salir?", "¿Salir?", JOptionPane.OK_CANCEL_OPTION);
         if (salir == 0) {

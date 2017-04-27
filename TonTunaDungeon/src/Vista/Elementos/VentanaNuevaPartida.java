@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
- *
+ * Clase que gestiona el JFrame cuando se inicia nueva partida
  * @author Manuel David Villalba Escamilla
  */
 public class VentanaNuevaPartida extends JPanel {
@@ -90,16 +90,29 @@ public class VentanaNuevaPartida extends JPanel {
 
     
     ////Metodos
+    /**
+     * 
+     */
     public VentanaNuevaPartida() {
         iniciarEventos();
         añadirElementosPaneles();
         establecerAtributos(1);
     }
 
+    /**
+     * Metodo establece los atributos basicos en funcion de la raza del personaje
+     * @param raza 
+     */
     private void establecerAtributos(int raza) {
         ControladorCreadorPJ.getSingleton().iniciarAtributosPersonajes(raza);
     }
 
+    /**
+     * Metodo que se ejecuta al pulsar el boton de iniciar
+     * comprueba si todos los puntos iniciales estan repartidos
+     * y si es asi avanza a la siguiente ventana
+     * @param evt 
+     */
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if (Integer.parseInt(labelPuntosDisponibles.getText()) == 0) {
@@ -117,6 +130,10 @@ public class VentanaNuevaPartida extends JPanel {
         }
     }
 
+    /**
+     * Metodo para el boton atras, vuelve a la parte anterior
+     * @param evt 
+     */
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         ControladorGUI.getSingleton().menuPrincipal();
@@ -124,6 +141,10 @@ public class VentanaNuevaPartida extends JPanel {
         padre.dispose();
     }
 
+    /**
+     * Metodo para el evento de seleccionar la raza humano en la ventana
+     * @param evt 
+     */
     private void jButtonHumanoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if (!jPanelHumano.isVisible()) {
@@ -164,6 +185,10 @@ public class VentanaNuevaPartida extends JPanel {
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * Metodo que se inicia al seleccionar la raza elfo en la ventana
+     * @param evt 
+     */
     private void jButtonElfoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if (!jPanelElfo.isVisible()) {
@@ -204,6 +229,10 @@ public class VentanaNuevaPartida extends JPanel {
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * Metodo 
+     * @param evt 
+     */
     private void jButtonEnanoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if (!jPanelEnano.isVisible()) {

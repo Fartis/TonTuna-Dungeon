@@ -69,7 +69,6 @@ public class ControladorMazmorra {
 
         NodeList nodoPiso = docPiso.getElementsByTagName("Piso");
         Node subNodoPiso = nodoPiso.item(Dado.lanza(5) - 1);
-        System.out.println(subNodoPiso.getAttributes().getNamedItem("id"));
         int numero = 0;
         Habitacion[][] piso = new Habitacion[10][10];
         for (int i = 0; i < 10; i++) {
