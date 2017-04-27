@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 /**
- *
+ * Clase que gestiona la ventana o panel del menu principal del juego
  * @author Manuel David Villalba Escamilla
  */
 public class VentanaLogo extends JPanel {
@@ -33,6 +33,9 @@ public class VentanaLogo extends JPanel {
     JRadioButton jOpcionMusica = new JRadioButton();
     JFramePrincipal padre;
 
+    /**
+     * Metodo que gestiona las distintas opciones de la ventana principal
+     */
     public VentanaLogo() {
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,11 +72,18 @@ public class VentanaLogo extends JPanel {
         jOpcionMusica.setSelected(ControladorPrincipal.getSingleton().getOpcionMusica());
 
     }
-    
+    /**
+     * Metodo 
+     * @param padre 
+     */
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;
     }
 
+    /**
+     * Metodo para el evento del boton iniciar
+     * @param evt 
+     */
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt){
         // TODO add your handling code here:
         ControladorGUI.getSingleton().menuNuevaPartida();
@@ -82,21 +92,36 @@ public class VentanaLogo extends JPanel {
         
         
     }
-    
+    /**
+     * Metodo para el evento del boton musica
+     * @param evt 
+     */
     private void jOpcionMusicaActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorPrincipal.getSingleton().setOpcionMusica();
     }
 
+    /**
+     * Metodo para el evento del boton cargar
+     * @param evt 
+     */
     private void jButtonCargarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
     }
 
+    /**
+     * Metodo para el evento del boton logros
+     * @param evt 
+     */
     private void jButtonLogrosActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
     }
 
+    /**
+     * Metodo para el evento del boton salir
+     * @param evt 
+     */
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         System.exit(0);

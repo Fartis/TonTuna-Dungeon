@@ -22,7 +22,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
- *
+ * Clase para la ventana de comienzo aventura e introduccion de nombre
  * @author Manuel David Villalba Escamilla
  */
 public class VentanaMensajeNuevaPartida extends JPanel {
@@ -45,6 +45,9 @@ public class VentanaMensajeNuevaPartida extends JPanel {
     JTextField textFieldNombre = new JTextField("");
     JFramePrincipal padre;
 
+    /**
+     * 
+     */
     public VentanaMensajeNuevaPartida() {
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +67,10 @@ public class VentanaMensajeNuevaPartida extends JPanel {
         this.padre = padre;
     }
 
+    /**
+     * Metodo para la accion del boton de iniciar partida
+     * @param evt 
+     */
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if (!textFieldNombre.getText().isEmpty()) {

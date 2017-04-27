@@ -15,7 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- *
+ * 
  * @author Manuel David Villalba Escamilla
  */
 public class imagePanel extends JPanel {

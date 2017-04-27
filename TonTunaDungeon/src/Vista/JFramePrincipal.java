@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 /**
- *
+ * Clase Principal para gestionar la interfaz grafica visual del juego
  * @author Manuel David Villalba Escamilla
  */
 public class JFramePrincipal extends javax.swing.JFrame {
@@ -40,6 +40,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Metodo para generar el panel del juego y mostrarlo
+     * @param jPanel
+     * @param url 
+     */
     public void createAndShowUI(JPanel jPanel, String url) {
         try {
             frame = new JFrame();
