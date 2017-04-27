@@ -42,7 +42,7 @@ public class Habitacion {
      * @param nivel
      * @param tesoro
      */
-    public Habitacion(int tipo, int nivel, int tesoro) {
+    public Habitacion(int tipo, int nivel, int tesoro, boolean[] caminos) {
         this.tipo = tipo;
         this.accesible = true;
         switch (tipo) {
@@ -81,19 +81,15 @@ public class Habitacion {
                 this.accesible = true;
                 break;
         }
-    }
-
-    /**
-     * Metodo genera puertas de habitacion
-     */
-    private void generarPuertas() {
-        for (int i = 0; i < puertas.length; i++) {
-            puertas[i] = false;
-        }
+        this.puertas=caminos;
     }
     
     public int getTipo(){
         return tipo;
+    }
+        
+    public boolean direccionPermitida(int direccion){
+        return puertas[direccion];
     }
 
     @Override

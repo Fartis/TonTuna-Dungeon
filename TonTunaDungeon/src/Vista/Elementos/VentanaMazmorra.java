@@ -75,6 +75,26 @@ public class VentanaMazmorra extends JPanel {
                 jButtonSalirActionPerformed(evt);
             }
         });
+        jArriba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jArribaActionPerformed(evt);
+            }
+        });
+        jAbajo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAbajoActionPerformed(evt);
+            }
+        });
+        jDerecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDerechaActionPerformed(evt);
+            }
+        });
+        jIzquierda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jIzquierdaActionPerformed(evt);
+            }
+        });
     }
 
     public void setPadre(JFramePrincipal padre) {
@@ -102,6 +122,21 @@ public class VentanaMazmorra extends JPanel {
             padre.dispose();
         }
     }
+    
+    private void jArribaActionPerformed(java.awt.event.ActionEvent evt){
+        jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(0));
+    }
+    private void jAbajoActionPerformed(java.awt.event.ActionEvent evt){
+        jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(1));
+    }
+    private void jDerechaActionPerformed(java.awt.event.ActionEvent evt){
+        jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(2));
+    }
+    private void jIzquierdaActionPerformed(java.awt.event.ActionEvent evt){
+        jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(3));
+    }
+    
+    
     
     
 

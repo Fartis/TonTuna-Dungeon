@@ -27,7 +27,7 @@ public class ControladorMazmorra {
 
     private static ArrayList<Habitacion[][]> mazmorra;
     private static ControladorMazmorra singleton = null;
-    private int xActual=5, yActual=5;
+    private int xActual = 4, yActual = 4;
 
     /**
      * Metodo constructor de mazmorra
@@ -35,15 +35,17 @@ public class ControladorMazmorra {
     private ControladorMazmorra() {
         this.mazmorra = new ArrayList<>();
     }
+
     /**
      * método para reiniciar la mazmorra
      */
-    public void reiniciarMazmorra(){
+    public void reiniciarMazmorra() {
         this.mazmorra = new ArrayList<>();
     }
 
     /**
      * Metodo singleton de la mazmorra
+     *
      * @return
      */
     public static ControladorMazmorra getSingleton() {
@@ -52,15 +54,17 @@ public class ControladorMazmorra {
         }
         return singleton;
     }
+
     /**
      * método para generar un piso de la mazmorra desde un archivo xml
+     *
      * @return
      * @throws ParserConfigurationException
      * @throws IOException
-     * @throws SAXException 
+     * @throws SAXException
      */
     private Habitacion[][] rellenarPiso() throws ParserConfigurationException, IOException, SAXException {
-        File xmlPiso = new File("src/Recursos/xmlPisos/piso" + (ControladorPrincipal.getSingleton().getNivelActual()+1) + ".xml");
+        File xmlPiso = new File("src/Recursos/xmlPisos/piso" + (ControladorPrincipal.getSingleton().getNivelActual() + 1) + ".xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document docPiso = dBuilder.parse(xmlPiso);
@@ -75,7 +79,28 @@ public class ControladorMazmorra {
             for (int j = 0; j < 10; j++) {
                 Node habitacion = subNodoPiso.getChildNodes().item(numero);
                 int tipo = Integer.parseInt(habitacion.getAttributes().getNamedItem("tipo").getNodeValue());
-                piso[i][j] = new Habitacion(tipo, ControladorPrincipal.getSingleton().getNivelActual(), Dado.lanza(3));
+                boolean[] caminos = new boolean[4];
+                if(Integer.parseInt(habitacion.getAttributes().getNamedItem("arriba").getNodeValue())==1){
+                    caminos[0]=true;
+                }else{
+                    caminos[0]=false;
+                }
+                if(Integer.parseInt(habitacion.getAttributes().getNamedItem("abajo").getNodeValue())==1){
+                    caminos[1]=true;
+                }else{
+                    caminos[1]=false;
+                }
+                if(Integer.parseInt(habitacion.getAttributes().getNamedItem("derecha").getNodeValue())==1){
+                    caminos[2]=true;
+                }else{
+                    caminos[2]=false;
+                }
+                if(Integer.parseInt(habitacion.getAttributes().getNamedItem("izquierda").getNodeValue())==1){
+                    caminos[3]=true;
+                }else{
+                    caminos[3]=false;
+                }
+                piso[i][j] = new Habitacion(tipo, ControladorPrincipal.getSingleton().getNivelActual(), Dado.lanza(3), caminos);
                 numero++;
             }
         }
@@ -92,51 +117,67 @@ public class ControladorMazmorra {
         } catch (ParserConfigurationException | IOException | SAXException ex) {
         }
     }
+    
+
     /**
      * método para obtener la información del mapa
-     * @return 
+     *
+     * @return
      */
     public int[] infoMapa() {
         int[] info = new int[100];
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
-        
-        int numero =0;
-        for (int i=0; i<10; i++){
-            for (int j=0; j<10; j++){
+
+        int numero = 0;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
                 info[numero] = temporal[i][j].getTipo();
                 numero++;
             }
         }
         return info;
     }
+
     /**
-     * método para cambiar la posición del personaje dentro de la mazmorra
-     * 1 arriba, 2 abajo, 3 derecha, 4 izquierda
+     * método para cambiar la posición del personaje dentro de la mazmorra 1
+     * arriba, 2 abajo, 3 derecha, 4 izquierda
+     *
      * @param direccion
-     * @return 
+     * @return
      */
-    public int moverPersonaje(int direccion){
-        switch(direccion){
-            case 1:
-                this.yActual--;
-                break;
-            case 2:
-                this.yActual++;
-                break;
-            case 3:
-                this.xActual++;
-                break;
-            case 4:
-                this.xActual--;
-                break;
+    public int moverPersonaje(int direccion) {
+        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
+        if (temporal[xActual][yActual].direccionPermitida(direccion)){
+            switch (direccion) {
+                case 0:
+                    this.yActual--;
+                    break;
+                case 1:
+                    this.yActual++;
+                    break;
+                case 2:
+                    this.xActual++;
+                    break;
+                case 3:
+                    this.xActual--;
+                    break;
+            }
         }
-        return (yActual*10)+xActual;
+        return (xActual * 10) + yActual;
     }
+
     /**
-     * método para obtener la posición actual del personaje dentro de la mazmorra 
-     * @return 
+     * método para obtener la posición actual del personaje dentro de la
+     * mazmorra
+     *
+     * @return
      */
-    public int posicionActual(){
-        return (yActual*10)+xActual;
+    public int posicionActual() {
+        return (xActual * 10) + yActual;
+    }
+
+    public int infoHabitacion() {
+        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
+        return temporal[xActual][yActual].getTipo();
     }
 }
