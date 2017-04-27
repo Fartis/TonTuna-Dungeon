@@ -16,10 +16,7 @@ import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
-import org.w3c.dom.Element;
 import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Clase para gestionar la mazmorra
@@ -30,6 +27,7 @@ public class ControladorMazmorra {
 
     private static ArrayList<Habitacion[][]> mazmorra;
     private static ControladorMazmorra singleton = null;
+    private int xActual=5, yActual=5;
 
     /**
      * Metodo constructor de mazmorra
@@ -37,14 +35,15 @@ public class ControladorMazmorra {
     private ControladorMazmorra() {
         this.mazmorra = new ArrayList<>();
     }
-    
+    /**
+     * método para reiniciar la mazmorra
+     */
     public void reiniciarMazmorra(){
         this.mazmorra = new ArrayList<>();
     }
 
     /**
      * Metodo singleton de la mazmorra
-     *
      * @return
      */
     public static ControladorMazmorra getSingleton() {
@@ -53,7 +52,13 @@ public class ControladorMazmorra {
         }
         return singleton;
     }
-
+    /**
+     * método para generar un piso de la mazmorra desde un archivo xml
+     * @return
+     * @throws ParserConfigurationException
+     * @throws IOException
+     * @throws SAXException 
+     */
     private Habitacion[][] rellenarPiso() throws ParserConfigurationException, IOException, SAXException {
         File xmlPiso = new File("src/Recursos/xmlPisos/piso" + (ControladorPrincipal.getSingleton().getNivelActual()+1) + ".xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -88,7 +93,10 @@ public class ControladorMazmorra {
         } catch (ParserConfigurationException | IOException | SAXException ex) {
         }
     }
-
+    /**
+     * método para obtener la información del mapa
+     * @return 
+     */
     public int[] infoMapa() {
         int[] info = new int[100];
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
@@ -101,5 +109,35 @@ public class ControladorMazmorra {
             }
         }
         return info;
+    }
+    /**
+     * método para cambiar la posición del personaje dentro de la mazmorra
+     * 1 arriba, 2 abajo, 3 derecha, 4 izquierda
+     * @param direccion
+     * @return 
+     */
+    public int moverPersonaje(int direccion){
+        switch(direccion){
+            case 1:
+                this.yActual--;
+                break;
+            case 2:
+                this.yActual++;
+                break;
+            case 3:
+                this.xActual++;
+                break;
+            case 4:
+                this.xActual--;
+                break;
+        }
+        return (yActual*10)+xActual;
+    }
+    /**
+     * método para obtener la posición actual del personaje dentro de la mazmorra 
+     * @return 
+     */
+    public int posicionActual(){
+        return (yActual*10)+xActual;
     }
 }
