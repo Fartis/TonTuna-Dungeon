@@ -14,6 +14,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,9 +26,11 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.BadLocationException;
 
 /**
  * Clase que genera la ventana de mazmorra en el JFramePrincipal
+ *
  * @author Manuel David Villalba Escamilla
  */
 public class VentanaMazmorra extends JPanel {
@@ -36,7 +40,7 @@ public class VentanaMazmorra extends JPanel {
     private JTextArea jTextoAventura = new JTextArea();
     private JLabel jLabelMapa = new JLabel("Mapa"),
             jLabelNombre = new JLabel(ControladorPrincipal.getSingleton().getPJNombre()),
-            jLabelVida = new JLabel("Vida: "+ControladorPrincipal.getSingleton().getPJVidaTotal()),
+            jLabelVida = new JLabel("Vida: " + ControladorPrincipal.getSingleton().getPJVidaTotal()),
             jLabelArmadura = new JLabel("Armadura");
     private JButton jArriba = new JButton("↑"),
             jAbajo = new JButton("↓"),
@@ -46,10 +50,8 @@ public class VentanaMazmorra extends JPanel {
             jButtonGuardar = new JButton("Guardar"),
             jButtonAbrir = new JButton("Abrir");
     private FormatoMapa jMapa = new FormatoMapa();
-    
-    
-    //JLabel para mapa.
 
+    //JLabel para mapa.
     /**
      * Genera los JLabel de los botones, texto, mapa...etc
      */
@@ -66,9 +68,11 @@ public class VentanaMazmorra extends JPanel {
         this.add(jButtonAbrir);
         ControladorMazmorra.getSingleton().generarPiso();
         jMapa.pintarMapa();
-        
+
         escribirTexto(ControladorPrincipal.getSingleton().getPJNombre()
                 + " acabas de adentrarte en la mazmorra en busca de tesoros, adelante.");
+
+        escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
 
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,16 +107,26 @@ public class VentanaMazmorra extends JPanel {
 
     /**
      * Metodo introduce el texto del proceso en el juego
-     * @param linea 
+     *
+     * @param linea
      */
     public void escribirTexto(String linea) {
-        String total = jTextoAventura.getText() + "\n" + linea;
-        jTextoAventura.setText(total);
+        if (jTextoAventura.getLineCount() == 9) {
+            int end = 0;
+            try {
+                end = jTextoAventura.getLineEndOffset(0);
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaMazmorra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            jTextoAventura.replaceRange("", 0, end);
+        }
+        jTextoAventura.append(linea + "\n");
     }
 
     /**
      * Metodo accion boton salir
-     * @param evt 
+     *
+     * @param evt
      */
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {
         int salir = JOptionPane.showConfirmDialog(this, "¿Realmente deseas salir?", "¿Salir?", JOptionPane.OK_CANCEL_OPTION);
@@ -122,23 +136,26 @@ public class VentanaMazmorra extends JPanel {
             padre.dispose();
         }
     }
-    
-    private void jArribaActionPerformed(java.awt.event.ActionEvent evt){
+
+    private void jArribaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(0));
+        escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
-    private void jAbajoActionPerformed(java.awt.event.ActionEvent evt){
+
+    private void jAbajoActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(1));
+        escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
-    private void jDerechaActionPerformed(java.awt.event.ActionEvent evt){
+
+    private void jDerechaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(2));
+        escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
-    private void jIzquierdaActionPerformed(java.awt.event.ActionEvent evt){
+
+    private void jIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(3));
+        escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
-    
-    
-    
-    
 
     @Override
     public void paintComponent(Graphics g) {
@@ -150,17 +167,18 @@ public class VentanaMazmorra extends JPanel {
         jTextoAventura.setLineWrap(true);
         jTextoAventura.setWrapStyleWord(true);
         jTextoAventura.setEditable(false);
+        jTextoAventura.setRows(16);
         jMapa.setBounds(440, 50, 340, 340);
         jArriba.setBounds(580, 400, 60, 60);
         jAbajo.setBounds(580, 460, 60, 60);
         jDerecha.setBounds(640, 430, 60, 60);
         jIzquierda.setBounds(520, 430, 60, 60);
         jButtonSalir.setBounds(680, 520, 100, 40);
-        jButtonGuardar.setBounds(350,460,100,100);
+        jButtonGuardar.setBounds(350, 460, 100, 100);
         jButtonGuardar.setVisible(false);
-        jButtonAbrir.setBounds(350,460,100,100);
+        jButtonAbrir.setBounds(350, 460, 100, 100);
         jButtonAbrir.setVisible(false);
-        jLabelMapa.setBounds (610,20,80,20);
+        jLabelMapa.setBounds(610, 20, 80, 20);
         jLabelMapa.setForeground(Color.white);
         jLabelMapa.setFont(new Font("Dialog", Font.BOLD, 15));
     }

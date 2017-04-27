@@ -6,9 +6,15 @@
 package Modelo;
 
 import Controlador.ControladorBBDD;
+import Controlador.ControladorPrincipal;
 import Modelo.Inventario.Objeto;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Arma;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -81,15 +87,38 @@ public class Habitacion {
                 this.accesible = true;
                 break;
         }
-        this.puertas=caminos;
+        this.puertas = caminos;
+        try {
+            establecerDescripcion();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Habitacion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Habitacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
-    public int getTipo(){
+
+    private void establecerDescripcion() throws FileNotFoundException, IOException {
+        if(tipo!=0){
+            File archivo = new File("src/Recursos/xmlPisos/descripcionTipo" + this.tipo + ".txt");
+            FileReader fr = new FileReader(archivo);
+            BufferedReader br = new BufferedReader(fr);
+            for (int i = 0; i < Dado.lanza(10); i++) {
+                br.readLine();
+            }
+            descripcion = br.readLine();
+        }
+    }
+
+    public int getTipo() {
         return tipo;
     }
-        
-    public boolean direccionPermitida(int direccion){
+
+    public boolean direccionPermitida(int direccion) {
         return puertas[direccion];
+    }
+    
+    public String getDescripcion(){
+        return descripcion;
     }
 
     @Override

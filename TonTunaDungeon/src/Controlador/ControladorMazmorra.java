@@ -41,6 +41,8 @@ public class ControladorMazmorra {
      */
     public void reiniciarMazmorra() {
         this.mazmorra = new ArrayList<>();
+        xActual=4;
+        yActual=4;
     }
 
     /**
@@ -179,5 +181,21 @@ public class ControladorMazmorra {
     public int infoHabitacion() {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
         return temporal[xActual][yActual].getTipo();
+    }
+    
+    
+    /**
+     * Metodo que retorna una descripcion de la habitación según su tipo y que lee una de entre varias descripciones de un .txt
+     * @return 
+     */
+    public String descripcionHabitacion(){
+        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
+        
+        return temporal[xActual][yActual].getDescripcion();
+    }
+    
+    public String getDescHabitacion(){
+        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
+        return temporal[xActual][yActual].getDescripcion();
     }
 }

@@ -148,7 +148,7 @@ public class FormatoMapa extends JPanel {
                 //3 = Guardado
                 //4 = Siguiente nivel
                 case 0:
-                    arrayPanel[i].setBackground(Color.BLACK);
+                    arrayPanel[i].setBackground(new Color(0,0,0,124));
                     break;
                 case 1:
                     arrayPanel[i].setBackground(Color.WHITE);
