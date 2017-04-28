@@ -24,7 +24,10 @@ public class ControladorGUI {
             menuPrin = null,
             nuevaPar = null,
             mensajeInicio = null,
-            ventanaMazmorra = null;
+            ventanaMazmorra = null,
+            ventanaCombate = null;
+    
+    
 
     /**
      * Constructor por defecto de la interfaz grafica
@@ -127,11 +130,17 @@ public class ControladorGUI {
         menuJuego.setPadre(ventanaMazmorra);        
     }
     
+    /**
+     * Metodo para gestrionar la ventana de combate
+     */
     public void iniciarCombate() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         VentanaCombate combate = new VentanaCombate();
-        JFramePrincipal ventanaCombate = new JFramePrincipal(combate);
-        ventanaCombate.createAndShowUI(combate);
+        if(ventanaCombate == null){
+            ventanaCombate = new JFramePrincipal(combate);
+        }else{
+            ventanaCombate.createAndShowUI(combate);
+        }
         combate.setPadre(ventanaCombate);
     }
 

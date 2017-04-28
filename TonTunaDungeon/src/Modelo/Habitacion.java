@@ -33,10 +33,10 @@ public class Habitacion {
     //3 = Guardado
     //4 = Siguiente nivel
     private int tipo;
-    private Objeto objeto;
+    private Objeto objeto = null;
     private Arma arma;
     private Armadura armadura;
-    private Monstruo monstruo;
+    private Monstruo monstruo = null;
     private String descripcion;
     boolean[] puertas = new boolean[4];
     boolean accesible = false, puntoGuardado = false, escalera = false;
@@ -119,6 +119,34 @@ public class Habitacion {
     
     public String getDescripcion(){
         return descripcion;
+    }
+    
+    public boolean existeMonstruo(){
+        if(monstruo!=null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public void eliminarMonstruo(){
+        this.monstruo = null;
+    }
+    
+    public boolean existeObjeto(){
+        if(objeto!=null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public Objeto recogerObjeto(){
+        Objeto temporal = this.objeto;
+        this.objeto = null;
+        return temporal;
     }
 
     @Override

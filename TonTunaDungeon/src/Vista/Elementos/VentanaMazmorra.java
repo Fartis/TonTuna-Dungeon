@@ -19,13 +19,8 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.CANCEL_OPTION;
-import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
-import static javax.swing.JOptionPane.OK_OPTION;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.JTextArea;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 
 /**
@@ -140,21 +135,25 @@ public class VentanaMazmorra extends JPanel {
     private void jArribaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(0));
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
+        ControladorMazmorra.getSingleton().getEventoHabitacion();
     }
 
     private void jAbajoActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(1));
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
+        ControladorMazmorra.getSingleton().getEventoHabitacion();
     }
 
     private void jDerechaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(2));
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
+        ControladorMazmorra.getSingleton().getEventoHabitacion();
     }
 
     private void jIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(3));
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
+        ControladorMazmorra.getSingleton().getEventoHabitacion();
     }
 
     @Override

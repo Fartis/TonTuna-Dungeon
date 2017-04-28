@@ -210,10 +210,17 @@ public class ControladorMazmorra {
         return temporal[xActual][yActual].getDescripcion();
     }
     
+    /**
+     * 
+     */
     public void getEventoHabitacion() {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
-        if (temporal[xActual][yActual].getTipo()==2){
+        if (temporal[xActual][yActual].existeMonstruo()){
             ControladorGUI.getSingleton().iniciarCombate();
+            temporal[xActual][yActual].eliminarMonstruo();
+        }
+        if (temporal[xActual][yActual].existeObjeto()){
+            ControladorPrincipal.getSingleton().añadirObjetoPersonaje(temporal[xActual][yActual].recogerObjeto());
         }
     }
 }

@@ -5,18 +5,12 @@
  */
 package Vista.Elementos;
 
-import Controlador.ControladorGUI;
-import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 
 /**
  * Clase que gestiona la ventana o panel del menu principal del juego
@@ -28,6 +22,7 @@ public class VentanaCombate extends JPanel {
     JButton jButtonAtacar = new JButton("Atacar");
     JButton jButtonObjeto = new JButton("Objeto");
     JFramePrincipal padre;
+    
 
     /**
      * Metodo que gestiona las distintas opciones de la ventana principal

@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.Inventario.Objeto;
 import Modelo.Personaje;
 import Modelo.RepositorioPartidas;
 import Modelo.ReproductorMusica;
@@ -174,6 +175,10 @@ public class ControladorPrincipal {
      */
     public void subirNivelPJ(int caracteristica){
         personajeActual.subirNivel(caracteristica);
+    }
+    
+    public void añadirObjetoPersonaje(Objeto nuevo){
+        personajeActual.añadirObjeto(nuevo);
     }
     
     public void reiniciarJuego(){
