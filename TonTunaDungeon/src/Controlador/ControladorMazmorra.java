@@ -163,8 +163,7 @@ public class ControladorMazmorra {
                     this.xActual--;
                     break;
             }
-        }        
-        ControladorMazmorra.getSingleton().getEventoHabitacion();
+        }
         return (xActual * 10) + yActual;
     }
 
@@ -210,20 +209,21 @@ public class ControladorMazmorra {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
         return temporal[xActual][yActual].getDescripcion();
     }
-    
+
     /**
-     * 
+     *
      */
     public void getEventoHabitacion() {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
-        if (temporal[xActual][yActual].existeMonstruo()){
+        if (temporal[xActual][yActual].existeMonstruo()) {
             ControladorGUI.getSingleton().iniciarCombate();
-        System.out.println("Dentro de comprobador");
+            System.out.println("Dentro de comprobador");
             temporal[xActual][yActual].eliminarMonstruo();
         }
-        if (temporal[xActual][yActual].existeObjeto()){
+        if (temporal[xActual][yActual].existeObjeto()) {
             ControladorPrincipal.getSingleton().añadirObjetoPersonaje(temporal[xActual][yActual].recogerObjeto());
         }
+        mazmorra.set(ControladorPrincipal.getSingleton().getNivelActual(), temporal);
         System.out.println("Fuera de comprobador");
     }
 }

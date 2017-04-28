@@ -5,6 +5,7 @@
  */
 package Vista.Elementos;
 
+import Controlador.ControladorGUI;
 import Vista.JFramePrincipal;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -56,6 +57,8 @@ public class VentanaCombate extends JPanel {
      */
     private void jButtonAtacarActionPerformed(java.awt.event.ActionEvent evt){
         // TODO add your handling code here:
+        ControladorGUI.getSingleton().ventanaMazmorra();
+        ControladorGUI.getSingleton().finalizarCombate();
     }
     /**
      * Metodo para el evento del boton iniciar

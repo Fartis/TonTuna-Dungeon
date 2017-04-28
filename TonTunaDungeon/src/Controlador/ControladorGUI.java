@@ -144,6 +144,10 @@ public class ControladorGUI {
         }
         combate.setPadre(ventanaCombate);
     }
+    
+    public void finalizarCombate(){
+        ventanaCombate = null;
+    }
 
     /**
      * Metodo para comprobar ventanas ocultas y mostradas

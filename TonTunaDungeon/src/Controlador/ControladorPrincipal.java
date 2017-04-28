@@ -176,7 +176,6 @@ public class ControladorPrincipal {
     /**
      * Metodo para subir un punto una caracteristica del PJ
      * @param caracteristica
-     * @param incremento 
      */
     public void subirNivelPJ(int caracteristica){
         personajeActual.subirNivel(caracteristica);

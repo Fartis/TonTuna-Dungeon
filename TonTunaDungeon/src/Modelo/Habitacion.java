@@ -38,9 +38,15 @@ public class Habitacion {
     private Armadura armadura;
     private Monstruo monstruo = null;
     private String descripcion;
+    private boolean boolMonstruo = false;
     boolean[] puertas = new boolean[4];
     boolean accesible = false, puntoGuardado = false, escalera = false;
 
+    public static void main(String[]args){
+        Habitacion temporal = new Habitacion(1,1,1,null);
+        System.out.println(temporal);
+    }
+    
     /**
      * Metodo establece el tipo de habitacion y nivel
      *
@@ -68,8 +74,9 @@ public class Habitacion {
             case 1:
                 this.accesible = true;
                 try {
-                    if (Dado.lanza(3) == Dado.lanza(5)) {
+                    if (Dado.lanza(2)==Dado.lanza(2)) {
                         this.monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(nivel);
+                        boolMonstruo = true;
                     }
                 } catch (SQLException ex) {
                     System.out.println("Ha sido imposible generar habitación con monstruo.");
@@ -122,12 +129,7 @@ public class Habitacion {
     }
     
     public boolean existeMonstruo(){
-        if(monstruo!=null){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return boolMonstruo;
     }
     
     public void eliminarMonstruo(){
