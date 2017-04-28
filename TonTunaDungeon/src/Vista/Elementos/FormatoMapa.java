@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 
 /**
- * 
+ * Clase que da formato al mapa del piso de mazmorra
  * @author Manuel David Villalba Escamilla
  */
 public class FormatoMapa extends JPanel {
@@ -16,6 +16,9 @@ public class FormatoMapa extends JPanel {
     private JPanel[] arrayPanel = new JPanel[100];
     private JPanel punto = new JPanel();
 
+    /**
+     * Metodo añade el formato del mapa al array
+     */
     public FormatoMapa() {
         for (int i = 0; i < 100; i++) {
             arrayPanel[i] = new JPanel();
@@ -27,11 +30,18 @@ public class FormatoMapa extends JPanel {
         estilizarElementos();
     }
 
+    /**
+     * Metodo pinta la posicion del jugador en el mapa
+     * @param posicion 
+     */
     public void pintarPosicion(int posicion) {
         arrayPanel[ControladorMazmorra.getSingleton().posicionActual()].remove(punto);
         arrayPanel[posicion].add(punto);
     }
 
+    /**
+     * Metodo diseña el mapa y el punto de posicion
+     */
     private void estilizarElementos() {
         arrayPanel[1 - 1].setBounds(0, 0, 34, 34);
         arrayPanel[2 - 1].setBounds(0, 34, 34, 34);
@@ -137,6 +147,9 @@ public class FormatoMapa extends JPanel {
         punto.setBackground(Color.GREEN);
     }
 
+    /**
+     * Metodo introduce el color del mapa segun el tipo de habitacion
+     */
     public void pintarMapa() {
         int[] tipo = ControladorMazmorra.getSingleton().infoMapa();
         for (int i = 0; i < 100; i++) {
