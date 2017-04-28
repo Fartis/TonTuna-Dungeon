@@ -21,7 +21,7 @@ import javazoom.jl.player.Player;
 
 
 /**
- *
+ * Clase para gestionar las canciones del juego
  * @author Manuel David Villalba Escamilla
  */
 

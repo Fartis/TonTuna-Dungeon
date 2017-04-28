@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 
 /**
- *
+ * 
  * @author Manuel David Villalba Escamilla
  */
 public class FormatoMapa extends JPanel {
