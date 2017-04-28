@@ -135,6 +135,7 @@ public class ControladorGUI {
      */
     public void iniciarCombate() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
+        ocultar();
         VentanaCombate combate = new VentanaCombate();
         if(ventanaCombate == null){
             ventanaCombate = new JFramePrincipal(combate);
@@ -159,6 +160,9 @@ public class ControladorGUI {
         }
         if (ventanaMazmorra != null) {
             ventanaMazmorra.visible(false);
+        }
+        if (ventanaCombate != null) {
+            ventanaCombate.visible(false);
         }
     }
 }

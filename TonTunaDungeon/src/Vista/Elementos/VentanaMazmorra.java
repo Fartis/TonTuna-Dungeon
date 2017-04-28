@@ -135,25 +135,21 @@ public class VentanaMazmorra extends JPanel {
     private void jArribaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(0));
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
-        ControladorMazmorra.getSingleton().getEventoHabitacion();
     }
 
     private void jAbajoActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(1));
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
-        ControladorMazmorra.getSingleton().getEventoHabitacion();
     }
 
     private void jDerechaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(2));
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
-        ControladorMazmorra.getSingleton().getEventoHabitacion();
     }
 
     private void jIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(3));
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
-        ControladorMazmorra.getSingleton().getEventoHabitacion();
     }
 
     @Override

@@ -132,9 +132,14 @@ public class ControladorPrincipal {
      * Metodo para comprobar si la musica esta habilitada
      */
     public void setOpcionMusica(){
-        if (musica) musica=false;
-        else musica=true;
-        ControladorGUI.getSingleton().stopMusica();
+        if (musica){
+            musica=false;
+            ControladorGUI.getSingleton().stopMusica();
+        }
+        else{
+            musica=true;            
+            ReproductorMusica.getSingleton().play("src/Recursos/Stormlord - Title (Unused).mp3");
+        }
     }
     /**
      * Metodo devuelve la opcion de musica

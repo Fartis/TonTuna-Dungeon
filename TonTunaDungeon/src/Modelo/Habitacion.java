@@ -68,7 +68,7 @@ public class Habitacion {
             case 1:
                 this.accesible = true;
                 try {
-                    if (Dado.lanza(3) == Dado.lanza(3) || Dado.lanza(3) == Dado.lanza(5)) {
+                    if (Dado.lanza(3) == Dado.lanza(5)) {
                         this.monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(nivel);
                     }
                 } catch (SQLException ex) {
