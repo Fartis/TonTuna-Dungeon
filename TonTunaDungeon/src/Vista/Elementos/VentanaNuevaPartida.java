@@ -230,7 +230,7 @@ public class VentanaNuevaPartida extends JPanel {
     }
 
     /**
-     * Metodo 
+     * Metodo que se inicia al seleccionar la raza Enano
      * @param evt 
      */
     private void jButtonEnanoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,6 +274,10 @@ public class VentanaNuevaPartida extends JPanel {
 
     }
 
+    /**
+     * Metodo que se inicia al seleccionar la raza Mediano
+     * @param evt 
+     */
     private void jButtonMedianoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if (!jPanelMediano.isVisible()) {
@@ -314,48 +318,80 @@ public class VentanaNuevaPartida extends JPanel {
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * Metodo que se activa al pulsar el boton de incremento de fuerza
+     * @param evt 
+     */
     private void jButtonArribaFuerzaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosFuerza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirFuerza()));
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * metodo que se activa al pulsar el boton de decremento de fuerza
+     * @param evt 
+     */
     private void jButtonAbajoFuerzaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosFuerza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarFuerza()));
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * Metodo que se activa al pulsar el boton de incremento de destreza
+     * @param evt 
+     */
     private void jButtonArribaDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosDestreza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirDestreza()));
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * Metodo que se activa al pulsar el boton de decremento de destreza
+     * @param evt 
+     */
     private void jButtonAbajoDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosDestreza.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarDestreza()));
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * Metodo que se activa al pulsar el boton de incremento de intelecto
+     * @param evt 
+     */
     private void jButtonArribaIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosIntelecto.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirIntelecto()));
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * Metodo que se activa al pulsar el boton de decremento de intelecto
+     * @param evt 
+     */
     private void jButtonAbajoIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosIntelecto.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarIntelecto()));
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * Metodo que se activa al pulsar el boton de incremente de constitucion 
+     * @param evt 
+     */
     private void jButtonArribaConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosConstitucion.setText(Integer.toString(ControladorCreadorPJ.getSingleton().subirConstitucion()));
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    /**
+     * Metodo que se activa al pulsar el boton de decremento de constitucion
+     * @param evt 
+     */
     private void jButtonAbajoConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         labelPuntosConstitucion.setText(Integer.toString(ControladorCreadorPJ.getSingleton().bajarConstitucion()));
@@ -372,6 +408,10 @@ public class VentanaNuevaPartida extends JPanel {
         estilizarElementos();
     }
 
+    /**
+     * Metodo que se encarga de distribuir los elementos del panel,
+     * incluyendo su posicion y su tamaño
+     */
     private void estilizarElementos() {
         //Botones
         jButtonAtras.setBounds(180, 508, 200, 40);
@@ -465,6 +505,9 @@ public class VentanaNuevaPartida extends JPanel {
         labelPuntosConstitucion.setBounds(330, 360, 100, 80);
     }
 
+    /**
+     * Metodo que inicia en el panel los distintos botones de nueva partida
+     */
     private void iniciarEventos() {
 
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -539,6 +582,9 @@ public class VentanaNuevaPartida extends JPanel {
         });
     }
 
+    /**
+     * Metodo que introduce los distintos elementos del panel nueva partida
+     */
     private void añadirElementosPaneles() {
         this.add(jButtonAtras);
         this.add(jButtonIniciar);
