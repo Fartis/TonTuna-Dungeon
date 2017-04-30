@@ -41,8 +41,8 @@ public class ControladorMazmorra {
      */
     public void reiniciarMazmorra() {
         this.mazmorra = new ArrayList<>();
-        xActual=4;
-        yActual=4;
+        xActual = 4;
+        yActual = 4;
     }
 
     /**
@@ -82,25 +82,25 @@ public class ControladorMazmorra {
                 Node habitacion = subNodoPiso.getChildNodes().item(numero);
                 int tipo = Integer.parseInt(habitacion.getAttributes().getNamedItem("tipo").getNodeValue());
                 boolean[] caminos = new boolean[4];
-                if(Integer.parseInt(habitacion.getAttributes().getNamedItem("arriba").getNodeValue())==1){
-                    caminos[0]=true;
-                }else{
-                    caminos[0]=false;
+                if (Integer.parseInt(habitacion.getAttributes().getNamedItem("arriba").getNodeValue()) == 1) {
+                    caminos[0] = true;
+                } else {
+                    caminos[0] = false;
                 }
-                if(Integer.parseInt(habitacion.getAttributes().getNamedItem("abajo").getNodeValue())==1){
-                    caminos[1]=true;
-                }else{
-                    caminos[1]=false;
+                if (Integer.parseInt(habitacion.getAttributes().getNamedItem("abajo").getNodeValue()) == 1) {
+                    caminos[1] = true;
+                } else {
+                    caminos[1] = false;
                 }
-                if(Integer.parseInt(habitacion.getAttributes().getNamedItem("derecha").getNodeValue())==1){
-                    caminos[2]=true;
-                }else{
-                    caminos[2]=false;
+                if (Integer.parseInt(habitacion.getAttributes().getNamedItem("derecha").getNodeValue()) == 1) {
+                    caminos[2] = true;
+                } else {
+                    caminos[2] = false;
                 }
-                if(Integer.parseInt(habitacion.getAttributes().getNamedItem("izquierda").getNodeValue())==1){
-                    caminos[3]=true;
-                }else{
-                    caminos[3]=false;
+                if (Integer.parseInt(habitacion.getAttributes().getNamedItem("izquierda").getNodeValue()) == 1) {
+                    caminos[3] = true;
+                } else {
+                    caminos[3] = false;
                 }
                 piso[i][j] = new Habitacion(tipo, ControladorPrincipal.getSingleton().getNivelActual(), Dado.lanza(3), caminos);
                 numero++;
@@ -119,7 +119,6 @@ public class ControladorMazmorra {
         } catch (ParserConfigurationException | IOException | SAXException ex) {
         }
     }
-    
 
     /**
      * método para obtener la información del mapa
@@ -149,7 +148,7 @@ public class ControladorMazmorra {
      */
     public int moverPersonaje(int direccion) {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
-        if (temporal[xActual][yActual].direccionPermitida(direccion)){
+        if (temporal[xActual][yActual].direccionPermitida(direccion)) {
             switch (direccion) {
                 case 0:
                     this.yActual--;
@@ -178,24 +177,53 @@ public class ControladorMazmorra {
         return (xActual * 10) + yActual;
     }
 
+    /**
+     * Metodo que devuelve el tipo de la habitación en la posicion que este el
+     * personaje.
+     *
+     * @return
+     */
     public int infoHabitacion() {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
         return temporal[xActual][yActual].getTipo();
     }
-    
-    
+
     /**
-     * Metodo que retorna una descripcion de la habitación según su tipo y que lee una de entre varias descripciones de un .txt
-     * @return 
+     * Metodo que retorna una descripcion de la habitación según su tipo y que
+     * lee una de entre varias descripciones de un .txt
+     *
+     * @return
      */
-    public String descripcionHabitacion(){
+    public String descripcionHabitacion() {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
-        
         return temporal[xActual][yActual].getDescripcion();
     }
-    
-    public String getDescHabitacion(){
+
+    /**
+     * Metodo que devuelve la descripción en la habitación en la que este el
+     * personaje.
+     *
+     * @return
+     */
+    public String getDescHabitacion() {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
         return temporal[xActual][yActual].getDescripcion();
+    }
+
+    /**
+     *
+     */
+    public void getEventoHabitacion() {
+        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
+        if (temporal[xActual][yActual].existeMonstruo()) {
+            ControladorGUI.getSingleton().iniciarCombate();
+            System.out.println("Dentro de comprobador");
+            temporal[xActual][yActual].eliminarMonstruo();
+        }
+        if (temporal[xActual][yActual].existeObjeto()) {
+            ControladorPrincipal.getSingleton().añadirObjetoPersonaje(temporal[xActual][yActual].recogerObjeto());
+        }
+        mazmorra.set(ControladorPrincipal.getSingleton().getNivelActual(), temporal);
+        System.out.println("Fuera de comprobador");
     }
 }

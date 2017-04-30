@@ -20,6 +20,7 @@ import javax.swing.SwingUtilities;
  */
 public class JFramePrincipal extends javax.swing.JFrame {
 
+        
     /**
      * Creates new form JFramePrincipal
      */

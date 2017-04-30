@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.ReproductorMusica;
+import Vista.Elementos.VentanaCombate;
 import Vista.Elementos.VentanaLogo;
 import Vista.Elementos.VentanaMazmorra;
 import Vista.Elementos.VentanaMensajeNuevaPartida;
@@ -23,7 +24,10 @@ public class ControladorGUI {
             menuPrin = null,
             nuevaPar = null,
             mensajeInicio = null,
-            ventanaMazmorra = null;
+            ventanaMazmorra = null,
+            ventanaCombate = null;
+    
+    
 
     /**
      * Constructor por defecto de la interfaz grafica
@@ -123,8 +127,26 @@ public class ControladorGUI {
         } else {
             ventanaMazmorra.createAndShowUI(menuJuego);
         }
-        menuJuego.setPadre(ventanaMazmorra);
-        
+        menuJuego.setPadre(ventanaMazmorra);        
+    }
+    
+    /**
+     * Metodo para gestrionar la ventana de combate
+     */
+    public void iniciarCombate() {
+        boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
+        ocultar();
+        VentanaCombate combate = new VentanaCombate();
+        if(ventanaCombate == null){
+            ventanaCombate = new JFramePrincipal(combate);
+        }else{
+            ventanaCombate.createAndShowUI(combate);
+        }
+        combate.setPadre(ventanaCombate);
+    }
+    
+    public void finalizarCombate(){
+        ventanaCombate = null;
     }
 
     /**
@@ -142,6 +164,9 @@ public class ControladorGUI {
         }
         if (ventanaMazmorra != null) {
             ventanaMazmorra.visible(false);
+        }
+        if (ventanaCombate != null) {
+            ventanaCombate.visible(false);
         }
     }
 }
