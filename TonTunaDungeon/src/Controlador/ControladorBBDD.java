@@ -24,7 +24,7 @@ import java.sql.SQLException;
 public class ControladorBBDD {
 
     private static ControladorBBDD singleton = null;
-
+    private static String variableIP="localhost";
     private ControladorBBDD() {
     }
 
@@ -52,7 +52,7 @@ public class ControladorBBDD {
      */
     public void guardarInfoPJ(Personaje pj) {
         try {
-            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://"+variableIP+"/tontunadungeon", "root", "");
             PreparedStatement insertar = con.prepareStatement("insert into pjcreado (nombre, raza, nivel, fuerza, destreza, intelecto, constitucion) values (?,?,?,?,?,?,?);");
             insertar.setString(1, pj.getNombre());
             insertar.setString(2, pj.getRaza());
