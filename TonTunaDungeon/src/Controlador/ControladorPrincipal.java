@@ -138,7 +138,7 @@ public class ControladorPrincipal {
         }
         else{
             musica=true;            
-            ReproductorMusica.getSingleton().play("src/Recursos/Stormlord - Title (Unused).mp3");
+            ReproductorMusica.getSingleton().playMusica("src/Recursos/intro.mp3");
         }
     }
     /**
