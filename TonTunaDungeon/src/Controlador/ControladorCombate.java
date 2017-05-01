@@ -24,12 +24,12 @@ public class ControladorCombate {
      * @param obj2
      * @return 
      */
-    private static int ataque(int atr, int wep, int obj, int con, int def, int bon2, int obj2) {
+    public static int ataque(int atr, int wep, int obj, int con, int def, int bon2, int obj2) {
         int daño = (atr + wep + obj + Dado.lanza(10)) - (con + def + bon2 + obj2 + Dado.lanza(10));
         if (daño <= 0) {
             daño = 1;
         }
         return daño;
     }
-
+    
 }

@@ -217,13 +217,11 @@ public class ControladorMazmorra {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
         if (temporal[xActual][yActual].existeMonstruo()) {
             ControladorGUI.getSingleton().iniciarCombate();
-            System.out.println("Dentro de comprobador");
             temporal[xActual][yActual].eliminarMonstruo();
         }
         if (temporal[xActual][yActual].existeObjeto()) {
             ControladorPrincipal.getSingleton().añadirObjetoPersonaje(temporal[xActual][yActual].recogerObjeto());
         }
         mazmorra.set(ControladorPrincipal.getSingleton().getNivelActual(), temporal);
-        System.out.println("Fuera de comprobador");
     }
 }

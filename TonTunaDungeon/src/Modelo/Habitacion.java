@@ -38,7 +38,7 @@ public class Habitacion {
     private Armadura armadura;
     private Monstruo monstruo = null;
     private String descripcion;
-    private boolean boolMonstruo = false;
+    private boolean boolMonstruo = false, boolObjeto = false;
     boolean[] puertas = new boolean[4];
     boolean accesible = false, puntoGuardado = false, escalera = false;
 
@@ -66,6 +66,7 @@ public class Habitacion {
                  {
                     try {
                         this.objeto = ControladorBBDD.getSingleton().obtenerObjeto();
+                        boolObjeto = true;
                     } catch (SQLException ex) {
                         System.out.println("Ha sido imposible generar habitación con objeto");
                     }
@@ -133,22 +134,16 @@ public class Habitacion {
     }
     
     public void eliminarMonstruo(){
-        this.monstruo = null;
+        this.boolMonstruo = false;
     }
     
     public boolean existeObjeto(){
-        if(objeto!=null){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return boolObjeto;
     }
     
     public Objeto recogerObjeto(){
-        Objeto temporal = this.objeto;
-        this.objeto = null;
-        return temporal;
+        this.boolObjeto = false;
+        return objeto;
     }
 
     @Override

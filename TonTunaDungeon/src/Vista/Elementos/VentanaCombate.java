@@ -6,7 +6,9 @@
 package Vista.Elementos;
 
 import Controlador.ControladorGUI;
+import Modelo.Dado;
 import Vista.JFramePrincipal;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -19,7 +21,7 @@ import javax.swing.JPanel;
  */
 public class VentanaCombate extends JPanel {
 
-    private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/logoanimado.gif");
+    private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/batalla/"+Dado.lanza(8)+".png");
     JButton jButtonAtacar = new JButton("Atacar");
     JButton jButtonObjeto = new JButton("Objeto");
     JFramePrincipal padre;
@@ -68,11 +70,16 @@ public class VentanaCombate extends JPanel {
         // TODO add your handling code here:
     }
 
+    /**
+     * 
+     * @param g 
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(image, 0, 0, 800, 600, this);
-        jButtonAtacar.setBounds(300, 360, 200, 40);
-        jButtonObjeto.setBounds(300, 410, 200, 40);
+        g.drawImage(image, 0, 0, 800, 400, this);
+        this.setBackground(Color.BLACK);
+        jButtonAtacar.setBounds(620, 420, 160, 40);
+        jButtonObjeto.setBounds(620, 500, 160, 40);
     }
 }
