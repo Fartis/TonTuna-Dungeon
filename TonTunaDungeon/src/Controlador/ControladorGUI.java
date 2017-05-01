@@ -54,7 +54,7 @@ public class ControladorGUI {
         ControladorPrincipal.getSingleton().reiniciarJuego();
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
-        reproducirMusica("src/Recursos/Stormlord - Title (Unused).mp3", musica);
+        reproducirMusica("src/Recursos/intro.mp3", musica);
         if (nuevaPar != null) {
             nuevaPar.visible(false);
         }
@@ -73,7 +73,7 @@ public class ControladorGUI {
     public void menuNuevaPartida() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
-        reproducirMusica("src/Recursos/Soul Blazer - Intro Theme.mp3", musica);
+        reproducirMusica("src/Recursos/seleccionPersonaje.mp3", musica);
         VentanaNuevaPartida menu1 = new VentanaNuevaPartida();
         if (nuevaPar == null) {
             nuevaPar = new JFramePrincipal(menu1, "/Recursos/nuevapartida.gif");
@@ -89,16 +89,16 @@ public class ControladorGUI {
      * @param activado 
      */
     private void reproducirMusica(String url, boolean activado) {
-        ReproductorMusica.getSingleton().stop();
+        ReproductorMusica.getSingleton().pararMusica();
         if(activado){
-            ReproductorMusica.getSingleton().play(url);
+            ReproductorMusica.getSingleton().playMusica(url);
         }
     }
     /**
      * Metodo para detener la musica
      */
     public void stopMusica(){
-        ReproductorMusica.getSingleton().stop();
+        ReproductorMusica.getSingleton().pararMusica();
     }
 
     /**
@@ -121,6 +121,7 @@ public class ControladorGUI {
     public void ventanaMazmorra() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
+        reproducirMusica("src/Recursos/mazmorra.mp3", musica);
         VentanaMazmorra menuJuego = new VentanaMazmorra();
         if (ventanaMazmorra == null) {
             ventanaMazmorra = new JFramePrincipal(menuJuego);
@@ -136,6 +137,7 @@ public class ControladorGUI {
     public void iniciarCombate() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
+        reproducirMusica("src/Recursos/combate.mp3", musica);
         VentanaCombate combate = new VentanaCombate();
         if(ventanaCombate == null){
             ventanaCombate = new JFramePrincipal(combate);

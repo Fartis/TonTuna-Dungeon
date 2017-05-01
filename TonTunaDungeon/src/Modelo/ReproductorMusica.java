@@ -3,12 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 package Modelo;
-
-
-
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -19,21 +14,20 @@ import java.util.logging.Logger;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
-
 /**
  * Clase para gestionar las canciones del juego
+ *
  * @author Manuel David Villalba Escamilla
  */
-
-
 public class ReproductorMusica {
 
     private static ReproductorMusica singleton = null;
     private FileInputStream fis;
     private BufferedInputStream bis;
     private Player player;
+    private boolean loop = true;
 
-    private void ReproductorMusica() {
+    private void ReproductorMusica(){
 
     }
 
@@ -50,12 +44,12 @@ public class ReproductorMusica {
     }
 
     /**
-     * Metodo play, le mandas una url o dirección de un archivo de musica mp3 y
-     * lo reproduce.
+     * Metodo playMusica, le mandas una url o dirección de un archivo de musica mp3 y
+ lo reproduce.
      *
      * @param urlMusica
      */
-    public void play(String urlMusica) {
+    public void playMusica(String urlMusica) {
         try {
             fis = new FileInputStream(urlMusica);
             bis = new BufferedInputStream(fis);
@@ -70,7 +64,7 @@ public class ReproductorMusica {
             @Override
             public void run() {
                 try {
-                    player.play();
+                        player.play();
                 } catch (Exception e) {
                     System.err.printf("%s\n", e.getMessage());
                 }
@@ -79,12 +73,12 @@ public class ReproductorMusica {
     }
 
     /**
-     * Metodo stop, si esta reproduciendo un archivo de musica lo interrumpe.
+     * Metodo pararMusica, si esta reproduciendo un archivo de musica lo interrumpe.
      */
-    public void stop() {
+    public void pararMusica() {
         if (player != null) {
             player.close();
         }
     }
-    
+
 }
