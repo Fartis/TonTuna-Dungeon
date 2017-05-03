@@ -33,7 +33,7 @@ public class VentanaLogros extends JPanel{
                 jButtonVolverActionPerformed(evt);
             }
         });
-        jListLogros.addListSelectionListener(new java.awt.event.ActionListener()) {
+        jListLogros.addListSelectionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jListLogrosActionPerformed(evt);
             }
