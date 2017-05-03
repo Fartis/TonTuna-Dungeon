@@ -25,6 +25,8 @@ public class ControladorBBDD {
 
     private static ControladorBBDD singleton = null;
     private static String variableIP="localhost";
+    
+    
     private ControladorBBDD() {
     }
 

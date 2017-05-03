@@ -27,7 +27,7 @@ public class ReproductorMusica {
     private Player player;
     private boolean loop = true;
 
-    private void ReproductorMusica(){
+    private void ReproductorMusica() {
 
     }
 
@@ -44,8 +44,8 @@ public class ReproductorMusica {
     }
 
     /**
-     * Metodo playMusica, le mandas una url o dirección de un archivo de musica mp3 y
- lo reproduce.
+     * Metodo playMusica, le mandas una url o dirección de un archivo de musica
+     * mp3 y lo reproduce.
      *
      * @param urlMusica
      */
@@ -61,19 +61,27 @@ public class ReproductorMusica {
         }
 
         new Thread() {
-            @Override
             public void run() {
                 try {
-                        player.play();
+                    player.play();
+                    do {
+                        if (player.isComplete()) {
+                            pararMusica();
+                            playMusica(urlMusica);
+                        }
+                    } while (loop);
                 } catch (Exception e) {
-                    System.err.printf("%s\n", e.getMessage());
+                    System.out.println(e);
                 }
             }
         }.start();
+        
+        
     }
 
     /**
-     * Metodo pararMusica, si esta reproduciendo un archivo de musica lo interrumpe.
+     * Metodo pararMusica, si esta reproduciendo un archivo de musica lo
+     * interrumpe.
      */
     public void pararMusica() {
         if (player != null) {

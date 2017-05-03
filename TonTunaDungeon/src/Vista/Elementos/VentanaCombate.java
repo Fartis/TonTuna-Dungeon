@@ -22,9 +22,9 @@ import javax.swing.JPanel;
 public class VentanaCombate extends JPanel {
 
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/batalla/"+Dado.lanza(8)+".png");
-    JButton jButtonAtacar = new JButton("Atacar");
-    JButton jButtonObjeto = new JButton("Objeto");
-    JFramePrincipal padre;
+    private JButton jButtonAtacar = new JButton("Atacar");
+    private JButton jButtonObjeto = new JButton("Objeto");
+    private JFramePrincipal padre;
     
 
     /**
