@@ -138,7 +138,7 @@ public class ControladorPrincipal {
         }
         else{
             musica=true;            
-            ReproductorMusica.getSingleton().playMusica("src/Recursos/intro.mp3");
+            ControladorGUI.getSingleton().reproducirMusica("src/Recursos/intro.mp3", musica);
         }
     }
     /**

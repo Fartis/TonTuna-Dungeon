@@ -54,6 +54,7 @@ public class ControladorGUI {
         ControladorPrincipal.getSingleton().reiniciarJuego();
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
+        ReproductorMusica.getSingleton().pararMusica();
         reproducirMusica("src/Recursos/intro.mp3", musica);
         if (nuevaPar != null) {
             nuevaPar.visible(false);
@@ -73,6 +74,7 @@ public class ControladorGUI {
     public void menuNuevaPartida() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
+        ReproductorMusica.getSingleton().pararMusica();
         reproducirMusica("src/Recursos/seleccionPersonaje.mp3", musica);
         VentanaNuevaPartida menu1 = new VentanaNuevaPartida();
         if (nuevaPar == null) {
@@ -88,7 +90,7 @@ public class ControladorGUI {
      * @param url
      * @param activado 
      */
-    private void reproducirMusica(String url, boolean activado) {
+    public void reproducirMusica(String url, boolean activado) {
         ReproductorMusica.getSingleton().pararMusica();
         if(activado){
             ReproductorMusica.getSingleton().playMusica(url);
@@ -121,6 +123,7 @@ public class ControladorGUI {
     public void ventanaMazmorra() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
+        ReproductorMusica.getSingleton().pararMusica();
         reproducirMusica("src/Recursos/mazmorra.mp3", musica);
         VentanaMazmorra menuJuego = new VentanaMazmorra();
         if (ventanaMazmorra == null) {
@@ -137,6 +140,7 @@ public class ControladorGUI {
     public void iniciarCombate() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
+        ReproductorMusica.getSingleton().pararMusica();
         reproducirMusica("src/Recursos/combate.mp3", musica);
         VentanaCombate combate = new VentanaCombate();
         if(ventanaCombate == null){

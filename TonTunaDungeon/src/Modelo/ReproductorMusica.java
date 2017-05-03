@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
+import javazoom.jl.player.advanced.AdvancedPlayer;
 
 /**
  * Clase para gestionar las canciones del juego
@@ -24,8 +24,9 @@ public class ReproductorMusica {
     private static ReproductorMusica singleton = null;
     private FileInputStream fis;
     private BufferedInputStream bis;
-    private Player player;
-    private boolean loop = true;
+    private AdvancedPlayer player;
+    private boolean loop;
+    private Thread musica;
 
     private void ReproductorMusica() {
 
@@ -50,33 +51,27 @@ public class ReproductorMusica {
      * @param urlMusica
      */
     public void playMusica(String urlMusica) {
-        try {
-            fis = new FileInputStream(urlMusica);
-            bis = new BufferedInputStream(fis);
-            player = new Player(bis);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ReproductorMusica.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (JavaLayerException ex) {
-            Logger.getLogger(ReproductorMusica.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        loop = true;
 
-        new Thread() {
+        musica = new Thread() {
             public void run() {
                 try {
-                    player.play();
                     do {
-                        if (player.isComplete()) {
-                            pararMusica();
-                            playMusica(urlMusica);
-                        }
+                        fis = new FileInputStream(urlMusica);
+                        bis = new BufferedInputStream(fis);
+                        player = new AdvancedPlayer(bis);
+                        player.play();
                     } while (loop);
-                } catch (Exception e) {
-                    System.out.println(e);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(ReproductorMusica.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (JavaLayerException ex) {
+                    Logger.getLogger(ReproductorMusica.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }.start();
-        
-        
+        };
+
+        musica.start();
+
     }
 
     /**
@@ -86,7 +81,10 @@ public class ReproductorMusica {
     public void pararMusica() {
         if (player != null) {
             player.close();
+            player = null;
+            musica.stop(); //Utilizamos un metodo deprecado porque no hay alternativas.
         }
+        loop = false;
     }
 
 }
