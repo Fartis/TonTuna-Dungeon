@@ -74,7 +74,7 @@ public class Personaje {
             cantidad = cantidad + Dado.lanza(6);
         }
         this.setVidaTotal(cantidad);
-        this.vidaActual=this.vidaTotal;
+        this.setVidaActual(this.vidaTotal);
     }
 
     /**
@@ -309,6 +309,20 @@ public class Personaje {
         Objeto temporal = inventarioObjeto.get(indice);
         inventarioObjeto.remove(indice);
         return temporal;
+    }
+
+    /**
+     * @return the vidaActual
+     */
+    public int getVidaActual() {
+        return vidaActual;
+    }
+
+    /**
+     * @param vidaActual the vidaActual to set
+     */
+    public void setVidaActual(int vidaActual) {
+        this.vidaActual = vidaActual;
     }
 
 }
