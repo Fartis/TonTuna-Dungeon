@@ -24,8 +24,8 @@ public class Personaje {
     private String descripcion, raza, nombre;
     private ArrayList<Arma> inventarioArma = new ArrayList();
     private ArrayList<Armadura> inventarioArmadura = new ArrayList();
-    private Armadura armadura = ControladorBBDD.getSingleton().obtenerArmadura(1);
-    private Arma arma = ControladorBBDD.getSingleton().obtenerArma(1);
+    private Armadura armadura;
+    private Arma arma;
     private ArrayList<Objeto> inventarioObjeto = new ArrayList();
 
     public Personaje() {
@@ -52,6 +52,10 @@ public class Personaje {
         this.intelecto = intelecto;
         this.descripcion = descripcion;
         this.nivel = nivel;
+        this.arma = ControladorBBDD.getSingleton().obtenerArma(1);
+        System.out.println(arma);
+        this.armadura = ControladorBBDD.getSingleton().obtenerArmadura(1);
+        System.out.println(armadura);
         establecerVida();
     }
 
