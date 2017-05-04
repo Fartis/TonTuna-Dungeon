@@ -99,6 +99,8 @@ public class VentanaLogo extends JPanel {
      */
     private void jOpcionMusicaActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorPrincipal.getSingleton().setOpcionMusica();
+        this.setVisible(false);
+        padre.dispose();
     }
 
     /**
@@ -107,7 +109,7 @@ public class VentanaLogo extends JPanel {
      */
     private void jButtonCargarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-
+        ControladorGUI.getSingleton().cargarPartida();
     }
 
     /**

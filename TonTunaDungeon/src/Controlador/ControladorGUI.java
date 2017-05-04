@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.ReproductorMusica;
+import Vista.Elementos.VentanaCargar;
 import Vista.Elementos.VentanaCombate;
 import Vista.Elementos.VentanaLogo;
 import Vista.Elementos.VentanaMazmorra;
@@ -23,11 +24,10 @@ public class ControladorGUI {
     private static JFramePrincipal
             menuPrin = null,
             nuevaPar = null,
+            cargarPar = null,
             mensajeInicio = null,
             ventanaMazmorra = null,
-            ventanaCombate = null;
-    
-    
+            ventanaCombate = null;    
 
     /**
      * Constructor por defecto de la interfaz grafica
@@ -154,7 +154,22 @@ public class ControladorGUI {
     public void finalizarCombate(){
         ventanaCombate = null;
     }
-
+    /**
+     * Método para gestionar la ventana de carga de partidas
+     */
+    public void cargarPartida() {
+        boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
+        ocultar();
+        ReproductorMusica.getSingleton().pararMusica();
+        reproducirMusica("src/Recursos/cargarPartida.mp3", musica);
+        VentanaCargar carga = new VentanaCargar();
+        if (cargarPar == null) {
+            cargarPar = new JFramePrincipal(carga, "/Recursos/cargar.gif");
+        } else {
+            cargarPar.createAndShowUI(carga, "/Recursos/cargar.gif");
+        }
+        carga.setPadre(cargarPar);
+    }
     /**
      * Metodo para comprobar ventanas ocultas y mostradas
      */
@@ -164,6 +179,9 @@ public class ControladorGUI {
         }
         if (menuPrin != null) {
             menuPrin.visible(false);
+        }
+        if (cargarPar != null){
+            cargarPar.visible(false);
         }
         if (mensajeInicio != null) {
             mensajeInicio.visible(false);
