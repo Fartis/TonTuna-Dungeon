@@ -13,7 +13,7 @@ import Modelo.Inventario.Armadura;
  * @author Manuel David Villalba Escamilla
  */
 public class Monstruo {
-    private int fuerza, destreza, constitucion, intelecto, vida;
+    private int fuerza, destreza, constitucion, intelecto, vida, vidaActual;
     private String nombre, descripcion;
     private Armadura armadura;
     private Arma arma;
@@ -39,6 +39,7 @@ public class Monstruo {
         this.descripcion = descripcion;
         this.armadura = armadura;
         this.arma = arma;
+        this.vidaActual = getVida();
     }
     /**
      * Metodo para establecer la vida del monstruo
@@ -57,6 +58,22 @@ public class Monstruo {
      */
     public int getFuerza() {
         return fuerza;
+    }
+
+    /**
+     * Metodo devuelve la vida actual del personaje
+     * @return 
+     */
+    public int getVidaActual() {
+        return vidaActual;
+    }
+
+    /**
+     * Metodo introduce la vida actual del personaje
+     * @param vidaActual 
+     */
+    public void setVidaActual(int vidaActual) {
+        this.vidaActual = vidaActual;
     }
 
     /**
