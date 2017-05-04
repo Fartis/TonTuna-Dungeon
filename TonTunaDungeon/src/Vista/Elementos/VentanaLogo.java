@@ -110,6 +110,8 @@ public class VentanaLogo extends JPanel {
     private void jButtonCargarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         ControladorGUI.getSingleton().cargarPartida();
+        this.setVisible(false);
+        padre.dispose();
     }
 
     /**
