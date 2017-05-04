@@ -48,7 +48,6 @@ public class VentanaMazmorra extends JPanel {
             jButtonEquipo = new JButton("Equipo"),
             jButtonMochila = new JButton("Mochila");
     private FormatoMapa jMapa = new FormatoMapa();
-    
 
     //JLabel para mapa.
     /**
@@ -221,16 +220,20 @@ public class VentanaMazmorra extends JPanel {
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
             JPanel panel = new JPanel();
-            panel.setBounds(0,0,300,180);
-            this.add(panel);
-            panel.setVisible(true);
+            panel.setBounds(0, 0, 400, 280);
+            panel.setBackground(Color.black);
             JList lista = new JList();
             DefaultListModel modelo = new DefaultListModel();
-            modelo.copyInto(ControladorPrincipal.getSingleton().getInventario());
+            String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
+            for (int i = 0; i < listaObjetos.length; i++) {
+                modelo.add(i,listaObjetos[i]);
+            }
+            lista.setBounds(20, 20, 360, 240);
             lista.setModel(modelo);
-            lista.setBounds(20,20,360,100);
             panel.add(lista);
             lista.setVisible(true);
+            this.add(panel);
+            panel.setVisible(true);
             setVisible(true);
         }
     }
@@ -241,17 +244,21 @@ public class VentanaMazmorra extends JPanel {
             super(padre, true);
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
-            JPanel panel = new JPanel();
-            panel.setBounds(0,0,300,180);
-            this.add(panel);
-            panel.setVisible(true);
+            imagePanel panel = new imagePanel(WIDTH, HEIGHT, TOOL_TIP_TEXT_KEY);
+            panel.setBounds(0, 0, 400, 280);
+            panel.setBackground(Color.black);
             JList lista = new JList();
             DefaultListModel modelo = new DefaultListModel();
-            modelo.copyInto(ControladorPrincipal.getSingleton().getInventario());
+            String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
+            for (int i = 0; i < listaObjetos.length; i++) {
+                modelo.add(i,listaObjetos[i]);
+            }
+            lista.setBounds(20, 20, 360, 240);
             lista.setModel(modelo);
-            lista.setBounds(20,20,360,100);
             panel.add(lista);
             lista.setVisible(true);
+            this.add(panel);
+            panel.setVisible(true);
             setVisible(true);
         }
     }
