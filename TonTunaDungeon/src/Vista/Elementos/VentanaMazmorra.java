@@ -219,19 +219,41 @@ public class VentanaMazmorra extends JPanel {
             super(padre, true);
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
-            JPanel panel = new JPanel();
+            imagePanel panel = new imagePanel(200, 180, "src/Recursos/mochila.gif");
             panel.setBounds(0, 0, 400, 280);
-            panel.setBackground(Color.black);
-            JList lista = new JList();
-            DefaultListModel modelo = new DefaultListModel();
-            String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
-            for (int i = 0; i < listaObjetos.length; i++) {
-                modelo.add(i,listaObjetos[i]);
+            panel.setBackground(new Color(124,124,124,255));
+            JList arma = new JList();
+            DefaultListModel modeloArmas = new DefaultListModel();
+            String[] listaArmas = ControladorPrincipal.getSingleton().getInvArmas();
+            for (int i = 0; i < listaArmas.length; i++) {
+                modeloArmas.add(i,listaArmas[i]);
             }
-            lista.setBounds(20, 20, 360, 240);
-            lista.setModel(modelo);
-            panel.add(lista);
-            lista.setVisible(true);
+            arma.setBounds(200, 50, 180, 100);
+            arma.setModel(modeloArmas);
+            panel.add(arma);
+            arma.setVisible(true);
+            JList armaduras = new JList();
+            DefaultListModel modeloArmaduras = new DefaultListModel();
+            String[] listaArmaduras = ControladorPrincipal.getSingleton().getInvArmaduras();
+            for (int i = 0; i < listaArmaduras.length; i++) {
+                modeloArmaduras.add(i,listaArmaduras[i]);
+            }
+            armaduras.setBounds(200, 210, 180, 100);
+            armaduras.setModel(modeloArmaduras);
+            panel.add(armaduras);
+            armaduras.setVisible(true);
+            
+            JLabel armaActual = new JLabel(ControladorPrincipal.getSingleton().getPJArma());
+            JLabel armaduraActual = new JLabel(ControladorPrincipal.getSingleton().getPJArmadura());
+            armaActual.setFont(new Font("Dialog", Font.BOLD, 12));
+            armaduraActual.setFont(new Font("Dialog", Font.BOLD, 12));
+            armaActual.setForeground(Color.white);
+            armaduraActual.setForeground(Color.white);
+            armaActual.setBounds(20,20,400,20);
+            armaduraActual.setBounds(20,20,400,180);
+            panel.add(armaActual);
+            panel.add(armaduraActual);
+            
             this.add(panel);
             panel.setVisible(true);
             setVisible(true);
@@ -244,16 +266,16 @@ public class VentanaMazmorra extends JPanel {
             super(padre, true);
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
-            imagePanel panel = new imagePanel(WIDTH, HEIGHT, TOOL_TIP_TEXT_KEY);
+            imagePanel panel = new imagePanel(200, 180, "src/Recursos/mochila.gif");
             panel.setBounds(0, 0, 400, 280);
-            panel.setBackground(Color.black);
+            panel.setBackground(new Color(124,124,124,255));
             JList lista = new JList();
             DefaultListModel modelo = new DefaultListModel();
             String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
             for (int i = 0; i < listaObjetos.length; i++) {
                 modelo.add(i,listaObjetos[i]);
             }
-            lista.setBounds(20, 20, 360, 240);
+            lista.setBounds(200, 20, 180, 240);
             lista.setModel(modelo);
             panel.add(lista);
             lista.setVisible(true);

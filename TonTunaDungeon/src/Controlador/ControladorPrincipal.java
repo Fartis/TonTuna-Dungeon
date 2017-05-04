@@ -235,4 +235,20 @@ public class ControladorPrincipal {
         return inventario;
     }
 
+    public String[] getInvArmas() {
+        String[] inventario = new String[personajeActual.getInventarioArma().size()];
+        for(int i=0; i<inventario.length; i++){
+            inventario[i] = personajeActual.getInventarioArma().get(i).getNombre();
+        }
+        return inventario;
+    }
+
+    public String[] getInvArmaduras() {
+        String[] inventario = new String[personajeActual.getInventarioArmadura().size()];
+        for(int i=0; i<inventario.length; i++){
+            inventario[i] = personajeActual.getInventarioArmadura().get(i).getNombre();
+        }
+        return inventario;
+    }
+
 }
