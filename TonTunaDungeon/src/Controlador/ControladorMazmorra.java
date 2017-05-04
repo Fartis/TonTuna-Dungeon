@@ -224,4 +224,5 @@ public class ControladorMazmorra {
         }
         mazmorra.set(ControladorPrincipal.getSingleton().getNivelActual(), temporal);
     }
+
 }

@@ -64,12 +64,8 @@ public class Habitacion {
             case 2:
                 this.accesible = true;
                  {
-                    try {
-                        this.objeto = ControladorBBDD.getSingleton().obtenerObjeto();
-                        boolObjeto = true;
-                    } catch (SQLException ex) {
-                        System.out.println("Ha sido imposible generar habitación con objeto");
-                    }
+                     this.objeto = ControladorBBDD.getSingleton().obtenerObjeto();
+                     boolObjeto = true;
                 }
                 break;
             case 1:

@@ -5,10 +5,14 @@
  */
 package Modelo;
 
+import Controlador.ControladorBBDD;
 import Modelo.Inventario.Arma;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Objeto;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Clase para gestionar el Personaje
@@ -48,6 +52,8 @@ public class Personaje {
         this.intelecto = intelecto;
         this.descripcion = descripcion;
         this.nivel = nivel;
+        this.setArma(ControladorBBDD.getSingleton().obtenerArma(1));
+        this.setArmadura(ControladorBBDD.getSingleton().obtenerArmadura(1));
         establecerVida();
     }
 
@@ -329,4 +335,9 @@ public class Personaje {
         }
     }
 
+    public ArrayList<Objeto> getInventarioObjeto() {
+        return inventarioObjeto;
+    }
+
+    
 }

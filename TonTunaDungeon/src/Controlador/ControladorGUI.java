@@ -131,7 +131,7 @@ public class ControladorGUI {
         } else {
             ventanaMazmorra.createAndShowUI(menuJuego);
         }
-        menuJuego.setPadre(ventanaMazmorra);        
+        menuJuego.setPadre(ventanaMazmorra);  
     }
     
     /**

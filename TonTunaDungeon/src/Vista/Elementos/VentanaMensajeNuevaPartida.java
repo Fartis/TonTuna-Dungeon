@@ -83,20 +83,6 @@ public class VentanaMensajeNuevaPartida extends JPanel {
         }
     }
 
-    private void jButtonCargarActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-
-    }
-
-    private void jButtonLogrosActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-
-    }
-
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        System.exit(0);
-    }
 
     @Override
     public void paintComponent(Graphics g) {

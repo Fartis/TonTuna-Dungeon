@@ -16,23 +16,26 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Clase controladora de la base de datos del juego
+ *
  * @author Manuel David Villalba Escamilla
  */
 public class ControladorBBDD {
 
     private static ControladorBBDD singleton = null;
-    private static String variableIP="localhost";
-    
-    
+    private static String variableIP = "localhost";
+
     private ControladorBBDD() {
     }
 
     /**
      * metodo singleton para el controlador
-     * @return 
+     *
+     * @return
      */
     public static ControladorBBDD getSingleton() {
         if (singleton == null) {
@@ -46,15 +49,14 @@ public class ControladorBBDD {
 //    }
 //       
 //   
-    
-    
     /**
      * Metodo para guardar la informacion del personaje en la base de datos
-     * @param pj 
+     *
+     * @param pj
      */
     public void guardarInfoPJ(Personaje pj) {
         try {
-            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://"+variableIP+"/tontunadungeon", "root", "");
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
             PreparedStatement insertar = con.prepareStatement("insert into pjcreado (nombre, raza, nivel, fuerza, destreza, intelecto, constitucion) values (?,?,?,?,?,?,?);");
             insertar.setString(1, pj.getNombre());
             insertar.setString(2, pj.getRaza());
@@ -72,7 +74,8 @@ public class ControladorBBDD {
 
     /**
      * Metodo para listar los personajes de la base de datos
-     * @return 
+     *
+     * @return
      */
     public Personaje[] listaPersonajesBase() {
         Personaje[] listaPersonajes = new Personaje[4];
@@ -98,9 +101,10 @@ public class ControladorBBDD {
 
     /**
      * Metodo para crear el personaje en la base de datos
+     *
      * @param nombre
      * @param raza
-     * @return 
+     * @return
      */
     public Personaje crearPJBase(String nombre, String raza) {
         try {
@@ -123,18 +127,21 @@ public class ControladorBBDD {
 
     /**
      * Metodo para obtener el arma de la base de datos
+     *
      * @return
-     * @throws SQLException 
+     * @throws SQLException
      */
-    public Arma obtenerArma(int nivel) throws SQLException {
+    public Arma obtenerArma(int nivel) {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
-            PreparedStatement consulta = con.prepareStatement("select * from arma;");
+            PreparedStatement consulta = con.prepareStatement("select * from arma where nivel=" + nivel + ";");
             ResultSet rs = consulta.executeQuery();
-            for (int i = 0; i < Dado.lanza(6)*nivel; i++) {
+            rs.next();
+            for (int i = 0; i < (Dado.lanza(3) * nivel) - 1; i++) {
                 rs.next();
             }
             Arma nueva = new Arma(rs.getString("nombre"), Integer.parseInt(rs.getString("tipo")), Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
+            con.close();
             return nueva;
         } catch (SQLException e) {
             return null;
@@ -143,49 +150,58 @@ public class ControladorBBDD {
 
     /**
      * Metodo para obtener un objeto de la base de datos
+     *
      * @param nivel
      * @return
-     * @throws SQLException 
+     * @throws SQLException
      */
-    public Objeto obtenerObjeto() throws SQLException{
-        Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
-        PreparedStatement consulta = con.prepareStatement("select * from objeto;");
-        ResultSet rs = consulta.executeQuery();
-        rs.next();
-        for(int i=0; i<Dado.lanza(12)-1; i++){
-            rs.next();
-        }
-        int tipo=0;
-        switch(rs.getString("tipo")){
-            case "curacion":
-                tipo=1;
-                break;
-            case "apoyo":
-                tipo=2;
-                break;
-            case "daño":
-                tipo=3;
-                break;
-        }
-        Objeto objeto = new Objeto(rs.getString("nombre"),rs.getString("descripcion"), rs.getInt("bonificador"), tipo);
-        return objeto;
-    }
-    
-    /**
-     * Metodo para obtener la armadura de la base de datos
-     * @param nivel
-     * @return
-     * @throws SQLException 
-     */
-    public Armadura obtenerArmadura(int nivel) throws SQLException {
+    public Objeto obtenerObjeto() {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
-            PreparedStatement consulta = con.prepareStatement("select * from armadura;");
+            PreparedStatement consulta = con.prepareStatement("select * from objeto;");
             ResultSet rs = consulta.executeQuery();
-            for (int i = 0; i < Dado.lanza(2)*nivel; i++) {
+            rs.next();
+            for (int i = 0; i < Dado.lanza(12) - 1; i++) {
+                rs.next();
+            }
+            int tipo = 0;
+            switch (rs.getString("tipo")) {
+                case "curacion":
+                    tipo = 1;
+                    break;
+                case "apoyo":
+                    tipo = 2;
+                    break;
+                case "daño":
+                    tipo = 3;
+                    break;
+            }
+            Objeto objeto = new Objeto(rs.getString("nombre"), rs.getString("descripcion"), rs.getInt("bonificador"), tipo);
+            con.close();
+            return objeto;
+        } catch (SQLException e) {
+            return null;
+        }
+    }
+
+    /**
+     * Metodo para obtener la armadura de la base de datos
+     *
+     * @param nivel
+     * @return
+     * @throws SQLException
+     */
+    public Armadura obtenerArmadura(int nivel) {
+        try {
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
+            PreparedStatement consulta = con.prepareStatement("select * from armadura where nivel=" + nivel + ";");
+            ResultSet rs = consulta.executeQuery();
+            rs.next();
+            for (int i = 0; i < (Dado.lanza(2) * nivel) - 1; i++) {
                 rs.next();
             }
             Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), Integer.parseInt(rs.getString("indice")), rs.getString("descripcion"));
+            con.close();
             return armadura;
         } catch (SQLException e) {
             return null;
@@ -194,16 +210,17 @@ public class ControladorBBDD {
 
     /**
      * metodo obtener la informacion de monstruo de la base de datos
+     *
      * @param nivel
      * @return
-     * @throws SQLException 
+     * @throws SQLException
      */
     public Monstruo obtenerMonstruo(int nivel) throws SQLException {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
             PreparedStatement consulta = con.prepareStatement("select * from monstruo where nivel = " + nivel + ";");
             ResultSet rs = consulta.executeQuery();
-            for (int i = 0; i < Dado.lanza(5)-1; i++) {
+            for (int i = 0; i < Dado.lanza(5) - 1; i++) {
                 rs.next();
             }
             int fuerza = Integer.parseInt(rs.getString("fuerza"));

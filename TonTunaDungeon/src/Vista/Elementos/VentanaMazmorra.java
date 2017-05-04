@@ -16,8 +16,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -35,16 +38,17 @@ public class VentanaMazmorra extends JPanel {
     private JTextArea jTextoAventura = new JTextArea();
     private JLabel jLabelMapa = new JLabel("Mapa"),
             jLabelNombre = new JLabel(ControladorPrincipal.getSingleton().getPJNombre()),
-            jLabelVida = new JLabel("Vida: " + ControladorPrincipal.getSingleton().getPJVidaTotal()),
-            jLabelArmadura = new JLabel("Armadura");
+            jLabelVida = new JLabel("Vida: " + ControladorPrincipal.getSingleton().getPJVidaActual() + " / " + ControladorPrincipal.getSingleton().getPJVidaTotal());
     private JButton jArriba = new JButton("↑"),
             jAbajo = new JButton("↓"),
             jDerecha = new JButton("→"),
             jIzquierda = new JButton("←"),
             jButtonSalir = new JButton("Salir"),
             jButtonGuardar = new JButton("Guardar"),
-            jButtonAbrir = new JButton("Abrir");
+            jButtonEquipo = new JButton("Equipo"),
+            jButtonMochila = new JButton("Mochila");
     private FormatoMapa jMapa = new FormatoMapa();
+    
 
     //JLabel para mapa.
     /**
@@ -60,7 +64,10 @@ public class VentanaMazmorra extends JPanel {
         this.add(jMapa);
         this.add(jButtonSalir);
         this.add(jButtonGuardar);
-        this.add(jButtonAbrir);
+        this.add(jButtonEquipo);
+        this.add(jButtonMochila);
+        this.add(jLabelNombre);
+        this.add(jLabelVida);
         ControladorMazmorra.getSingleton().generarPiso();
         jMapa.pintarMapa();
 
@@ -92,6 +99,16 @@ public class VentanaMazmorra extends JPanel {
         jIzquierda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jIzquierdaActionPerformed(evt);
+            }
+        });
+        jButtonEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEquipoActionPerformed(evt);
+            }
+        });
+        jButtonMochila.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMochilaActionPerformed(evt);
             }
         });
     }
@@ -156,6 +173,15 @@ public class VentanaMazmorra extends JPanel {
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
 
+    private void jButtonEquipoActionPerformed(java.awt.event.ActionEvent evt) {
+        Inventario inventario = new Inventario(padre);
+    }
+
+    private void jButtonMochilaActionPerformed(java.awt.event.ActionEvent evt) {
+        Mochila mochila = new Mochila(padre);
+
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -175,10 +201,58 @@ public class VentanaMazmorra extends JPanel {
         jButtonSalir.setBounds(680, 520, 100, 40);
         jButtonGuardar.setBounds(350, 460, 100, 100);
         jButtonGuardar.setVisible(false);
-        jButtonAbrir.setBounds(350, 460, 100, 100);
-        jButtonAbrir.setVisible(false);
+        jButtonMochila.setBounds(20, 460, 100, 100);
+        jButtonEquipo.setBounds(200, 460, 100, 100);
         jLabelMapa.setBounds(610, 20, 80, 20);
         jLabelMapa.setForeground(Color.white);
         jLabelMapa.setFont(new Font("Dialog", Font.BOLD, 15));
+        jLabelNombre.setBounds(20, 320, 400, 60);
+        jLabelNombre.setFont(new Font("Dialog", Font.BOLD, 40));
+        jLabelNombre.setForeground(Color.white);
+        jLabelVida.setBounds(20, 400, 100, 20);
+        jLabelVida.setFont(new Font("Dialog", Font.BOLD, 15));
+        jLabelVida.setForeground(Color.white);
+    }
+
+    private class Inventario extends JDialog {
+
+        public Inventario(JFramePrincipal padre) {
+            super(padre, true);
+            this.setLayout(null);
+            this.setBounds(0, 0, 400, 280);
+            JPanel panel = new JPanel();
+            panel.setBounds(0,0,300,180);
+            this.add(panel);
+            panel.setVisible(true);
+            JList lista = new JList();
+            DefaultListModel modelo = new DefaultListModel();
+            modelo.copyInto(ControladorPrincipal.getSingleton().getInventario());
+            lista.setModel(modelo);
+            lista.setBounds(20,20,360,100);
+            panel.add(lista);
+            lista.setVisible(true);
+            setVisible(true);
+        }
+    }
+
+    private class Mochila extends JDialog {
+
+        public Mochila(JFramePrincipal padre) {
+            super(padre, true);
+            this.setLayout(null);
+            this.setBounds(0, 0, 400, 280);
+            JPanel panel = new JPanel();
+            panel.setBounds(0,0,300,180);
+            this.add(panel);
+            panel.setVisible(true);
+            JList lista = new JList();
+            DefaultListModel modelo = new DefaultListModel();
+            modelo.copyInto(ControladorPrincipal.getSingleton().getInventario());
+            lista.setModel(modelo);
+            lista.setBounds(20,20,360,100);
+            panel.add(lista);
+            lista.setVisible(true);
+            setVisible(true);
+        }
     }
 }
