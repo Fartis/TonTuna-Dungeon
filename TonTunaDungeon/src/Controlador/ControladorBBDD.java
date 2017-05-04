@@ -140,7 +140,19 @@ public class ControladorBBDD {
             for (int i = 0; i < (Dado.lanza(3) * nivel) - 1; i++) {
                 rs.next();
             }
-            Arma nueva = new Arma(rs.getString("nombre"), Integer.parseInt(rs.getString("tipo")), Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
+            int tipo=0;
+            switch (rs.getString("atributo")){
+                case "fuerza":
+                    tipo=1;
+                    break;
+                case "destreza":
+                    tipo=2;
+                    break;
+                case "intelecto":
+                    tipo=3;
+                    break;
+            }
+            Arma nueva = new Arma(rs.getString("nombre"), tipo, Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
             con.close();
             return nueva;
         } catch (SQLException e) {
