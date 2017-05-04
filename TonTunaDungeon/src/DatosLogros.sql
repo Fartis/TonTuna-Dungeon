@@ -1,4 +1,4 @@
-insert into logros values
+insert into logro values
 	("¡Somos Exterminadores de Buhos!","Mata 5 hipopogrifos"),
 	("¡A la rica ensalada!","Mata 10 Osolechuga"),
 	("¡El destructor de memes!","Derrota a Javier Ramos, Horse Luis, Rafalillo y Troll"),
@@ -43,7 +43,7 @@ insert into logros values
 	("¡Crugiendo lomos!","Usa 'La Vara' contra un enemigo"),
 	("¡BFF!","Derrota a Rafalillo 3 veces"),
 	("¿Sobres? ¿Qué sobres?","Derrota a 'El Bastardo'"),
-	("¡Por fuera hueles mal, pero por dentro... Qué peste..!","Derrota 10 Babosas Gigantes"),
+	("¡Por fuera hueles mal, pero por dentro, qué peste!","Derrota 10 Babosas Gigantes"),
 	("¡Eres una belleza!","Derrota a Horse Luis"),
 	("¡Puedes pedir un deseo!","Aparece Javier Ramos"),
 	("¡Los Fampiros existen!","Derrota a Fampiro"),
