@@ -86,6 +86,16 @@ public class ControladorCombate {
             }
             personaje.setVidaActual(personaje.getVidaActual() - daño);
         }
+        comprobarFin();
+    }
+    
+    private void comprobarFin(){
+        if(personaje.getVidaActual()<=0){
+            ControladorGUI.getSingleton().menuPrincipal();
+        }
+        if(monstruo.getVida()<=0){
+            ControladorGUI.getSingleton().finalizarCombate();
+        }
     }
 
 }
