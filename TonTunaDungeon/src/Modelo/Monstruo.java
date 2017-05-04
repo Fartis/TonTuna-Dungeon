@@ -74,6 +74,9 @@ public class Monstruo {
      */
     public void setVidaActual(int vidaActual) {
         this.vidaActual = vidaActual;
+        if(vidaActual>vida){
+            this.vidaActual = this.vida;
+        }
     }
 
     /**

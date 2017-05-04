@@ -48,6 +48,7 @@ public class Personaje {
         this.intelecto = intelecto;
         this.descripcion = descripcion;
         this.nivel = nivel;
+        establecerVida();
     }
 
 
@@ -323,6 +324,9 @@ public class Personaje {
      */
     public void setVidaActual(int vidaActual) {
         this.vidaActual = vidaActual;
+        if(vidaActual>vidaTotal){
+            this.vidaActual = this.vidaTotal;
+        }
     }
 
 }
