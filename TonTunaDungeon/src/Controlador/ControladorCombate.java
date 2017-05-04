@@ -89,11 +89,14 @@ public class ControladorCombate {
         comprobarFin();
     }
     
+    /**
+     * Metodo para comprobar si el combate ha finalizado
+     */
     private void comprobarFin(){
         if(personaje.getVidaActual()<=0){
             ControladorGUI.getSingleton().menuPrincipal();
         }
-        if(monstruo.getVida()<=0){
+        if(monstruo.getVidaActual()<=0){
             ControladorGUI.getSingleton().finalizarCombate();
         }
     }
