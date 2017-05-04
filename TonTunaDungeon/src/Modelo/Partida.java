@@ -16,8 +16,8 @@ public class Partida {
 
     private Personaje pj;
     private ArrayList<Habitacion[][]> mazmorra;
-    private Habitacion[][] piso;
     private Calendar fecha;
+    private int nivelActual;
 
     /**
      * Constructor de la Partida
@@ -25,11 +25,11 @@ public class Partida {
      * @param mazmorra
      * @param piso 
      */
-    public Partida(Personaje pj, ArrayList<Habitacion[][]> mazmorra, Habitacion[][] piso) {
+    public Partida(Personaje pj, ArrayList<Habitacion[][]> mazmorra, int nivelActual) {
         this.pj = pj;
         this.mazmorra = mazmorra;
-        this.piso = piso;
         this.fecha = Calendar.getInstance();
+        this.nivelActual = nivelActual;
     }
 
     /**
@@ -46,23 +46,5 @@ public class Partida {
      */
     public ArrayList<Habitacion[][]> getMazmorra() {
         return mazmorra;
-    }
-
-    /**
-     * Metodo devuelve el piso de la partida
-     * @return 
-     */
-    public Habitacion[][] getPiso() {
-        return piso;
-    }
-
-    /**
-     * Metodo devuelve la fecha de la partida
-     * @return 
-     */
-    public Calendar getFecha() {
-        return fecha;
-    }
-    
-    
+    } 
 }
