@@ -16,7 +16,8 @@ import Modelo.Personaje;
  */
 public class ControladorCombate {
 
-    private Monstruo monstruo = ControladorMazmorra.getSingleton().getMonstruo();
+    
+    private Monstruo monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(ControladorPrincipal.getSingleton().getNivelActual()+1);
     private Personaje personaje = ControladorPrincipal.getSingleton().getPJ();
     private int bonFuerza = 0, bonDestreza = 0, bonIntelecto = 0;
 

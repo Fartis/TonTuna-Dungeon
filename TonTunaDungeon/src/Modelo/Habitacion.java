@@ -36,7 +36,6 @@ public class Habitacion {
     private Objeto objeto = ControladorBBDD.getSingleton().obtenerObjeto();
     private Arma arma;
     private Armadura armadura;
-    private Monstruo monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(ControladorPrincipal.getSingleton().getNivelActual());
     private String descripcion;
     private boolean boolMonstruo = false, boolObjeto = false;
     boolean[] puertas = new boolean[4];
@@ -136,13 +135,6 @@ public class Habitacion {
         return objeto;
     }
 
-    @Override
-    public String toString() {
-        return "Habitacion{" + "tipo=" + tipo + ", objeto=" + objeto + ", arma=" + arma + ", armadura=" + armadura + ", monstruo=" + monstruo + ", descripcion=" + descripcion + ", puertas=" + puertas + ", accesible=" + accesible + ", puntoGuardado=" + puntoGuardado + ", escalera=" + escalera + '}';
-    }
 
-    public Monstruo getMonstruo() {
-        return monstruo;
-    }
 
 }

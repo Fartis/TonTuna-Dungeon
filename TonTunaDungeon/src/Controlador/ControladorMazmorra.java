@@ -29,6 +29,7 @@ public class ControladorMazmorra {
     private static ArrayList<Habitacion[][]> mazmorra;
     private static ControladorMazmorra singleton = null;
     private int xActual = 4, yActual = 4;
+    
 
     /**
      * Metodo constructor de mazmorra
@@ -224,11 +225,6 @@ public class ControladorMazmorra {
             ControladorPrincipal.getSingleton().añadirObjetoPersonaje(temporal[xActual][yActual].recogerObjeto());
         }
         mazmorra.set(ControladorPrincipal.getSingleton().getNivelActual(), temporal);
-    }
-
-    Monstruo getMonstruo() {
-        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
-        return temporal[xActual][yActual].getMonstruo();
     }
 
 }

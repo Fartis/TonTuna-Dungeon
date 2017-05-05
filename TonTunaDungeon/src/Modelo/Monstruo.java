@@ -17,7 +17,7 @@ import Modelo.Inventario.Armadura;
 public class Monstruo {
     private Armadura armadura = ControladorBBDD.getSingleton().obtenerArmadura(ControladorPrincipal.getSingleton().getNivelActual());
     private Arma arma = ControladorBBDD.getSingleton().obtenerArma(ControladorPrincipal.getSingleton().getNivelActual());
-    private int fuerza, destreza, constitucion, intelecto, vida, vidaActual, indiceAr = armadura.getIndiceArmadura();
+    private int fuerza, destreza, constitucion, intelecto, vida, vidaActual, indiceAr;
     private String nombre, descripcion;
 
     /**
@@ -42,6 +42,7 @@ public class Monstruo {
         this.armadura = armadura;
         this.arma = arma;
         this.vidaActual = getVida();
+        indiceAr = armadura.getIndiceArmadura();
     }
     /**
      * Metodo para establecer la vida del monstruo

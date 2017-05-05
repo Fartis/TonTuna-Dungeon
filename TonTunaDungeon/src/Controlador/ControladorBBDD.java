@@ -232,7 +232,8 @@ public class ControladorBBDD {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
             PreparedStatement consulta = con.prepareStatement("select * from monstruo where nivel = " + nivel + ";");
             ResultSet rs = consulta.executeQuery();
-            for (int i = 0; i < Dado.lanza(5) - 1; i++) {
+            rs.next();
+            for (int i = 0; i < Dado.lanza(5); i++) {
                 rs.next();
             }
             int fuerza = Integer.parseInt(rs.getString("fuerza"));
