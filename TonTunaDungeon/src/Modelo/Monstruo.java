@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import Controlador.ControladorBBDD;
+import Controlador.ControladorPrincipal;
 import Modelo.Inventario.Arma;
 import Modelo.Inventario.Armadura;
 
@@ -13,10 +15,10 @@ import Modelo.Inventario.Armadura;
  * @author Manuel David Villalba Escamilla
  */
 public class Monstruo {
-    private int fuerza, destreza, constitucion, intelecto, vida, vidaActual, indiceAr;
+    private Armadura armadura = ControladorBBDD.getSingleton().obtenerArmadura(ControladorPrincipal.getSingleton().getNivelActual());
+    private Arma arma = ControladorBBDD.getSingleton().obtenerArma(ControladorPrincipal.getSingleton().getNivelActual());
+    private int fuerza, destreza, constitucion, intelecto, vida, vidaActual, indiceAr = armadura.getIndiceArmadura();
     private String nombre, descripcion;
-    private Armadura armadura;
-    private Arma arma;
 
     /**
      * Constructor del monstruo
@@ -39,8 +41,7 @@ public class Monstruo {
         this.descripcion = descripcion;
         this.armadura = armadura;
         this.arma = arma;
-        this.vidaActual = getVida();        
-        this.indiceAr = this.armadura.getIndiceArmadura();
+        this.vidaActual = getVida();
     }
     /**
      * Metodo para establecer la vida del monstruo

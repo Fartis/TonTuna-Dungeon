@@ -13,6 +13,7 @@ import Vista.Elementos.VentanaMazmorra;
 import Vista.Elementos.VentanaMensajeNuevaPartida;
 import Vista.Elementos.VentanaNuevaPartida;
 import Vista.JFramePrincipal;
+import javax.swing.JFrame;
 
 /**
  * Clase para gestionar el controlador de la interfaz
