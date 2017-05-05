@@ -10,9 +10,6 @@ import Modelo.Personaje;
 import Modelo.RepositorioPartidas;
 import Modelo.ReproductorMusica;
 import Vista.JFramePrincipal;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -37,6 +34,7 @@ public class ControladorPrincipal {
     public static void main(String[] args) {
         cambiarEstiloGUI();
         ControladorGUI.getSingleton().menuPrincipal();
+        
     }
 
     /**
@@ -257,6 +255,10 @@ public class ControladorPrincipal {
 
     public int getPJInArm() {
         return personajeActual.getArmadura().getIndiceArmadura();
+    }
+
+    Personaje getPJ() {
+        return personajeActual;
     }
 
 }

@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.Dado;
 import Modelo.Habitacion;
+import Modelo.Monstruo;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.parsers.ParserConfigurationException;
@@ -223,6 +224,11 @@ public class ControladorMazmorra {
             ControladorPrincipal.getSingleton().añadirObjetoPersonaje(temporal[xActual][yActual].recogerObjeto());
         }
         mazmorra.set(ControladorPrincipal.getSingleton().getNivelActual(), temporal);
+    }
+
+    Monstruo getMonstruo() {
+        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
+        return temporal[xActual][yActual].getMonstruo();
     }
 
 }

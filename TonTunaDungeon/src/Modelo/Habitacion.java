@@ -33,10 +33,10 @@ public class Habitacion {
     //3 = Guardado
     //4 = Siguiente nivel
     private int tipo;
-    private Objeto objeto = null;
+    private Objeto objeto = ControladorBBDD.getSingleton().obtenerObjeto();
     private Arma arma;
     private Armadura armadura;
-    private Monstruo monstruo = null;
+    private Monstruo monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(ControladorPrincipal.getSingleton().getNivelActual());
     private String descripcion;
     private boolean boolMonstruo = false, boolObjeto = false;
     boolean[] puertas = new boolean[4];
@@ -64,19 +64,13 @@ public class Habitacion {
             case 2:
                 this.accesible = true;
                  {
-                     this.objeto = ControladorBBDD.getSingleton().obtenerObjeto();
                      boolObjeto = true;
                 }
                 break;
             case 1:
                 this.accesible = true;
-                try {
-                    if (Dado.lanza(2)==Dado.lanza(2)) {
-                        this.monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(nivel);
-                        boolMonstruo = true;
-                    }
-                } catch (SQLException ex) {
-                    System.out.println("Ha sido imposible generar habitación con monstruo.");
+                if (Dado.lanza(2)==Dado.lanza(2)) {
+                    boolMonstruo = true;
                 }
                 break;
             case 3:
@@ -145,6 +139,10 @@ public class Habitacion {
     @Override
     public String toString() {
         return "Habitacion{" + "tipo=" + tipo + ", objeto=" + objeto + ", arma=" + arma + ", armadura=" + armadura + ", monstruo=" + monstruo + ", descripcion=" + descripcion + ", puertas=" + puertas + ", accesible=" + accesible + ", puntoGuardado=" + puntoGuardado + ", escalera=" + escalera + '}';
+    }
+
+    public Monstruo getMonstruo() {
+        return monstruo;
     }
 
 }

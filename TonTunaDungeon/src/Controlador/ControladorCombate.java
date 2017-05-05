@@ -16,13 +16,11 @@ import Modelo.Personaje;
  */
 public class ControladorCombate {
 
-    private Monstruo monstruo;
-    private Personaje personaje;
+    private Monstruo monstruo = ControladorMazmorra.getSingleton().getMonstruo();
+    private Personaje personaje = ControladorPrincipal.getSingleton().getPJ();
     private int bonFuerza = 0, bonDestreza = 0, bonIntelecto = 0;
 
-    public void Combate(Monstruo monster, Personaje pj) {
-        this.personaje = pj;
-        this.monstruo = monster;
+    public ControladorCombate() {
     }
 
     public void accionAtaque() {
@@ -122,6 +120,26 @@ public class ControladorCombate {
     
     public int vidaMONTotal(){
         return monstruo.getVidaActual();
+    }
+
+    public String indiceMONActual() {
+        return Integer.toString(monstruo.getIndiceAr());
+    }
+
+    public String indiceMONTotal() {
+        return Integer.toString(monstruo.getArmadura().getIndiceArmadura());
+    }
+
+    public String getMonNombre() {
+        return monstruo.getNombre();
+    }
+
+    public String indicePJActual() {
+        return Integer.toString(personaje.getIndiceAr());
+    }
+
+    public String indicePJTotal() {
+        return Integer.toString(personaje.getArmadura().getIndiceArmadura());
     }
 
 }

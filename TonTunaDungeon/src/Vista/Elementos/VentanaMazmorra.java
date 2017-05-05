@@ -284,4 +284,6 @@ public class VentanaMazmorra extends JPanel {
             setVisible(true);
         }
     }
+    
+    
 }

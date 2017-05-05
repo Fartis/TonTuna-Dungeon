@@ -227,7 +227,7 @@ public class ControladorBBDD {
      * @return
      * @throws SQLException
      */
-    public Monstruo obtenerMonstruo(int nivel) throws SQLException {
+    public Monstruo obtenerMonstruo(int nivel){
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
             PreparedStatement consulta = con.prepareStatement("select * from monstruo where nivel = " + nivel + ";");

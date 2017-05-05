@@ -143,13 +143,14 @@ public class ControladorGUI {
         ocultar();
         ReproductorMusica.getSingleton().pararMusica();
         reproducirMusica("src/Recursos/combate.mp3", musica);
-        VentanaCombate combate = new VentanaCombate();
+        VentanaCombate combate = new VentanaCombate(new ControladorCombate());
         if(ventanaCombate == null){
             ventanaCombate = new JFramePrincipal(combate);
         }else{
             ventanaCombate.createAndShowUI(combate);
         }
         combate.setPadre(ventanaCombate);
+        combate.setText();
     }
     
     public void finalizarCombate(){
