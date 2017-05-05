@@ -233,7 +233,7 @@ public class ControladorBBDD {
             PreparedStatement consulta = con.prepareStatement("select * from monstruo where nivel = " + nivel + ";");
             ResultSet rs = consulta.executeQuery();
             rs.next();
-            for (int i = 0; i < Dado.lanza(5); i++) {
+            for (int i = 0; i < Dado.lanza(5)-1; i++) {
                 rs.next();
             }
             int fuerza = Integer.parseInt(rs.getString("fuerza"));

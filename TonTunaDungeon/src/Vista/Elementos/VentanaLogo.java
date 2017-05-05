@@ -99,8 +99,6 @@ public class VentanaLogo extends JPanel {
      */
     private void jOpcionMusicaActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorPrincipal.getSingleton().setOpcionMusica();
-        this.setVisible(false);
-        padre.dispose();
     }
 
     /**
