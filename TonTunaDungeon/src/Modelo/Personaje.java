@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class Personaje {
 
-    private int fuerza, destreza, constitucion, intelecto, vidaTotal, nivel, vidaActual;
+    private int fuerza, destreza, constitucion, intelecto, vidaTotal, nivel, vidaActual, indiceAr;
     private String descripcion, raza, nombre;
     private ArrayList<Arma> inventarioArma = new ArrayList();
     private ArrayList<Armadura> inventarioArmadura = new ArrayList();
@@ -57,6 +57,8 @@ public class Personaje {
         this.armadura = ControladorBBDD.getSingleton().obtenerArmadura(1);
         System.out.println(armadura);
         establecerVida();
+        this.indiceAr = this.armadura.getIndiceArmadura();
+        
     }
 
 
@@ -349,5 +351,19 @@ public class Personaje {
         return inventarioArmadura;
     }
 
+    
+
+    public int getIndiceAr() {
+        return indiceAr;
+    }
+
+    public void setIndiceAr(int indiceAr) {
+        if(indiceAr>=0){
+            this.indiceAr = indiceAr;
+        }
+        else{
+            this.indiceAr = 0;
+        }
+    }
     
 }

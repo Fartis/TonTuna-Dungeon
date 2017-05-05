@@ -38,7 +38,8 @@ public class VentanaMazmorra extends JPanel {
     private JTextArea jTextoAventura = new JTextArea();
     private JLabel jLabelMapa = new JLabel("Mapa"),
             jLabelNombre = new JLabel(ControladorPrincipal.getSingleton().getPJNombre()),
-            jLabelVida = new JLabel("Vida: " + ControladorPrincipal.getSingleton().getPJVidaActual() + " / " + ControladorPrincipal.getSingleton().getPJVidaTotal());
+            jLabelVida = new JLabel("Vida: " + ControladorPrincipal.getSingleton().getPJVidaActual() + " / " + ControladorPrincipal.getSingleton().getPJVidaTotal()),
+            jLabelIndice = new JLabel("Armadura: "+ControladorPrincipal.getSingleton().getPJInArmAc() + "/" + ControladorPrincipal.getSingleton().getPJInArm());
     private JButton jArriba = new JButton("↑"),
             jAbajo = new JButton("↓"),
             jDerecha = new JButton("→"),

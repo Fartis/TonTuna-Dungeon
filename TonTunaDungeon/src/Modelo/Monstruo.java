@@ -13,7 +13,7 @@ import Modelo.Inventario.Armadura;
  * @author Manuel David Villalba Escamilla
  */
 public class Monstruo {
-    private int fuerza, destreza, constitucion, intelecto, vida, vidaActual;
+    private int fuerza, destreza, constitucion, intelecto, vida, vidaActual, indiceAr;
     private String nombre, descripcion;
     private Armadura armadura;
     private Arma arma;
@@ -39,7 +39,8 @@ public class Monstruo {
         this.descripcion = descripcion;
         this.armadura = armadura;
         this.arma = arma;
-        this.vidaActual = getVida();
+        this.vidaActual = getVida();        
+        this.indiceAr = this.armadura.getIndiceArmadura();
     }
     /**
      * Metodo para establecer la vida del monstruo
@@ -219,7 +220,20 @@ public class Monstruo {
     public String toString() {
         return "Monstruo{" + "fuerza=" + fuerza + ", destreza=" + destreza + ", constitucion=" + constitucion + ", intelecto=" + intelecto + ", vida=" + vida + ", nombre=" + nombre + ", descripcion=" + descripcion + ", armadura=" + armadura + ", arma=" + arma + '}';
     }
+
     
-    
+
+    public int getIndiceAr() {
+        return indiceAr;
+    }
+
+    public void setIndiceAr(int indiceAr) {
+        if(indiceAr>=0){
+            this.indiceAr = indiceAr;
+        }
+        else{
+            this.indiceAr = 0;
+        }
+    }
     
 }

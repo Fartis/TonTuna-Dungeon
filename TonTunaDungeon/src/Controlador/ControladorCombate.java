@@ -66,6 +66,13 @@ public class ControladorCombate {
             if (daño <= 0) {
                 daño = 1;
             }
+            if (monstruo.getIndiceAr()<daño){
+                daño = daño-monstruo.getIndiceAr();
+                monstruo.setIndiceAr(0);
+            }
+            else{
+                monstruo.setIndiceAr(monstruo.getIndiceAr()-daño);
+            }
             monstruo.setVida(monstruo.getVida() - daño);
         } else {
             int ataqueMon = 0;
@@ -99,6 +106,22 @@ public class ControladorCombate {
         if(monstruo.getVidaActual()<=0){
             ControladorGUI.getSingleton().finalizarCombate();
         }
+    }
+    
+    public int vidaPJActual(){
+        return personaje.getVidaActual();
+    }
+    
+    public int vidaPJTotal(){
+        return personaje.getVidaTotal();
+    }
+    
+    public int vidaMONActual(){
+        return monstruo.getVida();
+    }
+    
+    public int vidaMONTotal(){
+        return monstruo.getVidaActual();
     }
 
 }
