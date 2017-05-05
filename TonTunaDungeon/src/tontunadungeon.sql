@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `armadura` (
   `bonificador` int(10) unsigned NOT NULL,
   `indice` int(10) unsigned NOT NULL,
   `descripcion` text NOT NULL,
+  `nivel` int unsigned NOT NULL,
   PRIMARY KEY (`nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
