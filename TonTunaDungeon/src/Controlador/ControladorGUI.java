@@ -28,7 +28,7 @@ public class ControladorGUI {
             cargarPar = null,
             mensajeInicio = null,
             ventanaMazmorra = null,
-            ventanaCombate = null;    
+            ventanaCombate = null;
 
     /**
      * Constructor por defecto de la interfaz grafica
