@@ -59,6 +59,8 @@ public class VentanaCargar extends JPanel {
                 jButtonAtrasActionPerformed(evt);
             }
         });
+        
+        setText();
 
         this.add(jButtonPartida1);
         this.add(jButtonPartida2);
@@ -110,5 +112,9 @@ public class VentanaCargar extends JPanel {
         jButtonPartida2.setForeground(Color.white);
         jButtonPartida3.setForeground(Color.white);
         jButtonPartida4.setForeground(Color.white);
+    }
+    
+    public void setText(){
+        
     }
 }
