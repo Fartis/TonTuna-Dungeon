@@ -6,7 +6,6 @@
 package Modelo;
 
 import Controlador.ControladorBBDD;
-import Controlador.ControladorPrincipal;
 import Modelo.Inventario.Objeto;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Arma;
@@ -15,7 +14,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
