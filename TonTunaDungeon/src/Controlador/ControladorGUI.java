@@ -154,7 +154,8 @@ public class ControladorGUI {
     }
     
     public void finalizarCombate(){
-        ventanaCombate = null;
+        ocultar();
+        ventanaMazmorra();
     }
     /**
      * Método para gestionar la ventana de carga de partidas

@@ -99,17 +99,19 @@ public class ControladorCombate {
             personaje.setVidaActual(personaje.getVidaActual() - daño);
             texto.escribirTexto(monstruo.getNombre()+" te ha hecho: "+daño+" de daño");
         }
-        comprobarFin();
+        comprobarFin(texto);
     }
     
     /**
      * Metodo para comprobar si el combate ha finalizado
      */
-    private void comprobarFin(){
+    private void comprobarFin(VentanaCombate padre){
         if(personaje.getVidaActual()<=0){
-            ControladorGUI.getSingleton().menuPrincipal();
+            padre.dispose();
+            ControladorGUI.getSingleton().finalizarCombate();
         }
         if(monstruo.getVidaActual()<=0){
+            padre.dispose();
             ControladorGUI.getSingleton().finalizarCombate();
         }
     }

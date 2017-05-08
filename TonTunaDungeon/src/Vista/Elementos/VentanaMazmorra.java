@@ -62,7 +62,6 @@ public class VentanaMazmorra extends JPanel {
         this.add(jLabelMapa);
         this.add(jMapa);
         this.add(jButtonSalir);
-        this.add(jButtonGuardar);
         this.add(jButtonEquipo);
         this.add(jButtonMochila);
         this.add(jLabelNombre);
@@ -151,10 +150,10 @@ public class VentanaMazmorra extends JPanel {
     private void jArribaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(0));
         ControladorMazmorra.getSingleton().getEventoHabitacion();
-        if(ControladorMazmorra.getSingleton().getTipoHabitacion()==3){
-        jButtonGuardar.setBounds(350, 460, 100, 100);
-        }else{
-        jButtonGuardar.setBounds(850, 650, 100, 100);
+        if (ControladorMazmorra.getSingleton().getTipoHabitacion() == 3) {
+            this.add(jButtonGuardar);
+        } else {
+            this.remove(jButtonGuardar);
         }
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
@@ -162,10 +161,10 @@ public class VentanaMazmorra extends JPanel {
     private void jAbajoActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(1));
         ControladorMazmorra.getSingleton().getEventoHabitacion();
-        if(ControladorMazmorra.getSingleton().getTipoHabitacion()==3){
-        jButtonGuardar.setBounds(350, 460, 100, 100);
-        }else{
-        jButtonGuardar.setBounds(850, 650, 100, 100);
+        if (ControladorMazmorra.getSingleton().getTipoHabitacion() == 3) {
+            this.add(jButtonGuardar);
+        } else {
+            this.remove(jButtonGuardar);
         }
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
@@ -173,10 +172,10 @@ public class VentanaMazmorra extends JPanel {
     private void jDerechaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(2));
         ControladorMazmorra.getSingleton().getEventoHabitacion();
-        if(ControladorMazmorra.getSingleton().getTipoHabitacion()==3){
-        jButtonGuardar.setBounds(350, 460, 100, 100);
-        }else{
-        jButtonGuardar.setBounds(850, 650, 100, 100);
+        if (ControladorMazmorra.getSingleton().getTipoHabitacion() == 3) {
+            this.add(jButtonGuardar);
+        } else {
+            this.remove(jButtonGuardar);
         }
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
@@ -184,10 +183,10 @@ public class VentanaMazmorra extends JPanel {
     private void jIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(3));
         ControladorMazmorra.getSingleton().getEventoHabitacion();
-        if(ControladorMazmorra.getSingleton().getTipoHabitacion()==3){
-        jButtonGuardar.setBounds(350, 460, 100, 100);
-        }else{
-        jButtonGuardar.setBounds(850, 650, 100, 100);
+        if (ControladorMazmorra.getSingleton().getTipoHabitacion() == 3) {
+            this.add(jButtonGuardar);
+        } else {
+            this.remove(jButtonGuardar);
         }
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
@@ -218,7 +217,8 @@ public class VentanaMazmorra extends JPanel {
         jDerecha.setBounds(640, 430, 60, 60);
         jIzquierda.setBounds(520, 430, 60, 60);
         jButtonSalir.setBounds(680, 520, 100, 40);
-        jButtonGuardar.setBounds(850, 650, 100, 100);
+        jButtonGuardar.setBounds(350, 460, 100, 100);
+        jButtonGuardar.setVisible(false);
         jButtonMochila.setBounds(20, 460, 100, 100);
         jButtonEquipo.setBounds(200, 460, 100, 100);
         jLabelMapa.setBounds(610, 20, 80, 20);
@@ -240,12 +240,12 @@ public class VentanaMazmorra extends JPanel {
             this.setBounds(0, 0, 400, 280);
             imagePanel panel = new imagePanel(200, 180, "src/Recursos/mochila.gif");
             panel.setBounds(0, 0, 400, 280);
-            panel.setBackground(new Color(124,124,124,255));
+            panel.setBackground(new Color(124, 124, 124, 255));
             JList arma = new JList();
             DefaultListModel modeloArmas = new DefaultListModel();
             String[] listaArmas = ControladorPrincipal.getSingleton().getInvArmas();
             for (int i = 0; i < listaArmas.length; i++) {
-                modeloArmas.add(i,listaArmas[i]);
+                modeloArmas.add(i, listaArmas[i]);
             }
             arma.setBounds(200, 50, 180, 100);
             arma.setModel(modeloArmas);
@@ -255,24 +255,24 @@ public class VentanaMazmorra extends JPanel {
             DefaultListModel modeloArmaduras = new DefaultListModel();
             String[] listaArmaduras = ControladorPrincipal.getSingleton().getInvArmaduras();
             for (int i = 0; i < listaArmaduras.length; i++) {
-                modeloArmaduras.add(i,listaArmaduras[i]);
+                modeloArmaduras.add(i, listaArmaduras[i]);
             }
             armaduras.setBounds(200, 210, 180, 100);
             armaduras.setModel(modeloArmaduras);
             panel.add(armaduras);
             armaduras.setVisible(true);
-            
+
             JLabel armaActual = new JLabel(ControladorPrincipal.getSingleton().getPJArma());
             JLabel armaduraActual = new JLabel(ControladorPrincipal.getSingleton().getPJArmadura());
             armaActual.setFont(new Font("Dialog", Font.BOLD, 12));
             armaduraActual.setFont(new Font("Dialog", Font.BOLD, 12));
             armaActual.setForeground(Color.white);
             armaduraActual.setForeground(Color.white);
-            armaActual.setBounds(20,20,400,20);
-            armaduraActual.setBounds(20,20,400,180);
+            armaActual.setBounds(20, 20, 400, 20);
+            armaduraActual.setBounds(20, 20, 400, 180);
             panel.add(armaActual);
             panel.add(armaduraActual);
-            
+
             this.add(panel);
             panel.setVisible(true);
             setVisible(true);
@@ -287,12 +287,12 @@ public class VentanaMazmorra extends JPanel {
             this.setBounds(0, 0, 400, 280);
             imagePanel panel = new imagePanel(200, 180, "src/Recursos/mochila.gif");
             panel.setBounds(0, 0, 400, 280);
-            panel.setBackground(new Color(124,124,124,255));
+            panel.setBackground(new Color(124, 124, 124, 255));
             JList lista = new JList();
             DefaultListModel modelo = new DefaultListModel();
             String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
             for (int i = 0; i < listaObjetos.length; i++) {
-                modelo.add(i,listaObjetos[i]);
+                modelo.add(i, listaObjetos[i]);
             }
             lista.setBounds(200, 20, 180, 240);
             lista.setModel(modelo);
@@ -303,6 +303,5 @@ public class VentanaMazmorra extends JPanel {
             setVisible(true);
         }
     }
-    
-    
+
 }

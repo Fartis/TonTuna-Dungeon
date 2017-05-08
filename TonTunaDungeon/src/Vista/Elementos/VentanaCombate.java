@@ -174,4 +174,10 @@ public class VentanaCombate extends JPanel {
         }
         jTextCombate.append(linea + "\n");
     }
+    
+    public void dispose(){
+        this.setVisible(false);
+        padre.dispose();
+    }
+
 }
