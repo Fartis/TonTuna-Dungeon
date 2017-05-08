@@ -7,9 +7,9 @@ package Controlador;
 
 import Modelo.Inventario.Objeto;
 import Modelo.Personaje;
-import Modelo.RepositorioPartidas;
 import Modelo.ReproductorMusica;
 import Vista.JFramePrincipal;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorPrincipal {
 
     private Personaje personajeActual = new Personaje();
-    private RepositorioPartidas partidasGuardadas;
+    private ControladorPartidas partidasGuardadas;
     private static ControladorPrincipal singleton = null;
     private static ReproductorMusica reproductor = new ReproductorMusica();
     private static boolean musica = true;
@@ -257,8 +257,13 @@ public class ControladorPrincipal {
         return personajeActual.getArmadura().getIndiceArmadura();
     }
 
-    Personaje getPJ() {
+    public Personaje getPJ() {
         return personajeActual;
     }
+
+    public void guardarPartida() {
+        ControladorBBDD.getSingleton().guardarInfoPJ(personajeActual);
+    }
+    
 
 }

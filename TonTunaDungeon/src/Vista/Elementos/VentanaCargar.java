@@ -6,15 +6,13 @@
 package Vista.Elementos;
 
 import Controlador.ControladorGUI;
-import Controlador.ControladorPrincipal;
+import Controlador.ControladorPartidas;
 import Vista.JFramePrincipal;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -59,6 +57,8 @@ public class VentanaCargar extends JPanel {
                 jButtonAtrasActionPerformed(evt);
             }
         });
+        
+        setText();
 
         this.add(jButtonPartida1);
         this.add(jButtonPartida2);
@@ -110,5 +110,9 @@ public class VentanaCargar extends JPanel {
         jButtonPartida2.setForeground(Color.white);
         jButtonPartida3.setForeground(Color.white);
         jButtonPartida4.setForeground(Color.white);
+    }
+    
+    public void setText(){
+        String[][] partidas = ControladorPartidas.getSingleton().infoPartidas();
     }
 }

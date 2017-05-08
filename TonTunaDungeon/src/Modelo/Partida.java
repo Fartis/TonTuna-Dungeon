@@ -47,4 +47,12 @@ public class Partida {
     public ArrayList<Habitacion[][]> getMazmorra() {
         return mazmorra;
     } 
+    
+    public int getNivel(){
+        return nivelActual;
+    }
+    
+    public Calendar getFecha(){
+        return fecha;
+    }
 }
