@@ -5,6 +5,7 @@
  */
 package Vista.Elementos;
 
+import Controlador.ControladorBBDD;
 import Controlador.ControladorGUI;
 import Controlador.ControladorMazmorra;
 import Controlador.ControladorPartidas;
@@ -236,12 +237,7 @@ public class VentanaMazmorra extends JPanel {
     }
     
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {
-        Guardar guardar = new Guardar(padre);
-        try {
-            ControladorPartidas.getSingleton().guardarPartida(0);
-        } catch (IOException ex) {
-            System.out.println("Fallo");
-        }
+        ControladorPrincipal.getSingleton().guardarPartida();
     }
 
     @Override

@@ -260,6 +260,10 @@ public class ControladorPrincipal {
     public Personaje getPJ() {
         return personajeActual;
     }
+
+    public void guardarPartida() {
+        ControladorBBDD.getSingleton().guardarInfoPJ(personajeActual);
+    }
     
 
 }
