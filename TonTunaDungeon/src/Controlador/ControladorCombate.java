@@ -8,6 +8,7 @@ package Controlador;
 import Modelo.Dado;
 import Modelo.Monstruo;
 import Modelo.Personaje;
+import Vista.Elementos.VentanaCombate;
 
 /**
  * Clase controla el combate de la aplicacion
@@ -24,14 +25,18 @@ public class ControladorCombate {
     public ControladorCombate() {
     }
 
-    public void accionAtaque() {
+    /**
+     * Metodo establece el texto de las acciones de combate
+     * @param texto 
+     */
+    public void accionAtaque( VentanaCombate texto) {
         int dado = Dado.lanza(2);
         if (dado == 0) {
-            ataque(personaje.getArma().getTipo(), true);
-            ataque(monstruo.getArma().getTipo(), false);
+            ataque(personaje.getArma().getTipo(), true, texto);
+            ataque(monstruo.getArma().getTipo(), false, texto);
         } else {
-            ataque(monstruo.getArma().getTipo(), false);
-            ataque(personaje.getArma().getTipo(), true);
+            ataque(monstruo.getArma().getTipo(), false, texto);
+            ataque(personaje.getArma().getTipo(), true, texto);
         }
     }
 
@@ -47,7 +52,7 @@ public class ControladorCombate {
      * @param obj2
      * @return
      */
-    private void ataque(int tipoArma, boolean objetivo) {
+    private void ataque(int tipoArma, boolean objetivo, VentanaCombate texto) {
         if (objetivo) {
             int ataquePJ = 0;
             switch (tipoArma) {
@@ -73,6 +78,7 @@ public class ControladorCombate {
                 monstruo.setIndiceAr(monstruo.getIndiceAr()-daño);
             }
             monstruo.setVida(monstruo.getVida() - daño);
+            texto.escribirTexto("Le has hecho: "+daño+" de daño");
         } else {
             int ataqueMon = 0;
             switch (tipoArma) {
@@ -91,6 +97,7 @@ public class ControladorCombate {
                 daño = 1;
             }
             personaje.setVidaActual(personaje.getVidaActual() - daño);
+            texto.escribirTexto(monstruo.getNombre()+" te ha hecho: "+daño+" de daño");
         }
         comprobarFin();
     }

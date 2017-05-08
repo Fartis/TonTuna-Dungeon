@@ -15,9 +15,13 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.text.BadLocationException;
 
 /**
  * Clase que gestiona la ventana o panel del menu principal del juego
@@ -39,6 +43,7 @@ public class VentanaCombate extends JPanel {
     private JFramePrincipal padre;
     private JPanel panelJugador = new JPanel();
     private JPanel panelMonstruo = new JPanel();
+    private JTextArea jTextCombate = new JTextArea();
 
     /**
      * Metodo que gestiona las distintas opciones de la ventana principal
@@ -59,6 +64,7 @@ public class VentanaCombate extends JPanel {
         this.add(jButtonObjeto);
         this.add(panelJugador);
         this.add(panelMonstruo);
+        this.add(jTextCombate);
         panelJugador.add(jLabelPJNombre);
         panelJugador.add(jLabelPJVida);
         panelJugador.add(jLabelPJIndice);
@@ -84,8 +90,7 @@ public class VentanaCombate extends JPanel {
      */
     private void jButtonAtacarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        ControladorGUI.getSingleton().ventanaMazmorra();
-        ControladorGUI.getSingleton().finalizarCombate();
+        combate.accionAtaque(this);
     }
 
     /**
@@ -98,7 +103,7 @@ public class VentanaCombate extends JPanel {
     }
 
     /**
-     *
+     * Metodo establece la posicion, color, fondo y fuente de los paneles
      * @param g
      */
     @Override
@@ -131,14 +136,42 @@ public class VentanaCombate extends JPanel {
         jLabelMONIndice.setBounds(10, 60, 230, 50);
         jLabelMONIndice.setForeground(new Color(144, 144, 144));
         jLabelMONIndice.setFont(new Font("Dialog", Font.BOLD, 14));
+        jTextCombate.setBounds(10, 420, 400, 130);
+        jTextCombate.setBackground(new Color(180, 180, 180, 140));
+        jTextCombate.setForeground(Color.white);
+        jTextCombate.setLineWrap(true);
+        jTextCombate.setWrapStyleWord(true);
+        jTextCombate.setEditable(false);
+        jTextCombate.setRows(16);
     }
 
-    public void setText() {
+    /**
+     * Metodo establece los jLabel del nombre y caracteristicas del personaje
+     * y el monstruo
+     */
+    public void setText(){
         jLabelPJNombre.setText(ControladorPrincipal.getSingleton().getPJNombre());
         jLabelPJVida.setText("Vida: " + combate.vidaPJActual() + " / " + combate.vidaPJTotal());
         jLabelPJIndice.setText("Armadura: " + combate.indicePJActual() + "/" + combate.indicePJTotal());
         jLabelMONNombre.setText(combate.getMonNombre());
         jLabelMONVida.setText("Vida: " + combate.vidaMONActual() + " / " + combate.vidaMONTotal());
         jLabelMONIndice.setText("Armadura: " + combate.indiceMONActual() + "/" + combate.indiceMONTotal());
+        jTextCombate.setText("Un "+combate.getMonNombre()+" salvaje apareció\n");
+    }
+    /**
+     * 
+     * @param linea 
+     */
+    public void escribirTexto(String linea){
+        if (jTextCombate.getLineCount() == 9) {
+            int end = 0;
+            try {
+                end = jTextCombate.getLineEndOffset(0);
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaCombate.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            jTextCombate.replaceRange("", 0, end);
+        }
+        jTextCombate.append(linea + "\n");
     }
 }
