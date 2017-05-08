@@ -108,7 +108,7 @@ public class ControladorCombate {
     private void comprobarFin(VentanaCombate padre){
         if(personaje.getVidaActual()<=0){
             padre.dispose();
-            ControladorGUI.getSingleton().finalizarCombate();
+            ControladorGUI.getSingleton().menuPrincipal();
         }
         if(monstruo.getVidaActual()<=0){
             padre.dispose();
