@@ -7,6 +7,7 @@ package Vista.Elementos;
 
 import Controlador.ControladorGUI;
 import Controlador.ControladorMazmorra;
+import Controlador.ControladorPartidas;
 import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
 import java.awt.Color;
@@ -14,6 +15,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -235,6 +237,11 @@ public class VentanaMazmorra extends JPanel {
     
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {
         Guardar guardar = new Guardar(padre);
+        try {
+            ControladorPartidas.getSingleton().guardarPartida(0);
+        } catch (IOException ex) {
+            System.out.println("Fallo");
+        }
     }
 
     @Override

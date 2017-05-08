@@ -6,15 +6,13 @@
 package Vista.Elementos;
 
 import Controlador.ControladorGUI;
-import Controlador.ControladorPrincipal;
+import Controlador.ControladorPartidas;
 import Vista.JFramePrincipal;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -115,6 +113,6 @@ public class VentanaCargar extends JPanel {
     }
     
     public void setText(){
-        
+        String[][] partidas = ControladorPartidas.getSingleton().infoPartidas();
     }
 }

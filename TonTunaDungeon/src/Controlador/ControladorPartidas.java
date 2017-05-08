@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package Controlador;
 
-import Controlador.ControladorBBDD;
+import Modelo.Partida;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,16 +13,18 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Clase del repositorio de partidas almacenadas
  *
  * @author Manuel David Villalba Escamilla
  */
-public class RepositorioPartidas implements Serializable {
+public class ControladorPartidas implements Serializable {
 
     private Partida[] partidasGuardadas = new Partida[4];
-    private static RepositorioPartidas singleton = null;
+    private static ControladorPartidas singleton = null;
     File file;
     FileOutputStream fileOut;
     FileInputStream fileIn;
@@ -35,7 +37,7 @@ public class RepositorioPartidas implements Serializable {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    private RepositorioPartidas() throws IOException, ClassNotFoundException {
+    private ControladorPartidas() throws IOException, ClassNotFoundException {
         file = new File("partidasGuardadas.bin");
         if (!file.exists()) {
             file.createNewFile();
@@ -56,9 +58,15 @@ public class RepositorioPartidas implements Serializable {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public RepositorioPartidas getSingleton() throws IOException, ClassNotFoundException {
+    public static ControladorPartidas getSingleton() {
         if (singleton == null) {
-            singleton = new RepositorioPartidas();
+            try {
+                singleton = new ControladorPartidas();
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorPartidas.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ControladorPartidas.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return singleton;
     }
@@ -70,10 +78,12 @@ public class RepositorioPartidas implements Serializable {
      * @param juego
      * @throws IOException
      */
-    public void guardarPartida(int indice, Partida juego) throws IOException {
-        partidasGuardadas[indice] = juego;
-        ControladorBBDD.getSingleton().guardarInfoPJ(juego.getPj());
+    public void guardarPartida(int indice) throws IOException {
+        partidasGuardadas[indice] = new Partida(ControladorPrincipal.getSingleton().getPJ(), ControladorMazmorra.getSingleton().getMazmorra(), ControladorPrincipal.getSingleton().getNivelActual());
+        ControladorBBDD.getSingleton().guardarInfoPJ(ControladorPrincipal.getSingleton().getPJ());
         salida.writeObject(partidasGuardadas);
+        salida.flush();
+        fileOut.flush();
     }
 
     /**
@@ -92,13 +102,21 @@ public class RepositorioPartidas implements Serializable {
      * @return
      */
     public String[][] infoPartidas() {
-        String[][] informacion = new String[4][4];
+        String[][] informacion = new String[4][3];
         for (int i = 0; i < informacion.length; i++) {
-            informacion[i][0]=partidasGuardadas[i].getPj().getNombre();
-            informacion[i][1]=Integer.toString(partidasGuardadas[i].getNivel());
-            informacion[i][2]=partidasGuardadas[i].getFecha();
+            informacion[i][0] = partidasGuardadas[i].getPj().getNombre();
+            informacion[i][1] = Integer.toString(partidasGuardadas[i].getNivel());
+            informacion[i][2] = partidasGuardadas[i].getFecha().toString();
         }
         return informacion;
+    }
+
+    public boolean existePartida(int indice) {
+        if (partidasGuardadas[indice] != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
