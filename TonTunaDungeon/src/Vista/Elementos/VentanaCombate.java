@@ -17,8 +17,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.text.BadLocationException;
@@ -91,15 +94,18 @@ public class VentanaCombate extends JPanel {
     private void jButtonAtacarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         combate.accionAtaque(this);
+        setText();
     }
 
     /**
-     * Metodo para el evento del boton iniciar
+     * Metodo para el evento de los objetos de mochila
      *
      * @param evt
      */
     private void jButtonObjetoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        Mochila mochila = new Mochila(padre);
+        escribirTexto(mochila.getName()+" seleccionado");
     }
 
     /**
@@ -156,7 +162,7 @@ public class VentanaCombate extends JPanel {
         jLabelMONNombre.setText(combate.getMonNombre());
         jLabelMONVida.setText("Vida: " + combate.vidaMONActual() + " / " + combate.vidaMONTotal());
         jLabelMONIndice.setText("Armadura: " + combate.indiceMONActual() + "/" + combate.indiceMONTotal());
-        jTextCombate.setText("Un "+combate.getMonNombre()+" salvaje apareció\n");
+        
     }
     /**
      * 
@@ -178,6 +184,35 @@ public class VentanaCombate extends JPanel {
     public void dispose(){
         this.setVisible(false);
         padre.dispose();
+    }
+    /**
+     * Clase privada para mostrar el menu de mochila en combate
+     */
+    private class Mochila extends JDialog {
+
+        public Mochila(JFramePrincipal padre) {
+            super(padre, true);
+            this.setLayout(null);
+            this.setBounds(0, 0, 400, 280);
+            imagePanel panel = new imagePanel(200, 180, "src/Recursos/mochila.gif");
+            JButton jButtonObjeto = new JButton("Aceptar");
+            panel.setBounds(0, 0, 400, 280);
+            panel.setBackground(new Color(124, 124, 124, 255));
+            jButtonObjeto.setBounds(0, 0, 400, 280);
+            JList lista = new JList();
+            DefaultListModel modelo = new DefaultListModel();
+            String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
+            for (int i = 0; i < listaObjetos.length; i++) {
+                modelo.add(i, listaObjetos[i]);
+            }
+            lista.setBounds(200, 20, 180, 240);
+            lista.setModel(modelo);
+            panel.add(lista);
+            lista.setVisible(true);
+            this.add(panel);
+            panel.setVisible(true);
+            setVisible(true);
+        }
     }
 
 }
