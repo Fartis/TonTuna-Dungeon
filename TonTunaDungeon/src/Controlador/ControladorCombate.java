@@ -77,7 +77,7 @@ public class ControladorCombate {
             else{
                 monstruo.setIndiceAr(monstruo.getIndiceAr()-daño);
             }
-            monstruo.setVida(monstruo.getVida() - daño);
+            monstruo.setVidaActual(monstruo.getVidaActual()- daño);
             texto.escribirTexto("Le has hecho: "+daño+" de daño");
         } else {
             int ataqueMon = 0;

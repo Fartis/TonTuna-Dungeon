@@ -151,24 +151,44 @@ public class VentanaMazmorra extends JPanel {
     private void jArribaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(0));
         ControladorMazmorra.getSingleton().getEventoHabitacion();
+        if(ControladorMazmorra.getSingleton().getTipoHabitacion()==3){
+        jButtonGuardar.setBounds(350, 460, 100, 100);
+        }else{
+        jButtonGuardar.setBounds(850, 650, 100, 100);
+        }
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
 
     private void jAbajoActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(1));
         ControladorMazmorra.getSingleton().getEventoHabitacion();
+        if(ControladorMazmorra.getSingleton().getTipoHabitacion()==3){
+        jButtonGuardar.setBounds(350, 460, 100, 100);
+        }else{
+        jButtonGuardar.setBounds(850, 650, 100, 100);
+        }
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
 
     private void jDerechaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(2));
         ControladorMazmorra.getSingleton().getEventoHabitacion();
+        if(ControladorMazmorra.getSingleton().getTipoHabitacion()==3){
+        jButtonGuardar.setBounds(350, 460, 100, 100);
+        }else{
+        jButtonGuardar.setBounds(850, 650, 100, 100);
+        }
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
 
     private void jIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {
         jMapa.pintarPosicion(ControladorMazmorra.getSingleton().moverPersonaje(3));
         ControladorMazmorra.getSingleton().getEventoHabitacion();
+        if(ControladorMazmorra.getSingleton().getTipoHabitacion()==3){
+        jButtonGuardar.setBounds(350, 460, 100, 100);
+        }else{
+        jButtonGuardar.setBounds(850, 650, 100, 100);
+        }
         escribirTexto(ControladorMazmorra.getSingleton().descripcionHabitacion());
     }
 
@@ -198,8 +218,7 @@ public class VentanaMazmorra extends JPanel {
         jDerecha.setBounds(640, 430, 60, 60);
         jIzquierda.setBounds(520, 430, 60, 60);
         jButtonSalir.setBounds(680, 520, 100, 40);
-        jButtonGuardar.setBounds(350, 460, 100, 100);
-        jButtonGuardar.setVisible(false);
+        jButtonGuardar.setBounds(850, 650, 100, 100);
         jButtonMochila.setBounds(20, 460, 100, 100);
         jButtonEquipo.setBounds(200, 460, 100, 100);
         jLabelMapa.setBounds(610, 20, 80, 20);

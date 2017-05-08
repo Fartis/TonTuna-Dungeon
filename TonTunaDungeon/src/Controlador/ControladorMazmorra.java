@@ -226,5 +226,10 @@ public class ControladorMazmorra {
         }
         mazmorra.set(ControladorPrincipal.getSingleton().getNivelActual(), temporal);
     }
+    
+    public int getTipoHabitacion(){
+        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
+        return temporal[xActual][yActual].getTipo();
+    }
 
 }
