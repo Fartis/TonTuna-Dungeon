@@ -55,6 +55,7 @@ public class ControladorBBDD {
      * @param pj
      */
     public void guardarInfoPJ(Personaje pj) {
+        boolean inventario = false;
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
             PreparedStatement insertar = con.prepareStatement("insert into pjcreado (nombre, raza, nivel, fuerza, destreza, intelecto, constitucion) values (?,?,?,?,?,?,?);");
@@ -67,19 +68,45 @@ public class ControladorBBDD {
             insertar.setString(7, Integer.toString(pj.getConstitucion()));
             insertar.executeUpdate();
             con.close();
+            inventario = true;
         } catch (SQLException e) {
             try {
                 Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
                 PreparedStatement insertar = con.prepareStatement("update pjcreado"
-                        + " where nombre=\"" + pj.getNombre() + ""
-                        + " and raza=\"" + pj.getRaza()
-                        + " set fuerza=\"" + pj.getFuerza()
-                        + "\", intelecto=\"" + pj.getIntelecto()
-                        + "\", constitucion=\"" + pj.getConstitucion()
-                        + "\", destreza=\"" + pj.getDestreza()
-                        + "\", nivel=\"" + pj.getNivel() + ";");
+                        + " set fuerza=" + pj.getFuerza()
+                        + ", intelecto=" + pj.getIntelecto()
+                        + ", constitucion=" + pj.getConstitucion()
+                        + ", destreza=" + pj.getDestreza()
+                        + ", nivel=" + pj.getNivel()
+                        + ", arma=\"" + pj.getArma().getNombre()
+                        + "\", armadura=\"" + pj.getArmadura().getNombre()
+                        + "\" where nombre=\"" + pj.getNombre()
+                        + "\" and raza=\"" + pj.getRaza() + "\";");
                 insertar.executeUpdate();
                 con.close();
+                inventario = true;
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorBBDD.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (inventario) {
+            try {
+                Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
+                for (int i = 0; i < pj.getInventarioObjeto().size(); i++) {
+                    PreparedStatement insertar = con.prepareStatement("insert into");
+                    insertar.executeUpdate();
+                    con.close();
+                }
+                for (int i = 0; i < pj.getInventarioArma().size(); i++) {
+                    PreparedStatement insertar = con.prepareStatement("insert into");
+                    insertar.executeUpdate();
+                    con.close();
+                }
+                for (int i = 0; i < pj.getInventarioArmadura().size(); i++) {
+                    PreparedStatement insertar = con.prepareStatement("insert into");
+                    insertar.executeUpdate();
+                    con.close();
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorBBDD.class.getName()).log(Level.SEVERE, null, ex);
             }
