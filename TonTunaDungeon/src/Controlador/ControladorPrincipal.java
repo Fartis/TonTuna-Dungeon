@@ -34,7 +34,7 @@ public class ControladorPrincipal {
     public static void main(String[] args) {
         cambiarEstiloGUI();
         ControladorGUI.getSingleton().menuPrincipal();
-        
+
     }
 
     /**
@@ -201,7 +201,7 @@ public class ControladorPrincipal {
     public int getPJVidaTotal() {
         return personajeActual.getVidaTotal();
     }
-    
+
     public int getPJVidaActual() {
         return personajeActual.getVidaActual();
     }
@@ -227,7 +227,7 @@ public class ControladorPrincipal {
 
     public String[] getInventario() {
         String[] inventario = new String[personajeActual.getInventarioObjeto().size()];
-        for(int i=0; i<inventario.length; i++){
+        for (int i = 0; i < inventario.length; i++) {
             inventario[i] = personajeActual.getInventarioObjeto().get(i).getNombre();
         }
         return inventario;
@@ -235,7 +235,7 @@ public class ControladorPrincipal {
 
     public String[] getInvArmas() {
         String[] inventario = new String[personajeActual.getInventarioArma().size()];
-        for(int i=0; i<inventario.length; i++){
+        for (int i = 0; i < inventario.length; i++) {
             inventario[i] = personajeActual.getInventarioArma().get(i).getNombre();
         }
         return inventario;
@@ -243,7 +243,7 @@ public class ControladorPrincipal {
 
     public String[] getInvArmaduras() {
         String[] inventario = new String[personajeActual.getInventarioArmadura().size()];
-        for(int i=0; i<inventario.length; i++){
+        for (int i = 0; i < inventario.length; i++) {
             inventario[i] = personajeActual.getInventarioArmadura().get(i).getNombre();
         }
         return inventario;
@@ -264,19 +264,28 @@ public class ControladorPrincipal {
     public void guardarPartida() {
         InputOutputBBDD.getSingleton().guardarInfoPJ(personajeActual);
     }
-    
-    public void cargarPartida(int indice){
-        
+
+    public void cargarPartida(int indice) {
+        String[] info = InputOutputBBDD.getSingleton().cargarPartida(indice);
+        Personaje temporal = new Personaje(info[0], info[1], Integer.parseInt(info[2]), Integer.parseInt(info[3]), Integer.parseInt(info[4]), Integer.parseInt(info[5]), info[6], Integer.parseInt(info[7]));
+        temporal.setArma(InputOutputBBDD.getSingleton().obtenerArma(info[8]));
+        temporal.setArmadura(InputOutputBBDD.getSingleton().obtenerArmadura(info[9]));
+        for (int i=0; i<InputOutputBBDD.getSingleton().obtenerCantidadObjetos(info[0], info[1]); i++){
+            temporal.añadirObjeto(InputOutputBBDD.getSingleton().obtenerObjeto(info[0], info[1], i));
+        }
+        this.personajeActual = temporal;
+        this.nivelActual = temporal.getNivel();
+        ControladorGUI.getSingleton().ventanaMazmorra();
     }
-    
-    public DefaultTableModel obtenerInfoPartidas(){
+
+    public DefaultTableModel obtenerInfoPartidas() {
         DefaultTableModel modelo = new DefaultTableModel();
         ArrayList<String[]> info = InputOutputBBDD.getSingleton().obtenerInfoPartida();
         modelo.addColumn("Nombre");
         modelo.addColumn("Raza");
         modelo.addColumn("Nivel");
         modelo.addColumn("Fecha de creación");
-        for (int i=0; i<info.size(); i++){
+        for (int i = 0; i < info.size(); i++) {
             modelo.addRow(info.get(i));
         }
         return modelo;
