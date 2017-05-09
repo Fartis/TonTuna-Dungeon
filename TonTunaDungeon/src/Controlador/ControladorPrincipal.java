@@ -10,6 +10,7 @@ import Modelo.Inventario.Objeto;
 import Modelo.Personaje;
 import Modelo.ReproductorMusica;
 import Vista.JFramePrincipal;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -264,5 +265,21 @@ public class ControladorPrincipal {
         InputOutputBBDD.getSingleton().guardarInfoPJ(personajeActual);
     }
     
+    public void cargarPartida(int indice){
+        
+    }
+    
+    public DefaultTableModel obtenerInfoPartidas(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        ArrayList<String[]> info = InputOutputBBDD.getSingleton().obtenerInfoPartida();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Raza");
+        modelo.addColumn("Nivel");
+        modelo.addColumn("Fecha de creación");
+        for (int i=0; i<info.size(); i++){
+            modelo.addRow(info.get(i));
+        }
+        return modelo;
+    }
 
 }

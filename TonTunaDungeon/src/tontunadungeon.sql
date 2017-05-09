@@ -244,3 +244,34 @@ ALTER TABLE `pjcreado`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+create table if not exists inventarioOB (
+ID integer unsigned auto_increment not null unique,
+razaPJ varchar(20) NOT NULL,
+nombrePJ varchar(20) not null,
+objeto varchar(20),
+primary key (ID, razaPJ, nombrePJ),
+foreign key (razaPJ) references pjcreado(raza),
+foreign key (nombrePJ) references pjcreado(nombre))
+engine=innodb;
+
+create table if not exists inventarioAR (
+ID integer unsigned auto_increment not null unique,
+razaPJ varchar(20) NOT NULL,
+nombrePJ varchar(20) not null,
+arma varchar(20),
+primary key (ID, razaPJ, nombrePJ),
+foreign key (razaPJ) references pjcreado(raza),
+foreign key (nombrePJ) references pjcreado(nombre))
+engine=innodb;
+
+create table if not exists inventarioARDU (
+ID integer unsigned auto_increment not null unique,
+razaPJ varchar(20) NOT NULL,
+nombrePJ varchar(20) not null,
+armadura varchar(20),
+primary key (ID, razaPJ, nombrePJ),
+foreign key (razaPJ) references pjcreado(raza),
+foreign key (nombrePJ) references pjcreado(nombre))
+engine=innodb;

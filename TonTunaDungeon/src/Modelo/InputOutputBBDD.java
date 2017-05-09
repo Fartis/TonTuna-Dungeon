@@ -5,17 +5,15 @@
  */
 package Modelo;
 
-import Modelo.Dado;
 import Modelo.Inventario.Arma;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Objeto;
-import Modelo.Monstruo;
-import Modelo.Personaje;
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -122,6 +120,35 @@ public class InputOutputBBDD {
                 Logger.getLogger(InputOutputBBDD.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+//    public Personaje cargarPartida(int indice){
+//        Personaje personaje = new Personaje();
+//        try {
+//            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
+//        } catch (SQLException ex) {
+//            Logger.getLogger(InputOutputBBDD.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return personaje;
+//    }
+    
+    public ArrayList obtenerInfoPartida(){
+        ArrayList<String[]> lista = new ArrayList();
+        try {
+            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
+            PreparedStatement consulta = con.prepareStatement("select nombre, raza, nivel, fcreacion from pjcreado;");
+            ResultSet rs = consulta.executeQuery();
+            rs.next();
+            String[] info = new String[4];
+            info[0] = rs.getString("nombre");
+            info[1] = rs.getString("raza");
+            info[2] = rs.getString("nivel");
+            info[3] = rs.getString("fcreacion");
+            lista.add(info);
+        } catch (SQLException ex) {
+            Logger.getLogger(InputOutputBBDD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
     /**
