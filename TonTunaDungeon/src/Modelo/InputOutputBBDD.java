@@ -63,7 +63,9 @@ public class InputOutputBBDD {
             insertar.setString(8, pj.getArma().getNombre());
             insertar.setString(9, pj.getArmadura().getNombre());
             insertar.executeUpdate();
+            System.out.println("Creada sentencia");
             con.close();
+            System.out.println("Creada entrada");
             inventario = true;
         } catch (SQLException e) {
             try {

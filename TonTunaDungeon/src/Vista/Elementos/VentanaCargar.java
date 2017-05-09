@@ -55,7 +55,6 @@ public class VentanaCargar extends JPanel {
         this.add(jButtonAtras);
         this.add(jTabla);
         jTabla.setModel(ControladorPrincipal.getSingleton().obtenerInfoPartidas());
-        jTabla.setCellSelectionEnabled(false);
     }
     
     /**
