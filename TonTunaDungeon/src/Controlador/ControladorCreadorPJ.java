@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.InputOutputBBDD;
 import Modelo.Personaje;
 
 /**
@@ -64,7 +65,7 @@ public class ControladorCreadorPJ {
                 break;
         }
         puntosPersonaje = 6;
-        personaje = ControladorBBDD.getSingleton().crearPJBase("temporal", raza);
+        personaje = InputOutputBBDD.getSingleton().crearPJBase("temporal", raza);
         fuerza = personaje.getFuerza();
         destreza = personaje.getDestreza();
         intelecto = personaje.getIntelecto();

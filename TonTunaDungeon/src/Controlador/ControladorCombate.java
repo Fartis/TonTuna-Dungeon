@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.InputOutputBBDD;
 import Modelo.Dado;
 import Modelo.Monstruo;
 import Modelo.Personaje;
@@ -18,7 +19,7 @@ import Vista.Elementos.VentanaCombate;
 public class ControladorCombate {
 
     
-    private Monstruo monstruo = ControladorBBDD.getSingleton().obtenerMonstruo(ControladorPrincipal.getSingleton().getNivelActual()+1);
+    private Monstruo monstruo = InputOutputBBDD.getSingleton().obtenerMonstruo(ControladorPrincipal.getSingleton().getNivelActual()+1);
     private Personaje personaje = ControladorPrincipal.getSingleton().getPJ();
     private int bonFuerza = 0, bonDestreza = 0, bonIntelecto = 0;
 

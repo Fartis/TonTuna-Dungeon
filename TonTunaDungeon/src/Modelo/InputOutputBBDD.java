@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package Modelo;
 
 import Modelo.Dado;
 import Modelo.Inventario.Arma;
@@ -24,12 +24,12 @@ import java.util.logging.Logger;
  *
  * @author Manuel David Villalba Escamilla
  */
-public class ControladorBBDD {
+public class InputOutputBBDD {
 
-    private static ControladorBBDD singleton = null;
+    private static InputOutputBBDD singleton = null;
     private static String variableIP = "localhost";
 
-    private ControladorBBDD() {
+    private InputOutputBBDD() {
     }
 
     /**
@@ -37,9 +37,9 @@ public class ControladorBBDD {
      *
      * @return
      */
-    public static ControladorBBDD getSingleton() {
+    public static InputOutputBBDD getSingleton() {
         if (singleton == null) {
-            singleton = new ControladorBBDD();
+            singleton = new InputOutputBBDD();
         }
         return singleton;
     }
@@ -84,7 +84,7 @@ public class ControladorBBDD {
                 con.close();
                 inventario = true;
             } catch (SQLException ex) {
-                Logger.getLogger(ControladorBBDD.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(InputOutputBBDD.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         if (inventario) {
@@ -119,7 +119,7 @@ public class ControladorBBDD {
                 }
                 con.close();
             } catch (SQLException ex) {
-                Logger.getLogger(ControladorBBDD.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(InputOutputBBDD.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

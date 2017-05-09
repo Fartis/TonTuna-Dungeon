@@ -5,14 +5,10 @@
  */
 package Modelo;
 
-import Controlador.ControladorBBDD;
 import Modelo.Inventario.Arma;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Objeto;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Clase para gestionar el Personaje
@@ -21,8 +17,8 @@ import java.util.logging.Logger;
 public class Personaje {
 
     
-    private Armadura armadura = ControladorBBDD.getSingleton().obtenerArmadura(1);;
-    private Arma arma = ControladorBBDD.getSingleton().obtenerArma(1);;
+    private Armadura armadura = InputOutputBBDD.getSingleton().obtenerArmadura(1);;
+    private Arma arma = InputOutputBBDD.getSingleton().obtenerArma(1);;
     private int fuerza, destreza, constitucion, intelecto, vidaTotal, nivel, vidaActual, indiceAr = this.armadura.getIndiceArmadura();
     private String descripcion, raza, nombre;
     private ArrayList<Arma> inventarioArma = new ArrayList();

@@ -5,7 +5,6 @@
  */
 package Modelo;
 
-import Controlador.ControladorBBDD;
 import Controlador.ControladorPrincipal;
 import Modelo.Inventario.Arma;
 import Modelo.Inventario.Armadura;
@@ -15,8 +14,8 @@ import Modelo.Inventario.Armadura;
  * @author Manuel David Villalba Escamilla
  */
 public class Monstruo {
-    private Armadura armadura = ControladorBBDD.getSingleton().obtenerArmadura(ControladorPrincipal.getSingleton().getNivelActual());
-    private Arma arma = ControladorBBDD.getSingleton().obtenerArma(ControladorPrincipal.getSingleton().getNivelActual());
+    private Armadura armadura = InputOutputBBDD.getSingleton().obtenerArmadura(ControladorPrincipal.getSingleton().getNivelActual());
+    private Arma arma = InputOutputBBDD.getSingleton().obtenerArma(ControladorPrincipal.getSingleton().getNivelActual());
     private int fuerza, destreza, constitucion, intelecto, vida, vidaActual, indiceAr;
     private String nombre, descripcion;
 

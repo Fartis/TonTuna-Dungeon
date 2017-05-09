@@ -5,11 +5,11 @@
  */
 package Controlador;
 
+import Modelo.InputOutputBBDD;
 import Modelo.Inventario.Objeto;
 import Modelo.Personaje;
 import Modelo.ReproductorMusica;
 import Vista.JFramePrincipal;
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,7 +20,6 @@ import javax.swing.table.DefaultTableModel;
 public class ControladorPrincipal {
 
     private Personaje personajeActual = new Personaje();
-    private ControladorPartidas partidasGuardadas;
     private static ControladorPrincipal singleton = null;
     private static ReproductorMusica reproductor = new ReproductorMusica();
     private static boolean musica = true;
@@ -85,7 +84,7 @@ public class ControladorPrincipal {
      */
     public String[][] infoPersonajeNuevo() {
         String[][] personaje = new String[4][6];
-        Personaje[] listaPersonajes = ControladorBBDD.getSingleton().listaPersonajesBase();
+        Personaje[] listaPersonajes = InputOutputBBDD.getSingleton().listaPersonajesBase();
         for (int i = 0; i < personaje.length; i++) {
             personaje[i][0] = listaPersonajes[i].getRaza();
             personaje[i][1] = Integer.toString(listaPersonajes[i].getFuerza());
@@ -262,7 +261,7 @@ public class ControladorPrincipal {
     }
 
     public void guardarPartida() {
-        ControladorBBDD.getSingleton().guardarInfoPJ(personajeActual);
+        InputOutputBBDD.getSingleton().guardarInfoPJ(personajeActual);
     }
     
 

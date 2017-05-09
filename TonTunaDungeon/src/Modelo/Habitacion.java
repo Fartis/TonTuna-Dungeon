@@ -5,7 +5,6 @@
  */
 package Modelo;
 
-import Controlador.ControladorBBDD;
 import Modelo.Inventario.Objeto;
 import Modelo.Inventario.Armadura;
 import Modelo.Inventario.Arma;
@@ -31,7 +30,7 @@ public class Habitacion {
     //3 = Guardado
     //4 = Siguiente nivel
     private int tipo;
-    private Objeto objeto = ControladorBBDD.getSingleton().obtenerObjeto();
+    private Objeto objeto = InputOutputBBDD.getSingleton().obtenerObjeto();
     private Arma arma;
     private Armadura armadura;
     private String descripcion;

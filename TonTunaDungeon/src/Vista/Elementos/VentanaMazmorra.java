@@ -5,10 +5,8 @@
  */
 package Vista.Elementos;
 
-import Controlador.ControladorBBDD;
 import Controlador.ControladorGUI;
 import Controlador.ControladorMazmorra;
-import Controlador.ControladorPartidas;
 import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
 import java.awt.Color;
@@ -16,7 +14,6 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
