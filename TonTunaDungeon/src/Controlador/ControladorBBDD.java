@@ -44,13 +44,9 @@ public class ControladorBBDD {
         return singleton;
     }
 
-//    public void logroDesbloqueado(Logro logro){
-//        
-//    }
-//       
-//   
     /**
-     * Metodo para guardar la informacion del personaje en la base de datos
+     * Metodo para guardar la informacion del personaje en la base de datos para
+     * recuperarla y continuar con la partida
      *
      * @param pj
      */
@@ -58,7 +54,7 @@ public class ControladorBBDD {
         boolean inventario = false;
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
-            PreparedStatement insertar = con.prepareStatement("insert into pjcreado (nombre, raza, nivel, fuerza, destreza, intelecto, constitucion) values (?,?,?,?,?,?,?);");
+            PreparedStatement insertar = con.prepareStatement("insert into pjcreado (nombre, raza, nivel, fuerza, destreza, intelecto, constitucion, nombreAR, nombreARDU) values (?,?,?,?,?,?,?,?,?);");
             insertar.setString(1, pj.getNombre());
             insertar.setString(2, pj.getRaza());
             insertar.setString(3, Integer.toString(pj.getNivel()));
@@ -66,6 +62,8 @@ public class ControladorBBDD {
             insertar.setString(5, Integer.toString(pj.getDestreza()));
             insertar.setString(6, Integer.toString(pj.getIntelecto()));
             insertar.setString(7, Integer.toString(pj.getConstitucion()));
+            insertar.setString(8, pj.getArma().getNombre());
+            insertar.setString(9, pj.getArmadura().getNombre());
             insertar.executeUpdate();
             con.close();
             inventario = true;
@@ -78,8 +76,8 @@ public class ControladorBBDD {
                         + ", constitucion=" + pj.getConstitucion()
                         + ", destreza=" + pj.getDestreza()
                         + ", nivel=" + pj.getNivel()
-                        + ", arma=\"" + pj.getArma().getNombre()
-                        + "\", armadura=\"" + pj.getArmadura().getNombre()
+                        + ", nombreAR=\"" + pj.getArma().getNombre()
+                        + "\", nombreARDU=\"" + pj.getArmadura().getNombre()
                         + "\" where nombre=\"" + pj.getNombre()
                         + "\" and raza=\"" + pj.getRaza() + "\";");
                 insertar.executeUpdate();
@@ -92,21 +90,34 @@ public class ControladorBBDD {
         if (inventario) {
             try {
                 Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
+                PreparedStatement borrar1 = con.prepareStatement("delete from inventarioar where nombrepj=\"" + pj.getNombre() + "\" and razapj=\"" + pj.getRaza() + "\";");
+                borrar1.executeUpdate();
+                PreparedStatement borrar2 = con.prepareStatement("delete from inventarioardu where nombrepj=\"" + pj.getNombre() + "\" and razapj=\"" + pj.getRaza() + "\";");
+                borrar2.executeUpdate();
+                PreparedStatement borrar3 = con.prepareStatement("delete from inventarioob where nombrepj=\"" + pj.getNombre() + "\" and razapj=\"" + pj.getRaza() + "\";");
+                borrar3.executeUpdate();
                 for (int i = 0; i < pj.getInventarioObjeto().size(); i++) {
-                    PreparedStatement insertar = con.prepareStatement("insert into");
+                    PreparedStatement insertar = con.prepareStatement("insert into inventarioob(nombrepj, razapj, objeto) values (?,?,?);");
+                    insertar.setString(1, pj.getNombre());
+                    insertar.setString(2, pj.getRaza());
+                    insertar.setString(3, pj.getInventarioObjeto().get(i).getNombre());
                     insertar.executeUpdate();
-                    con.close();
                 }
                 for (int i = 0; i < pj.getInventarioArma().size(); i++) {
-                    PreparedStatement insertar = con.prepareStatement("insert into");
+                    PreparedStatement insertar = con.prepareStatement("insert into inventarioar(nombrepj, razapj, arma) values (?,?,?);");
+                    insertar.setString(1, pj.getNombre());
+                    insertar.setString(2, pj.getRaza());
+                    insertar.setString(3, pj.getInventarioArma().get(i).getNombre());
                     insertar.executeUpdate();
-                    con.close();
                 }
                 for (int i = 0; i < pj.getInventarioArmadura().size(); i++) {
-                    PreparedStatement insertar = con.prepareStatement("insert into");
+                    PreparedStatement insertar = con.prepareStatement("insert into inventarioardu(nombrepj, razapj, armadura) values (?,?,?);");
+                    insertar.setString(1, pj.getNombre());
+                    insertar.setString(2, pj.getRaza());
+                    insertar.setString(3, pj.getInventarioArmadura().get(i).getNombre());
                     insertar.executeUpdate();
-                    con.close();
                 }
+                con.close();
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorBBDD.class.getName()).log(Level.SEVERE, null, ex);
             }
