@@ -27,6 +27,7 @@ public class VentanaCargar extends JPanel {
     JButton jButtonPartida4 = new JButton("Partida 4");
     JFramePrincipal padre;
     
+    
     /**
      * Metodo que gestiona las distintas opciones de la ventana de carga
      */
