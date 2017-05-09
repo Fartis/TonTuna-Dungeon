@@ -49,6 +49,7 @@ public class Personaje {
         this.intelecto = intelecto;
         this.descripcion = descripcion;
         this.nivel = nivel;
+        establecerVida();
         
     }
 
