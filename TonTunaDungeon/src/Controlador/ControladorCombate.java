@@ -10,6 +10,14 @@ import Modelo.Dado;
 import Modelo.Monstruo;
 import Modelo.Personaje;
 import Vista.Elementos.VentanaCombate;
+import Vista.Elementos.imagePanel;
+import Vista.JFramePrincipal;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JList;
 
 /**
  * Clase controla el combate de la aplicacion
@@ -22,6 +30,8 @@ public class ControladorCombate {
     private Monstruo monstruo = InputOutputBBDD.getSingleton().obtenerMonstruo(ControladorPrincipal.getSingleton().getNivelActual()+1);
     private Personaje personaje = ControladorPrincipal.getSingleton().getPJ();
     private int bonFuerza = 0, bonDestreza = 0, bonIntelecto = 0;
+    private JFramePrincipal padrej;
+    
 
     public ControladorCombate() {
     }
@@ -108,10 +118,12 @@ public class ControladorCombate {
      */
     private void comprobarFin(VentanaCombate padre){
         if(personaje.getVidaActual()<=0){
+            CombatePerdido perder = new CombatePerdido(padrej);
             padre.dispose();
             ControladorGUI.getSingleton().menuPrincipal();
         }
         if(monstruo.getVidaActual()<=0){
+            CombateGanado ganar = new CombateGanado(padrej);
             padre.dispose();
             ControladorGUI.getSingleton().finalizarCombate();
         }
@@ -126,11 +138,11 @@ public class ControladorCombate {
     }
     
     public int vidaMONActual(){
-        return monstruo.getVida();
+        return monstruo.getVidaActual();
     }
     
     public int vidaMONTotal(){
-        return monstruo.getVidaActual();
+        return monstruo.getVida();
     }
 
     public String indiceMONActual() {
@@ -151,6 +163,44 @@ public class ControladorCombate {
 
     public String indicePJTotal() {
         return Integer.toString(personaje.getArmadura().getIndiceArmadura());
+    }
+    
+    private class CombateGanado extends JDialog {
+        JFramePrincipal padre;
+        imagePanel panel;
+        public CombateGanado(JFramePrincipal padre) {
+            super(padre, true);
+            boolean pulsado = false;
+            this.setLayout(null);
+            this.padre = padre;
+            this.setBounds(0, 0, 400, 280);
+            panel= new imagePanel(400, 280, "src/Recursos/victoria.gif");
+            panel.setBounds(0, 0, 400, 280);
+            panel.setBackground(new Color(124, 124, 124, 255));
+            this.add(panel);
+            panel.setVisible(true);
+            setVisible(true);
+            
+        }
+        
+
+               
+    }
+    
+    private class CombatePerdido extends JDialog {
+
+        public CombatePerdido(JFramePrincipal padre) {
+            super(padre, true);
+            this.setLayout(null);
+            this.setBounds(0, 0, 400, 280);
+            imagePanel panel = new imagePanel(400, 280, "src/Recursos/youdied.gif");
+            panel.setBounds(0, 0, 400, 280);
+            panel.setBackground(new Color(124, 124, 124, 255));
+            this.add(panel);
+            panel.setVisible(true);
+            setVisible(true);
+            
+        }
     }
 
 }

@@ -95,7 +95,7 @@
 <Habitacion id="93" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
 <Habitacion id="94" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
 <Habitacion id="95" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
-<Habitacion id="96" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
+<Habitacion id="96" tipo="0" arriba="0" abajo="0" izquierda="1" derecha="0" tesoro="0" />
 <Habitacion id="97" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
 <Habitacion id="98" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
 <Habitacion id="99" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
@@ -412,7 +412,7 @@
 <Habitacion id="2" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
 <Habitacion id="3" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
 <Habitacion id="4" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
-<Habitacion id="5" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
+<Habitacion id="5" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="1" tesoro="0" />
 <Habitacion id="6" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
 <Habitacion id="7" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
 <Habitacion id="8" tipo="0" arriba="0" abajo="0" izquierda="0" derecha="0" tesoro="0" />
