@@ -57,14 +57,14 @@ public class VentanaNuevaPartida extends JPanel {
             seleccionPersonaje = new JPanel();
 
     //Paneles con imagenes
-    private imagePanel imageHumano = new imagePanel(140, 210, "src/Recursos/razas/humano.jpg"),
-            imageElfo = new imagePanel(140, 210, "src/Recursos/razas/elfo.jpg"),
-            imageEnano = new imagePanel(140, 210, "src/Recursos/razas/enano.jpg"),
-            imageMediano = new imagePanel(140, 210, "src/Recursos/razas/mediano.jpg"),
-            imageFuerza = new imagePanel(40, 40, "src/Recursos/atrib/fuerza.png"),
-            imageDestreza = new imagePanel(40, 40, "src/Recursos/atrib/destreza.png"),
-            imageIntelecto = new imagePanel(40, 40, "src/Recursos/atrib/intelecto.png"),
-            imageConstitucion = new imagePanel(40, 40, "src/Recursos/atrib/constitucion.png");
+    private ImagePanel imageHumano = new ImagePanel(140, 210, "src/Recursos/razas/humano.jpg"),
+            imageElfo = new ImagePanel(140, 210, "src/Recursos/razas/elfo.jpg"),
+            imageEnano = new ImagePanel(140, 210, "src/Recursos/razas/enano.jpg"),
+            imageMediano = new ImagePanel(140, 210, "src/Recursos/razas/mediano.jpg"),
+            imageFuerza = new ImagePanel(40, 40, "src/Recursos/atrib/fuerza.png"),
+            imageDestreza = new ImagePanel(40, 40, "src/Recursos/atrib/destreza.png"),
+            imageIntelecto = new ImagePanel(40, 40, "src/Recursos/atrib/intelecto.png"),
+            imageConstitucion = new ImagePanel(40, 40, "src/Recursos/atrib/constitucion.png");
 
     //Etiquetas
     private JLabel labelFuerza = new JLabel("Fuerza"),

@@ -157,6 +157,12 @@ public class ControladorGUI {
         ocultar();
         ventanaMazmorra();
     }
+    
+    public void finalizarJuego(){
+        ocultar();
+        menuPrincipal();
+        ControladorPrincipal.getSingleton().reiniciarJuego();
+    }
     /**
      * Método para gestionar la ventana de carga de partidas
      */

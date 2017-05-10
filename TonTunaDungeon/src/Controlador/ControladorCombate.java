@@ -10,7 +10,7 @@ import Modelo.Dado;
 import Modelo.Monstruo;
 import Modelo.Personaje;
 import Vista.Elementos.VentanaCombate;
-import Vista.Elementos.imagePanel;
+import Vista.Elementos.ImagePanel;
 import Vista.JFramePrincipal;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -31,6 +31,7 @@ public class ControladorCombate {
     private Personaje personaje = ControladorPrincipal.getSingleton().getPJ();
     private int bonFuerza = 0, bonDestreza = 0, bonIntelecto = 0;
     private JFramePrincipal padrej;
+    private boolean fin = false;
     
 
     public ControladorCombate() {
@@ -110,7 +111,7 @@ public class ControladorCombate {
             personaje.setVidaActual(personaje.getVidaActual() - daño);
             texto.escribirTexto(monstruo.getNombre()+" te ha hecho: "+daño+" de daño");
         }
-        comprobarFin(texto);
+        if(!fin) comprobarFin(texto);
     }
     
     /**
@@ -120,12 +121,14 @@ public class ControladorCombate {
         if(personaje.getVidaActual()<=0){
             CombatePerdido perder = new CombatePerdido(padrej);
             padre.dispose();
-            ControladorGUI.getSingleton().menuPrincipal();
+            ControladorGUI.getSingleton().finalizarJuego();
+            this.fin = true;
         }
         if(monstruo.getVidaActual()<=0){
             CombateGanado ganar = new CombateGanado(padrej);
             padre.dispose();
             ControladorGUI.getSingleton().finalizarCombate();
+            this.fin = true;
         }
     }
     
@@ -167,14 +170,14 @@ public class ControladorCombate {
     
     private class CombateGanado extends JDialog {
         JFramePrincipal padre;
-        imagePanel panel;
+        ImagePanel panel;
         public CombateGanado(JFramePrincipal padre) {
             super(padre, true);
             boolean pulsado = false;
             this.setLayout(null);
             this.padre = padre;
             this.setBounds(0, 0, 400, 280);
-            panel= new imagePanel(400, 280, "src/Recursos/victoria.gif");
+            panel= new ImagePanel(400, 280, "src/Recursos/victoria.gif");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));
             this.add(panel);
@@ -185,12 +188,15 @@ public class ControladorCombate {
     }
     
     private class CombatePerdido extends JDialog {
-
+        JFramePrincipal padre;
+        ImagePanel panel;
         public CombatePerdido(JFramePrincipal padre) {
             super(padre, true);
+            boolean pulsado = false;
             this.setLayout(null);
+            this.padre = padre;
             this.setBounds(0, 0, 400, 280);
-            imagePanel panel = new imagePanel(400, 280, "src/Recursos/youdied.gif");
+            panel= new ImagePanel(400, 280, "src/Recursos/youdied.gif");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));
             this.add(panel);

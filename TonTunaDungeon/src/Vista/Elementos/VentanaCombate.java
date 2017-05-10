@@ -47,6 +47,8 @@ public class VentanaCombate extends JPanel {
     private JPanel panelJugador = new JPanel();
     private JPanel panelMonstruo = new JPanel();
     private JTextArea jTextCombate = new JTextArea();
+    private ImagePanel monstruoIMG = new ImagePanel(),
+            personajeIMG = new ImagePanel();
 
     /**
      * Metodo que gestiona las distintas opciones de la ventana principal
@@ -74,7 +76,10 @@ public class VentanaCombate extends JPanel {
         panelMonstruo.add(jLabelMONNombre);
         panelMonstruo.add(jLabelMONVida);
         panelMonstruo.add(jLabelMONIndice);
-
+        monstruoIMG = new ImagePanel(200, 250, "src/Recursos/monstruos/" + combate.getMonNombre() + ".png");
+        personajeIMG = new ImagePanel(300, 297, "src/Recursos/batalla/guerrero.png");
+        this.add(monstruoIMG);
+        this.add(personajeIMG);
     }
 
     /**
@@ -105,11 +110,12 @@ public class VentanaCombate extends JPanel {
     private void jButtonObjetoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         Mochila mochila = new Mochila(padre);
-        escribirTexto(mochila.getName()+" seleccionado");
+        escribirTexto(mochila.getName() + " seleccionado");
     }
 
     /**
      * Metodo establece la posicion, color, fondo y fuente de los paneles
+     *
      * @param g
      */
     @Override
@@ -149,26 +155,31 @@ public class VentanaCombate extends JPanel {
         jTextCombate.setWrapStyleWord(true);
         jTextCombate.setEditable(false);
         jTextCombate.setRows(16);
+
+        monstruoIMG.setBounds(520, 20, 200, 250);
+        monstruoIMG.setOpaque(false);
+        personajeIMG.setBounds(20, 100, 300,  297);
+        personajeIMG.setOpaque(false);
     }
 
     /**
-     * Metodo establece los jLabel del nombre y caracteristicas del personaje
-     * y el monstruo
+     * Metodo establece los jLabel del nombre y caracteristicas del personaje y
+     * el monstruo
      */
-    public void setText(){
+    public void setText() {
         jLabelPJNombre.setText(ControladorPrincipal.getSingleton().getPJNombre());
         jLabelPJVida.setText("Vida: " + combate.vidaPJActual() + " / " + combate.vidaPJTotal());
         jLabelPJIndice.setText("Armadura: " + combate.indicePJActual() + "/" + combate.indicePJTotal());
         jLabelMONNombre.setText(combate.getMonNombre());
         jLabelMONVida.setText("Vida: " + combate.vidaMONActual() + " / " + combate.vidaMONTotal());
         jLabelMONIndice.setText("Armadura: " + combate.indiceMONActual() + "/" + combate.indiceMONTotal());
-        
     }
+
     /**
-     * 
-     * @param linea 
+     *
+     * @param linea
      */
-    public void escribirTexto(String linea){
+    public void escribirTexto(String linea) {
         if (jTextCombate.getLineCount() == 9) {
             int end = 0;
             try {
@@ -180,11 +191,12 @@ public class VentanaCombate extends JPanel {
         }
         jTextCombate.append(linea + "\n");
     }
-    
-    public void dispose(){
+
+    public void dispose() {
         this.setVisible(false);
         padre.dispose();
     }
+
     /**
      * Clase privada para mostrar el menu de mochila en combate
      */
@@ -194,7 +206,7 @@ public class VentanaCombate extends JPanel {
             super(padre, true);
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
-            imagePanel panel = new imagePanel(200, 180, "src/Recursos/mochila.gif");
+            ImagePanel panel = new ImagePanel(200, 180, "src/Recursos/mochila.gif");
             JButton jButtonObjeto = new JButton("Aceptar");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));

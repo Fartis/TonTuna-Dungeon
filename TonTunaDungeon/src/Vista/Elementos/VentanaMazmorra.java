@@ -281,7 +281,7 @@ public class VentanaMazmorra extends JPanel {
             super(padre, true);
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
-            imagePanel panel = new imagePanel(200, 180, "src/Recursos/mochila.gif");
+            ImagePanel panel = new ImagePanel(200, 180, "src/Recursos/mochila.gif");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));
             JList arma = new JList();
@@ -328,7 +328,7 @@ public class VentanaMazmorra extends JPanel {
             super(padre, true);
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
-            imagePanel panel = new imagePanel(200, 180, "src/Recursos/mochila.gif");
+            ImagePanel panel = new ImagePanel(200, 180, "src/Recursos/mochila.gif");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));
             JList lista = new JList();
@@ -353,7 +353,7 @@ public class VentanaMazmorra extends JPanel {
             super(padre, true);
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
-            imagePanel panel = new imagePanel(200, 180, "src/Recursos/mochila.gif");
+            ImagePanel panel = new ImagePanel(200, 180, "src/Recursos/mochila.gif");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));
             JList lista = new JList();
