@@ -197,7 +197,7 @@ CREATE TABLE `inventarioob` (
   KEY `nombrePJ` (`nombrePJ`),
   CONSTRAINT `inventarioob_ibfk_1` FOREIGN KEY (`razaPJ`) REFERENCES `pjcreado` (`raza`),
   CONSTRAINT `inventarioob_ibfk_2` FOREIGN KEY (`nombrePJ`) REFERENCES `pjcreado` (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,6 +206,7 @@ CREATE TABLE `inventarioob` (
 
 LOCK TABLES `inventarioob` WRITE;
 /*!40000 ALTER TABLE `inventarioob` DISABLE KEYS */;
+INSERT INTO `inventarioob` VALUES (6,'Humano','Manuel','Hámster entrenado'),(7,'Humano','Manuel','Coctail Molotov'),(8,'Humano','Manuel','Poción curación'),(11,'Humano','asdfeffefe','Hámster entrenado'),(12,'Humano','Jose','Cuesco embotellado'),(13,'Humano','Piruletamantico','Poción curación');
 /*!40000 ALTER TABLE `inventarioob` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -270,9 +271,9 @@ DROP TABLE IF EXISTS `objeto`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `objeto` (
   `nombre` varchar(20) NOT NULL,
-  `tipo` enum('curacion','apoyo','da?o') NOT NULL,
   `bonificador` int(10) unsigned NOT NULL,
   `descripcion` text NOT NULL,
+  `tipo` enum('curacion','apoyo','dano') NOT NULL,
   PRIMARY KEY (`nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -283,7 +284,7 @@ CREATE TABLE `objeto` (
 
 LOCK TABLES `objeto` WRITE;
 /*!40000 ALTER TABLE `objeto` DISABLE KEYS */;
-INSERT INTO `objeto` VALUES ('Coctail Molotov','',8,'Prendes y lanzas, el enemigo arde. No tiene más complicación. Abajo el opresor'),('Cuesco embotellado','',2,'Si lanzas el frasco se romperá liberando su nauseabundo contenido'),('Hámster entrenado','',4,'Hámster entrenado que lanzas contra el enemigo, le muerde y huye'),('Poción al tope','apoyo',3,'Aumenta todas tus características durante el resto del combate'),('Poción alta','curacion',10,'Te cura al tope the power'),('Poción curación','curacion',5,'Si la tomas cierra la mayoría de tus heridas'),('Poción Destreza','apoyo',5,'Aumenta tu destreza durante el resto del combate'),('Poción Fuerza','apoyo',5,'Aumenta tu fuerza durante el resto del combate'),('Poción Intelecto','apoyo',5,'Aumenta tu intelecto durante el resto del combate'),('Poción leve','curacion',3,'Cura poco, pero cura'),('Poción mayor','curacion',8,'Cura mucha tela'),('Vara verde','',18,'Vara de fresno aún flexible que pica tela, golpea al enemigo ignorando su armadura porque simbra y suelta el latigazo');
+INSERT INTO `objeto` VALUES ('Coctail Molotov',8,'Prendes y lanzas, el enemigo arde. No tiene más complicación. Abajo el opresor','dano'),('Cuesco embotellado',2,'Si lanzas el frasco se romperá liberando su nauseabundo contenido','dano'),('Hámster entrenado',4,'Hámster entrenado que lanzas contra el enemigo, le muerde y huye','dano'),('Poción al tope',3,'Aumenta todas tus características durante el resto del combate','apoyo'),('Poción alta',10,'Te cura al tope the power','curacion'),('Poción curación',5,'Si la tomas cierra la mayoría de tus heridas','curacion'),('Poción Destreza',5,'Aumenta tu destreza durante el resto del combate','apoyo'),('Poción Fuerza',5,'Aumenta tu fuerza durante el resto del combate','apoyo'),('Poción Intelecto',5,'Aumenta tu intelecto durante el resto del combate','apoyo'),('Poción leve',3,'Cura poco, pero cura','curacion'),('Poción mayor',8,'Cura mucha tela','curacion'),('Vara verde',18,'Vara de fresno aún flexible que pica tela, golpea al enemigo ignorando su armadura porque simbra y suelta el latigazo','dano');
 /*!40000 ALTER TABLE `objeto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -327,8 +328,6 @@ CREATE TABLE `pjcreado` (
   `raza` varchar(20) NOT NULL,
   `nivel` int(10) unsigned NOT NULL,
   `fcreacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `vivo` tinyint(1) DEFAULT '1',
-  `fmuerte` tinyint(1) DEFAULT NULL,
   `fuerza` int(10) unsigned NOT NULL,
   `destreza` int(10) unsigned NOT NULL,
   `intelecto` int(10) unsigned NOT NULL,
@@ -347,7 +346,7 @@ CREATE TABLE `pjcreado` (
 
 LOCK TABLES `pjcreado` WRITE;
 /*!40000 ALTER TABLE `pjcreado` DISABLE KEYS */;
-INSERT INTO `pjcreado` VALUES ('ASF','Humano',0,'2017-05-09 10:34:27',1,NULL,2,2,2,8,'Puñao de piedras','Armadura Acolchada'),('hhhth','Humano',0,'2017-05-09 10:34:53',1,NULL,2,2,2,8,'Guante','Armadura de cartón');
+INSERT INTO `pjcreado` VALUES ('asdfeffefe','Humano',0,'2017-05-09 10:38:32',2,2,2,8,'Guante','Armadura de cartón'),('ASF','Humano',0,'2017-05-09 10:34:27',2,2,2,8,'Puñao de piedras','Armadura Acolchada'),('hhhth','Humano',0,'2017-05-09 10:34:53',2,2,2,8,'Guante','Armadura de cartón'),('Jose','Humano',0,'2017-05-09 12:41:00',2,2,2,8,'Guante','Armadura Acolchada'),('Manuel','Humano',0,'2017-05-09 11:03:39',3,4,2,5,'Guante','Armadura Acolchada'),('Piruletamantico','Humano',0,'2017-05-10 08:05:14',2,8,2,2,'Puñao de piedras','Armadura de cartón'),('Tonto','Humano',0,'2017-05-10 08:36:44',2,2,2,8,'Palillo chino','Armadura de cartón');
 /*!40000 ALTER TABLE `pjcreado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -476,4 +475,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-09 12:36:26
+-- Dump completed on 2017-05-10 12:04:18
