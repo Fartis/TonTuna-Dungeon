@@ -181,10 +181,7 @@ public class ControladorCombate {
             panel.setVisible(true);
             setVisible(true);
             
-        }
-        
-
-               
+        } 
     }
     
     private class CombatePerdido extends JDialog {
