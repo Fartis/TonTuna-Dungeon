@@ -12,18 +12,20 @@ import java.util.ArrayList;
 
 /**
  * Clase para gestionar el Personaje
+ *
  * @author Manuel David Villalba Escamilla
  */
 public class Personaje {
 
-    
-    private Armadura armadura = InputOutputBBDD.getSingleton().obtenerArmadura(1);;
-    private Arma arma = InputOutputBBDD.getSingleton().obtenerArma(1);;
+    private Armadura armadura = InputOutputBBDD.getSingleton().obtenerArmadura(1);
+    ;
+    private Arma arma = InputOutputBBDD.getSingleton().obtenerArma(1);
+    ;
     private int fuerza, destreza, constitucion, intelecto, vidaTotal, nivel, vidaActual, indiceAr = this.armadura.getIndiceArmadura();
     private String descripcion, raza, nombre;
     private ArrayList<Arma> inventarioArma = new ArrayList();
     private ArrayList<Armadura> inventarioArmadura = new ArrayList();
-    private ArrayList<Objeto> inventarioObjeto = new ArrayList();
+    private ArrayList<Objeto> inventarioObjeto = new ArrayList<Objeto>();
 
     public Personaje() {
 
@@ -31,6 +33,7 @@ public class Personaje {
 
     /**
      * Constructor del Personaje
+     *
      * @param nombre
      * @param raza
      * @param fuerza
@@ -38,7 +41,7 @@ public class Personaje {
      * @param destreza
      * @param intelecto
      * @param descripcion
-     * @param nivel 
+     * @param nivel
      */
     public Personaje(String nombre, String raza, int fuerza, int constitucion, int destreza, int intelecto, String descripcion, int nivel) {
         this.nombre = nombre;
@@ -50,13 +53,13 @@ public class Personaje {
         this.descripcion = descripcion;
         this.nivel = nivel;
         establecerVida();
-        
+        this.inventarioObjeto.clear();
     }
-
 
     /**
      * Metodo para listar los objetos
-     * @return 
+     *
+     * @return
      */
     public ArrayList<String> listarObjetos() {
         ArrayList<String> lista = new ArrayList();
@@ -82,7 +85,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve la armadura del personaje
-     * @return 
+     *
+     * @return
      */
     public Armadura getArmadura() {
         return armadura;
@@ -90,7 +94,8 @@ public class Personaje {
 
     /**
      * metodo introduce la armadura del personaje
-     * @param armadura 
+     *
+     * @param armadura
      */
     public void setArmadura(Armadura armadura) {
         this.armadura = armadura;
@@ -98,7 +103,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve el arma del personaje
-     * @return 
+     *
+     * @return
      */
     public Arma getArma() {
         return arma;
@@ -106,7 +112,8 @@ public class Personaje {
 
     /**
      * Metodo introduce el arma del personaje
-     * @param arma 
+     *
+     * @param arma
      */
     public void setArma(Arma arma) {
         this.arma = arma;
@@ -114,7 +121,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve la fuerza del personaje
-     * @return 
+     *
+     * @return
      */
     public int getFuerza() {
         return fuerza;
@@ -122,7 +130,8 @@ public class Personaje {
 
     /**
      * Metodo introduce la fuerza del personaje
-     * @param fuerza 
+     *
+     * @param fuerza
      */
     public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
@@ -130,7 +139,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve la destreza del personaje
-     * @return 
+     *
+     * @return
      */
     public int getDestreza() {
         return destreza;
@@ -138,7 +148,8 @@ public class Personaje {
 
     /**
      * Metodo introduce la destreza del personaje
-     * @param destreza 
+     *
+     * @param destreza
      */
     public void setDestreza(int destreza) {
         this.destreza = destreza;
@@ -146,7 +157,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve la constitucion del personaje
-     * @return 
+     *
+     * @return
      */
     public int getConstitucion() {
         return constitucion;
@@ -154,7 +166,8 @@ public class Personaje {
 
     /**
      * Metodo introduce la consitucion del personaje
-     * @param constitucion 
+     *
+     * @param constitucion
      */
     public void setConstitucion(int constitucion) {
         this.constitucion = constitucion;
@@ -162,7 +175,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve el intelecto del personaje
-     * @return 
+     *
+     * @return
      */
     public int getIntelecto() {
         return intelecto;
@@ -170,7 +184,8 @@ public class Personaje {
 
     /**
      * Metodo introduce el intelecto del personaje
-     * @param intelecto 
+     *
+     * @param intelecto
      */
     public void setIntelecto(int intelecto) {
         this.intelecto = intelecto;
@@ -178,7 +193,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve la descripcion del personaje
-     * @return 
+     *
+     * @return
      */
     public String getDescripcion() {
         return descripcion;
@@ -186,7 +202,8 @@ public class Personaje {
 
     /**
      * Metodo introduce la descripcion del personaje
-     * @param descripcion 
+     *
+     * @param descripcion
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
@@ -194,7 +211,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve la raza del personaje
-     * @return 
+     *
+     * @return
      */
     public String getRaza() {
         return raza;
@@ -202,7 +220,8 @@ public class Personaje {
 
     /**
      * Metodo introduce la raza del personaje
-     * @param raza 
+     *
+     * @param raza
      */
     public void setRaza(String raza) {
         this.raza = raza;
@@ -210,7 +229,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve la vida del personaje
-     * @return 
+     *
+     * @return
      */
     public int getVidaTotal() {
         return vidaTotal;
@@ -218,7 +238,8 @@ public class Personaje {
 
     /**
      * Metodo introduce la vida del personaje
-     * @param vida 
+     *
+     * @param vida
      */
     public void setVidaTotal(int vida) {
         this.vidaTotal = vida;
@@ -226,7 +247,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve el nivel del personaje
-     * @return 
+     *
+     * @return
      */
     public int getNivel() {
         return nivel;
@@ -234,7 +256,8 @@ public class Personaje {
 
     /**
      * Metodo introduce el nivel del personaje
-     * @param nivel 
+     *
+     * @param nivel
      */
     public void setNivel(int nivel) {
         this.nivel = nivel;
@@ -242,7 +265,8 @@ public class Personaje {
 
     /**
      * Metodo devuelve el nombre del personaje
-     * @return 
+     *
+     * @return
      */
     public String getNombre() {
         return nombre;
@@ -250,7 +274,8 @@ public class Personaje {
 
     /**
      * Metodo introduce el nombre del personaje
-     * @param nombre 
+     *
+     * @param nombre
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -262,7 +287,7 @@ public class Personaje {
     }
 
     public void subirNivel(int caracteristica) {
-        switch (caracteristica){
+        switch (caracteristica) {
             case 1:
                 this.fuerza++;
                 break;
@@ -274,41 +299,47 @@ public class Personaje {
                 break;
             case 4:
                 this.constitucion++;
-                this.vidaTotal=this.vidaTotal+Dado.lanza(6);
+                this.vidaTotal = this.vidaTotal + Dado.lanza(6);
                 break;
         }
     }
-    
+
     /**
      * Metodo para añadir una nueva Arma al inventario de armas del personaje
-     * @param nueva 
+     *
+     * @param nueva
      */
-    public void anadirArma(Arma nueva){
+    public void anadirArma(Arma nueva) {
         inventarioArma.add(nueva);
     }
-    
+
     /**
-     * Metodo para añadir una nueva Armadura al inventario de armaduras del personaje
-     * @param nueva 
+     * Metodo para añadir una nueva Armadura al inventario de armaduras del
+     * personaje
+     *
+     * @param nueva
      */
-    public void anadirArmadura(Armadura nueva){
+    public void anadirArmadura(Armadura nueva) {
         inventarioArmadura.add(nueva);
     }
-    
+
     /**
      * Metodo para añadir un nuevo objeto al inventario de objetos del personaje
-     * @param nuevo 
+     *
+     * @param nuevo
      */
     public void añadirObjeto(Objeto nuevo) {
         inventarioObjeto.add(nuevo);
     }
-    
+
     /**
-     * Metodo para obtener un objeto que se va a usar en combate y lo elimina del inventario de objetos del personaje
+     * Metodo para obtener un objeto que se va a usar en combate y lo elimina
+     * del inventario de objetos del personaje
+     *
      * @param indice
-     * @return 
+     * @return
      */
-    public Objeto usarObjeto(int indice){
+    public Objeto usarObjeto(int indice) {
         Objeto temporal = inventarioObjeto.get(indice);
         inventarioObjeto.remove(indice);
         return temporal;
@@ -326,7 +357,7 @@ public class Personaje {
      */
     public void setVidaActual(int vidaActual) {
         this.vidaActual = vidaActual;
-        if(vidaActual>vidaTotal){
+        if (vidaActual > vidaTotal) {
             this.vidaActual = this.vidaTotal;
         }
     }
@@ -343,19 +374,20 @@ public class Personaje {
         return inventarioArmadura;
     }
 
-    
-
     public int getIndiceAr() {
         return indiceAr;
     }
 
     public void setIndiceAr(int indiceAr) {
-        if(indiceAr>=0){
+        if (indiceAr >= 0) {
             this.indiceAr = indiceAr;
-        }
-        else{
+        } else {
             this.indiceAr = 0;
         }
     }
-    
+
+    public void setInventario(ArrayList<Objeto> obtenerObjeto) {
+        this.inventarioObjeto.addAll(obtenerObjeto);
+    }
+
 }

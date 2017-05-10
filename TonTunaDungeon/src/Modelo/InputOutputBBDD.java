@@ -141,7 +141,7 @@ public class InputOutputBBDD {
                 String[] info = new String[4];
                 info[0] = rs.getString("nombre");
                 info[1] = rs.getString("raza");
-                info[2] = Integer.toString(Integer.parseInt(rs.getString("nivel")+1));
+                info[2] = Integer.toString(Integer.parseInt(rs.getString("nivel") + 1));
                 info[3] = rs.getString("fcreacion");
                 lista.add(info);
             }
@@ -150,15 +150,15 @@ public class InputOutputBBDD {
         }
         return lista;
     }
-    
-    public String[] cargarPartida(int indice){
+
+    public String[] cargarPartida(int indice) {
         String[] info = new String[10];
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
             PreparedStatement consulta = con.prepareStatement("select * from pjcreado;");
             ResultSet rs = consulta.executeQuery();
             rs.next();
-            for(int i=0; i<indice; i++){
+            for (int i = 0; i < indice; i++) {
                 rs.next();
             }
             info[0] = rs.getString("nombre");
@@ -171,9 +171,9 @@ public class InputOutputBBDD {
             info[8] = rs.getString("nombreAR");
             info[9] = rs.getString("nombreARDU");
             con.close();
-            
+
             Connection con2 = (Connection) DriverManager.getConnection("jdbc:mysql://" + variableIP + "/tontunadungeon", "root", "");
-            PreparedStatement consulta2 = con2.prepareStatement("select * from personaje where raza=\""+info[1]+"\";");
+            PreparedStatement consulta2 = con2.prepareStatement("select * from personaje where raza=\"" + info[1] + "\";");
             ResultSet rs2 = consulta2.executeQuery();
             rs2.next();
             info[6] = rs2.getString("descripcion");
@@ -271,8 +271,8 @@ public class InputOutputBBDD {
             return null;
         }
     }
-    
-    public Arma obtenerArma(String nombre){
+
+    public Arma obtenerArma(String nombre) {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
             PreparedStatement consulta = con.prepareStatement("select * from arma where nombre=\"" + nombre + "\";");
@@ -331,51 +331,43 @@ public class InputOutputBBDD {
             return null;
         }
     }
-    
-    public Objeto obtenerObjeto(String nombre, String raza, int indice) {
+
+    public ArrayList<Objeto> obtenerObjeto(String nombre, String raza) {
+        ArrayList<Objeto> inventario = new ArrayList<Objeto>();
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
-            PreparedStatement consulta = con.prepareStatement("select * from inventarioob where nombrePJ=\""+nombre+"\" and razaPJ=\""+raza+"\";");
+            PreparedStatement consulta = con.prepareStatement("select * from inventarioOB where nombrePJ=\"" + nombre + "\" and razaPJ=\"" + raza + "\";");
             ResultSet rs = consulta.executeQuery();
-            rs.next();
-            for(int i=0; i<indice; i++) rs.next();
-            Connection con2 = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
-            PreparedStatement consulta2 = con2.prepareStatement("select * from objeto where nombre=\""+rs.getString("nombre")+"\";");
-            ResultSet rs2 = consulta2.executeQuery();
-            rs2.next();
-            int tipo = 0;
-            switch (rs2.getString("tipo")) {
-                case "curacion":
-                    tipo = 1;
-                    break;
-                case "apoyo":
-                    tipo = 2;
-                    break;
-                case "dano":
-                    tipo = 3;
-                    break;
+            while (rs.next()) {
+                try {
+                    PreparedStatement consulta2 = con.prepareStatement("select * from objeto where nombre=\""+rs.getString("objeto")+"\";");
+                    ResultSet rs2 = consulta2.executeQuery();
+                    while (rs2.next()) {
+                        int tipo = 0;
+                        switch (rs2.getString("tipo")) {
+                            case "curacion":
+                                tipo = 1;
+                                break;
+                            case "apoyo":
+                                tipo = 2;
+                                break;
+                            case "dano":
+                                tipo = 3;
+                                break;
+                        }
+                        Objeto objeto = new Objeto(rs2.getString("nombre"), rs2.getString("descripcion"), rs2.getInt("bonificador"), tipo);
+                        inventario.add(objeto);
+                    }
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
             }
-            Objeto objeto = new Objeto(rs2.getString("nombre"), rs2.getString("descripcion"), rs2.getInt("bonificador"), tipo);
             con.close();
-            con2.close();
-            return objeto;
         } catch (SQLException e) {
-            return null;
+
+            System.out.println(e);
         }
-    }
-    
-    public int obtenerCantidadObjetos(String nombre, String raza){
-        try {
-            Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
-            PreparedStatement consulta = con.prepareStatement("select * from inventarioob where nombrePJ=\""+nombre+"\" and razaPJ=\""+raza+"\";");
-            ResultSet rs = consulta.executeQuery();
-            int cantidad = 0;
-            while(rs.next()) cantidad++;
-            con.close();
-            return cantidad;
-        } catch (SQLException e) {
-            return 0;
-        }
+        return inventario;
     }
 
     /**
@@ -400,14 +392,14 @@ public class InputOutputBBDD {
             return null;
         }
     }
-    
+
     /**
      * Metodo para obtener la armadura de la base de datos por nombre
-     * 
+     *
      * @param nombre
-     * @return 
+     * @return
      */
-    public Armadura obtenerArmadura(String nombre){
+    public Armadura obtenerArmadura(String nombre) {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
             PreparedStatement consulta = con.prepareStatement("select * from armadura where nombre=\"" + nombre + "\";");

@@ -270,9 +270,7 @@ public class ControladorPrincipal {
         Personaje temporal = new Personaje(info[0], info[1], Integer.parseInt(info[2]), Integer.parseInt(info[3]), Integer.parseInt(info[4]), Integer.parseInt(info[5]), info[6], Integer.parseInt(info[7]));
         temporal.setArma(InputOutputBBDD.getSingleton().obtenerArma(info[8]));
         temporal.setArmadura(InputOutputBBDD.getSingleton().obtenerArmadura(info[9]));
-        for (int i=0; i<InputOutputBBDD.getSingleton().obtenerCantidadObjetos(info[0], info[1]); i++){
-            temporal.añadirObjeto(InputOutputBBDD.getSingleton().obtenerObjeto(info[0], info[1], i));
-        }
+        temporal.setInventario(InputOutputBBDD.getSingleton().obtenerObjeto(info[0], info[1]));
         this.personajeActual = temporal;
         this.nivelActual = temporal.getNivel();
         ControladorGUI.getSingleton().ventanaMazmorra();
