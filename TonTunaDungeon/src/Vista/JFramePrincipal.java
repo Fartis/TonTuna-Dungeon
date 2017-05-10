@@ -24,7 +24,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     /**
      * Creates new form JFramePrincipal
      */
-    public JFramePrincipal(JPanel jPanel, String url) {
+    public JFramePrincipal(final JPanel jPanel, final String url) {
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -33,7 +33,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
     }
 
-    public JFramePrincipal(JPanel jPanel) {
+    public JFramePrincipal(final JPanel jPanel) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowUI(jPanel);

@@ -50,7 +50,7 @@ public class ReproductorMusica {
      *
      * @param urlMusica
      */
-    public void playMusica(String urlMusica) {
+    public void playMusica(final String urlMusica) {
         loop = true;
 
         musica = new Thread() {
