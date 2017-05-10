@@ -5,13 +5,9 @@
  */
 package Vista.Elementos;
 
-import Controlador.ControladorGUI;
-import Vista.JFramePrincipal;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
