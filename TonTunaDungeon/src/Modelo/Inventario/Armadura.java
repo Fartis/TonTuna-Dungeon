@@ -10,7 +10,7 @@ package Modelo.Inventario;
  * @author Manuel David Villalba Escamilla
  */
 public class Armadura {
-    private int bonificador, indiceArmadura;
+    private int bonificador;
     private String nombre, descripcion;
     /**
      * Constructor Armadura
@@ -19,10 +19,9 @@ public class Armadura {
      * @param indice
      * @param descripcion 
      */
-    public Armadura(String nombre, int bonificador, int indice, String descripcion){
+    public Armadura(String nombre, int bonificador, String descripcion){
         this.nombre=nombre;
         this.bonificador=bonificador;
-        this.indiceArmadura=indice;
         this.descripcion=descripcion;
     }
 
@@ -40,22 +39,6 @@ public class Armadura {
      */
     public void setBonificador(int bonificador) {
         this.bonificador = bonificador;
-    }
-
-    /**
-     * Metodo devuelve el indice de la armadura
-     * @return 
-     */
-    public int getIndiceArmadura() {
-        return indiceArmadura;
-    }
-
-    /**
-     * Metodo introduce el indice de la armadura
-     * @param indiceArmadura 
-     */
-    public void setIndiceArmadura(int indiceArmadura) {
-        this.indiceArmadura = indiceArmadura;
     }
 
     /**
@@ -92,7 +75,7 @@ public class Armadura {
 
     @Override
     public String toString() {
-        return "Armadura{" + "bonificador=" + bonificador + ", indiceArmadura=" + indiceArmadura + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+        return "Armadura{" + "bonificador=" + bonificador + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
     }
     
 }

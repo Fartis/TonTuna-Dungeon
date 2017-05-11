@@ -41,7 +41,6 @@ public class Monstruo {
         this.armadura = armadura;
         this.arma = arma;
         this.vidaActual = getVida();
-        indiceAr = armadura.getIndiceArmadura();
     }
     /**
      * Metodo para establecer la vida del monstruo
