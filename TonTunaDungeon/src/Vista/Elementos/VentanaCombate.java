@@ -47,8 +47,8 @@ public class VentanaCombate extends JPanel {
     private JPanel panelJugador = new JPanel();
     private JPanel panelMonstruo = new JPanel();
     private JTextArea jTextCombate = new JTextArea();
-    private ImagePanel monstruoIMG = new ImagePanel(),
-            personajeIMG = new ImagePanel();
+    private ImagenPanel monstruoIMG = new ImagenPanel(),
+            personajeIMG = new ImagenPanel();
 
     /**
      * Metodo que gestiona las distintas opciones de la ventana principal
@@ -76,8 +76,8 @@ public class VentanaCombate extends JPanel {
         panelMonstruo.add(jLabelMONNombre);
         panelMonstruo.add(jLabelMONVida);
         panelMonstruo.add(jLabelMONIndice);
-        monstruoIMG = new ImagePanel(200, 250, "src/Recursos/monstruos/" + combate.getMonNombre() + ".png");
-        personajeIMG = new ImagePanel(300, 297, "src/Recursos/batalla/guerrero.png");
+        monstruoIMG = new ImagenPanel(200, 250, "src/Recursos/monstruos/" + combate.getMonNombre() + ".png");
+        personajeIMG = new ImagenPanel(300, 297, "src/Recursos/batalla/guerrero.png");
         this.add(monstruoIMG);
         this.add(personajeIMG);
     }
@@ -206,7 +206,7 @@ public class VentanaCombate extends JPanel {
             super(padre, true);
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
-            ImagePanel panel = new ImagePanel(200, 180, "src/Recursos/mochila.gif");
+            ImagenPanel panel = new ImagenPanel(200, 180, "src/Recursos/mochila.gif");
             JButton jButtonObjeto = new JButton("Aceptar");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));

@@ -14,12 +14,12 @@ import javax.swing.JPanel;
  * Clase que introduce la imagen dentro del panel
  * @author Manuel David Villalba Escamilla
  */
-public class ImagePanel extends JPanel {
+public class ImagenPanel extends JPanel {
 
     private Image image;
     private int width, height;
     
-    public ImagePanel(){
+    public ImagenPanel(){
         
     }
 
@@ -29,7 +29,7 @@ public class ImagePanel extends JPanel {
      * @param height
      * @param url 
      */
-    public ImagePanel(int width, int height, String url) {
+    public ImagenPanel(int width, int height, String url) {
         this.width=width;
         this.height=height;
         this.image = Toolkit.getDefaultToolkit().getImage(url);

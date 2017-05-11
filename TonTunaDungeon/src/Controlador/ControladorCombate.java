@@ -10,7 +10,7 @@ import Modelo.Dado;
 import Modelo.Monstruo;
 import Modelo.Personaje;
 import Vista.Elementos.VentanaCombate;
-import Vista.Elementos.ImagePanel;
+import Vista.Elementos.ImagenPanel;
 import Vista.JFramePrincipal;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -170,14 +170,14 @@ public class ControladorCombate {
     
     private class CombateGanado extends JDialog {
         JFramePrincipal padre;
-        ImagePanel panel;
+        ImagenPanel panel;
         public CombateGanado(JFramePrincipal padre) {
             super(padre, true);
             boolean pulsado = false;
             this.setLayout(null);
             this.padre = padre;
             this.setBounds(0, 0, 400, 280);
-            panel= new ImagePanel(400, 280, "src/Recursos/victoria.gif");
+            panel= new ImagenPanel(400, 280, "src/Recursos/victoria.gif");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));
             this.add(panel);
@@ -189,14 +189,14 @@ public class ControladorCombate {
     
     private class CombatePerdido extends JDialog {
         JFramePrincipal padre;
-        ImagePanel panel;
+        ImagenPanel panel;
         public CombatePerdido(JFramePrincipal padre) {
             super(padre, true);
             boolean pulsado = false;
             this.setLayout(null);
             this.padre = padre;
             this.setBounds(0, 0, 400, 280);
-            panel= new ImagePanel(400, 280, "src/Recursos/youdied.gif");
+            panel= new ImagenPanel(400, 280, "src/Recursos/youdied.gif");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));
             this.add(panel);
