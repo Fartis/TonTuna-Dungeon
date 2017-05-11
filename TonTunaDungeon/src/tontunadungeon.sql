@@ -195,8 +195,8 @@ CREATE TABLE `inventarioob` (
   UNIQUE KEY `ID` (`ID`),
   KEY `razaPJ` (`razaPJ`),
   KEY `nombrePJ` (`nombrePJ`),
-  CONSTRAINT `inventarioob_ibfk_1` FOREIGN KEY (`razaPJ`) REFERENCES `pjcreado` (`raza`),
-  CONSTRAINT `inventarioob_ibfk_2` FOREIGN KEY (`nombrePJ`) REFERENCES `pjcreado` (`nombre`)
+  CONSTRAINT `inventarioob_ibfk_1` FOREIGN KEY (`razaPJ`) REFERENCES `pjcreado` (`raza`) on delete cascade,
+  CONSTRAINT `inventarioob_ibfk_2` FOREIGN KEY (`nombrePJ`) REFERENCES `pjcreado` (`nombre`) on delete cascade
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

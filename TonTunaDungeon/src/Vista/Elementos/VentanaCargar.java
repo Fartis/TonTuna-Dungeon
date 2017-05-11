@@ -68,6 +68,10 @@ public class VentanaCargar extends JPanel {
         this.add(nivel);
         this.add(fecha);
         modelo.setColumnCount(4);
+        actualizarTabla();
+    }
+    
+    private void actualizarTabla(){        
         jTabla.setModel(modelo);
         jTabla.getColumn("Nombre").setPreferredWidth(300);
         jTabla.getColumn("Raza").setPreferredWidth(100);
@@ -85,12 +89,18 @@ public class VentanaCargar extends JPanel {
     }
 
     private void jButtonCargarActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:     
-        ControladorPrincipal.getSingleton().cargarPartida(jTabla.getSelectedRow());
+        // TODO add your handling code here:           
+        if (jTabla.getSelectedRow() >= 0) {
+            ControladorPrincipal.getSingleton().cargarPartida(jTabla.getSelectedRow());
+        }
     }
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:        
+        if (jTabla.getSelectedRow() >= 0) {
+            modelo = ControladorPrincipal.getSingleton().borrarPartida(jTabla.getSelectedRow());
+            actualizarTabla();
+        }
     }
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {

@@ -275,6 +275,12 @@ public class ControladorPrincipal {
         this.nivelActual = temporal.getNivel();
         ControladorGUI.getSingleton().ventanaMazmorra();
     }
+    
+    public DefaultTableModel borrarPartida(int indice){
+        String[] info = InputOutputBBDD.getSingleton().cargarPartida(indice);
+        InputOutputBBDD.getSingleton().borrarPartida(info);
+        return obtenerInfoPartidas();
+    }
 
     public DefaultTableModel obtenerInfoPartidas() {
         DefaultTableModel modelo = new DefaultTableModel();

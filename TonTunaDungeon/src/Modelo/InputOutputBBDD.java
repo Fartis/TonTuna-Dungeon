@@ -150,6 +150,21 @@ public class InputOutputBBDD {
         }
         return lista;
     }
+      
+    public void borrarPartida(String[] info) {
+        try {
+            Connection con1 = (Connection) DriverManager.getConnection("jdbc:mysql://"+variableIP+"/tontunadungeon", "root", "");
+            PreparedStatement borrado1 = con1.prepareStatement("delete from inventarioOB where nombrePJ=\""+info[0]+"\" and razaPJ=\""+info[1]+"\";");
+            borrado1.executeUpdate();
+            con1.close();
+            Connection con2 = (Connection) DriverManager.getConnection("jdbc:mysql://"+variableIP+"/tontunadungeon", "root", "");
+            PreparedStatement borrado2 = con2.prepareStatement("delete from pjcreado where nombre=\""+info[0]+"\" and raza=\""+info[1]+"\";");
+            borrado2.executeUpdate();
+            con2.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
 
     public String[] cargarPartida(int indice) {
         String[] info = new String[10];
