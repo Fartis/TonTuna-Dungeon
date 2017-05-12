@@ -123,6 +123,11 @@ public class VentanaMazmorra extends JPanel {
                 jButtonGuardarActionPerformed(evt);
             }
         });
+        jButtonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSiguienteActionPerformed(evt);
+            }
+        });
     }
 
     public void setPadre(JFramePrincipal padre) {
@@ -235,6 +240,10 @@ public class VentanaMazmorra extends JPanel {
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorPrincipal.getSingleton().guardarPartida();
+    }
+    
+    private void jButtonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {
+        ControladorPrincipal.getSingleton().siguienteNivel();
     }
 
     @Override

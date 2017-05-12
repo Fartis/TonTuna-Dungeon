@@ -287,4 +287,8 @@ public class ControladorPrincipal {
         return modelo;
     }
 
+    public void siguienteNivel() {
+        ControladorGUI.getSingleton().menuSubirNivel();
+    }
+
 }
