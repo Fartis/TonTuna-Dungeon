@@ -326,73 +326,58 @@ public class VentanaMazmorra extends JPanel {
         }
     }
 
-        private class Mochila extends JDialog {
+    private class Mochila extends JDialog {
 
-            JButton usar = new JButton("Usar");
+        public Mochila(JFramePrincipal padre) {
+            super(padre, true);
+            this.setLayout(null);
+            this.setBounds(0, 0, 400, 280);
             DefaultListModel modelo;
             JList lista;
-
-            public Mochila(JFramePrincipal padre) {
-                super(padre, true);
-                this.setLayout(null);
-                this.setBounds(0, 0, 400, 280);
-                ImagenPanel panel = new ImagenPanel(200, 180, "src/Recursos/mochila.gif");
-                panel.setBounds(0, 0, 400, 280);
-                panel.setBackground(new Color(124, 124, 124, 255));
-                lista = new JList();
-                modelo = new DefaultListModel();
-                String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
-                for (int i = 0; i < listaObjetos.length; i++) {
-                    modelo.add(i, listaObjetos[i]);
-                }
-                lista.setBounds(200, 20, 180, 240);
-                lista.setModel(modelo);
-                panel.add(lista);
-                lista.setVisible(true);
-                this.add(panel);
-                panel.setVisible(true);
-                setVisible(true);
-
-                usar.setBounds(20, 20, 160, 240);
-                usar.setVisible(true);
-                usar.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        usarActionPerformed(evt);
-                    }
-                });
-
-                panel.add(usar);
+            ImagenPanel panel = new ImagenPanel(200, 180, "src/Recursos/mochila.gif");
+            panel.setBounds(0, 0, 400, 280);
+            panel.setBackground(new Color(124, 124, 124, 255));
+            lista = new JList();
+            modelo = new DefaultListModel();
+            String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
+            for (int i = 0; i < listaObjetos.length; i++) {
+                modelo.add(i, listaObjetos[i]);
             }
+            lista.setBounds(200, 20, 180, 240);
+            lista.setModel(modelo);
+            panel.add(lista);
+            lista.setVisible(true);
+            this.add(panel);
+            panel.setVisible(true);
+            setVisible(true);
 
-            private void usarActionPerformed(java.awt.event.ActionEvent evt) {
-                ControladorPrincipal.getSingleton().usarObjeto(lista.getSelectedIndex());
-            }
-
-        }
-
-        private class Guardar extends JDialog {
-
-            public Guardar(JFramePrincipal padre) {
-                super(padre, true);
-                this.setLayout(null);
-                this.setBounds(0, 0, 400, 280);
-                ImagenPanel panel = new ImagenPanel(200, 180, "src/Recursos/mochila.gif");
-                panel.setBounds(0, 0, 400, 280);
-                panel.setBackground(new Color(124, 124, 124, 255));
-                JList lista = new JList();
-                DefaultListModel modelo = new DefaultListModel();
-                String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
-                for (int i = 0; i < listaObjetos.length; i++) {
-                    modelo.add(i, listaObjetos[i]);
-                }
-                lista.setBounds(200, 20, 180, 240);
-                lista.setModel(modelo);
-                panel.add(lista);
-                lista.setVisible(true);
-                this.add(panel);
-                panel.setVisible(true);
-                setVisible(true);
-            }
         }
 
     }
+
+    private class Guardar extends JDialog {
+
+        public Guardar(JFramePrincipal padre) {
+            super(padre, true);
+            this.setLayout(null);
+            this.setBounds(0, 0, 400, 280);
+            ImagenPanel panel = new ImagenPanel(200, 180, "src/Recursos/mochila.gif");
+            panel.setBounds(0, 0, 400, 280);
+            panel.setBackground(new Color(124, 124, 124, 255));
+            JList lista = new JList();
+            DefaultListModel modelo = new DefaultListModel();
+            String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
+            for (int i = 0; i < listaObjetos.length; i++) {
+                modelo.add(i, listaObjetos[i]);
+            }
+            lista.setBounds(200, 20, 180, 240);
+            lista.setModel(modelo);
+            panel.add(lista);
+            lista.setVisible(true);
+            this.add(panel);
+            panel.setVisible(true);
+            setVisible(true);
+        }
+    }
+
+}
