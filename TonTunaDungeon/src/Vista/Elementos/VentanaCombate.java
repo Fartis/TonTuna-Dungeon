@@ -38,11 +38,9 @@ public class VentanaCombate extends JPanel {
     private JButton jButtonAtacar = new JButton("Atacar"),
             jButtonObjeto = new JButton("Objeto");
     private JLabel jLabelPJNombre = new JLabel(),
-            jLabelPJVida = new JLabel(),
-            jLabelPJIndice = new JLabel();
+            jLabelPJVida = new JLabel();
     private JLabel jLabelMONNombre = new JLabel(),
-            jLabelMONVida = new JLabel(),
-            jLabelMONIndice = new JLabel();
+            jLabelMONVida = new JLabel();
     private JFramePrincipal padre;
     private JPanel panelJugador = new JPanel();
     private JPanel panelMonstruo = new JPanel();
@@ -72,10 +70,8 @@ public class VentanaCombate extends JPanel {
         this.add(jTextCombate);
         panelJugador.add(jLabelPJNombre);
         panelJugador.add(jLabelPJVida);
-        panelJugador.add(jLabelPJIndice);
         panelMonstruo.add(jLabelMONNombre);
         panelMonstruo.add(jLabelMONVida);
-        panelMonstruo.add(jLabelMONIndice);
         monstruoIMG = new ImagenPanel(200, 250, "src/Recursos/monstruos/" + combate.getMonNombre() + ".png");
         personajeIMG = new ImagenPanel(300, 297, "src/Recursos/batalla/guerrero.png");
         this.add(monstruoIMG);
@@ -133,9 +129,6 @@ public class VentanaCombate extends JPanel {
         jLabelPJVida.setBounds(10, 30, 230, 50);
         jLabelPJVida.setForeground(new Color(144, 144, 144));
         jLabelPJVida.setFont(new Font("Dialog", Font.BOLD, 14));
-        jLabelPJIndice.setBounds(10, 60, 230, 50);
-        jLabelPJIndice.setForeground(new Color(144, 144, 144));
-        jLabelPJIndice.setFont(new Font("Dialog", Font.BOLD, 14));
 
         panelMonstruo.setBounds(0, 0, 274, 100);
         panelMonstruo.setBackground(new Color(0, 0, 0, 144));
@@ -145,9 +138,7 @@ public class VentanaCombate extends JPanel {
         jLabelMONVida.setBounds(10, 30, 230, 50);
         jLabelMONVida.setForeground(new Color(144, 144, 144));
         jLabelMONVida.setFont(new Font("Dialog", Font.BOLD, 14));
-        jLabelMONIndice.setBounds(10, 60, 230, 50);
-        jLabelMONIndice.setForeground(new Color(144, 144, 144));
-        jLabelMONIndice.setFont(new Font("Dialog", Font.BOLD, 14));
+        
         jTextCombate.setBounds(10, 420, 400, 130);
         jTextCombate.setBackground(new Color(180, 180, 180, 140));
         jTextCombate.setForeground(Color.white);
@@ -169,10 +160,8 @@ public class VentanaCombate extends JPanel {
     public void setText() {
         jLabelPJNombre.setText(ControladorPrincipal.getSingleton().getPJNombre());
         jLabelPJVida.setText("Vida: " + combate.vidaPJActual() + " / " + combate.vidaPJTotal());
-        jLabelPJIndice.setText("Armadura: " + combate.indicePJActual() + "/" + combate.indicePJTotal());
         jLabelMONNombre.setText(combate.getMonNombre());
         jLabelMONVida.setText("Vida: " + combate.vidaMONActual() + " / " + combate.vidaMONTotal());
-        jLabelMONIndice.setText("Armadura: " + combate.indiceMONActual() + "/" + combate.indiceMONTotal());
     }
 
     /**

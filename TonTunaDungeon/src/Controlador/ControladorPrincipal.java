@@ -249,14 +249,6 @@ public class ControladorPrincipal {
         return inventario;
     }
 
-    public int getPJInArmAc() {
-        return personajeActual.getIndiceAr();
-    }
-
-    public int getPJInArm() {
-        return personajeActual.getArmadura().getIndiceArmadura();
-    }
-
     public Personaje getPJ() {
         return personajeActual;
     }

@@ -21,7 +21,7 @@ public class Personaje {
     ;
     private Arma arma = InputOutputBBDD.getSingleton().obtenerArma(1);
     ;
-    private int fuerza, destreza, constitucion, intelecto, vidaTotal, nivel, vidaActual, indiceAr = this.armadura.getIndiceArmadura();
+    private int fuerza, destreza, constitucion, intelecto, vidaTotal, nivel, vidaActual;
     private String descripcion, raza, nombre;
     private ArrayList<Arma> inventarioArma = new ArrayList();
     private ArrayList<Armadura> inventarioArmadura = new ArrayList();
@@ -339,9 +339,11 @@ public class Personaje {
      * @param indice
      * @return
      */
-    public Objeto usarObjeto(int indice) {
+    public Objeto usarObjeto(int indice, boolean consumir) {
         Objeto temporal = inventarioObjeto.get(indice);
-        inventarioObjeto.remove(indice);
+        if(consumir){
+            inventarioObjeto.remove(indice);
+        }
         return temporal;
     }
 
@@ -372,18 +374,6 @@ public class Personaje {
 
     public ArrayList<Armadura> getInventarioArmadura() {
         return inventarioArmadura;
-    }
-
-    public int getIndiceAr() {
-        return indiceAr;
-    }
-
-    public void setIndiceAr(int indiceAr) {
-        if (indiceAr >= 0) {
-            this.indiceAr = indiceAr;
-        } else {
-            this.indiceAr = 0;
-        }
     }
 
     public void setInventario(ArrayList<Objeto> obtenerObjeto) {

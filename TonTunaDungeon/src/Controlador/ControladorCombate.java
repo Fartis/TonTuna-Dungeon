@@ -152,20 +152,8 @@ public class ControladorCombate {
         return Integer.toString(monstruo.getIndiceAr());
     }
 
-    public String indiceMONTotal() {
-        return Integer.toString(monstruo.getArmadura().getIndiceArmadura());
-    }
-
     public String getMonNombre() {
         return monstruo.getNombre();
-    }
-
-    public String indicePJActual() {
-        return Integer.toString(personaje.getIndiceAr());
-    }
-
-    public String indicePJTotal() {
-        return Integer.toString(personaje.getArmadura().getIndiceArmadura());
     }
     
     private class CombateGanado extends JDialog {
