@@ -29,6 +29,6 @@ public abstract class Dado {
      * @return int
      */
     public static int aleatorioEntreDos(int inicio, int fin){
-        return (int) Math.floor(Math.random()*(fin-inicio+1)+fin);
+        return (int) Math.floor(Math.random()*(fin-inicio+1));
     }
 }
