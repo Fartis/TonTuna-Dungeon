@@ -339,9 +339,11 @@ public class Personaje {
      * @param indice
      * @return
      */
-    public Objeto usarObjeto(int indice) {
+    public Objeto usarObjeto(int indice, boolean consumir) {
         Objeto temporal = inventarioObjeto.get(indice);
-        inventarioObjeto.remove(indice);
+        if(consumir){
+            inventarioObjeto.remove(indice);
+        }
         return temporal;
     }
 

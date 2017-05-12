@@ -218,6 +218,15 @@ public class ControladorPrincipal {
     public void añadirObjetoPersonaje(Objeto nuevo) {
         personajeActual.añadirObjeto(nuevo);
     }
+    
+    public void usarObjeto(int indice){
+        Objeto temporal = personajeActual.usarObjeto(indice, false);
+        switch (temporal.getTipo()){
+            case 1:
+                personajeActual.setVidaActual(personajeActual.getVidaActual()+temporal.getValor());
+                break;
+        }
+    }
 
     public void reiniciarJuego() {
         this.personajeActual = new Personaje();
