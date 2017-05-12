@@ -213,6 +213,7 @@ public class ControladorPrincipal {
      */
     public void subirNivelPJ(int caracteristica) {
         personajeActual.subirNivel(caracteristica);
+        
     }
 
     public void añadirObjetoPersonaje(Objeto nuevo) {
@@ -285,6 +286,12 @@ public class ControladorPrincipal {
             modelo.addRow(info.get(i));
         }
         return modelo;
+    }
+
+    public void siguienteNivel() {
+        ControladorMazmorra.getSingleton().reiniciarPosicion();
+        ControladorGUI.getSingleton().menuSubirNivel();
+        this.nivelActual++;
     }
 
 }

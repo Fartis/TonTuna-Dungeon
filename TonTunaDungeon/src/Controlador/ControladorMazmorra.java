@@ -234,5 +234,10 @@ public class ControladorMazmorra {
     public ArrayList<Habitacion[][]> getMazmorra(){
         return mazmorra;
     }
+    
+    public void reiniciarPosicion(){
+        this.xActual = 4;
+        this.yActual = 4;
+    }
 
 }

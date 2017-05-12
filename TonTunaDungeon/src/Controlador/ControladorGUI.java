@@ -12,6 +12,7 @@ import Vista.Elementos.VentanaLogo;
 import Vista.Elementos.VentanaMazmorra;
 import Vista.Elementos.VentanaMensajeNuevaPartida;
 import Vista.Elementos.VentanaNuevaPartida;
+import Vista.Elementos.VentanaSubirNivel;
 import Vista.JFramePrincipal;
 import javax.swing.JFrame;
 
@@ -28,7 +29,8 @@ public class ControladorGUI {
             cargarPar = null,
             mensajeInicio = null,
             ventanaMazmorra = null,
-            ventanaCombate = null;
+            ventanaCombate = null,
+            ventanaSubirNivel = null;
 
     /**
      * Constructor por defecto de la interfaz grafica
@@ -179,6 +181,22 @@ public class ControladorGUI {
         }
         carga.setPadre(cargarPar);
     }
+    
+    
+
+    void menuSubirNivel() {        
+        boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
+        ocultar();
+        ReproductorMusica.getSingleton().pararMusica();
+        reproducirMusica("src/Recursos/combate.mp3", musica);
+        VentanaSubirNivel subir = new VentanaSubirNivel();
+        if(ventanaSubirNivel == null){
+            ventanaSubirNivel = new JFramePrincipal(subir);
+        }else{
+            ventanaSubirNivel.createAndShowUI(subir);
+        }
+        subir.setPadre(ventanaSubirNivel);
+    }
     /**
      * Metodo para comprobar ventanas ocultas y mostradas
      */
@@ -200,6 +218,9 @@ public class ControladorGUI {
         }
         if (ventanaCombate != null) {
             ventanaCombate.visible(false);
+        }
+        if (ventanaSubirNivel != null) {
+            ventanaSubirNivel.visible(false);
         }
     }
 }

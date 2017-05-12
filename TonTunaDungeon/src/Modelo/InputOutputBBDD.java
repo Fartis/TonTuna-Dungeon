@@ -450,7 +450,7 @@ public class InputOutputBBDD {
             int intelecto = Integer.parseInt(rs.getString("intelecto"));
             String nombre = rs.getString("nombre");
             String descripcion = rs.getString("descripcion");
-            Armadura armadura = obtenerArmadura(Dado.lanza(nivel));
+            Armadura armadura = obtenerArmadura(nivel);
             Arma arma = obtenerArma(Dado.lanza(nivel));
             Monstruo monstruo = new Monstruo(fuerza, destreza, constitucion, intelecto, nombre, descripcion, armadura, arma);
             con.close();
