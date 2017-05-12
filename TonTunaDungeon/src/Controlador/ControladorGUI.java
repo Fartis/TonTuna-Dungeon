@@ -190,12 +190,12 @@ public class ControladorGUI {
         ReproductorMusica.getSingleton().pararMusica();
         reproducirMusica("src/Recursos/combate.mp3", musica);
         VentanaSubirNivel subir = new VentanaSubirNivel();
-        if(ventanaCombate == null){
-            ventanaCombate = new JFramePrincipal(subir);
+        if(ventanaSubirNivel == null){
+            ventanaSubirNivel = new JFramePrincipal(subir);
         }else{
-            ventanaCombate.createAndShowUI(subir);
+            ventanaSubirNivel.createAndShowUI(subir);
         }
-        subir.setPadre(ventanaCombate);
+        subir.setPadre(ventanaSubirNivel);
     }
     /**
      * Metodo para comprobar ventanas ocultas y mostradas
@@ -218,6 +218,9 @@ public class ControladorGUI {
         }
         if (ventanaCombate != null) {
             ventanaCombate.visible(false);
+        }
+        if (ventanaSubirNivel != null) {
+            ventanaSubirNivel.visible(false);
         }
     }
 }
