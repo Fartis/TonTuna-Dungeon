@@ -43,18 +43,24 @@ public class VentanaSubirNivel extends JPanel {
         });
         jButtonDestreza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLogrosActionPerformed(evt);
+                jButtonDestrezaActionPerformed(evt);
             }
         });
         jButtonIntelecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirActionPerformed(evt);
+                jButtonIntelectoActionPerformed(evt);
+            }
+        });
+        jButtonConstitucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConstitucionActionPerformed(evt);
             }
         });
 
         this.add(jButtonFuerza);
         this.add(jButtonDestreza);
         this.add(jButtonIntelecto);
+        this.add(jButtonConstitucion);
 
     }
     /**
@@ -70,10 +76,6 @@ public class VentanaSubirNivel extends JPanel {
      * @param evt 
      */
     private void jButtonFuerzaActionPerformed(java.awt.event.ActionEvent evt){
-        // TODO add your handling code here:
-        ControladorGUI.getSingleton().menuNuevaPartida();
-        this.setVisible(false);
-        padre.dispose();      
         
     }
 
@@ -82,30 +84,21 @@ public class VentanaSubirNivel extends JPanel {
      * @param evt 
      */
     private void jButtonDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        ControladorGUI.getSingleton().cargarPartida();
-        this.setVisible(false);
-        padre.dispose();
+        
     }
     /**
      * Metodo para el evento del boton cargar
      * @param evt 
      */
     private void jButtonIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        ControladorGUI.getSingleton().cargarPartida();
-        this.setVisible(false);
-        padre.dispose();
+        
     }
     /**
      * Metodo para el evento del boton cargar
      * @param evt 
      */
     private void jButtonConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        ControladorGUI.getSingleton().cargarPartida();
-        this.setVisible(false);
-        padre.dispose();
+        
     }
 
     /**
