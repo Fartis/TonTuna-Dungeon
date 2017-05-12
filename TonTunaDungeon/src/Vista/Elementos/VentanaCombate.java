@@ -9,12 +9,15 @@ import Controlador.ControladorCombate;
 import Controlador.ControladorGUI;
 import Controlador.ControladorPrincipal;
 import Modelo.Dado;
+import Modelo.Inventario.Objeto;
 import Vista.JFramePrincipal;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -106,7 +109,6 @@ public class VentanaCombate extends JPanel {
     private void jButtonObjetoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         Mochila mochila = new Mochila(padre);
-        escribirTexto(mochila.getName() + " seleccionado");
     }
 
     /**
@@ -169,7 +171,7 @@ public class VentanaCombate extends JPanel {
      * @param linea
      */
     public void escribirTexto(String linea) {
-        if (jTextCombate.getLineCount() == 9) {
+        if (jTextCombate.getLineCount() == 8) {
             int end = 0;
             try {
                 end = jTextCombate.getLineEndOffset(0);
@@ -209,10 +211,20 @@ public class VentanaCombate extends JPanel {
             lista.setBounds(200, 20, 180, 240);
             lista.setModel(modelo);
             panel.add(lista);
+            jButtonObjeto.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    if(!lista.isSelectionEmpty()){
+                        escribirTexto((String) lista.getSelectedValue()+" seleccionado");
+                    }
+                    padre.dispose();
+                }
+            });
+            panel.add(jButtonObjeto);
             lista.setVisible(true);
             this.add(panel);
             panel.setVisible(true);
             setVisible(true);
+            
         }
     }
 
