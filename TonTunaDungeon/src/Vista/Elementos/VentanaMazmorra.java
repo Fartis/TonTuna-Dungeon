@@ -74,8 +74,7 @@ public class VentanaMazmorra extends JPanel {
         this.add(jButtonEquipo);
         this.add(jButtonMochila);
         this.add(jLabelNombre);
-        this.add(jLabelVida);
-        ControladorMazmorra.getSingleton().generarPiso();
+            this.add(jLabelVida);
         jMapa.pintarMapa();
 
         escribirTexto(ControladorPrincipal.getSingleton().getPJNombre()

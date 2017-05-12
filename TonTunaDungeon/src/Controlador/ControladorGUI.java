@@ -124,6 +124,7 @@ public class ControladorGUI {
      * Metodo para gestionar la ventana de mazmorra
      */
     public void ventanaMazmorra() {
+        ControladorMazmorra.getSingleton().generarPiso();
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
         ReproductorMusica.getSingleton().pararMusica();

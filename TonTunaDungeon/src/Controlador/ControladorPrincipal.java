@@ -213,6 +213,7 @@ public class ControladorPrincipal {
      */
     public void subirNivelPJ(int caracteristica) {
         personajeActual.subirNivel(caracteristica);
+        personajeActual.setVidaActual(personajeActual.getVidaTotal());
         
     }
 

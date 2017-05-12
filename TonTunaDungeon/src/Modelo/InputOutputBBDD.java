@@ -264,7 +264,7 @@ public class InputOutputBBDD {
             PreparedStatement consulta = con.prepareStatement("select * from arma where nivel=" + nivel + ";");
             ResultSet rs = consulta.executeQuery();
             rs.next();
-            for (int i = 0; i < (Dado.lanza(3) * nivel) - 1; i++) {
+            for (int i = 0; i < (Dado.lanza(3)) - 1; i++) {
                 rs.next();
             }
             int tipo = 0;
@@ -397,7 +397,7 @@ public class InputOutputBBDD {
             PreparedStatement consulta = con.prepareStatement("select * from armadura where nivel=" + nivel + ";");
             ResultSet rs = consulta.executeQuery();
             rs.next();
-            for (int i = 0; i < (Dado.lanza(2) * nivel) - 1; i++) {
+            for (int i = 0; i < (Dado.lanza(2)) - 1; i++) {
                 rs.next();
             }
             Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
@@ -451,7 +451,7 @@ public class InputOutputBBDD {
             String nombre = rs.getString("nombre");
             String descripcion = rs.getString("descripcion");
             Armadura armadura = obtenerArmadura(nivel);
-            Arma arma = obtenerArma(Dado.lanza(nivel));
+            Arma arma = obtenerArma(nivel);
             Monstruo monstruo = new Monstruo(fuerza, destreza, constitucion, intelecto, nombre, descripcion, armadura, arma);
             con.close();
             return monstruo;

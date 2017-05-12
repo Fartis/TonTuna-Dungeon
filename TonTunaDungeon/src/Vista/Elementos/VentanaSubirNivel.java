@@ -15,10 +15,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 
 /**
@@ -94,7 +91,6 @@ public class VentanaSubirNivel extends JPanel {
      */
     private void jButtonFuerzaActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorPrincipal.getSingleton().subirNivelPJ(1);
-        ControladorMazmorra.getSingleton().generarPiso();
         ControladorMazmorra.getSingleton().reiniciarPosicion();
         ControladorGUI.getSingleton().ventanaMazmorra();
     }
@@ -106,7 +102,6 @@ public class VentanaSubirNivel extends JPanel {
      */
     private void jButtonDestrezaActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorPrincipal.getSingleton().subirNivelPJ(2);
-        ControladorMazmorra.getSingleton().generarPiso();
         ControladorMazmorra.getSingleton().reiniciarPosicion();
         ControladorGUI.getSingleton().ventanaMazmorra();
     }
@@ -118,7 +113,6 @@ public class VentanaSubirNivel extends JPanel {
      */
     private void jButtonIntelectoActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorPrincipal.getSingleton().subirNivelPJ(3);
-        ControladorMazmorra.getSingleton().generarPiso();
         ControladorMazmorra.getSingleton().reiniciarPosicion();
         ControladorGUI.getSingleton().ventanaMazmorra();
     }
@@ -130,30 +124,10 @@ public class VentanaSubirNivel extends JPanel {
      */
     private void jButtonConstitucionActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorPrincipal.getSingleton().subirNivelPJ(4);
-        ControladorMazmorra.getSingleton().generarPiso();
         ControladorMazmorra.getSingleton().reiniciarPosicion();
         ControladorGUI.getSingleton().ventanaMazmorra();
     }
 
-    /**
-     * Metodo para el evento del boton logros
-     *
-     * @param evt
-     */
-    private void jButtonLogrosActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Tranquilidad, ésta opción aún no está completada", "EN CONSTRUCCIÓN", JOptionPane.ERROR_MESSAGE);
-    }
-
-    /**
-     * Metodo para el evento del boton salir
-     *
-     * @param evt
-     */
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        System.exit(0);
-    }
 
     @Override
     public void paintComponent(Graphics g) {
