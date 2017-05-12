@@ -400,7 +400,7 @@ public class InputOutputBBDD {
             for (int i = 0; i < (Dado.lanza(2) * nivel) - 1; i++) {
                 rs.next();
             }
-            Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), Integer.parseInt(rs.getString("indice")), rs.getString("descripcion"));
+            Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
             con.close();
             return armadura;
         } catch (SQLException e) {
@@ -420,7 +420,7 @@ public class InputOutputBBDD {
             PreparedStatement consulta = con.prepareStatement("select * from armadura where nombre=\"" + nombre + "\";");
             ResultSet rs = consulta.executeQuery();
             rs.next();
-            Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), Integer.parseInt(rs.getString("indice")), rs.getString("descripcion"));
+            Armadura armadura = new Armadura(rs.getString("nombre"), Integer.parseInt(rs.getString("bonificador")), rs.getString("descripcion"));
             con.close();
             return armadura;
         } catch (SQLException e) {

@@ -232,7 +232,7 @@ public class VentanaMazmorra extends JPanel {
     private void jButtonMochilaActionPerformed(java.awt.event.ActionEvent evt) {
         Mochila mochila = new Mochila(padre);
     }
-    
+
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorPrincipal.getSingleton().guardarPartida();
     }
@@ -320,6 +320,10 @@ public class VentanaMazmorra extends JPanel {
             panel.setVisible(true);
             setVisible(true);
         }
+
+        public void paintComponent(Graphics g) {
+            g.drawImage(image, 0, 0, 800, 600, this);
+        }
     }
 
     private class Mochila extends JDialog {
@@ -328,11 +332,13 @@ public class VentanaMazmorra extends JPanel {
             super(padre, true);
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
+            DefaultListModel modelo;
+            JList lista;
             ImagenPanel panel = new ImagenPanel(200, 180, "src/Recursos/mochila.gif");
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));
-            JList lista = new JList();
-            DefaultListModel modelo = new DefaultListModel();
+            lista = new JList();
+            modelo = new DefaultListModel();
             String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
             for (int i = 0; i < listaObjetos.length; i++) {
                 modelo.add(i, listaObjetos[i]);
@@ -344,7 +350,9 @@ public class VentanaMazmorra extends JPanel {
             this.add(panel);
             panel.setVisible(true);
             setVisible(true);
+
         }
+
     }
 
     private class Guardar extends JDialog {
