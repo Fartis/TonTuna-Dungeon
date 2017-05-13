@@ -10,6 +10,7 @@ import Controlador.ControladorGUI;
 import Controlador.ControladorPrincipal;
 import Modelo.Dado;
 import Modelo.Inventario.Objeto;
+import Modelo.Personaje;
 import Vista.JFramePrincipal;
 import java.awt.Color;
 import java.awt.Font;
@@ -108,7 +109,7 @@ public class VentanaCombate extends JPanel {
      */
     private void jButtonObjetoActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        Mochila mochila = new Mochila(padre);
+        Mochila mochila = new Mochila(padre, this);
     }
 
     /**
@@ -192,9 +193,10 @@ public class VentanaCombate extends JPanel {
      * Clase privada para mostrar el menu de mochila en combate
      */
     private class Mochila extends JDialog {
-
-        public Mochila(JFramePrincipal padre) {
+        VentanaCombate vCombate;
+        public Mochila(JFramePrincipal padre, VentanaCombate vCombate) {
             super(padre, true);
+            this.vCombate = vCombate;
             this.setLayout(null);
             this.setBounds(0, 0, 400, 280);
             ImagenPanel panel = new ImagenPanel(200, 180, "src/Recursos/mochila.gif");
@@ -214,6 +216,7 @@ public class VentanaCombate extends JPanel {
             jButtonObjeto.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     if(!lista.isSelectionEmpty()){
+                        combate.usarObjeto(lista.getSelectedIndex(), true, vCombate);
                         escribirTexto((String) lista.getSelectedValue()+" seleccionado");
                     }
                     padre.dispose();
