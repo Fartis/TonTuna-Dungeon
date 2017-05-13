@@ -29,10 +29,6 @@ public abstract class Dado {
      * @return int
      */
     public static int aleatorioEntreDos(int inicio, int fin){
-        if(inicio>0 && inicio<fin) {
-            return (int) Math.floor(Math.random()*(fin-inicio+1)+inicio);
-        } else {
-            throw new IllegalArgumentException("Rango no valido.");
-        }
+        return (int) Math.floor(Math.random()*(fin-inicio+1));
     }
 }
