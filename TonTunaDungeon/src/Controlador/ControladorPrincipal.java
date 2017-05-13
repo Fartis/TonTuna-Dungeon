@@ -290,9 +290,13 @@ public class ControladorPrincipal {
     }
 
     public void siguienteNivel() {
-        ControladorMazmorra.getSingleton().reiniciarPosicion();
-        ControladorGUI.getSingleton().menuSubirNivel();
-        this.nivelActual++;
+        if(nivelActual >= 8){
+            ControladorMazmorra.getSingleton().reiniciarPosicion();
+            ControladorGUI.getSingleton().menuSubirNivel();
+            this.nivelActual++;
+        } else {
+            ControladorGUI.getSingleton().menuMensajeFinPartida();
+        }
     }
 
 }

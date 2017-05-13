@@ -10,6 +10,7 @@ import Vista.Elementos.VentanaCargar;
 import Vista.Elementos.VentanaCombate;
 import Vista.Elementos.VentanaLogo;
 import Vista.Elementos.VentanaMazmorra;
+import Vista.Elementos.VentanaMensajeFinalPartida;
 import Vista.Elementos.VentanaMensajeNuevaPartida;
 import Vista.Elementos.VentanaNuevaPartida;
 import Vista.Elementos.VentanaSubirNivel;
@@ -30,7 +31,8 @@ public class ControladorGUI {
             mensajeInicio = null,
             ventanaMazmorra = null,
             ventanaCombate = null,
-            ventanaSubirNivel = null;
+            ventanaSubirNivel = null,
+            mensajeFin = null;
 
     /**
      * Constructor por defecto de la interfaz grafica
@@ -223,5 +225,20 @@ public class ControladorGUI {
         if (ventanaSubirNivel != null) {
             ventanaSubirNivel.visible(false);
         }
+        if (mensajeFin != null) {
+            mensajeFin.visible(false);
+        }
+    }
+
+    void menuMensajeFinPartida() {
+        boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
+        ocultar();
+        VentanaMensajeFinalPartida menuMensaje = new VentanaMensajeFinalPartida();
+        if (mensajeFin == null) {
+            mensajeFin = new JFramePrincipal(menuMensaje);
+        } else {
+            mensajeFin.createAndShowUI(menuMensaje);
+        }
+        menuMensaje.setPadre(mensajeFin);
     }
 }
