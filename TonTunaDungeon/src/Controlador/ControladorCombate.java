@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.InputOutputBBDD;
 import Modelo.Dado;
+import Modelo.Inventario.Objeto;
 import Modelo.Monstruo;
 import Modelo.Personaje;
 import Vista.Elementos.VentanaCombate;
@@ -111,8 +112,32 @@ public class ControladorCombate {
     }
     
     
-    public void usarObjeto(int indice, boolean consumir) {
-        personaje.usarObjeto(indice, consumir);
+    public void usarObjeto(int indice, boolean consumir, VentanaCombate texto) {
+        Objeto objeto = personaje.usarObjeto(indice, consumir);
+        switch(objeto.getTipo()){
+            case 1:
+                personaje.setVidaActual(personaje.getVidaActual()+objeto.getValor());
+                
+                texto.escribirTexto("Has usado "+objeto.getNombre()+" y te has recuperado "+objeto.getValor()+" puntos de vitalidad.");
+                break;
+            case 2:
+                if( objeto.getNombre().contains("Fuerza")){
+                    bonFuerza = objeto.getValor();
+                }
+                if( objeto.getNombre().contains("Destreza")){
+                    bonDestreza = objeto.getValor();
+                }
+                if( objeto.getNombre().contains("Intelecto")){
+                    bonIntelecto = objeto.getValor();
+                }                
+                texto.escribirTexto("Has usado "+objeto.getNombre()+".");
+                break;
+            case 3: 
+                monstruo.setVidaActual(monstruo.getVidaActual()- objeto.getValor());
+                texto.escribirTexto("Le has hecho: "+objeto.getValor()+" de daño");
+                if(!fin) comprobarFin(texto);
+                break;
+        }
     }
     
     /**
