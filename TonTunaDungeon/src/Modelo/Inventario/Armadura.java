@@ -14,10 +14,10 @@ public class Armadura {
     private String nombre, descripcion;
     /**
      * Constructor Armadura
-     * @param nombre
-     * @param bonificador
-     * @param indice
-     * @param descripcion 
+     * @param nombre String del nombre de la armadura
+     * @param bonificador entero bonificador de la armadura
+     * @param indice int indice de la armadura
+     * @param descripcion String descripcion de la armadura
      */
     public Armadura(String nombre, int bonificador, String descripcion){
         this.nombre=nombre;
@@ -35,7 +35,7 @@ public class Armadura {
 
     /**
      * Metodo introduce la bonificacion de la armadura
-     * @param bonificador 
+     * @param bonificador entero bonificador de la armadura
      */
     public void setBonificador(int bonificador) {
         this.bonificador = bonificador;
@@ -51,7 +51,7 @@ public class Armadura {
 
     /**
      * Metodo introduce nombre de armadura
-     * @param nombre 
+     * @param nombre string del nombre de la armadura
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -67,7 +67,7 @@ public class Armadura {
 
     /**
      * Metodo introduce la descripcion de la armadura
-     * @param descripcion 
+     * @param descripcion string de la descripcion de la armadura
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;

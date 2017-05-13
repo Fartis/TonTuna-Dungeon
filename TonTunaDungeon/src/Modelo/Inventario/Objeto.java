@@ -8,6 +8,8 @@ package Modelo.Inventario;
 /**
  * Clase para gestionar los objetos
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Jose Gonzalez Rodriguez
  */
 public class Objeto {
     private String nombre, descripcion;
@@ -21,10 +23,10 @@ public class Objeto {
 
     /**
      * Constructor del objeto
-     * @param nombre
-     * @param descripcion
-     * @param valor
-     * @param tipo 
+     * @param nombre String del nombre del objeto
+     * @param descripcion String de la descripcion del objeto
+     * @param valor entero del valor del objeto
+     * @param tipo entero del tipo de objeto
      */
     public Objeto(String nombre, String descripcion, int valor, int tipo) {
         this.nombre = nombre;
@@ -43,7 +45,7 @@ public class Objeto {
 
     /**
      * Metodo introduce el nombre del objeto
-     * @param nombre 
+     * @param nombre string nombre del objeto
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -59,7 +61,7 @@ public class Objeto {
 
     /**
      * Metodo introduce descripcion del objeto
-     * @param descripcion 
+     * @param descripcion string descripcion del objeto
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
@@ -75,7 +77,7 @@ public class Objeto {
 
     /**
      * Metodo introduce valor del objeto
-     * @param valor 
+     * @param valor entero con el valor del objeto
      */
     public void setValor(int valor) {
         this.valor = valor;
@@ -91,7 +93,7 @@ public class Objeto {
 
     /**
      * Metodo introduce el tipo del objeto
-     * @param tipo 
+     * @param tipo entero del tipo de objeto
      */
     public void setTipo(int tipo) {
         this.tipo = tipo;

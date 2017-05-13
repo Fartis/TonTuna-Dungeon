@@ -22,6 +22,8 @@ import javax.swing.JTextArea;
  * Clase que gestiona la ventana o panel del menu principal del juego
  *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Jose Gonzalez Rodriguez
  */
 public class VentanaSubirNivel extends JPanel {
 
@@ -76,9 +78,9 @@ public class VentanaSubirNivel extends JPanel {
     }
 
     /**
-     * Metodo
+     * Metodo que establece el JFramePrincipal que contiene a VentanaSubirNivel
      *
-     * @param padre
+     * @param padre JFramePrincipal contenedor
      */
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;
