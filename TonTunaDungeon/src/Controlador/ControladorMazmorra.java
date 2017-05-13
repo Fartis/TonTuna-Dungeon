@@ -22,13 +22,14 @@ import java.io.File;
  * Clase para gestionar la mazmorra
  *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class ControladorMazmorra {
 
     private static ArrayList<Habitacion[][]> mazmorra;
     private static ControladorMazmorra singleton = null;
     private int xActual = 4, yActual = 4;
-    
 
     /**
      * Metodo constructor de mazmorra
@@ -38,7 +39,7 @@ public class ControladorMazmorra {
     }
 
     /**
-     * método para reiniciar la mazmorra
+     * Método para reiniciar la mazmorra
      */
     public void reiniciarMazmorra() {
         this.mazmorra = new ArrayList<>();
@@ -47,9 +48,9 @@ public class ControladorMazmorra {
     }
 
     /**
-     * Metodo singleton de la mazmorra
+     * Metodo singleton de la clase ControladorMazmorra
      *
-     * @return
+     * @return singleton de la clase ControladorMazmorra
      */
     public static ControladorMazmorra getSingleton() {
         if (singleton == null) {
@@ -59,9 +60,10 @@ public class ControladorMazmorra {
     }
 
     /**
-     * método para generar un piso de la mazmorra desde un archivo xml
+     * Método para generar un piso de la mazmorra desde un archivo xml
      *
-     * @return
+     * @return Matríz de instancias de la clase Habitación, este se utilizara
+     * para el juego.
      * @throws ParserConfigurationException
      * @throws IOException
      * @throws SAXException
@@ -111,7 +113,8 @@ public class ControladorMazmorra {
     }
 
     /**
-     * Metodo para generar piso de la mazmorra
+     * Metodo para generar piso de la mazmorra, este llama al metodo
+     * rellenarPiso()
      */
     public void generarPiso() {
         try {
@@ -122,9 +125,12 @@ public class ControladorMazmorra {
     }
 
     /**
-     * método para obtener la información del mapa
+     * Método para obtener la información del mapa
      *
-     * @return
+     * @return Vector int con valores del 0 al 4, 0 = habitación vacia, 1 =
+     * habitación normal (posibilidad de que contenga monstruo), 2= Habitación
+     * con tesoro, 3 = Habitación con posibilidad de guadado, 4 = Habitación con
+     * escalera que permite avanzar al siguiente piso.
      */
     public int[] infoMapa() {
         int[] info = new int[100];
@@ -141,11 +147,11 @@ public class ControladorMazmorra {
     }
 
     /**
-     * método para cambiar la posición del personaje dentro de la mazmorra 1
+     * Método para cambiar la posición del personaje dentro de la mazmorra 1
      * arriba, 2 abajo, 3 derecha, 4 izquierda
      *
-     * @param direccion
-     * @return
+     * @param direccion 1 arriba, 2 abajo, 3 derecha, 4 izquierda
+     * @return int 1 arriba, 2 abajo, 3 derecha, 4 izquierda
      */
     public int moverPersonaje(int direccion) {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
@@ -169,31 +175,20 @@ public class ControladorMazmorra {
     }
 
     /**
-     * método para obtener la posición actual del personaje dentro de la
+     * Método para obtener la posición actual del personaje dentro de la
      * mazmorra
      *
-     * @return
+     * @return int posicionActual.
      */
     public int posicionActual() {
         return (xActual * 10) + yActual;
     }
 
     /**
-     * Metodo que devuelve el tipo de la habitación en la posicion que este el
-     * personaje.
-     *
-     * @return
-     */
-    public int infoHabitacion() {
-        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
-        return temporal[xActual][yActual].getTipo();
-    }
-
-    /**
      * Metodo que retorna una descripcion de la habitación según su tipo y que
      * lee una de entre varias descripciones de un .txt
      *
-     * @return
+     * @return String descripcionHabitacion
      */
     public String descripcionHabitacion() {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
@@ -201,18 +196,7 @@ public class ControladorMazmorra {
     }
 
     /**
-     * Metodo que devuelve la descripción en la habitación en la que este el
-     * personaje.
-     *
-     * @return
-     */
-    public String getDescHabitacion() {
-        Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
-        return temporal[xActual][yActual].getDescripcion();
-    }
-
-    /**
-     *
+     * Método que inicializa el combate de manera automatica al entrar en una habitación.
      */
     public void getEventoHabitacion() {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
@@ -225,17 +209,34 @@ public class ControladorMazmorra {
         }
         mazmorra.set(ControladorPrincipal.getSingleton().getNivelActual(), temporal);
     }
+
     
-    public int getTipoHabitacion(){
+    /**
+     * Metodo que devuelve el tipo de la habitación en la posicion que este el
+     * personaje.
+     *
+     * @return entero con el tipo de la habitación; 1 =
+     * habitación normal (posibilidad de que contenga monstruo), 2= Habitación
+     * con tesoro, 3 = Habitación con posibilidad de guadado, 4 = Habitación con
+     * escalera que permite avanzar al siguiente piso.
+     */
+    public int getTipoHabitacion() {
         Habitacion[][] temporal = mazmorra.get(ControladorPrincipal.getSingleton().getNivelActual());
         return temporal[xActual][yActual].getTipo();
     }
-    
-    public ArrayList<Habitacion[][]> getMazmorra(){
+
+    /**
+     * Metodo para obtener el ArrayList Mazmorra, este tiene los pisos generados por la partida.
+     * @return ArrayList Mazmorra.
+     */
+    public ArrayList<Habitacion[][]> getMazmorra() {
         return mazmorra;
     }
-    
-    public void reiniciarPosicion(){
+
+    /**
+     * Metodo para establecer la posicion al punto inicial de todos los pisos.
+     */
+    public void reiniciarPosicion() {
         this.xActual = 4;
         this.yActual = 4;
     }

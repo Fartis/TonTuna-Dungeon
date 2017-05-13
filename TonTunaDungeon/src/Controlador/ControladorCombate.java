@@ -20,6 +20,8 @@ import javax.swing.JDialog;
  * Clase controla el combate de la aplicacion
  *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class ControladorCombate {
 
@@ -30,13 +32,15 @@ public class ControladorCombate {
     private JFramePrincipal padrej;
     private boolean fin = false;
     
-
+    /**
+     * Constructor clase ControladorCombate
+     */
     public ControladorCombate() {
     }
 
     /**
-     * Metodo establece el texto de las acciones de combate
-     * @param texto 
+     * Método establece el texto de las acciones de combate
+     * @param texto Instancia de VentanaCombate que ha creado el controlador.
      */
     public void accionAtaque( VentanaCombate texto) {
         int dado = Dado.lanza(2);
@@ -50,16 +54,10 @@ public class ControladorCombate {
     }
 
     /**
-     * Metodo para establecer la accion ataque del combate
-     *
-     * @param atr
-     * @param wep
-     * @param obj
-     * @param con
-     * @param def
-     * @param bon2
-     * @param obj2
-     * @return
+     * Método ataque, este hace que el personaje o el monstruo resulte afectado por un ataque.
+     * @param tipoArma Indica que tipo de arma ataca; 1 = Fuerza, 2 = Destreza, 3 = Intelecto.
+     * @param objetivo Booleano para indicar quien ataca; true = personaje, false = monstruo
+     * @param texto Instancia de VentanaCombate para añadir el texto del resultado.
      */
     private void ataque(int tipoArma, boolean objetivo, VentanaCombate texto) {
         if (objetivo) {
@@ -111,7 +109,12 @@ public class ControladorCombate {
         if(!fin) comprobarFin(texto);
     }
     
-    
+    /**
+     * Método usarObjeto, este metodo permite utilizar un objeto por parte del personaje.
+     * @param indice Indica que objeto utiliza de la lista del inventario.
+     * @param consumir Booleano que indica si el objeto se consume o permanece en el inventario; true = desaparece, false = se mantiene.
+     * @param texto Instancia de VentanaCombate para añadir el texto del resultado.
+     */
     public void usarObjeto(int indice, boolean consumir, VentanaCombate texto) {
         Objeto objeto = personaje.usarObjeto(indice, consumir);
         switch(objeto.getTipo()){
@@ -141,7 +144,8 @@ public class ControladorCombate {
     }
     
     /**
-     * Metodo para comprobar si el combate ha finalizado
+     * Metodo que comprueba si el personaje o el monstruo tiene vida igual o inferior a 0 para finalizar el combate.
+     * @param padre Instancia de VentanaCombate para mostrar el resultado en él.
      */
     private void comprobarFin(VentanaCombate padre){
         if(personaje.getVidaActual()<=0){
@@ -158,33 +162,57 @@ public class ControladorCombate {
         }
     }
     
+    /**
+     * Método que retorna la vida actual del personaje.
+     * @return int vidaPJActual
+     */
     public int vidaPJActual(){
         return personaje.getVidaActual();
     }
     
+    /**
+     * Método que retorna la vida total del personaje.
+     * @return int vidaPJTotal
+     */
     public int vidaPJTotal(){
         return personaje.getVidaTotal();
     }
     
+    /**
+     * Método que retorna la vida actual del monstruo.
+     * @return int vidaMONActual
+     */
     public int vidaMONActual(){
         return monstruo.getVidaActual();
     }
     
+    /**
+     * Método que retorna la vida total del monstruo.
+     * @return int vidaMONTotal
+     */
     public int vidaMONTotal(){
         return monstruo.getVida();
     }
 
-    public String indiceMONActual() {
-        return Integer.toString(monstruo.getIndiceAr());
-    }
-
+    /**
+     * Método que retorna el nombre del monstruo generado para el combate.
+     * @return String MonstruoNombre
+     */
     public String getMonNombre() {
         return monstruo.getNombre();
     }
     
+    /**
+     * Inner Class ComabateGanado, es una clase hija de JDialog que muestra el resultado del combate a favor de la vitoria.
+     */
     private class CombateGanado extends JDialog {
-        JFramePrincipal padre;
-        ImagenPanel panel;
+        private JFramePrincipal padre;
+        private ImagenPanel panel;
+        
+        /**
+         * Constructor de la clase CombateGanado
+         * @param padre Instancia del JFramePrincipal que contiene a VentanaCombate para finalizar el combate.
+         */
         public CombateGanado(JFramePrincipal padre) {
             super(padre, true);
             boolean pulsado = false;
@@ -201,9 +229,17 @@ public class ControladorCombate {
         } 
     }
     
+    /**
+     * Inner Class ComabatePerdido, es una clase hija de JDialog que muestra el resultado del combate a favor de la derrota.
+     */
     private class CombatePerdido extends JDialog {
-        JFramePrincipal padre;
-        ImagenPanel panel;
+        private JFramePrincipal padre;
+        private ImagenPanel panel;
+        
+        /**
+         * Constructor de la clase CombatePerdido
+         * @param padre Instancia del JFramePrincipal que contiene a VentanaCombate para finalizar el combate.
+         */
         public CombatePerdido(JFramePrincipal padre) {
             super(padre, true);
             boolean pulsado = false;

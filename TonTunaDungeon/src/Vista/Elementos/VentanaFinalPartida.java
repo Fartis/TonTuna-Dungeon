@@ -24,34 +24,27 @@ import javax.swing.JTextField;
  *
  * @author Manuel David Villalba Escamilla
  */
-public class VentanaMensajeFinalPartida extends JPanel {
+public class VentanaFinalPartida extends JPanel {
 
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/trovador.gif");
-    JButton jButtonIniciar = new JButton("Alle voy");
+    JButton jButtonFin = new JButton("Fin");
     JPanel filtro = new JPanel();
-    JTextArea mensajeInicio = new JTextArea("\"Enhorabuena caballero,\n"
-            + "vos habeis conseguido\n"
-            + "un grandioso tesoro,\n"
-            + "que es completar este\n"
-            + "misterioso juego.\n"
-            + "Pero esto no es suficiente\n"
-            + "mas peligros os acecha\n"
-            + "en las siguientes aventuras.\n");
-    JTextArea mensajeFirmado = new JTextArea("See you, Dungeon Crawler.");
+    JTextArea mensajeInicio = new JTextArea("\"CONGRATULATION\n Has finalizado el juego.");
+    JTextArea mensajeFirmado = new JTextArea("See you next mission, Dungeon Crawler.");
     JFramePrincipal padre;
 
     /**
      *
      */
-    public VentanaMensajeFinalPartida() {
-        jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
+    public VentanaFinalPartida() {
+        jButtonFin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarActionPerformed(evt);
             }
         });
 
         this.add(filtro);
-        filtro.add(jButtonIniciar);
+        filtro.add(jButtonFin);
         filtro.add(mensajeInicio);
         filtro.add(mensajeFirmado);
     }
@@ -66,7 +59,6 @@ public class VentanaMensajeFinalPartida extends JPanel {
      * @param evt
      */
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         ControladorGUI.getSingleton().menuPrincipal();
         this.setVisible(false);
         padre.dispose();
@@ -79,7 +71,7 @@ public class VentanaMensajeFinalPartida extends JPanel {
         this.setBackground(new Color(0, 0, 0, 255));
         filtro.setBounds(0, 0, 800, 600);
         filtro.setBackground(new Color(0, 0, 0, 125));
-        jButtonIniciar.setBounds(580, 500, 200, 40);
+        jButtonFin.setBounds(580, 500, 200, 40);
         mensajeInicio.setFont(new Font("Dialog", Font.BOLD, 30));
         mensajeInicio.setLineWrap(true);
         mensajeInicio.setWrapStyleWord(true);
