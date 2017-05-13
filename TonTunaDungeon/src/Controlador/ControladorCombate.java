@@ -13,11 +13,7 @@ import Vista.Elementos.VentanaCombate;
 import Vista.Elementos.ImagenPanel;
 import Vista.JFramePrincipal;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JList;
 
 /**
  * Clase controla el combate de la aplicacion
@@ -112,6 +108,11 @@ public class ControladorCombate {
             texto.escribirTexto(monstruo.getNombre()+" te ha hecho: "+daño+" de daño");
         }
         if(!fin) comprobarFin(texto);
+    }
+    
+    
+    public void usarObjeto(int indice, boolean consumir) {
+        personaje.usarObjeto(indice, consumir);
     }
     
     /**
