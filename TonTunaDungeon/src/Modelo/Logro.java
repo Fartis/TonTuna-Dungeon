@@ -8,6 +8,8 @@ package Modelo;
 /**
  * Clase para gestionar los logros desbloqueados
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Jose Gonzalez Rodriguez
  */
 public class Logro {
     private String nombre, descripcion;
@@ -33,7 +35,7 @@ public class Logro {
     }
     /**
      * Metodo introduce el nombre del logro
-     * @param nombre 
+     * @param nombre nombre del logro
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -49,7 +51,7 @@ public class Logro {
 
     /**
      * Metodo introduce la descripcion del logro
-     * @param descripcion 
+     * @param descripcion descripcion de la habitacion
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
@@ -65,7 +67,7 @@ public class Logro {
 
     /**
      * Metodo introduce si es desbloqueado
-     * @param desbloqueado 
+     * @param desbloqueado booleanos si esta desbloqueado o no
      */
     public void setDesbloqueado(boolean desbloqueado) {
         this.desbloqueado = desbloqueado;

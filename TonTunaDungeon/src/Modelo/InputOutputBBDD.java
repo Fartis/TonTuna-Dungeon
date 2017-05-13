@@ -21,6 +21,8 @@ import java.util.logging.Logger;
  * Clase controladora de la base de datos del juego
  *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Jose Gonzalez Rodriguez
  */
 public class InputOutputBBDD {
 
@@ -46,7 +48,7 @@ public class InputOutputBBDD {
      * Metodo para guardar la informacion del personaje en la base de datos para
      * recuperarla y continuar con la partida
      *
-     * @param pj
+     * @param pj objeto personaje
      */
     public void guardarInfoPJ(Personaje pj) {
         boolean inventario = false;
@@ -131,6 +133,10 @@ public class InputOutputBBDD {
 //        }
 //        return personaje;
 //    }
+    /**
+     * Metodo devuelve los parametros de la partida
+     * @return 
+     */
     public ArrayList obtenerInfoPartida() {
         ArrayList<String[]> lista = new ArrayList();
         try {
@@ -151,6 +157,10 @@ public class InputOutputBBDD {
         return lista;
     }
       
+    /**
+     * Metodo que borra la partida seleccionada
+     * @param info informacion de la partida
+     */
     public void borrarPartida(String[] info) {
         try {
             Connection con1 = (Connection) DriverManager.getConnection("jdbc:mysql://"+variableIP+"/tontunadungeon", "root", "");
@@ -166,6 +176,11 @@ public class InputOutputBBDD {
         }
     }
 
+    /**
+     * Metodo permite cargar una partida guardada
+     * @param indice indice de las partidas guardadas
+     * @return 
+     */
     public String[] cargarPartida(int indice) {
         String[] info = new String[10];
         try {
@@ -229,8 +244,8 @@ public class InputOutputBBDD {
     /**
      * Metodo para crear el personaje en la base de datos
      *
-     * @param nombre
-     * @param raza
+     * @param nombre nombre del personaje
+     * @param raza raza del personaje
      * @return
      */
     public Personaje crearPJBase(String nombre, String raza) {
@@ -287,6 +302,11 @@ public class InputOutputBBDD {
         }
     }
 
+    /**
+     * Metodo para obtener el arma
+     * @param nombre nombre del arma obtenida
+     * @return 
+     */
     public Arma obtenerArma(String nombre) {
         try {
             Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tontunadungeon", "root", "");
@@ -347,6 +367,12 @@ public class InputOutputBBDD {
         }
     }
 
+    /**
+     * Metodo devuelve el inventario del personaje
+     * @param nombre nombre del personaje
+     * @param raza raza del personaje
+     * @return 
+     */
     public ArrayList<Objeto> obtenerObjeto(String nombre, String raza) {
         ArrayList<Objeto> inventario = new ArrayList<Objeto>();
         try {
@@ -388,7 +414,7 @@ public class InputOutputBBDD {
     /**
      * Metodo para obtener la armadura de la base de datos por nivel
      *
-     * @param nivel
+     * @param nivel nivel del armadura
      * @return
      */
     public Armadura obtenerArmadura(int nivel) {
@@ -411,7 +437,7 @@ public class InputOutputBBDD {
     /**
      * Metodo para obtener la armadura de la base de datos por nombre
      *
-     * @param nombre
+     * @param nombre nombre de la armadura
      * @return
      */
     public Armadura obtenerArmadura(String nombre) {
@@ -431,7 +457,7 @@ public class InputOutputBBDD {
     /**
      * metodo obtener la informacion de monstruo de la base de datos
      *
-     * @param nivel
+     * @param nivel nivel del monstruo
      * @return
      * @throws SQLException
      */

@@ -20,6 +20,8 @@ import java.util.logging.Logger;
  * Clase para gestionar la habitacion
  *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Jose Gonzalez Rodriguez
  */
 public class Habitacion {
 
@@ -46,9 +48,9 @@ public class Habitacion {
     /**
      * Metodo establece el tipo de habitacion y nivel
      *
-     * @param tipo
-     * @param nivel
-     * @param tesoro
+     * @param tipo tipo de habitacion en la que se encuentra
+     * @param nivel nivel donde se encuentra la habitacion
+     * @param tesoro tesoro que posee la habitacion
      */
     public Habitacion(int tipo, int nivel, int tesoro, boolean[] caminos) {
         this.tipo = tipo;
@@ -91,6 +93,11 @@ public class Habitacion {
         }
     }
 
+    /**
+     * Metodo que establece la descripcion que se genera al entrar en la habitacion
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     private void establecerDescripcion() throws FileNotFoundException, IOException {
         if(tipo!=0){
             File archivo = new File("src/Recursos/xmlPisos/descripcionTipo" + this.tipo + ".txt");
@@ -103,30 +110,54 @@ public class Habitacion {
         }
     }
 
+    /**
+     * Metodo devuelve el tipo de habitacion
+     * @return 
+     */
     public int getTipo() {
         return tipo;
     }
 
+    /**
+     * Metodo devuelve la direccion que te permite tomar en cada habitacion
+     * @param direccion entero que indica la direccion disponible
+     * @return 
+     */
     public boolean direccionPermitida(int direccion) {
         return puertas[direccion];
     }
     
+    /**
+     * Metodo devuelve la descripcion de la habitacion
+     * @return 
+     */
     public String getDescripcion(){
         return descripcion;
     }
-    
+    /**
+     * Metodo devuelve boolean si hay monstruo en la habitacion
+     * @return 
+     */
     public boolean existeMonstruo(){
         return boolMonstruo;
     }
-    
+    /**
+     * Metodo que establece cuando se elimina un monstruo
+     */
     public void eliminarMonstruo(){
         this.boolMonstruo = false;
     }
-    
+    /**
+     * Metodo devuelve boolean si hay objeto
+     * @return 
+     */
     public boolean existeObjeto(){
         return boolObjeto;
     }
-    
+    /**
+     * Metodo devuelve el objeto de la habitacion
+     * @return 
+     */
     public Objeto recogerObjeto(){
         this.boolObjeto = false;
         return objeto;

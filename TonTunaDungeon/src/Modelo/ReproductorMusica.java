@@ -18,6 +18,8 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
  * Clase para gestionar las canciones del juego
  *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Jose Gonzalez Rodriguez
  */
 public class ReproductorMusica {
 
@@ -48,7 +50,7 @@ public class ReproductorMusica {
      * Metodo playMusica, le mandas una url o dirección de un archivo de musica
      * mp3 y lo reproduce.
      *
-     * @param urlMusica
+     * @param urlMusica String de la direccion de la musica
      */
     public void playMusica(final String urlMusica) {
         loop = true;

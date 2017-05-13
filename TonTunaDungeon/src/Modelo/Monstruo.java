@@ -12,6 +12,8 @@ import Modelo.Inventario.Armadura;
 /**
  * Clase para gestionar el monstruo
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Jose Gonzalez Rodriguez
  */
 public class Monstruo {
     private Armadura armadura = InputOutputBBDD.getSingleton().obtenerArmadura(ControladorPrincipal.getSingleton().getNivelActual());
@@ -21,14 +23,14 @@ public class Monstruo {
 
     /**
      * Constructor del monstruo
-     * @param fuerza
-     * @param destreza
-     * @param constitucion
-     * @param intelecto
-     * @param nombre
-     * @param descripcion
-     * @param armadura
-     * @param arma 
+     * @param fuerza fuerza del monstruo
+     * @param destreza destreza del monstruo
+     * @param constitucion constitucion del monstruo
+     * @param intelecto intelecto del monstruo
+     * @param nombre nombre del monstruo
+     * @param descripcion descripcion del monstruo
+     * @param armadura armadura del monstruo
+     * @param arma arma del monstruo
      */
     public Monstruo(int fuerza, int destreza, int constitucion, int intelecto, String nombre, String descripcion, Armadura armadura, Arma arma) {
         this.fuerza = fuerza;
@@ -62,7 +64,7 @@ public class Monstruo {
     }
 
     /**
-     * Metodo devuelve la vida actual del personaje
+     * Metodo devuelve la vida actual del monstruo
      * @return 
      */
     public int getVidaActual() {
@@ -70,8 +72,8 @@ public class Monstruo {
     }
 
     /**
-     * Metodo introduce la vida actual del personaje
-     * @param vidaActual 
+     * Metodo introduce la vida actual del monstruo
+     * @param vidaActual entero de la vida actual del monstruo
      */
     public void setVidaActual(int vidaActual) {
         this.vidaActual = vidaActual;
@@ -82,7 +84,7 @@ public class Monstruo {
 
     /**
      * Metodo introducir la fuerza del monstruo
-     * @param fuerza 
+     * @param fuerza entero de la fuerza del monstruo
      */
     public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
@@ -98,7 +100,7 @@ public class Monstruo {
 
     /**
      * Metodo introduce la destreza del monstruo
-     * @param destreza 
+     * @param destreza destreza del monstruo
      */
     public void setDestreza(int destreza) {
         this.destreza = destreza;
@@ -114,7 +116,7 @@ public class Monstruo {
 
     /**
      * Metodo introduce la constitucion del monstruo
-     * @param constitucion 
+     * @param constitucion entero de la constitucion del monstruo
      */
     public void setConstitucion(int constitucion) {
         this.constitucion = constitucion;
@@ -130,7 +132,7 @@ public class Monstruo {
 
     /**
      * metodo introduce el intelecto del monstruo
-     * @param intelecto 
+     * @param intelecto entero del intelecto del monstruo
      */
     public void setIntelecto(int intelecto) {
         this.intelecto = intelecto;
@@ -146,7 +148,7 @@ public class Monstruo {
 
     /**
      * Metodo introduce la vida del monstruo
-     * @param vida 
+     * @param vida entero de la vida del monstruo
      */
     public void setVida(int vida) {
         this.vida = vida;
@@ -162,7 +164,7 @@ public class Monstruo {
 
     /**
      * Metodo introduce el nombre del monstruo
-     * @param nombre 
+     * @param nombre string nombre del monstruo
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -178,7 +180,7 @@ public class Monstruo {
 
     /**
      * Metodo introduce la descripcion del monstruo
-     * @param descripcion 
+     * @param descripcion string de la descripcion del monstruo
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
@@ -194,7 +196,7 @@ public class Monstruo {
 
     /**
      * Metodo introduce la armadura del monstruo
-     * @param armadura 
+     * @param armadura objeto armadura del monstruo
      */
     public void setArmadura(Armadura armadura) {
         this.armadura = armadura;
@@ -210,7 +212,7 @@ public class Monstruo {
 
     /**
      * Metodo introduce el arma del monstruo
-     * @param arma 
+     * @param arma objeto del arma
      */
     public void setArma(Arma arma) {
         this.arma = arma;
@@ -221,12 +223,18 @@ public class Monstruo {
         return "Monstruo{" + "fuerza=" + fuerza + ", destreza=" + destreza + ", constitucion=" + constitucion + ", intelecto=" + intelecto + ", vida=" + vida + ", nombre=" + nombre + ", descripcion=" + descripcion + ", armadura=" + armadura + ", arma=" + arma + '}';
     }
 
-    
-
+    /**
+     * Metodo devuelve el indice de armadura del monstruo
+     * @return 
+     */
     public int getIndiceAr() {
         return indiceAr;
     }
 
+    /**
+     * Metodo establece el indice de la armadura
+     * @param indiceAr entero del indice de la armadura
+     */
     public void setIndiceAr(int indiceAr) {
         if(indiceAr>=0){
             this.indiceAr = indiceAr;

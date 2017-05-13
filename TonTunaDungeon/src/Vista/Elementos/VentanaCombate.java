@@ -220,6 +220,7 @@ public class VentanaCombate extends JPanel {
                         escribirTexto((String) lista.getSelectedValue()+" seleccionado");
                     }
                     padre.dispose();
+                    vCombate.setText();
                 }
             });
             panel.add(jButtonObjeto);
