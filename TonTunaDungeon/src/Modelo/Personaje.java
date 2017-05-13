@@ -277,7 +277,7 @@ public class Personaje {
     /**
      * Metodo introduce el nombre del personaje
      *
-     * @param nombre
+     * @param nombre String nombre del personaje.
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -398,7 +398,7 @@ public class Personaje {
 
     /**
      * Metodo envia el objeto al arraylist del inventario
-     * @param obtenerObjeto 
+     * @param obtenerObjeto ArrayList de objetos para añadir el inventario.
      */
     public void setInventario(ArrayList<Objeto> obtenerObjeto) {
         this.inventarioObjeto.addAll(obtenerObjeto);

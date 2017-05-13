@@ -16,9 +16,9 @@ public class Logro {
     boolean desbloqueado;
     /**
      * Metodo constructor para el logro
-     * @param nombre
-     * @param descripcion
-     * @param desbloqueado 
+     * @param nombre String nombre del logro
+     * @param descripcion String descripcion del logro
+     * @param desbloqueado booleano, true esta desbloqueado, false esta bloqueado.
      */
     public Logro(String nombre, String descripcion, boolean desbloqueado){
         this.nombre = nombre;

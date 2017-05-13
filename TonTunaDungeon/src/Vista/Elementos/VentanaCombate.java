@@ -115,7 +115,7 @@ public class VentanaCombate extends JPanel {
     /**
      * Metodo establece la posicion, color, fondo y fuente de los paneles
      *
-     * @param g
+     * @param g Graphics
      */
     @Override
     public void paintComponent(Graphics g) {
@@ -197,7 +197,7 @@ public class VentanaCombate extends JPanel {
      */
     private class Mochila extends JDialog {
         VentanaCombate vCombate;
-        public Mochila(JFramePrincipal padre, VentanaCombate vCombate) {
+        public Mochila(final JFramePrincipal padre, final VentanaCombate vCombate) {
             super(padre, true);
             this.vCombate = vCombate;
             this.setLayout(null);
@@ -207,7 +207,7 @@ public class VentanaCombate extends JPanel {
             panel.setBounds(0, 0, 400, 280);
             panel.setBackground(new Color(124, 124, 124, 255));
             jButtonObjeto.setBounds(0, 0, 400, 280);
-            JList lista = new JList();
+            final JList lista = new JList();
             DefaultListModel modelo = new DefaultListModel();
             String[] listaObjetos = ControladorPrincipal.getSingleton().getInventario();
             for (int i = 0; i < listaObjetos.length; i++) {

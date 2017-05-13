@@ -51,6 +51,7 @@ public class Habitacion {
      * @param tipo tipo de habitacion en la que se encuentra
      * @param nivel nivel donde se encuentra la habitacion
      * @param tesoro tesoro que posee la habitacion
+     * @param caminos boolean[]
      */
     public Habitacion(int tipo, int nivel, int tesoro, boolean[] caminos) {
         this.tipo = tipo;

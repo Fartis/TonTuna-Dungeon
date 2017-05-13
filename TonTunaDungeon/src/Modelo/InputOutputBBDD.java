@@ -135,7 +135,7 @@ public class InputOutputBBDD {
 //    }
     /**
      * Metodo devuelve los parametros de la partida
-     * @return 
+     * @return  String[]
      */
     public ArrayList obtenerInfoPartida() {
         ArrayList<String[]> lista = new ArrayList();
@@ -270,8 +270,8 @@ public class InputOutputBBDD {
     /**
      * Metodo para obtener el arma de la base de datos
      *
-     * @return int nivel arma
-     * @throws SQLException
+     * @return Arma generada
+     * @param nivel int nivel arma
      */
     public Arma obtenerArma(int nivel) {
         try {
@@ -459,7 +459,6 @@ public class InputOutputBBDD {
      *
      * @param nivel nivel del monstruo
      * @return monstruo de la base de datos
-     * @throws SQLException
      */
     public Monstruo obtenerMonstruo(int nivel) {
         try {

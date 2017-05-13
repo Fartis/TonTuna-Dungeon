@@ -36,7 +36,7 @@ public class Arma {
 
     /**
      * Metodo devuelve la bonificacion del arma
-     * @return 
+     * @return int valor del bonificador
      */
     public int getBonificador() {
         return bonificador;
@@ -52,7 +52,7 @@ public class Arma {
 
     /**
      * Metodo devuelve el nombre del arma
-     * @return 
+     * @return  String nombre del arma
      */
     public String getNombre() {
         return nombre;
@@ -68,7 +68,7 @@ public class Arma {
 
     /**
      * Metodo devuelve la descripcion del arma
-     * @return 
+     * @return  String descripcion del arma
      */
     public String getDescripcion() {
         return descripcion;
@@ -84,7 +84,7 @@ public class Arma {
 
     /**
      * Metodo devuelve el tipo del arma
-     * @return 
+     * @return int tipo del arma
      */
     public int getTipo() {
         return tipo;

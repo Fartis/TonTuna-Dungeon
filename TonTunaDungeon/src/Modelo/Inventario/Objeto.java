@@ -37,7 +37,7 @@ public class Objeto {
 
     /**
      * Metodo devuelve el nombre del objeto
-     * @return 
+     * @return String con el nombre del objeto
      */
     public String getNombre() {
         return nombre;
@@ -53,7 +53,7 @@ public class Objeto {
 
     /**
      * Metodo devuelve la descripcion 
-     * @return 
+     * @return String con la descripcion del objeto
      */
     public String getDescripcion() {
         return descripcion;
@@ -69,7 +69,7 @@ public class Objeto {
 
     /**
      * Metodo devuelve valor del objeto
-     * @return 
+     * @return int con el valor del objeto
      */
     public int getValor() {
         return valor;
@@ -85,7 +85,7 @@ public class Objeto {
 
     /**
      * Metodo devuelve el tipo del objeto
-     * @return 
+     * @return int con el tipo del objeto
      */
     public int getTipo() {
         return tipo;

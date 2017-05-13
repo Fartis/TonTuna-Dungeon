@@ -16,7 +16,6 @@ public class Armadura {
      * Constructor Armadura
      * @param nombre String del nombre de la armadura
      * @param bonificador entero bonificador de la armadura
-     * @param indice int indice de la armadura
      * @param descripcion String descripcion de la armadura
      */
     public Armadura(String nombre, int bonificador, String descripcion){
@@ -27,7 +26,7 @@ public class Armadura {
 
     /**
      * Metodo devuelve la bonificacion de la armadura
-     * @return 
+     * @return int bonificador del arma
      */
     public int getBonificador() {
         return bonificador;
@@ -43,7 +42,7 @@ public class Armadura {
 
     /**
      * Metodo devuelve nombre de armadura
-     * @return 
+     * @return String nombre de la armadura
      */
     public String getNombre() {
         return nombre;
@@ -59,7 +58,7 @@ public class Armadura {
 
     /**
      * Metodo devuelve descripcion de la armadura
-     * @return 
+     * @return String de la descripcion
      */
     public String getDescripcion() {
         return descripcion;

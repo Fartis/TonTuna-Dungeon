@@ -87,7 +87,7 @@ public class ControladorCreadorPJ {
 
     /**
      * Método decrementa fuerza del personaje
-     * @@return int nuevo valor de fuerza.
+     * @return int nuevo valor de fuerza.
      */
     public int bajarFuerza() {
         if (puntosPersonaje <= 6 && fuerza > personaje.getFuerza()) {
@@ -116,7 +116,7 @@ public class ControladorCreadorPJ {
 
     /**
      * Método decrementa destreza del personaje
-     * @@return int nuevo valor de destreza. 
+     * @return int nuevo valor de destreza. 
      */
     public int bajarDestreza() {
         if (puntosPersonaje <= 6 && destreza > personaje.getDestreza()) {
@@ -146,7 +146,7 @@ public class ControladorCreadorPJ {
 
     /**
      * Método decrementa intelecto del personaje
-     * @@return int nuevo valor de intelecto.
+     * @return int nuevo valor de intelecto.
      */
     public int bajarIntelecto() {
         if (puntosPersonaje <= 6 && intelecto > personaje.getIntelecto()) {
@@ -161,7 +161,7 @@ public class ControladorCreadorPJ {
 
     /**
      * Método incrementa constitución del personaje
-     * @@return int nuevo valor de constitución.
+     * @return int nuevo valor de constitución.
      */
     public int subirConstitucion() {
         if (puntosPersonaje > 0) {
@@ -176,7 +176,7 @@ public class ControladorCreadorPJ {
 
     /**
      * Método decrementa constitución del personaje
-     * @@return int nuevo valor de constitución.
+     * @return int nuevo valor de constitución.
      */
     public int bajarConstitucion() {
         if (puntosPersonaje <= 6 && constitucion > personaje.getConstitucion()) {
