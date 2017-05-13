@@ -28,7 +28,7 @@ public class Logro {
 
     /**
      * Metodo devuelve el nombre del logro
-     * @return 
+     * @return string nombre del logro
      */
     public String getNombre() {
         return nombre;
@@ -43,7 +43,7 @@ public class Logro {
 
     /**
      * Metodo devuelve la descripcion del logro
-     * @return 
+     * @return String de la descripcion
      */
     public String getDescripcion() {
         return descripcion;
@@ -59,7 +59,7 @@ public class Logro {
 
     /**
      * Metodo comprueba si el logro esta desbloqueado
-     * @return 
+     * @return boolean estado del logro
      */
     public boolean isDesbloqueado() {
         return desbloqueado;

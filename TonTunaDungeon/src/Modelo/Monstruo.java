@@ -57,7 +57,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve la fuerza del monstruo
-     * @return 
+     * @return entero de la fuerza
      */
     public int getFuerza() {
         return fuerza;
@@ -65,7 +65,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve la vida actual del monstruo
-     * @return 
+     * @return int de la vida actual
      */
     public int getVidaActual() {
         return vidaActual;
@@ -92,7 +92,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve la destreza del monstruo
-     * @return 
+     * @return int de la destreza
      */
     public int getDestreza() {
         return destreza;
@@ -108,7 +108,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve la constitucion del monstruo
-     * @return 
+     * @return int constitucion
      */
     public int getConstitucion() {
         return constitucion;
@@ -124,7 +124,7 @@ public class Monstruo {
 
     /**
      * metodo devuelve el intelecto del monstruo
-     * @return 
+     * @return int intelecto
      */
     public int getIntelecto() {
         return intelecto;
@@ -140,7 +140,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve la vida del monstruo
-     * @return 
+     * @return int vida
      */
     public int getVida() {
         return vida;
@@ -156,7 +156,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve el nombre del monstruo
-     * @return 
+     * @return string nombre
      */
     public String getNombre() {
         return nombre;
@@ -172,7 +172,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve la descripcion del monstruo
-     * @return 
+     * @return string descripcion
      */
     public String getDescripcion() {
         return descripcion;
@@ -188,7 +188,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve la armadura del monstruo
-     * @return 
+     * @return objeto armadura
      */
     public Armadura getArmadura() {
         return armadura;
@@ -204,7 +204,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve el arma del monstruo
-     * @return 
+     * @return objeto arma
      */
     public Arma getArma() {
         return arma;
@@ -225,7 +225,7 @@ public class Monstruo {
 
     /**
      * Metodo devuelve el indice de armadura del monstruo
-     * @return 
+     * @return int indice armadura
      */
     public int getIndiceAr() {
         return indiceAr;

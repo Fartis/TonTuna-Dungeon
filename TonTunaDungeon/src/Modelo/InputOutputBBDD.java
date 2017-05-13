@@ -35,7 +35,7 @@ public class InputOutputBBDD {
     /**
      * metodo singleton para el controlador
      *
-     * @return
+     * @return singleton de la clase InputOutputBBDD
      */
     public static InputOutputBBDD getSingleton() {
         if (singleton == null) {
@@ -179,7 +179,7 @@ public class InputOutputBBDD {
     /**
      * Metodo permite cargar una partida guardada
      * @param indice indice de las partidas guardadas
-     * @return 
+     * @return string de la informacion de la partida
      */
     public String[] cargarPartida(int indice) {
         String[] info = new String[10];
@@ -217,7 +217,7 @@ public class InputOutputBBDD {
     /**
      * Metodo para listar los personajes de la base de datos
      *
-     * @return
+     * @return lista de personajes
      */
     public Personaje[] listaPersonajesBase() {
         Personaje[] listaPersonajes = new Personaje[4];
@@ -246,7 +246,7 @@ public class InputOutputBBDD {
      *
      * @param nombre nombre del personaje
      * @param raza raza del personaje
-     * @return
+     * @return string nombre personaje y string raza personaje
      */
     public Personaje crearPJBase(String nombre, String raza) {
         try {
@@ -270,7 +270,7 @@ public class InputOutputBBDD {
     /**
      * Metodo para obtener el arma de la base de datos
      *
-     * @return
+     * @return int nivel arma
      * @throws SQLException
      */
     public Arma obtenerArma(int nivel) {
@@ -305,7 +305,7 @@ public class InputOutputBBDD {
     /**
      * Metodo para obtener el arma
      * @param nombre nombre del arma obtenida
-     * @return 
+     * @return string nombre del arma
      */
     public Arma obtenerArma(String nombre) {
         try {
@@ -336,7 +336,7 @@ public class InputOutputBBDD {
     /**
      * Metodo para obtener un objeto de la base de datos
      *
-     * @return
+     * @return Objeto
      */
     public Objeto obtenerObjeto() {
         try {
@@ -371,7 +371,7 @@ public class InputOutputBBDD {
      * Metodo devuelve el inventario del personaje
      * @param nombre nombre del personaje
      * @param raza raza del personaje
-     * @return 
+     * @return inventario personaje
      */
     public ArrayList<Objeto> obtenerObjeto(String nombre, String raza) {
         ArrayList<Objeto> inventario = new ArrayList<Objeto>();
@@ -415,7 +415,7 @@ public class InputOutputBBDD {
      * Metodo para obtener la armadura de la base de datos por nivel
      *
      * @param nivel nivel del armadura
-     * @return
+     * @return armadura de la base de datos
      */
     public Armadura obtenerArmadura(int nivel) {
         try {
@@ -438,7 +438,7 @@ public class InputOutputBBDD {
      * Metodo para obtener la armadura de la base de datos por nombre
      *
      * @param nombre nombre de la armadura
-     * @return
+     * @return armadura
      */
     public Armadura obtenerArmadura(String nombre) {
         try {
@@ -458,7 +458,7 @@ public class InputOutputBBDD {
      * metodo obtener la informacion de monstruo de la base de datos
      *
      * @param nivel nivel del monstruo
-     * @return
+     * @return monstruo de la base de datos
      * @throws SQLException
      */
     public Monstruo obtenerMonstruo(int nivel) {

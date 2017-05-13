@@ -61,7 +61,7 @@ public class Personaje {
     /**
      * Metodo para listar los objetos
      *
-     * @return
+     * @return lista objetos
      */
     public ArrayList<String> listarObjetos() {
         ArrayList<String> lista = new ArrayList();
@@ -88,7 +88,7 @@ public class Personaje {
     /**
      * Metodo devuelve la armadura del personaje
      *
-     * @return
+     * @return objeto armadura
      */
     public Armadura getArmadura() {
         return armadura;
@@ -106,7 +106,7 @@ public class Personaje {
     /**
      * Metodo devuelve el arma del personaje
      *
-     * @return
+     * @return objeto arma
      */
     public Arma getArma() {
         return arma;
@@ -124,7 +124,7 @@ public class Personaje {
     /**
      * Metodo devuelve la fuerza del personaje
      *
-     * @return
+     * @return int fuerza
      */
     public int getFuerza() {
         return fuerza;
@@ -142,7 +142,7 @@ public class Personaje {
     /**
      * Metodo devuelve la destreza del personaje
      *
-     * @return
+     * @return int destreza
      */
     public int getDestreza() {
         return destreza;
@@ -160,7 +160,7 @@ public class Personaje {
     /**
      * Metodo devuelve la constitucion del personaje
      *
-     * @return
+     * @return int constitucion
      */
     public int getConstitucion() {
         return constitucion;
@@ -178,7 +178,7 @@ public class Personaje {
     /**
      * Metodo devuelve el intelecto del personaje
      *
-     * @return
+     * @return int intelecto
      */
     public int getIntelecto() {
         return intelecto;
@@ -196,7 +196,7 @@ public class Personaje {
     /**
      * Metodo devuelve la descripcion del personaje
      *
-     * @return
+     * @return string descripcion
      */
     public String getDescripcion() {
         return descripcion;
@@ -214,7 +214,7 @@ public class Personaje {
     /**
      * Metodo devuelve la raza del personaje
      *
-     * @return
+     * @return string raza
      */
     public String getRaza() {
         return raza;
@@ -232,7 +232,7 @@ public class Personaje {
     /**
      * Metodo devuelve la vida del personaje
      *
-     * @return
+     * @return int vida total
      */
     public int getVidaTotal() {
         return vidaTotal;
@@ -250,7 +250,7 @@ public class Personaje {
     /**
      * Metodo devuelve el nivel del personaje
      *
-     * @return
+     * @return int nivel
      */
     public int getNivel() {
         return nivel;
@@ -268,7 +268,7 @@ public class Personaje {
     /**
      * Metodo devuelve el nombre del personaje
      *
-     * @return
+     * @return string nombre
      */
     public String getNombre() {
         return nombre;
@@ -343,7 +343,7 @@ public class Personaje {
      * del inventario de objetos del personaje
      * @param indice entero del indice del objeto a usar
      * @param consumir booleano que establece si el objeto ha sido usado
-     * @return 
+     * @return objeto del inventario
      */
     public Objeto usarObjeto(int indice, boolean consumir) {
         Objeto temporal = inventarioObjeto.get(indice);
@@ -374,7 +374,7 @@ public class Personaje {
 
     /**
      * Metodo devuelve el array de los objetos del inventario
-     * @return 
+     * @return objeto inventario
      */
     public ArrayList<Objeto> getInventarioObjeto() {
         return inventarioObjeto;
@@ -382,7 +382,7 @@ public class Personaje {
 
     /**
      * Metodo devuelve el array de las armas del inventario
-     * @return 
+     * @return arma inventario
      */
     public ArrayList<Arma> getInventarioArma() {
         return inventarioArma;
@@ -390,7 +390,7 @@ public class Personaje {
 
     /**
      * Metodo devuelve el array de las armaduras del inventario
-     * @return 
+     * @return armadura inventario
      */
     public ArrayList<Armadura> getInventarioArmadura() {
         return inventarioArmadura;

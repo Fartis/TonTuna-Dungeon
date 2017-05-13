@@ -112,7 +112,7 @@ public class Habitacion {
 
     /**
      * Metodo devuelve el tipo de habitacion
-     * @return 
+     * @return int del tipo del objeto
      */
     public int getTipo() {
         return tipo;
@@ -121,7 +121,7 @@ public class Habitacion {
     /**
      * Metodo devuelve la direccion que te permite tomar en cada habitacion
      * @param direccion entero que indica la direccion disponible
-     * @return 
+     * @return boolean de la direcciones que permiten en la habitacion
      */
     public boolean direccionPermitida(int direccion) {
         return puertas[direccion];
@@ -129,14 +129,14 @@ public class Habitacion {
     
     /**
      * Metodo devuelve la descripcion de la habitacion
-     * @return 
+     * @return string de la descripcion
      */
     public String getDescripcion(){
         return descripcion;
     }
     /**
      * Metodo devuelve boolean si hay monstruo en la habitacion
-     * @return 
+     * @return boolean de la existencia de monstruo
      */
     public boolean existeMonstruo(){
         return boolMonstruo;
@@ -149,14 +149,14 @@ public class Habitacion {
     }
     /**
      * Metodo devuelve boolean si hay objeto
-     * @return 
+     * @return boolean de la existencia de objeto
      */
     public boolean existeObjeto(){
         return boolObjeto;
     }
     /**
      * Metodo devuelve el objeto de la habitacion
-     * @return 
+     * @return Objeto de tipo objeto
      */
     public Objeto recogerObjeto(){
         this.boolObjeto = false;
