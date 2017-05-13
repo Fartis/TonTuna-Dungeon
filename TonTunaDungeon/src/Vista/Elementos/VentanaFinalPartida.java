@@ -6,7 +6,6 @@
 package Vista.Elementos;
 
 import Controlador.ControladorGUI;
-import Controlador.ControladorPrincipal;
 import Vista.JFramePrincipal;
 import java.awt.Color;
 import java.awt.Font;
@@ -14,15 +13,15 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 /**
- * Clase para la ventana de comienzo aventura e introduccion de nombre
+ * Clase para la ventana de final de la aventura.
  *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class VentanaFinalPartida extends JPanel {
 
@@ -34,7 +33,7 @@ public class VentanaFinalPartida extends JPanel {
     JFramePrincipal padre;
 
     /**
-     *
+     * Constructor de la clase VentanaFinalPartida
      */
     public VentanaFinalPartida() {
         jButtonFin.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +48,11 @@ public class VentanaFinalPartida extends JPanel {
         filtro.add(mensajeFirmado);
     }
 
+    /**
+     * Metodo que establece el JFramePrincipal que contiene a VentanaFinalPartida
+     *
+     * @param padre JFramePrincipal contenedor
+     */
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;
     }

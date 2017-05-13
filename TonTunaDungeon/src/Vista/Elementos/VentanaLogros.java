@@ -17,16 +17,21 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
+ * Clase VentanaLogros. ¡¡Actualmente esta clase no esta finalizada, ya que se
+ * implementara el reconocimiento de logros en futuras versiones del juego!!
  *
- * @author Alumno03
+ * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
-public class VentanaLogros extends JPanel{
+public class VentanaLogros extends JPanel {
+
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/logros.gif");
     JButton jButtonVolver = new JButton("Volver");
     JList jListLogros = new JList();
     JTextArea descripcionLogro = new JTextArea("");
     JFramePrincipal padre;
-    
+
     public VentanaLogros() {
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -42,26 +47,28 @@ public class VentanaLogros extends JPanel{
         this.add(jListLogros);
         this.add(descripcionLogro);
     }
+
     public void setPadre(JFramePrincipal padre) {
-            this.padre = padre;
-        }
+        this.padre = padre;
+    }
+
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {
         ControladorGUI.getSingleton().menuPrincipal();
         this.setVisible(false);
         padre.dispose();
     }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(image, 0, 0, 800, 600, this);
         this.setBackground(new Color(0, 0, 0, 255));
         jButtonVolver.setBounds(180, 508, 200, 40);
         jListLogros.setBounds(20, 20, 550, 480);
-        jListLogros.setBackground(new Color(0,0,0,127));
+        jListLogros.setBackground(new Color(0, 0, 0, 127));
         descripcionLogro.setBounds(660, 20, 200, 480);
         descripcionLogro.setEditable(false);
         descripcionLogro.setHighlighter(null);
         descripcionLogro.setOpaque(false);
-        
-        
+
     }
 }

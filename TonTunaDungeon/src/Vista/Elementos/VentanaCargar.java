@@ -20,8 +20,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Clase de VentanaCargar
  *
- * @author SeñorPelos
+ * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class VentanaCargar extends JPanel {
 
@@ -39,7 +42,7 @@ public class VentanaCargar extends JPanel {
     private JFramePrincipal padre;
 
     /**
-     * Metodo que gestiona las distintas opciones de la ventana de carga
+     * Constructor de la clase VentanaCargar
      */
     public VentanaCargar() {
         jButtonCargar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +74,9 @@ public class VentanaCargar extends JPanel {
         actualizarTabla();
     }
     
+    /**
+     * Metodo que actualiza la tabla que muestra la info de las partidas guardadas.
+     */
     private void actualizarTabla(){        
         jTabla.setModel(modelo);
         jTabla.getColumn("Nombre").setPreferredWidth(300);
@@ -80,9 +86,9 @@ public class VentanaCargar extends JPanel {
     }
 
     /**
-     * Metodo
+     * Metodo que establece el JFramePrincipal que contiene a VentanaCargar
      *
-     * @param padre
+     * @param padre JFramePrincipal contenedor
      */
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;

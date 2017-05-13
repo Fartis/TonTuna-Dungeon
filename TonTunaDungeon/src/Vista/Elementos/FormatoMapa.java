@@ -2,14 +2,14 @@ package Vista.Elementos;
 
 import Controlador.ControladorMazmorra;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
 /**
  * Clase que da formato al mapa del piso de mazmorra
+ *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class FormatoMapa extends JPanel {
 
@@ -17,7 +17,7 @@ public class FormatoMapa extends JPanel {
     private JPanel punto = new JPanel();
 
     /**
-     * Metodo añade el formato del mapa al array
+     * Constructor de FormatoMapa
      */
     public FormatoMapa() {
         for (int i = 0; i < 100; i++) {
@@ -31,8 +31,8 @@ public class FormatoMapa extends JPanel {
     }
 
     /**
-     * Metodo pinta la posicion del jugador en el mapa
-     * @param posicion 
+     * Metodo pinta la posicion del jugador en el mapa.
+     * @param posicion int de la posicion actual del jugador.
      */
     public void pintarPosicion(int posicion) {
         arrayPanel[ControladorMazmorra.getSingleton().posicionActual()].remove(punto);
@@ -40,7 +40,7 @@ public class FormatoMapa extends JPanel {
     }
 
     /**
-     * Metodo diseña el mapa y el punto de posicion
+     * Metodo diseña el mapa y el punto de posicion.
      */
     private void estilizarElementos() {
         arrayPanel[1 - 1].setBounds(0, 0, 34, 34);

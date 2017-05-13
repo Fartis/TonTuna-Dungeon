@@ -5,24 +5,26 @@
  */
 package Vista;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 /**
  * Clase Principal para gestionar la interfaz grafica visual del juego
+ *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class JFramePrincipal extends javax.swing.JFrame {
 
         
     /**
-     * Creates new form JFramePrincipal
+     * Constructor de la clase principal.
+     * @param jPanel intancia del JPanel a mostrar en su interior.
+     * @param url dirección de la imagen a mostrar en su fondo.
      */
     public JFramePrincipal(final JPanel jPanel, final String url) {
 
@@ -33,7 +35,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Constructor de la clase principal.
+     * @param jPanel intancia del JPanel a mostrar en su interior.
+     */
     public JFramePrincipal(final JPanel jPanel) {
+
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowUI(jPanel);
@@ -42,9 +49,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo para generar el panel del juego y mostrarlo
-     * @param jPanel
-     * @param url 
+     * Metodo para generar el panel del juego y mostrarlo con una imagen.
+     * @param jPanel intancia del JPanel a mostrar en su interior.
+     * @param url dirección de la imagen a mostrar en su fondo.
      */
     public void createAndShowUI(JPanel jPanel, String url) {
         try {
@@ -61,6 +68,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
         }
     }
     
+    
+    
+    /**
+     * Metodo para generar el panel del juego y mostrarlo.
+     * @param jPanel intancia del JPanel a mostrar en su interior.
+     */
     public void createAndShowUI(JPanel jPanel) {
         try {
             frame = new JFrame();
@@ -75,6 +88,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo para ocultar el JFramePrincipal
+     * @param bool true para mostrarlo, false para ocultarlo.
+     */
     public void visible(boolean bool) {
         frame.setVisible(bool);
     }
@@ -113,5 +130,5 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    JFrame frame;
+    private JFrame frame;
 }

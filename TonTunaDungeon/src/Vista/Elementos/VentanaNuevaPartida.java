@@ -22,7 +22,10 @@ import javax.swing.JTextArea;
 
 /**
  * Clase que gestiona el JFrame cuando se inicia nueva partida
+ *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class VentanaNuevaPartida extends JPanel {
 
@@ -30,8 +33,8 @@ public class VentanaNuevaPartida extends JPanel {
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/nuevapartida.gif");
     private JFramePrincipal padre;
     private String[][] infoPJ = ControladorPrincipal.getSingleton().infoPersonajeNuevo();
-    String raza="Humano";
-    String descripcion;
+    private String raza="Humano";
+    private String descripcion;
 
     //Botones
     private JButton jButtonAtras = new JButton("Atras"),
@@ -89,9 +92,8 @@ public class VentanaNuevaPartida extends JPanel {
             descMediano = new JTextArea(infoPJ[3][5]);
 
     
-    ////Metodos
     /**
-     * 
+     * Constructor de la clase VentanaNuevaPartida
      */
     public VentanaNuevaPartida() {
         iniciarEventos();
@@ -101,7 +103,7 @@ public class VentanaNuevaPartida extends JPanel {
 
     /**
      * Metodo establece los atributos basicos en funcion de la raza del personaje
-     * @param raza 
+     * @param raza int que indica de que raza tiene que mostrar la información. 
      */
     private void establecerAtributos(int raza) {
         ControladorCreadorPJ.getSingleton().iniciarAtributosPersonajes(raza);
@@ -398,6 +400,12 @@ public class VentanaNuevaPartida extends JPanel {
         labelPuntosDisponibles.setText(Integer.toString(ControladorCreadorPJ.getSingleton().actualizarPuntosDisponibles()));
     }
 
+    
+    /**
+     * Metodo que establece el JFramePrincipal que contiene a VentanaNuevaPartida
+     *
+     * @param padre JFramePrincipal contenedor
+     */
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;
     }

@@ -21,14 +21,17 @@ import javax.swing.JTextField;
 
 /**
  * Clase para la ventana de comienzo aventura e introduccion de nombre
+ *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class VentanaMensajeNuevaPartida extends JPanel {
 
     private Image image = Toolkit.getDefaultToolkit().getImage("src/Recursos/trovador.gif");
-    JButton jButtonIniciar = new JButton("Alle voy");
-    JPanel filtro = new JPanel();
-    JTextArea mensajeInicio = new JTextArea("\"Acercaos caballero,\n"
+    private JButton jButtonIniciar = new JButton("Alle voy");
+    private JPanel filtro = new JPanel();
+    private JTextArea mensajeInicio = new JTextArea("\"Acercaos caballero,\n"
             + "os cantaré una canción,\n"
             + "un grandioso tesoro\n"
             + "esta al cabalagar un montón.\n"
@@ -38,13 +41,13 @@ public class VentanaMensajeNuevaPartida extends JPanel {
             + "y aprovecha ésta ocasión.\n"
             + "Viaja a la montaña\n"
             + "y entra en sus entrañas.");
-    JTextArea mensajeFirmado = new JTextArea("Grande y valiente Sr.");
-    JTextArea mensajeComilla = new JTextArea("\"");
-    JTextField textFieldNombre = new JTextField("");
-    JFramePrincipal padre;
+    private JTextArea mensajeFirmado = new JTextArea("Grande y valiente Sr.");
+    private JTextArea mensajeComilla = new JTextArea("\"");
+    private JTextField textFieldNombre = new JTextField("");
+    private JFramePrincipal padre;
 
     /**
-     * 
+     * Constructor VentanaMensajeNuevaPartida
      */
     public VentanaMensajeNuevaPartida() {
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +64,11 @@ public class VentanaMensajeNuevaPartida extends JPanel {
         filtro.add(textFieldNombre);
     }
 
+    /**
+     * Metodo que establece el JFramePrincipal que contiene a VentanaMensajeNuevaPartida
+     *
+     * @param padre JFramePrincipal contenedor
+     */
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;
     }

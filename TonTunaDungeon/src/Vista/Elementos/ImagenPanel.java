@@ -12,22 +12,28 @@ import javax.swing.JPanel;
 
 /**
  * Clase que introduce la imagen dentro del panel
+ *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class ImagenPanel extends JPanel {
 
     private Image image;
     private int width, height;
     
+    /**
+     * Constructor de la clase ImagenPanel()
+     */
     public ImagenPanel(){
         
     }
 
     /**
-     * Constructor de la imagen
-     * @param width
-     * @param height
-     * @param url 
+     * Constructor de la clase ImagenPanel
+     * @param width int valor en pixeles del ancho.
+     * @param height int valor en pixeles del alto.
+     * @param url String con la dirección de la imagen
      */
     public ImagenPanel(int width, int height, String url) {
         this.width=width;

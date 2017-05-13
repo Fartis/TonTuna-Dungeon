@@ -21,7 +21,10 @@ import javax.swing.JRadioButton;
 
 /**
  * Clase que gestiona la ventana o panel del menu principal del juego
+ *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class VentanaLogo extends JPanel {
 
@@ -35,7 +38,7 @@ public class VentanaLogo extends JPanel {
     JFramePrincipal padre;
 
     /**
-     * Metodo que gestiona las distintas opciones de la ventana principal
+     * Constructor de la clase VentanaLogo
      */
     public VentanaLogo() {
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,9 +76,12 @@ public class VentanaLogo extends JPanel {
         jOpcionMusica.setSelected(ControladorPrincipal.getSingleton().getOpcionMusica());
 
     }
+    
+    
     /**
-     * Metodo 
-     * @param padre 
+     * Metodo que establece el JFramePrincipal que contiene a VentanaLogo
+     *
+     * @param padre JFramePrincipal contenedor
      */
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;

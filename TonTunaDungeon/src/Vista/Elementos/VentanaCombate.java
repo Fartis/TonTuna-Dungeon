@@ -6,11 +6,8 @@
 package Vista.Elementos;
 
 import Controlador.ControladorCombate;
-import Controlador.ControladorGUI;
 import Controlador.ControladorPrincipal;
 import Modelo.Dado;
-import Modelo.Inventario.Objeto;
-import Modelo.Personaje;
 import Vista.JFramePrincipal;
 import java.awt.Color;
 import java.awt.Font;
@@ -34,6 +31,8 @@ import javax.swing.text.BadLocationException;
  * Clase que gestiona la ventana o panel del menu principal del juego
  *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class VentanaCombate extends JPanel {
 
@@ -53,7 +52,8 @@ public class VentanaCombate extends JPanel {
             personajeIMG = new ImagenPanel();
 
     /**
-     * Metodo que gestiona las distintas opciones de la ventana principal
+     * Constructor de la clase VentanaCombate
+     * @param combate instancia de ControladorCombate creado para el combate.
      */
     public VentanaCombate(ControladorCombate combate) {
         jButtonAtacar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,9 +83,9 @@ public class VentanaCombate extends JPanel {
     }
 
     /**
-     * Metodo
+     * Metodo que establece el JFramePrincipal que contiene a VentanaCargar
      *
-     * @param padre
+     * @param padre JFramePrincipal contenedor
      */
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;
@@ -168,8 +168,8 @@ public class VentanaCombate extends JPanel {
     }
 
     /**
-     *
-     * @param linea
+     * Metodo para escribir el texto en el JText.
+     * @param linea String a mostrar.
      */
     public void escribirTexto(String linea) {
         if (jTextCombate.getLineCount() == 8) {
@@ -184,13 +184,16 @@ public class VentanaCombate extends JPanel {
         jTextCombate.append(linea + "\n");
     }
 
+    /**
+     * Metodo que elimina la instancia del JFramePrincipal contenedor.
+     */
     public void dispose() {
         this.setVisible(false);
         padre.dispose();
     }
 
     /**
-     * Clase privada para mostrar el menu de mochila en combate
+     * Inner Class para mostrar el menu de mochila en combate
      */
     private class Mochila extends JDialog {
         VentanaCombate vCombate;

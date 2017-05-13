@@ -30,6 +30,8 @@ import javax.swing.text.BadLocationException;
  * Clase que genera la ventana de mazmorra en el JFramePrincipal
  *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class VentanaMazmorra extends JPanel {
 
@@ -52,9 +54,8 @@ public class VentanaMazmorra extends JPanel {
     private JPanel panelSiguiente = new JPanel();
     private FormatoMapa jMapa = new FormatoMapa();
 
-    //JLabel para mapa.
     /**
-     * Genera los JLabel de los botones, texto, mapa...etc
+     * Construtor de la clase VentanaMazmorra
      */
     public VentanaMazmorra() {
         this.add(jTextoAventura);
@@ -129,6 +130,11 @@ public class VentanaMazmorra extends JPanel {
         });
     }
 
+    /**
+     * Metodo que establece el JFramePrincipal que contiene a VentanaMazmorra
+     *
+     * @param padre JFramePrincipal contenedor
+     */
     public void setPadre(JFramePrincipal padre) {
         this.padre = padre;
     }
@@ -136,7 +142,7 @@ public class VentanaMazmorra extends JPanel {
     /**
      * Metodo introduce el texto del proceso en el juego
      *
-     * @param linea
+     * @param linea String con el texto a mostrar.
      */
     public void escribirTexto(String linea) {
         if (jTextoAventura.getLineCount() == 9) {
