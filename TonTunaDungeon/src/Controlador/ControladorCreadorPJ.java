@@ -10,7 +10,10 @@ import Modelo.Personaje;
 
 /**
  * Clase controladora de la creacion de personaje
+ *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class ControladorCreadorPJ {
 
@@ -22,13 +25,16 @@ public class ControladorCreadorPJ {
 
     private int puntosPersonaje = 6, fuerza, destreza, intelecto, constitucion;
 
+    /**
+     * Constructor de la clase ControladorCreadorPJ
+     */
     private ControladorCreadorPJ() {
 
     }
 
     /**
-     * Metodo singleton del controlador de creacion de personaje
-     * @return 
+     * Método singleton del controlador de creacion de personaje
+     * @return instancia singleton de ControladorCreadorPJ
      */
     public static ControladorCreadorPJ getSingleton() {
         if (singleton == null) {
@@ -38,15 +44,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Constructor por defecto
-     */
-    public void crearPersonaje() {
-
-    }
-
-    /**
-     * Metodo inicializador de atributos segun raza del personaje
-     * @param razaSeleccionada 
+     * Método inicializador de atributos según raza del personaje
+     * @param razaSeleccionada selecciona que tipo de raza va a ser el personaje, 1 = humano, 2 = elfo, 3 = enano, 4 = mediano.
      */
     public void iniciarAtributosPersonajes(int razaSeleccionada) {
         String raza = "humano";
@@ -73,8 +72,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Metodo incrementa fuerza del personaje
-     * @return 
+     * Método incrementa fuerza del personaje
+     * @return int nuevo valor de fuerza.
      */
     public int subirFuerza() {
         if (puntosPersonaje > 0) {
@@ -87,8 +86,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Metodo decrementa fuerza del personaje
-     * @return 
+     * Método decrementa fuerza del personaje
+     * @@return int nuevo valor de fuerza.
      */
     public int bajarFuerza() {
         if (puntosPersonaje <= 6 && fuerza > personaje.getFuerza()) {
@@ -101,8 +100,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Metodo incrementa destreza del personaje
-     * @return 
+     * Método incrementa destreza del personaje
+     * @return int nuevo valor de destreza. 
      */
     public int subirDestreza() {
         if (puntosPersonaje > 0) {
@@ -116,8 +115,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Metodo decrementa destreza del personaje
-     * @return 
+     * Método decrementa destreza del personaje
+     * @@return int nuevo valor de destreza. 
      */
     public int bajarDestreza() {
         if (puntosPersonaje <= 6 && destreza > personaje.getDestreza()) {
@@ -131,8 +130,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Metodo incrementa intelecto del personaje
-     * @return 
+     * Método incrementa intelecto del personaje
+     * @return int nuevo valor de intelecto.
      */
     public int subirIntelecto() {
         if (puntosPersonaje > 0) {
@@ -146,8 +145,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Metodo decrementa intelecto del personaje
-     * @return 
+     * Método decrementa intelecto del personaje
+     * @@return int nuevo valor de intelecto.
      */
     public int bajarIntelecto() {
         if (puntosPersonaje <= 6 && intelecto > personaje.getIntelecto()) {
@@ -161,8 +160,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Metodo incrementa constitucion del personaje
-     * @return 
+     * Método incrementa constitución del personaje
+     * @@return int nuevo valor de constitución.
      */
     public int subirConstitucion() {
         if (puntosPersonaje > 0) {
@@ -176,8 +175,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Metodo decrementa constitucion del personaje
-     * @return 
+     * Método decrementa constitución del personaje
+     * @@return int nuevo valor de constitución.
      */
     public int bajarConstitucion() {
         if (puntosPersonaje <= 6 && constitucion > personaje.getConstitucion()) {
@@ -191,8 +190,8 @@ public class ControladorCreadorPJ {
     }
 
     /**
-     * Metodo actualiza puntos disponibles para subir atributos
-     * @return 
+     * Método actualiza puntos disponibles para subir atributos
+     * @return int cantidad de puntos disponibles.
      */
     public int actualizarPuntosDisponibles() {
         return puntosPersonaje;

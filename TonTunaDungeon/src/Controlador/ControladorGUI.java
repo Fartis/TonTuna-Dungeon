@@ -10,7 +10,7 @@ import Vista.Elementos.VentanaCargar;
 import Vista.Elementos.VentanaCombate;
 import Vista.Elementos.VentanaLogo;
 import Vista.Elementos.VentanaMazmorra;
-import Vista.Elementos.VentanaMensajeFinalPartida;
+import Vista.Elementos.VentanaFinalPartida;
 import Vista.Elementos.VentanaMensajeNuevaPartida;
 import Vista.Elementos.VentanaNuevaPartida;
 import Vista.Elementos.VentanaSubirNivel;
@@ -19,13 +19,15 @@ import javax.swing.JFrame;
 
 /**
  * Clase para gestionar el controlador de la interfaz
+ *
  * @author Manuel David Villalba Escamilla
+ * @author Victor Manuel Gonzalez Rodriguez
+ * @author Alberto Gonzalez Rodriguez
  */
 public class ControladorGUI {
 
     private static ControladorGUI singleton = null;
-    private static JFramePrincipal
-            menuPrin = null,
+    private static JFramePrincipal menuPrin = null,
             nuevaPar = null,
             cargarPar = null,
             mensajeInicio = null,
@@ -35,7 +37,7 @@ public class ControladorGUI {
             mensajeFin = null;
 
     /**
-     * Constructor por defecto de la interfaz grafica
+     * Constructor por defecto del controlador de la interfaz gráfica
      */
     private ControladorGUI() {
 
@@ -43,7 +45,8 @@ public class ControladorGUI {
 
     /**
      * Metodo singleton para el controlador de la interfaz
-     * @return 
+     *
+     * @return instancia de la clase ControladorGUI
      */
     public static ControladorGUI getSingleton() {
         if (singleton == null) {
@@ -92,19 +95,22 @@ public class ControladorGUI {
 
     /**
      * Metodo para reproducir musica
-     * @param url
-     * @param activado 
+     *
+     * @param url String directorio del archivo de música.
+     * @param activado Boolean, true = musica activada, false = musica
+     * desactivada.
      */
     public void reproducirMusica(String url, boolean activado) {
         ReproductorMusica.getSingleton().pararMusica();
-        if(activado){
+        if (activado) {
             ReproductorMusica.getSingleton().playMusica(url);
         }
     }
+
     /**
-     * Metodo para detener la musica
+     * Metodo para detener la musica.
      */
-    public void stopMusica(){
+    public void stopMusica() {
         ReproductorMusica.getSingleton().pararMusica();
     }
 
@@ -122,8 +128,9 @@ public class ControladorGUI {
         }
         menuMensaje.setPadre(mensajeInicio);
     }
+
     /**
-     * Metodo para gestionar la ventana de mazmorra
+     * Metodo para gestionar la ventana de mazmorra y la música
      */
     public void ventanaMazmorra() {
         ControladorMazmorra.getSingleton().generarPiso();
@@ -137,11 +144,11 @@ public class ControladorGUI {
         } else {
             ventanaMazmorra.createAndShowUI(menuJuego);
         }
-        menuJuego.setPadre(ventanaMazmorra);  
+        menuJuego.setPadre(ventanaMazmorra);
     }
-    
+
     /**
-     * Metodo para gestrionar la ventana de combate
+     * Metodo para gestrionar la ventana de combate y la música
      */
     public void iniciarCombate() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
@@ -149,27 +156,34 @@ public class ControladorGUI {
         ReproductorMusica.getSingleton().pararMusica();
         reproducirMusica("src/Recursos/combate.mp3", musica);
         VentanaCombate combate = new VentanaCombate(new ControladorCombate());
-        if(ventanaCombate == null){
+        if (ventanaCombate == null) {
             ventanaCombate = new JFramePrincipal(combate);
-        }else{
+        } else {
             ventanaCombate.createAndShowUI(combate);
         }
         combate.setPadre(ventanaCombate);
         combate.setText();
     }
-    
-    public void finalizarCombate(){
+
+    /**
+     * Metodo para finalizar el combate y continuar con el juego.
+     */
+    public void finalizarCombate() {
         ocultar();
         ventanaMazmorra();
     }
-    
-    public void finalizarJuego(){
+
+    /**
+     * Método para finalizar el combate y reiniciar el juego.
+     */
+    public void finalizarJuego() {
         ocultar();
         menuPrincipal();
         ControladorPrincipal.getSingleton().reiniciarJuego();
     }
+
     /**
-     * Método para gestionar la ventana de carga de partidas
+     * Método para gestionar la ventana de carga de partidas y la música
      */
     public void cargarPartida() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
@@ -184,24 +198,26 @@ public class ControladorGUI {
         }
         carga.setPadre(cargarPar);
     }
-    
-    
 
-    void menuSubirNivel() {        
+    /**
+     * Metodo para gestionar la ventana de subir nivel y la música
+     */
+    void menuSubirNivel() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
         ReproductorMusica.getSingleton().pararMusica();
         reproducirMusica("src/Recursos/combate.mp3", musica);
         VentanaSubirNivel subir = new VentanaSubirNivel();
-        if(ventanaSubirNivel == null){
+        if (ventanaSubirNivel == null) {
             ventanaSubirNivel = new JFramePrincipal(subir);
-        }else{
+        } else {
             ventanaSubirNivel.createAndShowUI(subir);
         }
         subir.setPadre(ventanaSubirNivel);
     }
+
     /**
-     * Metodo para comprobar ventanas ocultas y mostradas
+     * Metodo para comprobar ventanas ocultas y mostradas, para ocultar las que no se utilizan.
      */
     private void ocultar() {
         if (nuevaPar != null) {
@@ -210,7 +226,7 @@ public class ControladorGUI {
         if (menuPrin != null) {
             menuPrin.visible(false);
         }
-        if (cargarPar != null){
+        if (cargarPar != null) {
             cargarPar.visible(false);
         }
         if (mensajeInicio != null) {
@@ -230,10 +246,13 @@ public class ControladorGUI {
         }
     }
 
+    /**
+     * Metodo para gestionar la ventana de mensaje de fin de partida.
+     */
     void menuMensajeFinPartida() {
         boolean musica = ControladorPrincipal.getSingleton().getOpcionMusica();
         ocultar();
-        VentanaMensajeFinalPartida menuMensaje = new VentanaMensajeFinalPartida();
+        VentanaFinalPartida menuMensaje = new VentanaFinalPartida();
         if (mensajeFin == null) {
             mensajeFin = new JFramePrincipal(menuMensaje);
         } else {
